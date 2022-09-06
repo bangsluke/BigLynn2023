@@ -1,7 +1,9 @@
 // Material-ui
 import { Grid } from '@mui/material';
-import CalculateButton from 'components/features/CalculateButton';
 import { gridSpacing } from 'store/constant';
+
+import Image from 'next/image';
+import BigLynn2023 from '../../public/assets/images/2022-Lineup.jpg';
 
 // Project imports
 import Meta from '../components/base/Meta';
@@ -13,10 +15,22 @@ import VehicleSpecificationCard from '../components/features/InputComponents/Veh
 import ValidationLevelCard from '../components/features/InputComponents/ValidationLevelCard';
 import I18nS from '../services/I18nS';
 
-const Inputs = () => (
+const Summary = () => (
   <>
     <Meta title={I18nS.t('INPUTS_title')} description={I18nS.t('INPUTS_description')} />
-    <MainCard title="Inputs">
+    <MainCard title="Header">
+      <Grid container spacing={gridSpacing}>
+        <Grid item xs={12}>
+          <Grid container alignItems="center" justifyContent="space-between" spacing={gridSpacing}>
+            <Grid item lg={12} md={12} sm={12} xs={12}>
+              Hello
+              <Image src={BigLynn2023} alt="Big Lynn 2023" layout="intrinsic" width={'400'} height={'270'} />
+            </Grid>
+          </Grid>
+        </Grid>
+      </Grid>
+    </MainCard>
+    <MainCard title="Summary">
       <Grid container spacing={gridSpacing}>
         <Grid item xs={12}>
           <Grid container alignItems="center" justifyContent="space-between" spacing={gridSpacing}>
@@ -36,10 +50,9 @@ const Inputs = () => (
           </Grid>
         </Grid>
       </Grid>
-      <CalculateButton />
     </MainCard>
   </>
 );
 
-Inputs.Layout = 'authGuard';
-export default Inputs;
+Summary.Layout = 'authGuard';
+export default Summary;
