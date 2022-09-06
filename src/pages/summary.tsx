@@ -1,6 +1,5 @@
 // Material-ui
 import { Grid } from '@mui/material';
-import CalculateButton from 'components/features/CalculateButton';
 import { gridSpacing } from 'store/constant';
 
 // Project imports
@@ -13,10 +12,10 @@ import VehicleSpecificationCard from '../components/features/InputComponents/Veh
 import ValidationLevelCard from '../components/features/InputComponents/ValidationLevelCard';
 import I18nS from '../services/I18nS';
 
-const Inputs = () => (
+const Summary = () => (
   <>
     <Meta title={I18nS.t('INPUTS_title')} description={I18nS.t('INPUTS_description')} />
-    <MainCard title="Inputs">
+    <MainCard title="Summary">
       <Grid container spacing={gridSpacing}>
         <Grid item xs={12}>
           <Grid container alignItems="center" justifyContent="space-between" spacing={gridSpacing}>
@@ -36,10 +35,9 @@ const Inputs = () => (
           </Grid>
         </Grid>
       </Grid>
-      <CalculateButton />
     </MainCard>
   </>
 );
 
-Inputs.Layout = 'authGuard';
-export default Inputs;
+Summary.Layout = 'authGuard';
+export default Summary;

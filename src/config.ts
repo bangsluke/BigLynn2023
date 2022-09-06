@@ -34,12 +34,12 @@ export const DASHBOARD_PATH = '/inputs';
 
 const config: ConfigProps = {
   fontFamily: `'Roboto', sans-serif`,
-  borderRadius: 8,
+  borderRadius: 6,
   outlinedFilled: true,
   navType: 'light', // Light, dark
   presetColor: 'default', // Default, theme1, theme2, theme3, theme4, theme5, theme6
   locale: 'en', // 'en' - English, 'fr' - French, 'ro' - Romanian, 'zh' - Chinese
-  rtlLayout: false
+  rtlLayout: true
 };
 
 export default config;
