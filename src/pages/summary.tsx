@@ -14,6 +14,8 @@ import PreferenceSlidersCard from '../components/features/InputComponents/Prefer
 import VehicleSpecificationCard from '../components/features/InputComponents/VehicleSpecificationCard';
 import ValidationLevelCard from '../components/features/InputComponents/ValidationLevelCard';
 
+import Stats from '../components/features/stats/stats';
+
 const Summary = () => (
   <>
     <Meta title="Big Lynn 2023" description="The official website of the 2023 Big Lynn Competition." />
@@ -45,6 +47,9 @@ const Summary = () => (
     </MainCard>
     <MainCard title="Stats" id="stats">
       <Grid container spacing={gridSpacing}>
+        <Grid item xs={12}>
+          <Stats />
+        </Grid>
         <Grid item xs={12}>
           <Grid container alignItems="center" justifyContent="space-between" spacing={gridSpacing}>
             <Grid item lg={4} md={6} sm={6} xs={12}>
