@@ -2,19 +2,19 @@ import { ForwardRefExoticComponent, RefAttributes, forwardRef, useEffect } from 
 import { useRouter } from 'next/router';
 
 import Link from 'Link';
-// material-ui
+// Material-ui
 import { useTheme } from '@mui/material/styles';
 import { Avatar, Chip, ListItemButton, ListItemIcon, ListItemText, Typography, useMediaQuery } from '@mui/material';
 
-// project imports
+// Project imports
 import useConfig from 'hooks/useConfig';
 import { useDispatch, useSelector } from 'store';
 import { activeItem, openDrawer } from 'store/slices/menu';
 
-// assets
+// Assets
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 
-// types
+// Types
 import { LinkTarget, NavItemType } from 'types';
 
 interface NavItemProps {
@@ -65,7 +65,7 @@ const NavItem = ({ item, level }: NavItemProps) => {
     if (matchesSM) dispatch(openDrawer(false));
   };
 
-  // active menu item on page load
+  // Active menu item on page load
   useEffect(() => {
     const currentIndex = document.location.pathname
       .toString()

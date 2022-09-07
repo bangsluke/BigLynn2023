@@ -12,82 +12,42 @@ const icons = {
 // ==============================|| EXTRA PAGES MENU ITEMS ||============================== //
 
 const pages = {
-  id: 'pages',
-  title: 'pages',
-  caption: 'pages-caption',
+  id: 'links',
+  title: 'links',
   type: 'group',
   children: [
     {
-      id: 'inputs',
-      // Title: 'Inputs',
-      title: 'inputs',
+      id: 'event-details',
+      title: 'Event Details',
       type: 'item',
-      // Type: 'collapse',
-      url: '/inputs',
+      url: '#eventdetails',
       icon: icons.IconFileText,
       breadcrumbs: false
     },
     {
-      id: 'results',
-      // Title: 'Results',
-      title: 'results',
+      id: 'faq',
+      title: 'FAQ',
       type: 'item',
-      // Type: 'collapse',
-      url: '/results',
+      url: '#FAQ',
+      icon: icons.IconFileText,
+      breadcrumbs: false
+    },
+    {
+      id: 'stats',
+      title: 'stats',
+      type: 'item',
+      url: '#stats',
+      icon: icons.IconFileReport,
+      breadcrumbs: false
+    },
+    {
+      id: 'extra',
+      title: 'extra',
+      type: 'item',
+      url: '#extra',
       icon: icons.IconFileReport,
       breadcrumbs: false
     }
-    // {
-    //   Id: 'maintenance',
-    //   Title: <FormattedMessage id="maintenance" />,
-    //   Type: 'collapse',
-    //   Icon: icons.IconBug,
-    //   Children: [
-    //     {
-    //       Id: 'error',
-    //       Title: <FormattedMessage id="error-404" />,
-    //       Type: 'item',
-    //       Url: '/pages/maintenance/error',
-    //       Target: true
-    //     },
-    //     {
-    //       Id: 'coming-soon',
-    //       Title: <FormattedMessage id="coming-soon" />,
-    //       Type: 'collapse',
-    //       Children: [
-    //         {
-    //           Id: 'coming-soon1',
-    //           Title: (
-    //             <>
-    //               <FormattedMessage id="coming-soon" /> 01
-    //             </>
-    //           ),
-    //           Type: 'item',
-    //           Url: '/pages/maintenance/coming-soon/coming-soon1',
-    //           Target: true
-    //         },
-    //         {
-    //           Id: 'coming-soon2',
-    //           Title: (
-    //             <>
-    //               <FormattedMessage id="coming-soon" /> 02
-    //             </>
-    //           ),
-    //           Type: 'item',
-    //           Url: '/pages/maintenance/coming-soon/coming-soon2',
-    //           Target: true
-    //         }
-    //       ]
-    //     },
-    //     {
-    //       Id: 'under-construction',
-    //       Title: <FormattedMessage id="under-construction" />,
-    //       Type: 'item',
-    //       Url: '/pages/maintenance/under-construction',
-    //       Target: true
-    //     }
-    //   ]
-    // }
   ]
 };
 

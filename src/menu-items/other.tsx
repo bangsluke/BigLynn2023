@@ -42,8 +42,7 @@ const benchmarkingIcon = (props: ISidebarIcon) => (
 
 const other = {
   id: 'other',
-  title: 'links',
-  caption: 'links-caption',
+  title: 'External links',
   type: 'group',
   children: [
     {
