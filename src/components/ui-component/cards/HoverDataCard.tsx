@@ -1,8 +1,8 @@
-// material-ui
+// Material-ui
 import { Grid, SvgIconTypeMap, Stack, Typography } from '@mui/material';
 import { OverridableComponent } from '@mui/material/OverridableComponent';
 
-// project imports
+// Project imports
 import MainCard from './MainCard';
 import { GenericCardProps } from 'types';
 

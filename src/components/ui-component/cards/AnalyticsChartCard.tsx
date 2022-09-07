@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
-// material-ui
+// Material-ui
 import { Box, Button, Grid, Menu, MenuItem, Typography } from '@mui/material';
 
-// third party
+// Third party
 import { Props as ChartProps } from 'react-apexcharts';
 
-// project imports
+// Project imports
 import MainCard from './MainCard';
 import { GenericCardProps } from 'types';
 
-// assets
+// Assets
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 
@@ -119,12 +119,12 @@ const AnalyticsChartCard = ({ title, chartData, dropData, listData }: AnalyticsC
           </Box>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <ReactApexChart
+          {/* <ReactApexChart
             options={chartData.options}
             series={chartData.series}
             type={chartData.options?.chart?.type}
             height={chartData.options?.chart?.height}
-          />
+          /> */}
         </Grid>
       </Grid>
     </MainCard>

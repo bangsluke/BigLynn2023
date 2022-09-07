@@ -1,13 +1,13 @@
 import React, { Ref } from 'react';
 
-// material-ui
+// Material-ui
 import { useTheme } from '@mui/material/styles';
 import { Card, CardContent, CardHeader, Divider, Typography, CardProps, CardHeaderProps, CardContentProps } from '@mui/material';
 
-// project imports
+// Project imports
 import { KeyedObject } from 'types';
 
-// constant
+// Constant
 const headerSX = {
   '& .MuiCardHeader-action': { mr: 0 }
 };
@@ -66,14 +66,14 @@ const MainCard = React.forwardRef(
           ...sx
         }}
       >
-        {/* card header and action */}
+        {/* Card header and action */}
         {!darkTitle && title && <CardHeader sx={headerSX} title={title} action={secondary} />}
         {darkTitle && title && <CardHeader sx={headerSX} title={<Typography variant="h3">{title}</Typography>} action={secondary} />}
 
-        {/* content & header divider */}
+        {/* Content & header divider */}
         {title && <Divider />}
 
-        {/* card content */}
+        {/* Card content */}
         {content && (
           <CardContent sx={contentSX} className={contentClass}>
             {children}

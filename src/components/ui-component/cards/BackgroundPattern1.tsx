@@ -1,10 +1,10 @@
 import { ReactElement } from 'react';
 
-// material-ui
+// Material-ui
 import { useTheme } from '@mui/material/styles';
 import { Box } from '@mui/material';
 
-// assets
+// Assets
 const AuthPattern = '/assets/images/auth/auth-pattern.svg';
 const AuthPatternDark = '/assets/images/auth/auth-pattern-dark.svg';
 

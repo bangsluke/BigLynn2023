@@ -1,10 +1,10 @@
 import { ReactElement } from 'react';
 
-// material-ui
+// Material-ui
 import { useTheme } from '@mui/material/styles';
 import { Box } from '@mui/material';
 
-// assets
+// Assets
 const AuthPattern = '/assets/images/auth/img-a2-grid.svg';
 const AuthPatternDark = '/assets/images/auth/img-a2-grid-dark.svg';
 
@@ -24,7 +24,7 @@ const BackgroundPattern2 = ({ children }: { children: ReactElement | ReactElemen
         position: 'absolute',
         backgroundPosition: 'bottom left',
         backgroundRepeat: 'no-repeat',
-        // backgroundSize: 'cover',
+        // BackgroundSize: 'cover',
         overflow: 'hidden',
         m: '0 0 0 auto',
         p: '100px 0',

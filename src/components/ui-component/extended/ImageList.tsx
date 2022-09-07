@@ -1,13 +1,13 @@
 import Image from 'next/image';
-// material-ui
+// Material-ui
 import { ImageListItem, ImageListItemBar } from '@mui/material';
 import MImageList from '@mui/material/ImageList';
 
-// project imports
+// Project imports
 import { PostImage } from 'types/user-profile';
 import useConfig from 'hooks/useConfig';
 
-// set image width & height radio
+// Set image width & height radio
 function srcset(image: string, width: number, height: number, rows = 1, cols = 1) {
   return `${image}?w=${width * cols}&h=${height * rows}&fit=crop&auto=format 1x,
   ${image}?w=${width * cols}&h=${height * rows}&fit=crop&auto=format&dpr=2 2x`;

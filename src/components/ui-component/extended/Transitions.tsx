@@ -1,6 +1,6 @@
 import React, { Ref, ExoticComponent, ReactElement } from 'react';
 
-// material-ui
+// Material-ui
 import { Collapse, Fade, Box, Grow, Slide, Zoom } from '@mui/material';
 
 // ==============================|| TRANSITIONS ||============================== //

@@ -1,10 +1,10 @@
 import { useState, SyntheticEvent } from 'react';
 
-// material-ui
+// Material-ui
 import { useTheme } from '@mui/material/styles';
 import { Avatar, Button, Card, Grid, ListItemIcon, Menu, MenuItem, Typography } from '@mui/material';
 
-// assets
+// Assets
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
 import PersonAddTwoToneIcon from '@mui/icons-material/PersonAddTwoTone';
 import PeopleAltTwoToneIcon from '@mui/icons-material/PeopleAltTwoTone';
@@ -14,7 +14,7 @@ import FavoriteTwoToneIcon from '@mui/icons-material/FavoriteTwoTone';
 import DeleteTwoToneIcon from '@mui/icons-material/DeleteTwoTone';
 import GroupTwoToneIcon from '@mui/icons-material/GroupTwoTone';
 
-// types
+// Types
 import { FollowerCardProps } from 'types/user';
 
 // ==============================|| SOCIAL PROFILE - FOLLOWER CARD ||============================== //

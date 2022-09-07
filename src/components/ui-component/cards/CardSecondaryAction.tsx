@@ -1,10 +1,10 @@
 import { ReactNode } from 'react';
 
-// material-ui
+// Material-ui
 import { useTheme } from '@mui/material/styles';
 import { ButtonBase, Link, Tooltip } from '@mui/material';
 
-// project imports
+// Project imports
 import Avatar from '../extended/Avatar';
 
 // ==============================|| CARD SECONDARY ACTION ||============================== //

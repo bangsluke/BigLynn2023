@@ -1,6 +1,6 @@
 import React, { ReactNode, Ref } from 'react';
 
-// material-ui
+// Material-ui
 import { useTheme } from '@mui/material/styles';
 import { Card, CardContent, CardHeader, Divider, Typography } from '@mui/material';
 
@@ -38,11 +38,11 @@ const SubCard = React.forwardRef(
         }}
         {...others}
       >
-        {/* card header and action */}
+        {/* Card header and action */}
         {!darkTitle && title && <CardHeader sx={{ p: 2.5 }} title={<Typography variant="h5">{title}</Typography>} action={secondary} />}
         {darkTitle && title && <CardHeader sx={{ p: 2.5 }} title={<Typography variant="h4">{title}</Typography>} action={secondary} />}
 
-        {/* content & header divider */}
+        {/* Content & header divider */}
         {title && (
           <Divider
             sx={{
@@ -52,7 +52,7 @@ const SubCard = React.forwardRef(
           />
         )}
 
-        {/* card content */}
+        {/* Card content */}
         {content && (
           <CardContent sx={{ p: 2.5, ...contentSX }} className={contentClass || ''}>
             {children}

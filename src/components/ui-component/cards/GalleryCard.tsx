@@ -1,15 +1,15 @@
 import { useState } from 'react';
 
-// material-ui
+// Material-ui
 import { useTheme } from '@mui/material/styles';
 import { ButtonBase, Card, CardContent, CardMedia, Grid, Menu, MenuItem, Typography } from '@mui/material';
 
-// project imports
+// Project imports
 import Avatar from 'ui-component/extended/Avatar';
 import { gridSpacing } from 'store/constant';
 import { GenericCardProps } from 'types';
 
-// assets
+// Assets
 import MoreVertTwoToneIcon from '@mui/icons-material/MoreVertTwoTone';
 import EventTwoToneIcon from '@mui/icons-material/EventTwoTone';
 
