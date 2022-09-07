@@ -1,17 +1,17 @@
-// material-ui
+// Material-ui
 import { createTheme } from '@mui/material/styles';
 import { PaletteMode } from '@mui/material';
 
-// assets
+// Assets
 import defaultColor from '../scss/_themes-vars.module.scss';
 import theme1 from '../scss/_theme1.module.scss';
-import theme2 from '../scss/_theme2.module.scss';
-import theme3 from '../scss/_theme3.module.scss';
-import theme4 from '../scss/_theme4.module.scss';
-import theme5 from '../scss/_theme5.module.scss';
-import theme6 from '../scss/_theme6.module.scss';
+// Import theme2 from '../scss/_theme2.module.scss';
+// Import theme3 from '../scss/_theme3.module.scss';
+// Import theme4 from '../scss/_theme4.module.scss';
+// Import theme5 from '../scss/_theme5.module.scss';
+// Import theme6 from '../scss/_theme6.module.scss';
 
-// types
+// Types
 import { ColorProps } from 'types';
 
 // ==============================|| DEFAULT THEME - PALETTE  ||============================== //
@@ -22,21 +22,21 @@ const Palette = (navType: PaletteMode, presetColor: string) => {
     case 'theme1':
       colors = theme1;
       break;
-    case 'theme2':
-      colors = theme2;
-      break;
-    case 'theme3':
-      colors = theme3;
-      break;
-    case 'theme4':
-      colors = theme4;
-      break;
-    case 'theme5':
-      colors = theme5;
-      break;
-    case 'theme6':
-      colors = theme6;
-      break;
+    // Case 'theme2':
+    //   Colors = theme2;
+    //   Break;
+    // Case 'theme3':
+    //   Colors = theme3;
+    //   Break;
+    // Case 'theme4':
+    //   Colors = theme4;
+    //   Break;
+    // Case 'theme5':
+    //   Colors = theme5;
+    //   Break;
+    // Case 'theme6':
+    //   Colors = theme6;
+    //   Break;
     case 'default':
     default:
       colors = defaultColor;

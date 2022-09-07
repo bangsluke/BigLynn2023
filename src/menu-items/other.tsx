@@ -1,5 +1,4 @@
 // Third-party
-import { FormattedMessage } from 'react-intl';
 import { styled } from '@mui/material/styles';
 
 // Assets
@@ -43,14 +42,14 @@ const benchmarkingIcon = (props: ISidebarIcon) => (
 
 const other = {
   id: 'other',
-  title: <FormattedMessage id="links" />,
-  caption: <FormattedMessage id="links-caption" />,
+  title: 'links',
+  caption: 'links-caption',
   type: 'group',
   children: [
     {
       id: 'RLE',
-      title: <FormattedMessage id="rle" />,
-      caption: <FormattedMessage id="rle-caption" />,
+      title: 'rle',
+      caption: 'rle-caption',
       type: 'item',
       url: 'https://www.rle.international/?lang=en',
       icon: rleIcon,
@@ -59,8 +58,8 @@ const other = {
     {
       id: 'VCM',
       // Title: 'VCM',
-      title: <FormattedMessage id="vcm" />,
-      caption: <FormattedMessage id="vcm-caption" />,
+      title: 'vcm',
+      caption: 'vcm-caption',
       type: 'item',
       // Url: '/sample-page',
       url: '/VCM',
@@ -70,8 +69,8 @@ const other = {
     {
       id: 'SDP',
       // Title: 'SDP',
-      title: <FormattedMessage id="sdp" />,
-      caption: <FormattedMessage id="sdp-caption" />,
+      title: 'sdp',
+      caption: 'sdp-caption',
       type: 'item',
       // Url: '/utils/util-color',
       url: 'https://sdp.rle.de/#home',
@@ -83,8 +82,8 @@ const other = {
     {
       id: 'BoM',
       // Title: 'BoM',
-      title: <FormattedMessage id="bom" />,
-      caption: <FormattedMessage id="bom-caption" />,
+      title: 'bom',
+      caption: 'bom-caption',
       type: 'item',
       url: '/BoM',
       icon: bomIcon,
@@ -93,8 +92,8 @@ const other = {
     {
       id: 'Benchmarking',
       // Title: 'Benchmarking',
-      title: <FormattedMessage id="benchmarking" />,
-      caption: <FormattedMessage id="benchmarking-caption" />,
+      title: 'benchmarking',
+      caption: 'benchmarking-caption',
       type: 'item',
       url: '/Benchmarking',
       icon: benchmarkingIcon,

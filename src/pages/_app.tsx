@@ -6,21 +6,21 @@ import { store } from '../store';
 import ThemeCustomization from '../themes';
 import NavigationScroll from '../layout/NavigationScroll';
 import RTLLayout from 'ui-component/RTLLayout';
-import { PersistGate } from 'redux-persist/integration/react';
-import { persister } from '../store';
-import Locales from 'ui-component/Locales';
+// Import { PersistGate } from 'redux-persist/integration/react';
+// Import { persister } from '../store';
+// Import Locales from 'ui-component/Locales';
 import { ConfigProvider } from '../contexts/ConfigContext';
 import '../scss/style.scss';
 import '@fullcalendar/common/main.css';
 import '@fullcalendar/daygrid/main.css';
 import '@fullcalendar/timegrid/main.css';
-import { FirebaseProvider as AuthProvider } from '../contexts/FirebaseContext';
+// Import { FirebaseProvider as AuthProvider } from '../contexts/FirebaseContext';
 // Import { Auth0Provider as AuthProvider } from '../contexts/Auth0Context';
 // Import { JWTProvider as AuthProvider } from 'contexts/JWTContext';
 // Import { AWSCognitoProvider as AuthProvider } from 'contexts/AWSCognitoContext';
 import Snackbar from 'ui-component/extended/Snackbar';
 import MainLayout from 'layout/MainLayout';
-import GuestGuard from 'layout/GuestGuard';
+// Import GuestGuard from 'layout/GuestGuard';
 import MinimalLayout from 'layout/MinimalLayout';
 import { LayoutType } from 'types';
 const Noop: React.FC = ({ children }) => {
@@ -51,24 +51,24 @@ function MyApp({ Component, pageProps }: AppProps & { Component: { Layout: Layou
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Provider store={store}>
-        <PersistGate loading={null} persistor={persister}>
-          <ConfigProvider>
-            <ThemeCustomization>
-              <RTLLayout>
-                <Locales>
-                  <NavigationScroll>
-                    <AuthProvider>
-                      <Layout>
-                        <Component {...pageProps} />
-                        <Snackbar />
-                      </Layout>
-                    </AuthProvider>
-                  </NavigationScroll>
-                </Locales>
-              </RTLLayout>
-            </ThemeCustomization>
-          </ConfigProvider>
-        </PersistGate>
+        {/* <PersistGate loading={null} persistor={persister}> */}
+        <ConfigProvider>
+          <ThemeCustomization>
+            <RTLLayout>
+              {/* <Locales> */}
+              <NavigationScroll>
+                {/* <AuthProvider> */}
+                <Layout>
+                  <Component {...pageProps} />
+                  <Snackbar />
+                </Layout>
+                {/* </AuthProvider> */}
+              </NavigationScroll>
+              {/* </Locales> */}
+            </RTLLayout>
+          </ThemeCustomization>
+        </ConfigProvider>
+        {/* </PersistGate> */}
       </Provider>
     </>
   );

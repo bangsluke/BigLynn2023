@@ -1,10 +1,10 @@
 import { useMemo, ReactNode } from 'react';
 
-// material-ui
+// Material-ui
 import { CssBaseline, StyledEngineProvider } from '@mui/material';
 import { createTheme, ThemeOptions, ThemeProvider, Theme } from '@mui/material/styles';
 
-// project import
+// Project import
 import useConfig from '../hooks/useConfig';
 import Palette from './palette';
 import Typography from './typography';
@@ -12,16 +12,16 @@ import Typography from './typography';
 import componentStyleOverrides from './compStyleOverride';
 import customShadows from './shadows';
 
-// assets
+// Assets
 import colors from '../scss/_themes-vars.module.scss';
 import theme1 from '../scss/_theme1.module.scss';
-import theme2 from '../scss/_theme2.module.scss';
-import theme3 from '../scss/_theme3.module.scss';
-import theme4 from '../scss/_theme4.module.scss';
-import theme5 from '../scss/_theme5.module.scss';
-import theme6 from '../scss/_theme6.module.scss';
+// Import theme2 from '../scss/_theme2.module.scss';
+// Import theme3 from '../scss/_theme3.module.scss';
+// Import theme4 from '../scss/_theme4.module.scss';
+// Import theme5 from '../scss/_theme5.module.scss';
+// Import theme6 from '../scss/_theme6.module.scss';
 
-// types
+// Types
 import { ColorProps } from 'types';
 import { CustomShadowProps } from 'types/default-theme';
 import { TypographyOptions } from '@mui/material/styles/createTypography';
