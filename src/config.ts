@@ -14,7 +14,7 @@ const config: ConfigProps = {
   navType: 'light', // Light, dark
   presetColor: 'default', // Default, theme1, theme2, theme3, theme4, theme5, theme6
   locale: 'en', // 'en' - English, 'fr' - French, 'ro' - Romanian, 'zh' - Chinese
-  rtlLayout: false
+  rtlLayout: true
 };
 
 export default config;
