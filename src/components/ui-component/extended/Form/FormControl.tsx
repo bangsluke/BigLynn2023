@@ -1,4 +1,4 @@
-// material-ui
+// Material-ui
 import { useTheme } from '@mui/material/styles';
 import { Divider, InputAdornment, InputLabel, OutlinedInput } from '@mui/material';
 import MUIFormControl from '@mui/material/FormControl';
@@ -29,10 +29,10 @@ const FormControl = ({
 }: FormControlProps) => {
   const theme = useTheme();
   const IconPrimary = iconPrimary!;
-  const primaryIcon = iconPrimary ? <IconPrimary fontSize="small" sx={{ color: theme.palette.grey[700] }} /> : null;
+  // Const primaryIcon = iconPrimary ? <IconPrimary fontSize="small" sx={{ color: theme.palette.grey[700] }} /> : null;
 
   const IconSecondary = iconSecondary!;
-  const secondaryIcon = iconSecondary ? <IconSecondary fontSize="small" sx={{ color: theme.palette.grey[700] }} /> : null;
+  // Const secondaryIcon = iconSecondary ? <IconSecondary fontSize="small" sx={{ color: theme.palette.grey[700] }} /> : null;
 
   const errorState = formState === 'error';
 
@@ -45,7 +45,7 @@ const FormControl = ({
         label={captionLabel}
         startAdornment={
           <>
-            {primaryIcon && <InputAdornment position="start">{primaryIcon}</InputAdornment>}
+            {/* {primaryIcon && <InputAdornment position="start">{primaryIcon}</InputAdornment>} */}
             {textPrimary && (
               <>
                 <InputAdornment position="start">{textPrimary}</InputAdornment>
@@ -56,7 +56,7 @@ const FormControl = ({
         }
         endAdornment={
           <>
-            {secondaryIcon && <InputAdornment position="end">{secondaryIcon}</InputAdornment>}
+            {/* {secondaryIcon && <InputAdornment position="end">{secondaryIcon}</InputAdornment>} */}
             {textSecondary && (
               <>
                 <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
