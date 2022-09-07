@@ -4,7 +4,7 @@ import { PaletteMode } from '@mui/material';
 
 // Assets
 import defaultColor from '../scss/_themes-vars.module.scss';
-import theme1 from '../scss/_theme1.module.scss';
+// Import theme1 from '../scss/_theme1.module.scss';
 // Import theme2 from '../scss/_theme2.module.scss';
 // Import theme3 from '../scss/_theme3.module.scss';
 // Import theme4 from '../scss/_theme4.module.scss';
@@ -19,9 +19,9 @@ import { ColorProps } from 'types';
 const Palette = (navType: PaletteMode, presetColor: string) => {
   let colors: ColorProps;
   switch (presetColor) {
-    case 'theme1':
-      colors = theme1;
-      break;
+    // Case 'theme1':
+    //   Colors = theme1;
+    //   Break;
     // Case 'theme2':
     //   Colors = theme2;
     //   Break;

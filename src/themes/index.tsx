@@ -14,7 +14,7 @@ import customShadows from './shadows';
 
 // Assets
 import colors from '../scss/_themes-vars.module.scss';
-import theme1 from '../scss/_theme1.module.scss';
+// Import theme1 from '../scss/_theme1.module.scss';
 // Import theme2 from '../scss/_theme2.module.scss';
 // Import theme3 from '../scss/_theme3.module.scss';
 // Import theme4 from '../scss/_theme4.module.scss';
@@ -45,24 +45,24 @@ export default function ThemeCustomization({ children }: Props) {
 
   let color: ColorProps;
   switch (config.presetColor) {
-    case 'theme1':
-      color = theme1;
-      break;
-    case 'theme2':
-      color = theme2;
-      break;
-    case 'theme3':
-      color = theme3;
-      break;
-    case 'theme4':
-      color = theme4;
-      break;
-    case 'theme5':
-      color = theme5;
-      break;
-    case 'theme6':
-      color = theme6;
-      break;
+    // Case 'theme1':
+    //   Color = theme1;
+    //   Break;
+    // Case 'theme2':
+    //   Color = theme2;
+    //   Break;
+    // Case 'theme3':
+    //   Color = theme3;
+    //   Break;
+    // Case 'theme4':
+    //   Color = theme4;
+    //   Break;
+    // Case 'theme5':
+    //   Color = theme5;
+    //   Break;
+    // Case 'theme6':
+    //   Color = theme6;
+    //   Break;
     case 'default':
     default:
       color = colors;
