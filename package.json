@@ -1,5 +1,5 @@
 {
-  "name": "berry-react-material-next-ts",
+  "name": "big-lynn-2023",
   "version": "3.1.2",
   "private": true,
   "scripts": {
@@ -66,7 +66,6 @@
     "react-hook-form": "^7.31.2",
     "react-images": "^1.2.0-beta.7",
     "react-intersection-observer": "^8.33.1",
-    "react-intl": "^5.24.6",
     "react-markdown": "^8.0.3",
     "react-number-format": "^4.9.3",
     "react-organizational-chart": "^2.1.1",

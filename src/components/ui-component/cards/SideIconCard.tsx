@@ -1,4 +1,4 @@
-// material-ui
+// Material-ui
 import { useTheme } from '@mui/material/styles';
 import { Card, Grid, SvgIconTypeMap, Typography, useMediaQuery } from '@mui/material';
 import { OverridableComponent } from '@mui/material/OverridableComponent';

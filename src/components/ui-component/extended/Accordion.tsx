@@ -1,13 +1,13 @@
 import { useEffect, useState, ReactElement } from 'react';
 
-// material-ui
+// Material-ui
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
 
-// assets
+// Assets
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 type AccordionItem = {

@@ -1,15 +1,15 @@
 import { useState } from 'react';
 
-// material-ui
+// Material-ui
 import { useTheme } from '@mui/material/styles';
 import { Button, Card, Grid, IconButton, Menu, MenuItem, Typography } from '@mui/material';
 
-// project imports
+// Project imports
 import { gridSpacing } from 'store/constant';
 import Avatar from '../extended/Avatar';
 import { UserProfile } from 'types/user-profile';
 
-// assets
+// Assets
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
 import NotInterestedTwoToneIcon from '@mui/icons-material/NotInterestedTwoTone';
 import ChatBubbleTwoToneIcon from '@mui/icons-material/ChatBubbleTwoTone';

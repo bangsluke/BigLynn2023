@@ -1,8 +1,8 @@
-// material-ui
+// Material-ui
 import { useTheme } from '@mui/material/styles';
 import { Card, CardContent, Grid, Typography, useMediaQuery } from '@mui/material';
 
-// types
+// Types
 import { GenericCardProps } from 'types';
 
 // =============================|| REVENUE CARD ||============================= //
@@ -14,7 +14,7 @@ const RevenueCard = ({ primary, secondary, content, iconPrimary, color }: Revenu
   const matchDownXs = useMediaQuery(theme.breakpoints.down('sm'));
 
   const IconPrimary = iconPrimary!;
-  const primaryIcon = iconPrimary ? <IconPrimary fontSize="large" /> : null;
+  // Const primaryIcon = iconPrimary ? <IconPrimary fontSize="large" /> : null;
 
   return (
     <Card sx={{ background: color, position: 'relative', color: '#fff' }}>
@@ -33,7 +33,7 @@ const RevenueCard = ({ primary, secondary, content, iconPrimary, color }: Revenu
             }
           }}
         >
-          {primaryIcon}
+          {/* {primaryIcon} */}
         </Typography>
         <Grid container direction={matchDownXs ? 'column' : 'row'} spacing={1}>
           <Grid item xs={12}>

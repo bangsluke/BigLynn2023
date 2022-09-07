@@ -1,21 +1,21 @@
 import { useEffect, useState } from 'react';
 import Link from 'Link';
-// material-ui
+// Material-ui
 import { Button, CardContent, CardMedia, Grid, Rating, Stack, Typography } from '@mui/material';
 
-// redux
+// Redux
 import { useDispatch, useSelector } from 'store';
 import { addProduct } from 'store/slices/cart';
 
-// project import
+// Project import
 import MainCard from './MainCard';
 import SkeletonProductPlaceholder from 'ui-component/cards/Skeleton/ProductPlaceholder';
 import { openSnackbar } from 'store/slices/snackbar';
 
-// assets
+// Assets
 import ShoppingCartTwoToneIcon from '@mui/icons-material/ShoppingCartTwoTone';
 
-// types
+// Types
 import { ProductCardProps } from 'types/product';
 
 const prodImage = '/assets/images/e-commerce';

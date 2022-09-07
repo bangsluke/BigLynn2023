@@ -1,17 +1,17 @@
 import { SyntheticEvent } from 'react';
 
-// material-ui
+// Material-ui
 import { Alert, Button, Fade, Grow, IconButton, Slide, SlideProps } from '@mui/material';
 import MuiSnackbar from '@mui/material/Snackbar';
 
-// assets
+// Assets
 import CloseIcon from '@mui/icons-material/Close';
 
 import { KeyedObject } from 'types';
 import { useDispatch, useSelector } from 'store';
 import { closeSnackbar } from 'store/slices/snackbar';
 
-// animation function
+// Animation function
 function TransitionSlideLeft(props: SlideProps) {
   return <Slide {...props} direction="left" />;
 }
@@ -32,7 +32,7 @@ function GrowTransition(props: SlideProps) {
   return <Grow {...props} />;
 }
 
-// animation options
+// Animation options
 const animation: KeyedObject = {
   SlideLeft: TransitionSlideLeft,
   SlideUp: TransitionSlideUp,
@@ -58,7 +58,7 @@ const Snackbar = () => {
 
   return (
     <>
-      {/* default snackbar */}
+      {/* Default snackbar */}
       {variant === 'default' && (
         <MuiSnackbar
           anchorOrigin={anchorOrigin}
@@ -80,7 +80,7 @@ const Snackbar = () => {
         />
       )}
 
-      {/* alert snackbar */}
+      {/* Alert snackbar */}
       {variant === 'alert' && (
         <MuiSnackbar
           TransitionComponent={animation[transition]}

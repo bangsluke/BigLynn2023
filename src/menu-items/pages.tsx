@@ -1,6 +1,3 @@
-// Third-party
-import { FormattedMessage } from 'react-intl';
-
 // Assets
 // Import { IconBug } from '@tabler/icons';
 import { IconFileText, IconFileReport } from '@tabler/icons';
@@ -16,14 +13,14 @@ const icons = {
 
 const pages = {
   id: 'pages',
-  title: <FormattedMessage id="pages" />,
-  caption: <FormattedMessage id="pages-caption" />,
+  title: 'pages',
+  caption: 'pages-caption',
   type: 'group',
   children: [
     {
       id: 'inputs',
       // Title: 'Inputs',
-      title: <FormattedMessage id="inputs" />,
+      title: 'inputs',
       type: 'item',
       // Type: 'collapse',
       url: '/inputs',
@@ -33,7 +30,7 @@ const pages = {
     {
       id: 'results',
       // Title: 'Results',
-      title: <FormattedMessage id="results" />,
+      title: 'results',
       type: 'item',
       // Type: 'collapse',
       url: '/results',

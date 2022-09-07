@@ -1,12 +1,12 @@
 import Link from 'Link';
-// material-ui
+// Material-ui
 import { useTheme } from '@mui/material/styles';
 import { Button, Card, CardContent, Grid, Typography } from '@mui/material';
 
-// project imports
+// Project imports
 import { GenericCardProps } from 'types';
 
-// assets
+// Assets
 import ArrowRightAltRoundedIcon from '@mui/icons-material/ArrowRightAltRounded';
 
 // ==============================|| BILL CARD ||============================== //

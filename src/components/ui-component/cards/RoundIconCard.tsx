@@ -1,7 +1,7 @@
-// material-ui
+// Material-ui
 import { Grid, IconButton, Stack, Typography } from '@mui/material';
 
-// project imports
+// Project imports
 import MainCard from './MainCard';
 import { GenericCardProps } from 'types';
 
@@ -18,7 +18,7 @@ interface Props {
 
 const RoundIconCard = ({ primary, secondary, content, iconPrimary, color, bgcolor }: Props) => {
   const IconPrimary = iconPrimary!;
-  const primaryIcon = iconPrimary ? <IconPrimary fontSize="large" /> : null;
+  // Const primaryIcon = iconPrimary ? <IconPrimary fontSize="large" /> : null;
 
   return (
     <MainCard>
@@ -36,7 +36,7 @@ const RoundIconCard = ({ primary, secondary, content, iconPrimary, color, bgcolo
         </Grid>
         <Grid item>
           <IconButton sx={{ bgcolor, color, '& .MuiSvgIcon-root': { fontSize: '1.5rem' } }} size="large">
-            {primaryIcon}
+            {/* {primaryIcon} */}
           </IconButton>
         </Grid>
       </Grid>

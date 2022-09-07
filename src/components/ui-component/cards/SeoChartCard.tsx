@@ -1,14 +1,14 @@
 import { ReactNode } from 'react';
 
-// material-ui
+// Material-ui
 import { useTheme } from '@mui/material/styles';
 import { Box, Grid, Typography, useMediaQuery } from '@mui/material';
 
-// third party
+// Third party
 import dynamic from 'next/dynamic';
 import { Props as ChartProps } from 'react-apexcharts';
 
-// project imports
+// Project imports
 import MainCard from './MainCard';
 
 const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
@@ -55,12 +55,12 @@ const SeoChartCard = ({ chartData, value, title, icon, type }: SeoChartCardProps
         </Grid>
         {chartData && (
           <Grid item xs={12}>
-            <ReactApexChart
+            {/* <ReactApexChart
               options={chartData.options}
               series={chartData.series}
               type={chartData.options?.chart?.type}
               height={chartData.options?.chart?.height}
-            />
+            /> */}
           </Grid>
         )}
       </Grid>

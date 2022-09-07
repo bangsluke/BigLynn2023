@@ -1,15 +1,15 @@
 import { useState } from 'react';
 
-// material-ui
+// Material-ui
 import { Divider, Grid, Menu, MenuItem, Rating, Stack, Tooltip, Typography } from '@mui/material';
 
-// third-party
+// Third-party
 import { format } from 'date-fns';
 
-// project imports
+// Project imports
 import Avatar from '../extended/Avatar';
 
-// assets
+// Assets
 import StarTwoToneIcon from '@mui/icons-material/StarTwoTone';
 import StarBorderTwoToneIcon from '@mui/icons-material/StarBorderTwoTone';
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';

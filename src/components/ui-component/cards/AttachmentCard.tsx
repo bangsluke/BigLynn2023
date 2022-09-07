@@ -1,9 +1,9 @@
-// material-ui
+// Material-ui
 import { useTheme } from '@mui/material/styles';
 import { Card, CardContent, CardMedia, Grid, Typography } from '@mui/material';
 import { gridSpacing } from 'store/constant';
 
-// assets
+// Assets
 import DownloadForOfflineTwoToneIcon from '@mui/icons-material/DownloadForOfflineTwoTone';
 
 const backImage = '/assets/images/profile';

@@ -1,23 +1,23 @@
-// material-ui
+// Material-ui
 import { useTheme, styled } from '@mui/material/styles';
 import { Button, Card, CardContent, CardMedia, Chip, Grid, Typography } from '@mui/material';
 
-// project imports
+// Project imports
 import Avatar from '../extended/Avatar';
 import { gridSpacing } from 'store/constant';
 
-// assets
+// Assets
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import ChatBubbleTwoToneIcon from '@mui/icons-material/ChatBubbleTwoTone';
 
-// types
+// Types
 import { UserProfileCardProps } from 'types/user';
 
 const avatarImage = '/assets/images/profile';
 
-// styles
+// Styles
 const FacebookWrapper = styled(Button)({
   padding: 8,
   background: 'rgba(66, 103, 178, 0.2)',

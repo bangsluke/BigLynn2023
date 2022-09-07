@@ -1,11 +1,11 @@
 import { sum } from 'lodash';
 import { useSelector } from 'store';
 import Link from 'Link';
-// material-ui
+// Material-ui
 import { useTheme, styled } from '@mui/material/styles';
 import { Fab, Badge, IconButton } from '@mui/material';
 
-// assets
+// Assets
 import ShoppingCartTwoToneIcon from '@mui/icons-material/ShoppingCartTwoTone';
 import { CartProductStateProps } from 'types/cart';
 

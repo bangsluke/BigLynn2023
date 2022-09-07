@@ -1,25 +1,25 @@
 import { useState } from 'react';
 
-// material-ui
+// Material-ui
 import { useTheme, styled } from '@mui/material/styles';
 import { Button, Card, Chip, Grid, IconButton, Menu, MenuItem, Typography } from '@mui/material';
 
-// project imports
+// Project imports
 import Avatar from '../extended/Avatar';
 import { gridSpacing } from 'store/constant';
 
-// assets
+// Assets
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
-// types
+// Types
 import { UserSimpleCardProps } from 'types/user';
 
 const avatarImage = '/assets/images/profile';
 
-// styles
+// Styles
 const FacebookWrapper = styled(Button)({
   padding: 8,
   background: 'rgba(66, 103, 178, 0.2)',

@@ -1,10 +1,10 @@
 import { ReactNode } from 'react';
 
-// material-ui
+// Material-ui
 import { useTheme } from '@mui/material/styles';
 import { Box, Card, Grid, Typography } from '@mui/material';
 
-// third party
+// Third party
 import dynamic from 'next/dynamic';
 import { Props as ChartProps } from 'react-apexcharts';
 
@@ -86,12 +86,12 @@ const SalesLineChartCard = ({ bgColor, chartData, footerData, icon, title, perce
           </Grid>
           {chartData && (
             <Grid item>
-              <ReactApexChart
+              {/* <ReactApexChart
                 options={chartData.options}
                 series={chartData.series}
                 type={chartData.options?.chart?.type}
                 height={chartData.options?.chart?.height}
-              />
+              /> */}
             </Grid>
           )}
         </Grid>

@@ -1,7 +1,7 @@
-// material-ui
+// Material-ui
 import { Grid, Typography } from '@mui/material';
 
-// project imports
+// Project imports
 import MainCard from './MainCard';
 import { GenericCardProps } from 'types';
 
@@ -11,7 +11,7 @@ interface IconNumberCardProps extends GenericCardProps {}
 
 const IconNumberCard = ({ title, primary, color, iconPrimary }: IconNumberCardProps) => {
   const IconPrimary = iconPrimary!;
-  const primaryIcon = iconPrimary ? <IconPrimary /> : null;
+  // Const primaryIcon = iconPrimary ? <IconPrimary /> : null;
 
   return (
     <MainCard>
@@ -20,7 +20,7 @@ const IconNumberCard = ({ title, primary, color, iconPrimary }: IconNumberCardPr
           <Grid container justifyContent="space-between" alignItems="center">
             <Grid item>
               <Typography variant="subtitle2" sx={{ color }}>
-                {primaryIcon}
+                {/* {primaryIcon} */}
               </Typography>
               <Typography variant="h5" color="inherit">
                 {title}

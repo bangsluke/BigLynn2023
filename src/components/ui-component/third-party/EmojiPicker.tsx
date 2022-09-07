@@ -1,14 +1,14 @@
 import { useState } from 'react';
 
-// material-ui
+// Material-ui
 import { useTheme, styled } from '@mui/material/styles';
 import { Box, IconButton, ClickAwayListener, BoxProps } from '@mui/material';
 
-// third-party
+// Third-party
 import 'emoji-mart/css/emoji-mart.css';
 import { BaseEmoji, Picker } from 'emoji-mart';
 
-// assets
+// Assets
 import MoodTwoToneIcon from '@mui/icons-material/MoodTwoTone';
 
 // ==============================|| EMOJI PICKER ||============================== //

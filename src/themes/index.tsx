@@ -1,10 +1,10 @@
 import { useMemo, ReactNode } from 'react';
 
-// material-ui
+// Material-ui
 import { CssBaseline, StyledEngineProvider } from '@mui/material';
 import { createTheme, ThemeOptions, ThemeProvider, Theme } from '@mui/material/styles';
 
-// project import
+// Project import
 import useConfig from '../hooks/useConfig';
 import Palette from './palette';
 import Typography from './typography';
@@ -12,16 +12,16 @@ import Typography from './typography';
 import componentStyleOverrides from './compStyleOverride';
 import customShadows from './shadows';
 
-// assets
+// Assets
 import colors from '../scss/_themes-vars.module.scss';
-import theme1 from '../scss/_theme1.module.scss';
-import theme2 from '../scss/_theme2.module.scss';
-import theme3 from '../scss/_theme3.module.scss';
-import theme4 from '../scss/_theme4.module.scss';
-import theme5 from '../scss/_theme5.module.scss';
-import theme6 from '../scss/_theme6.module.scss';
+// Import theme1 from '../scss/_theme1.module.scss';
+// Import theme2 from '../scss/_theme2.module.scss';
+// Import theme3 from '../scss/_theme3.module.scss';
+// Import theme4 from '../scss/_theme4.module.scss';
+// Import theme5 from '../scss/_theme5.module.scss';
+// Import theme6 from '../scss/_theme6.module.scss';
 
-// types
+// Types
 import { ColorProps } from 'types';
 import { CustomShadowProps } from 'types/default-theme';
 import { TypographyOptions } from '@mui/material/styles/createTypography';
@@ -45,24 +45,24 @@ export default function ThemeCustomization({ children }: Props) {
 
   let color: ColorProps;
   switch (config.presetColor) {
-    case 'theme1':
-      color = theme1;
-      break;
-    case 'theme2':
-      color = theme2;
-      break;
-    case 'theme3':
-      color = theme3;
-      break;
-    case 'theme4':
-      color = theme4;
-      break;
-    case 'theme5':
-      color = theme5;
-      break;
-    case 'theme6':
-      color = theme6;
-      break;
+    // Case 'theme1':
+    //   Color = theme1;
+    //   Break;
+    // Case 'theme2':
+    //   Color = theme2;
+    //   Break;
+    // Case 'theme3':
+    //   Color = theme3;
+    //   Break;
+    // Case 'theme4':
+    //   Color = theme4;
+    //   Break;
+    // Case 'theme5':
+    //   Color = theme5;
+    //   Break;
+    // Case 'theme6':
+    //   Color = theme6;
+    //   Break;
     case 'default':
     default:
       color = colors;

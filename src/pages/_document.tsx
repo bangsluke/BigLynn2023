@@ -7,7 +7,7 @@ export default function Document() {
         <meta name="title" content="Big Lynn 2023" />
         <meta name="description" content="The official website of the 2023 Big Lynn Competition." />
         <meta name="keywords" content="Golf Competition Stats" />
-        <meta name="theme-color" content="#f25f3a" />
+        <meta name="theme-color" content="#7cadea" />
         <meta property="og:locale" content="en_UK" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://biglynn2023.netlify.app/" />

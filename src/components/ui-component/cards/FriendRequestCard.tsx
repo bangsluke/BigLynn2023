@@ -1,19 +1,19 @@
 import { useState } from 'react';
 
-// material-ui
+// Material-ui
 import { useTheme } from '@mui/material/styles';
 import { Avatar, Button, Card, Grid, IconButton, ListItemIcon, Menu, MenuItem, Typography } from '@mui/material';
 
-// project import
+// Project import
 import { gridSpacing } from 'store/constant';
 
-// assets
+// Assets
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
 import FavoriteTwoToneIcon from '@mui/icons-material/FavoriteTwoTone';
 import DeleteTwoToneIcon from '@mui/icons-material/DeleteTwoTone';
 import GroupTwoToneIcon from '@mui/icons-material/GroupTwoTone';
 
-// types
+// Types
 import { FriendRequestCardProps } from 'types/user';
 
 const avatarImage = '/assets/images/profile';

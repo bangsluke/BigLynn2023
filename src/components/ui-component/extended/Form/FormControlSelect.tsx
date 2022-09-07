@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
-// material-ui
+// Material-ui
 import { useTheme } from '@mui/material/styles';
 import { Divider, FormControl, InputAdornment, MenuItem, TextField } from '@mui/material';
 
-// project imports
+// Project imports
 import { GenericCardProps } from 'types';
 
 // ==============================|| FORM CONTROL SELECT ||============================== //
@@ -32,10 +32,10 @@ const FormControlSelect = ({
 }: FormControlSelectProps) => {
   const theme = useTheme();
   const IconPrimary = iconPrimary!;
-  const primaryIcon = iconPrimary ? <IconPrimary fontSize="small" sx={{ color: theme.palette.grey[700] }} /> : null;
+  // Const primaryIcon = iconPrimary ? <IconPrimary fontSize="small" sx={{ color: theme.palette.grey[700] }} /> : null;
 
   const IconSecondary = iconSecondary!;
-  const secondaryIcon = iconSecondary ? <IconSecondary fontSize="small" sx={{ color: theme.palette.grey[700] }} /> : null;
+  // Const secondaryIcon = iconSecondary ? <IconSecondary fontSize="small" sx={{ color: theme.palette.grey[700] }} /> : null;
 
   const errorState = formState === 'error';
   const val = selected || '';
@@ -57,7 +57,7 @@ const FormControlSelect = ({
         InputProps={{
           startAdornment: (
             <>
-              {primaryIcon && <InputAdornment position="start">{primaryIcon}</InputAdornment>}
+              {/* {primaryIcon && <InputAdornment position="start">{primaryIcon}</InputAdornment>} */}
               {textPrimary && (
                 <>
                   <InputAdornment position="start">{textPrimary}</InputAdornment>
@@ -68,7 +68,7 @@ const FormControlSelect = ({
           ),
           endAdornment: (
             <>
-              {secondaryIcon && <InputAdornment position="end">{secondaryIcon}</InputAdornment>}
+              {/* {secondaryIcon && <InputAdornment position="end">{secondaryIcon}</InputAdornment>} */}
               {textSecondary && (
                 <>
                   <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />

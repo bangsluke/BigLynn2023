@@ -1,19 +1,19 @@
-// material-ui
+// Material-ui
 import { styled, useTheme } from '@mui/material/styles';
 import { Button, Grid, Tooltip, Typography } from '@mui/material';
 
-// project imports
+// Project imports
 import Avatar from '../extended/Avatar';
 import { gridSpacing } from 'store/constant';
 import { UserProfile } from 'types/user-profile';
 
-// assets
+// Assets
 import ChatBubbleTwoToneIcon from '@mui/icons-material/ChatBubbleTwoTone';
 import PhoneTwoToneIcon from '@mui/icons-material/PhoneTwoTone';
 
 const avatarImage = '/assets/images/users';
 
-// styles
+// Styles
 const ListWrapper = styled('div')(({ theme }) => ({
   padding: '15px 0',
   borderBottom: theme.palette.mode === 'dark' ? 'none' : '1px solid',

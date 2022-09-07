@@ -1,7 +1,7 @@
-// material-ui
+// Material-ui
 import { Card, CardContent, Grid, Typography } from '@mui/material';
 
-// types
+// Types
 import { GenericCardProps } from 'types';
 
 // ===========================|| HOVER SOCIAL CARD ||=========================== //
@@ -10,7 +10,7 @@ interface HoverSocialCardProps extends GenericCardProps {}
 
 const HoverSocialCard = ({ primary, secondary, iconPrimary, color }: HoverSocialCardProps) => {
   const IconPrimary = iconPrimary!;
-  const primaryIcon = iconPrimary ? <IconPrimary fontSize="large" /> : null;
+  // Const primaryIcon = iconPrimary ? <IconPrimary fontSize="large" /> : null;
 
   return (
     <Card
@@ -40,7 +40,7 @@ const HoverSocialCard = ({ primary, secondary, iconPrimary, color }: HoverSocial
             }
           }}
         >
-          {primaryIcon}
+          {/* {primaryIcon} */}
         </Typography>
         <Grid container spacing={0}>
           <Grid item xs={12}>

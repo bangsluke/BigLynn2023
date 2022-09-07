@@ -31,7 +31,7 @@ import PerfectScrollbar from 'react-perfect-scrollbar';
 import MainCard from 'ui-component/cards/MainCard';
 import Transitions from 'ui-component/extended/Transitions';
 import UpgradePlanCard from './UpgradePlanCard';
-import useAuth from 'hooks/useAuth';
+// Import useAuth from 'hooks/useAuth';
 
 // Assets
 import { IconLogout, IconSearch, IconSettings, IconUser } from '@tabler/icons';
@@ -51,7 +51,7 @@ const ProfileSection = () => {
   const [value, setValue] = useState('');
   const [notification, setNotification] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(-1);
-  const { logout, user } = useAuth();
+  // Const { logout, user } = useAuth();
   const [open, setOpen] = useState(false);
   /**
    * AnchorRef is used on different components and specifying one type leads to other components throwing an error

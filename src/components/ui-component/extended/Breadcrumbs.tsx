@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 import Link from 'Link';
-// material-ui
+// Material-ui
 import { useTheme } from '@mui/material/styles';
 import { Box, Card, Divider, Grid, Typography } from '@mui/material';
 import MuiBreadcrumbs from '@mui/material/Breadcrumbs';
 
-// project imports
+// Project imports
 import { BASE_PATH } from 'config';
 import { gridSpacing } from 'store/constant';
 
-// assets
+// Assets
 import { IconTallymark1 } from '@tabler/icons';
 import AccountTreeTwoToneIcon from '@mui/icons-material/AccountTreeTwoTone';
 import HomeIcon from '@mui/icons-material/Home';
@@ -71,7 +71,7 @@ const Breadcrumbs = ({
   const [main, setMain] = useState<NavItemType | undefined>();
   const [item, setItem] = useState<NavItemType>();
 
-  // set active item state
+  // Set active item state
   const getCollapse = (menu: NavItemTypeObject) => {
     if (menu.children) {
       menu.children.filter((collapse: NavItemType) => {
@@ -97,9 +97,9 @@ const Breadcrumbs = ({
     });
   });
 
-  // item separator
+  // Item separator
   const SeparatorIcon = separator!;
-  const separatorIcon = separator ? <SeparatorIcon stroke={1.5} size="16px" /> : <IconTallymark1 stroke={1.5} size="16px" />;
+  // Const separatorIcon = separator ? <SeparatorIcon stroke={1.5} size="16px" /> : <IconTallymark1 stroke={1.5} size="16px" />;
 
   let mainContent;
   let itemContent;
@@ -108,18 +108,18 @@ const Breadcrumbs = ({
   let CollapseIcon;
   let ItemIcon;
 
-  // collapse item
+  // Collapse item
   if (main && main.type === 'collapse') {
     CollapseIcon = main.icon ? main.icon : AccountTreeTwoToneIcon;
     mainContent = (
       <Typography component={Link} href="#" variant="subtitle1" sx={linkSX}>
-        {icons && <CollapseIcon style={iconStyle} />}
+        {/* {icons && <CollapseIcon style={iconStyle} />} */}
         {main.title}
       </Typography>
     );
   }
 
-  // items
+  // Items
   if (item && item.type === 'item') {
     itemTitle = item.title;
 
@@ -135,12 +135,12 @@ const Breadcrumbs = ({
           color: 'grey.500'
         }}
       >
-        {icons && <ItemIcon style={iconStyle} />}
+        {/* {icons && <ItemIcon style={iconStyle} />} */}
         {itemTitle}
       </Typography>
     );
 
-    // main
+    // Main
     if (item.breadcrumbs !== false) {
       breadcrumbContent = (
         <Card
@@ -172,7 +172,7 @@ const Breadcrumbs = ({
                   sx={{ '& .MuiBreadcrumbs-separator': { width: 16, ml: 1.25, mr: 1.25 } }}
                   aria-label="breadcrumb"
                   maxItems={maxItems || 8}
-                  separator={separatorIcon}
+                  // Separator={separatorIcon}
                 >
                   <Typography component={Link} href="/" color="inherit" variant="subtitle1" sx={linkSX}>
                     {icons && <HomeTwoToneIcon sx={iconStyle} />}

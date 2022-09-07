@@ -1,14 +1,14 @@
 import { createContext, ReactNode } from 'react';
 
-// project import
+// Project import
 import defaultConfig from 'config';
-import useLocalStorage from 'hooks/useLocalStorage';
+// Import useLocalStorage from 'hooks/useLocalStorage';
 
-// types
+// Types
 import { PaletteMode } from '@mui/material';
 import { CustomizationProps } from 'types/config';
 
-// initial state
+// Initial state
 const initialState: CustomizationProps = {
   ...defaultConfig,
   container: false,
@@ -31,15 +31,15 @@ type ConfigProviderProps = {
 };
 
 function ConfigProvider({ children }: ConfigProviderProps) {
-  const [config, setConfig] = useLocalStorage('berry-config', {
-    fontFamily: initialState.fontFamily,
-    borderRadius: initialState.borderRadius,
-    outlinedFilled: initialState.outlinedFilled,
-    navType: initialState.navType,
-    presetColor: initialState.presetColor,
-    locale: initialState.locale,
-    rtlLayout: initialState.rtlLayout
-  });
+  // Const [config, setConfig] = useLocalStorage('berry-config', {
+  //   FontFamily: initialState.fontFamily,
+  //   BorderRadius: initialState.borderRadius,
+  //   OutlinedFilled: initialState.outlinedFilled,
+  //   NavType: initialState.navType,
+  //   PresetColor: initialState.presetColor,
+  //   Locale: initialState.locale,
+  //   RtlLayout: initialState.rtlLayout
+  // });
 
   const onChangeMenuType = (navType: PaletteMode) => {
     setConfig({
@@ -100,7 +100,7 @@ function ConfigProvider({ children }: ConfigProviderProps) {
   return (
     <ConfigContext.Provider
       value={{
-        ...config,
+        // ...config,
         onChangeMenuType,
         onChangePresetColor,
         onChangeLocale,

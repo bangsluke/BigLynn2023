@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 
-// material-ui
+// Material-ui
 import { useTheme } from '@mui/material/styles';
 import {
   AppBar as MuiAppBar,
@@ -20,14 +20,14 @@ import {
   useScrollTrigger
 } from '@mui/material';
 
-// project imports
+// Project imports
 import Logo from '../Logo';
 
-// assets
+// Assets
 import { IconBook, IconCreditCard, IconDashboard, IconHome2 } from '@tabler/icons';
 import MenuIcon from '@mui/icons-material/Menu';
 
-// elevation scroll
+// Elevation scroll
 interface ElevationScrollProps {
   children: ReactElement;
   window?: Window | Node;

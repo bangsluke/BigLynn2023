@@ -1,9 +1,9 @@
-// material-ui
+// Material-ui
 import { styled } from '@mui/material/styles';
 import { Card, CardContent, Grid, Typography } from '@mui/material';
 import { GenericCardProps } from 'types';
 
-// styles
+// Styles
 const IconWrapper = styled('div')({
   position: 'absolute',
   left: '-17px',
@@ -28,12 +28,12 @@ interface UserCountCardProps {
 
 const UserCountCard = ({ primary, secondary, iconPrimary, color }: UserCountCardProps) => {
   const IconPrimary = iconPrimary!;
-  const primaryIcon = iconPrimary ? <IconPrimary fontSize="large" /> : null;
+  // Const primaryIcon = iconPrimary ? <IconPrimary fontSize="large" /> : null;
 
   return (
     <Card sx={{ background: color, position: 'relative', color: '#fff' }}>
       <CardContent>
-        <IconWrapper>{primaryIcon}</IconWrapper>
+        <IconWrapper>{/* {primaryIcon} */}</IconWrapper>
         <Grid container direction="column" justifyContent="center" alignItems="center" spacing={1}>
           <Grid item sm={12}>
             <Typography variant="h3" align="center" color="inherit">

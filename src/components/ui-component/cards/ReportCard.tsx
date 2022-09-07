@@ -1,7 +1,7 @@
-// material-ui
+// Material-ui
 import { Grid, Stack, Typography } from '@mui/material';
 
-// project imports
+// Project imports
 import MainCard from './MainCard';
 import { GenericCardProps } from 'types';
 
@@ -11,7 +11,7 @@ interface ReportCardProps extends GenericCardProps {}
 
 const ReportCard = ({ primary, secondary, iconPrimary, color }: ReportCardProps) => {
   const IconPrimary = iconPrimary!;
-  const primaryIcon = iconPrimary ? <IconPrimary fontSize="large" /> : null;
+  // Const primaryIcon = iconPrimary ? <IconPrimary fontSize="large" /> : null;
 
   return (
     <MainCard>
@@ -24,7 +24,7 @@ const ReportCard = ({ primary, secondary, iconPrimary, color }: ReportCardProps)
         </Grid>
         <Grid item>
           <Typography variant="h2" style={{ color }}>
-            {primaryIcon}
+            {/* {primaryIcon} */}
           </Typography>
         </Grid>
       </Grid>

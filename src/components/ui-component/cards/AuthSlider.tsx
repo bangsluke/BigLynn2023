@@ -1,7 +1,7 @@
-// material-ui
+// Material-ui
 import { Grid, Typography } from '@mui/material';
 
-// third-party
+// Third-party
 import Slider from 'react-slick';
 import { AuthSliderProps } from 'types';
 

@@ -1,5 +1,5 @@
 import React, { Ref } from 'react';
-// third-party
+// Third-party
 import { motion, useCycle } from 'framer-motion';
 
 type ScaleProps = {
