@@ -54,5 +54,5 @@ const Summary = () => (
   </>
 );
 
-Summary.Layout = 'authGuard';
+Summary.Layout = 'authGuard'; // This is needed.
 export default Summary;
