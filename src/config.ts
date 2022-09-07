@@ -9,12 +9,12 @@ export const DASHBOARD_PATH = '/summary';
 
 const config: ConfigProps = {
   fontFamily: `'Roboto', sans-serif`,
+  rtlLayout: true,
   borderRadius: 6,
   outlinedFilled: true,
   navType: 'light', // Light, dark
   presetColor: 'default', // Default, theme1, theme2, theme3, theme4, theme5, theme6
-  locale: 'en', // 'en' - English, 'fr' - French, 'ro' - Romanian, 'zh' - Chinese
-  rtlLayout: true
+  locale: 'en' // 'en' - English, 'fr' - French, 'ro' - Romanian, 'zh' - Chinese
 };
 
 export default config;

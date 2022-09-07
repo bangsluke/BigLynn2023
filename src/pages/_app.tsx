@@ -38,8 +38,8 @@ function MyApp({ Component, pageProps }: AppProps & { Component: { Layout: Layou
   return (
     <>
       <Head>
-        <meta name="title" content="DVP Prototype" />
-        <meta name="description" content="Develop your design verification plan using this rapid planning tool." />
+        <meta name="title" content="Big Lynn 2023" />
+        <meta name="description" content="The official website of the 2023 Big Lynn Competition." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Provider store={store}>

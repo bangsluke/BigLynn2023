@@ -2,45 +2,25 @@ import { useState, useEffect } from 'react';
 import { CSSProperties } from 'react';
 import { createTheme } from '@mui/material/styles';
 
-const COLORS = {
-  // DVP Orange
-  main: '#F25F3A',
-  // DVP Light Orange
-  light: '#FCB8A7',
-  // DVP Light Grey
-  lightbackground: '#E8E8E8',
-  // DVP Dark Grey
-  darkbackground: '#9F9F9F',
-  // White
-  white: '#FFF',
-  // Black
-  black: '#000',
-  // RLE Green
-  secondary: '#00644A'
-};
+const COLORS = {};
 
 const toolTheme = createTheme({
   // Define the colours used throughout the tool
   palette: {
     primary: {
-      // DVP Orange
-      main: COLORS.main,
-      // DVP Light Orange
-      light: COLORS.light
+      // Main: COLORS.main,
+      // Light: COLORS.light
     },
     secondary: {
-      // RLE Green
-      main: COLORS.secondary
+      // Main: COLORS.secondary
     },
     background: {
-      // DVP Light Grey
-      default: COLORS.lightbackground,
-      // DVP Dark Grey
-      paper: COLORS.darkbackground
+      // Default: COLORS.lightbackground,
+      // Paper: COLORS.darkbackground
     },
     common: {
-      black: COLORS.black,
-      white: COLORS.white
+      // Black: COLORS.black,
+      // White: COLORS.white
     }
     // Background: "TBC",
   },
@@ -127,17 +107,9 @@ const SPACING: any = {
   dividerHeightDesktop: '6rem',
   // Logo container height - the height of the container for both header logos
   logoContainerHeight: '6rem',
-  // DVP Logo Width - the DVP Logo width
-  dvpLogoWidth: '11.25rem',
   // Base Company Logo Width - the starting width of the company logo before modification
   baseCompanyLogoWidth: '6rem',
   // The multiplication factor to extend the company logo if required
-  companyLogoWidthModifier: {
-    BON: 1,
-    BMW: 1,
-    FORD: 2,
-    MERCEDES: 1
-  },
   // Navigation height
   navHeight: {
     // Phone: "3rem",

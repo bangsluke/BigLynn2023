@@ -7,8 +7,8 @@ type MetaProps = {
 } & typeof defaultMetaProps;
 
 const defaultMetaProps = {
-  title: 'DVP Tool',
-  description: 'A tool for developing a DVP from vehicle specifications'
+  title: 'Big Lynn 2023',
+  description: 'The official website of the 2023 Big Lynn Competition.'
 };
 
 export default function Meta(props: MetaProps) {
@@ -19,9 +19,9 @@ export default function Meta(props: MetaProps) {
       <meta name="viewport" content="width=device-width, initial-scale=1.0" key="viewport" />
       <title key="title">{props.title}</title>;
       <meta name="description" content={props.description} key="description" />
-      <meta name="keywords" content="automotive" key="keywords" />
-      <meta name="author" content="Engineering AI" key="author" />
-      <meta name="copyright" content="Engineering AI" key="copyright" />
+      <meta name="keywords" content="Golf Competition Stats" key="keywords" />
+      <meta name="author" content="bangsluke" key="author" />
+      <meta name="copyright" content="bangsluke" key="copyright" />
       <meta name="robots" content="noindex, nofollow" key="robots" />
       <link rel="icon" href="/favicon.ico" key="favicon" />
     </Head>
