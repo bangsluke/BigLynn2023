@@ -1,10 +1,10 @@
 import { useEffect, ReactNode } from 'react';
 
-// material-ui
+// Material-ui
 import { CacheProvider } from '@emotion/react';
 import createCache, { StylisPlugin } from '@emotion/cache';
 
-// third-party
+// Third-party
 import rtlPlugin from 'stylis-plugin-rtl';
 import useConfig from 'hooks/useConfig';
 
