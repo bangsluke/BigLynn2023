@@ -3,15 +3,11 @@ import { Grid, Typography } from '@mui/material';
 import FadeInWhenVisible from 'components/ui/Animation';
 import SubCard from 'components/ui/SubCard';
 import Avatar from 'components/ui/Avatar';
-import useIcons from 'hooks/useIcons';
+import InstagramIcon from '@mui/icons-material/Instagram';
 
 const FeatureCard = (props: { id: number; iconName: string; title: string; description: string }) => {
   const { iconName, title, description } = props; // Destructure props
   const theme = useTheme();
-
-  // Dynamically import the MUI Icon - https://stackoverflow.com/a/66828783
-  const MUIIcon = useIcons(iconName);
-  // Console.log(MUIIcon);
 
   return (
     <Grid item md={4} sm={6}>
@@ -28,7 +24,7 @@ const FeatureCard = (props: { id: number; iconName: string; title: string; descr
                   color: theme.palette.primary.main
                 }}
               >
-                <MUIIcon fontSize="large" />
+                <InstagramIcon fontSize="large" />
               </Avatar>
             </Grid>
             {/* Feature title */}

@@ -18,7 +18,7 @@ import {
   useScrollTrigger
 } from '@mui/material';
 import Logo from 'components/ui/Logo';
-import { IconCalendarEvent, IconCheckupList, IconReportAnalytics, IconQuestionMark } from '@tabler/icons';
+import { IconCalendarEvent, IconCheckupList, IconReportAnalytics, IconQuestionMark, IconLink } from '@tabler/icons';
 import MenuIcon from '@mui/icons-material/Menu';
 import NavigationInfo from 'data/NavigationInfo';
 
@@ -123,6 +123,14 @@ const InfoPageAppBar = ({ ...others }) => {
                             <IconQuestionMark />
                           </ListItemIcon>
                           <ListItemText primary="FAQ" />
+                        </ListItemButton>
+                      </Link>
+                      <Link style={{ textDecoration: 'none' }} href="#links">
+                        <ListItemButton component="a">
+                          <ListItemIcon>
+                            <IconLink />
+                          </ListItemIcon>
+                          <ListItemText primary="Useful Links" />
                         </ListItemButton>
                       </Link>
                     </List>
