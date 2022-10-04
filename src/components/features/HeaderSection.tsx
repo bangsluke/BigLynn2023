@@ -7,19 +7,38 @@ import ThemingS from 'services/ThemingS';
 const HeaderImage = styled('img')(({ theme }) => ({
   maxWidth: '100%',
   borderRadius: '20px',
-  filter: 'drop-shadow(0px 0px 50px rgb(194 76 46 / 30%))',
-  transform: 'scale(0.8) translate(0px, -80px)',
+  // Filter: 'drop-shadow(0px 0px 50px rgb(194 76 46 / 30%))',
+  transform: 'scale(1.6) translate(260px, -30px)',
   transformOrigin: theme.direction === 'rtl' ? '100% 50%' : '0 50%',
   [theme.breakpoints.down('lg')]: {
     transform: 'scale(0.7)'
   }
 }));
 
-const HeaderAnimationImage = styled('img')({
+const HeaderAnimationImage = styled('img')(({ theme }) => ({
   maxWidth: '100%',
+  borderRadius: '20px',
   filter: 'drop-shadow(0px 0px 50px rgb(194 76 46 / 30%))',
-  transform: 'scaleX(-1) scale(0.8)'
-});
+  transform: 'scale(1) translate(20px, -180px)',
+  transformOrigin: theme.direction === 'rtl' ? '100% 50%' : '0 50%',
+  [theme.breakpoints.down('lg')]: {
+    transform: 'scale(0.7)'
+  },
+  animation: '5s wings ease-in-out infinite',
+  transition: '0.5s',
+  '&:hover': {
+    transform: 'rotate(0deg) skew(0deg) scale(0.5) translate(20px, -120px)'
+  },
+  '&:after': {
+    backgroundColor: 'red',
+    position: 'absolute',
+    content: '""',
+    width: '100%',
+    height: '100%',
+    top: '0',
+    left: '0'
+  }
+}));
 
 const InfoPageHeaderSection = () => {
   const theme = useTheme();
@@ -60,9 +79,9 @@ const InfoPageHeaderSection = () => {
                     textAlign: 'left'
                   }}
                 >
-                  Main Header Text
+                  Welcome to the official website of the
                   <Box component="span" sx={{ ml: 2, color: theme.palette.primary.main }}>
-                    Hello
+                    Big Lynn 2023
                   </Box>
                 </Typography>
               </motion.div>
@@ -90,7 +109,7 @@ const InfoPageHeaderSection = () => {
                     textAlign: 'left'
                   }}
                 >
-                  Header Description
+                  Providing you with all the details you need to have a fantastic but overly confusing golf competition
                 </Typography>
               </motion.div>
             </Grid>
@@ -109,12 +128,12 @@ const InfoPageHeaderSection = () => {
                 <Grid container spacing={2} sx={{ justifyContent: { xs: 'center', md: 'flex-start' } }}>
                   <Grid item>
                     <Button component={Link} href="/landing" target="_blank" size="large" variant="contained" color="secondary">
-                      Click here
+                      Begin Browsing
                     </Button>
                   </Grid>
                   <Grid item>
-                    <Button component={Link} href="mailto:luke.bangs@rle.co.uk" target="_blank" size="large" variant="text">
-                      Contact Us
+                    <Button component={Link} href="mailto:bangsluke@gmail.com" target="_blank" size="large" variant="text">
+                      Contact Your Organiser
                     </Button>
                   </Grid>
                 </Grid>
@@ -135,53 +154,28 @@ const InfoPageHeaderSection = () => {
                 delay: 0.6
               }}
             >
-              <HeaderImage src={'/static/info_page_car.png'} alt="Car by Freepik" />
+              <HeaderImage src={'/images/Gainsborough-Course.jpg'} alt="Gainsborough Course" />
             </motion.div>
-            <Box
-              sx={{
-                position: 'absolute',
-                top: '-110px',
-                right: theme.direction === 'rtl' ? '170px' : '-170px',
-                width: '290px',
-                animation: '10s slideY linear infinite'
+          </Box>
+          <Box
+            sx={{
+              position: 'absolute',
+              mt: 8.75,
+              animation: '10s slideY linear infinite'
+            }}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{
+                type: 'spring',
+                stiffness: 150,
+                damping: 30,
+                delay: 0.8
               }}
             >
-              <motion.div
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{
-                  type: 'spring',
-                  stiffness: 150,
-                  damping: 30,
-                  delay: 0.8
-                }}
-              >
-                <HeaderAnimationImage src={'/static/info_page_sports-car.png'} alt="Sport car by Freepik" />
-              </motion.div>
-            </Box>
-            <Box
-              sx={{
-                position: 'absolute',
-                bottom: -90,
-                left: 300,
-                width: 280,
-                animation: '10s slideY linear infinite',
-                animationDelay: '2s'
-              }}
-            >
-              <motion.div
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{
-                  type: 'spring',
-                  stiffness: 150,
-                  damping: 30,
-                  delay: 1
-                }}
-              >
-                <HeaderAnimationImage src={'/static/info_page_hatchback.png'} alt="Hatchback by Freepik" />
-              </motion.div>
-            </Box>
+              <HeaderAnimationImage src={'/images/2022-Lineup-No-Background.png'} alt="2022 Lineup" />
+            </motion.div>
           </Box>
         </Grid>
       </Grid>
