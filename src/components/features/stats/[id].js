@@ -1,45 +1,45 @@
-import { google } from 'googleapis';
+// Import { google } from 'googleapis';
 
-export async function getServerSideProps({ query }) {
-  // Auth
-  const auth = await google.auth.getClient({ scopes: ['https://www.googleapis.com/auth/spreadsheets.readonly'] });
+// Export async function getServerSideProps({ query }) {
+//   // Auth
+//   Const auth = await google.auth.getClient({ scopes: ['https://www.googleapis.com/auth/spreadsheets.readonly'] });
 
-  const sheets = google.sheets({ version: 'v4', auth });
+//   Const sheets = google.sheets({ version: 'v4', auth });
 
-  // Query
+//   // Query
 
-  const { id } = query;
-  const range = `Match Details!A${id}:Y${id}`;
+//   Const { id } = query;
+//   Const range = `Match Details!A${id}:Y${id}`;
 
-  const response = await sheets.spreadsheets.values.get({
-    spreadsheetId: process.env.SHEET_ID,
-    range
-  });
+//   Const response = await sheets.spreadsheets.values.get({
+//     SpreadsheetId: process.env.SHEET_ID,
+//     Range
+//   });
 
-  // Result
+//   // Result
 
-  const [fixID, season, seasonFixID, matchLookUp, player] = response.data.values[0];
-  console.log(response.data.values[0]);
+//   Const [fixID, season, seasonFixID, matchLookUp, player] = response.data.values[0];
+//   Console.log(response.data.values[0]);
 
-  return {
-    props: {
-      fixID,
-      season,
-      seasonFixID,
-      matchLookUp,
-      player
-    }
-  };
-}
+//   Return {
+//     Props: {
+//       FixID,
+//       Season,
+//       SeasonFixID,
+//       MatchLookUp,
+//       Player
+//     }
+//   };
+// }
 
-export default function Post({ fixID, season, seasonFixID, matchLookUp, player }) {
-  return (
-    <article>
-      <h1>Fix ID: {fixID}</h1>
-      <h2>Season: {season}</h2>
-      <h2>SeasonFixID: {seasonFixID}</h2>
-      <h2>Match Lookup: {matchLookUp}</h2>
-      <h2>Player: {player}</h2>
-    </article>
-  );
-}
+// Export default function Post({ fixID, season, seasonFixID, matchLookUp, player }) {
+//   Return (
+//     <article>
+//       <h1>Fix ID: {fixID}</h1>
+//       <h2>Season: {season}</h2>
+//       <h2>SeasonFixID: {seasonFixID}</h2>
+//       <h2>Match Lookup: {matchLookUp}</h2>
+//       <h2>Player: {player}</h2>
+//     </article>
+//   );
+// }

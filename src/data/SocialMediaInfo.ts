@@ -3,38 +3,26 @@ const SocialMediaInfo = [
   {
     id: 1,
     name: 'Website',
-    URL: 'https://www.rle.international/?lang=en',
+    URL: 'https://www.stokebynayland.com/',
     iconName: 'LanguageIcon'
   },
   {
     id: 2,
     name: 'Facebook',
-    URL: 'https://www.facebook.com/rle.international/',
+    URL: 'https://www.facebook.com/SbNResort',
     iconName: 'FacebookIcon'
   },
   {
     id: 3,
     name: 'Twitter',
-    URL: 'https://twitter.com/rlegroup',
+    URL: 'https://twitter.com/SbNResort',
     iconName: 'TwitterIcon'
   },
   {
     id: 4,
-    name: 'LinkedIn',
-    URL: 'https://www.linkedin.com/company/rlegroup/',
-    iconName: 'LinkedInIcon'
-  },
-  {
-    id: 5,
     name: 'Instagram',
-    URL: 'https://www.instagram.com/rlegroup/',
+    URL: 'https://www.instagram.com/SbNResort/',
     iconName: 'InstagramIcon'
-  },
-  {
-    id: 6,
-    name: 'YouTube',
-    URL: 'https://www.youtube.com/user/rlegruppe',
-    iconName: 'YouTubeIcon'
   }
 ];
 
