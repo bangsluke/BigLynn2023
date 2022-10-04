@@ -42,6 +42,16 @@ const ThirdWrapper = styled('div')(({ theme }) => ({
   }
 }));
 
+const AnchorOffset = styled('h2')({
+  '&:before': {
+    display: 'block',
+    content: '""',
+    height: '110px' /* Give height of your fixed element */,
+    marginTop: '-110px' /* Give negative margin of your fixed element */,
+    visibility: 'hidden'
+  }
+});
+
 export default function Info() {
   return (
     <>
@@ -72,34 +82,55 @@ export default function Info() {
       {/* <MainCard>
         <Grid container spacing={ThemingS.themeConfig.gridSpacing}>
           <Grid item xs={12}> */}
-      <h2>Welcome to the official website of the Big Lynn 2023.</h2>
+      <div style={{ minHeight: '500px' }}>
+        <h2>Welcome to the official website of the Big Lynn 2023.</h2>
+      </div>
       {/* </Grid>
         </Grid>
       </MainCard> */}
       {/* <MainCard title="Event Details" id="eventdetails">
         <Grid container spacing={ThemingS.themeConfig.gridSpacing}>
           <Grid item xs={12}> */}
-      <h2>Location</h2>
+      <div style={{ minHeight: '500px' }}>
+        <AnchorOffset id="eventdetails" className="offset">
+          Event Details
+        </AnchorOffset>
+      </div>
       {/* </Grid>
         </Grid>
       </MainCard> */}
       {/* <MainCard title="FAQ" id="FAQ">
         <Grid container spacing={ThemingS.themeConfig.gridSpacing}>
           <Grid item xs={12}> */}
-      <h2>Frequently Asked Questions</h2>
-      <h3>A section dedicated to those who didn&#39;t read the above section and of course &#39;Mr Question&#39; himself, Keith Joseph</h3>
+      <div style={{ minHeight: '500px' }}>
+        <AnchorOffset id="FAQ" className="offset">
+          Frequently Asked Questions
+        </AnchorOffset>
+        <h3>
+          A section dedicated to those who didn&#39;t read the above section and of course &#39;Mr Question&#39; himself, Keith Joseph
+        </h3>
+      </div>
       {/* </Grid>
         </Grid>
       </MainCard> */}
       {/* <MainCard title="Stats" id="stats">
         <Grid container spacing={ThemingS.themeConfig.gridSpacing}>
           <Grid item xs={12}> */}
-      <h2>Stats</h2>
+      <div style={{ minHeight: '500px' }}>
+        <AnchorOffset id="stats" className="offset">
+          Stats
+        </AnchorOffset>
+      </div>
       {/* <Stats /> */}
       {/* </Grid>
         </Grid>
       </MainCard> */}
       {/* <MainCard title="Extra" id="extra"></MainCard> */}
+      <div style={{ minHeight: '500px' }}>
+        <AnchorOffset id="links" className="offset">
+          Links
+        </AnchorOffset>
+      </div>
 
       <Footer />
     </>

@@ -18,7 +18,7 @@ import {
   useScrollTrigger
 } from '@mui/material';
 import Logo from 'components/ui/Logo';
-import { IconHome2, IconBook, IconMail, IconPlayerPlay } from '@tabler/icons';
+import { IconCalendarEvent, IconCheckupList, IconReportAnalytics, IconQuestionMark, IconLink } from '@tabler/icons';
 import MenuIcon from '@mui/icons-material/Menu';
 import NavigationInfo from 'data/NavigationInfo';
 
@@ -63,14 +63,13 @@ const InfoPageAppBar = ({ ...others }) => {
   });
 
   // Map over the navigation links info to create all links.
-  // Const socialMediaElements = sortedNavLinks.map((link) => {
-  //   Return (
-  //     // <SocialMediaCard key={link.id} iconName={link.iconName} name={link.name} URL={link.URL} />
-  //     <Button color="inherit" component={Link} href="mailto:luke.bangs@rle.co.uk" target="_blank">
-  //       Contact Us
-  //     </Button>
-  //   );
-  // });
+  const navButtonElements = sortedNavLinks.map((link) => {
+    return (
+      <Button key={link.id} color="inherit" component={Link} href={`#${link.anchor}`}>
+        {link.name}
+      </Button>
+    );
+  });
 
   return (
     <ElevationScroll {...others}>
@@ -81,22 +80,9 @@ const InfoPageAppBar = ({ ...others }) => {
               <Logo />
             </Typography>
             <Stack direction="row" sx={{ display: { xs: 'none', sm: 'block' } }} spacing={2}>
-              <Button color="inherit" component={Link} href="https://www.rle.international/?lang=en" target="_blank">
-                RLE International
-              </Button>
-              <Button
-                color="inherit"
-                component={Link}
-                href="https://git.rle.de/Documentation/QualityControl/-/blob/testing-strategy/Documentation/SUMMARY.md"
-                target="_blank"
-              >
-                Documentation
-              </Button>
-              <Button color="inherit" component={Link} href="mailto:luke.bangs@rle.co.uk" target="_blank">
-                Contact Us
-              </Button>
+              {navButtonElements}
               <Button component={Link} href="/landing" disableElevation variant="contained" color="secondary">
-                Begin
+                Begin Browsing
               </Button>
             </Stack>
             <Box sx={{ display: { xs: 'block', sm: 'none' } }}>
@@ -107,40 +93,44 @@ const InfoPageAppBar = ({ ...others }) => {
                 {drawerToggle && (
                   <Box sx={{ width: 'auto' }} role="presentation" onClick={drawerToggler(false)} onKeyDown={drawerToggler(false)}>
                     <List>
-                      <Link style={{ textDecoration: 'none' }} href="https://www.rle.international/?lang=en" target="_blank">
+                      <Link style={{ textDecoration: 'none' }} href="#eventDetails">
                         <ListItemButton component="a">
                           <ListItemIcon>
-                            <IconHome2 />
+                            <IconCalendarEvent />
                           </ListItemIcon>
-                          <ListItemText primary="RLE International" />
+                          <ListItemText primary="Event Details" />
                         </ListItemButton>
                       </Link>
-                      <Link
-                        style={{ textDecoration: 'none' }}
-                        href="https://git.rle.de/Documentation/QualityControl/-/blob/testing-strategy/Documentation/SUMMARY.md"
-                        target="_blank"
-                      >
+                      <Link style={{ textDecoration: 'none' }} href="#itinerary">
                         <ListItemButton component="a">
                           <ListItemIcon>
-                            <IconBook />
+                            <IconCheckupList />
                           </ListItemIcon>
-                          <ListItemText primary="Documentation" />
+                          <ListItemText primary="Itinerary" />
                         </ListItemButton>
                       </Link>
-                      <Link style={{ textDecoration: 'none' }} href="mailto:luke.bangs@rle.co.uk" target="_blank">
+                      <Link style={{ textDecoration: 'none' }} href="#stats">
                         <ListItemButton component="a">
                           <ListItemIcon>
-                            <IconMail />
+                            <IconReportAnalytics />
                           </ListItemIcon>
-                          <ListItemText primary="Contact Us" />
+                          <ListItemText primary="Statistics" />
                         </ListItemButton>
                       </Link>
-                      <Link style={{ textDecoration: 'none' }} href="/landing">
+                      <Link style={{ textDecoration: 'none' }} href="#FAQ">
                         <ListItemButton component="a">
                           <ListItemIcon>
-                            <IconPlayerPlay />
+                            <IconQuestionMark />
                           </ListItemIcon>
-                          <ListItemText primary="Begin" />
+                          <ListItemText primary="FAQ" />
+                        </ListItemButton>
+                      </Link>
+                      <Link style={{ textDecoration: 'none' }} href="#links">
+                        <ListItemButton component="a">
+                          <ListItemIcon>
+                            <IconLink />
+                          </ListItemIcon>
+                          <ListItemText primary="Useful Links" />
                         </ListItemButton>
                       </Link>
                     </List>

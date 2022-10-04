@@ -5,7 +5,7 @@ export default function componentStyleOverrides(theme: Theme, borderRadius: numb
   const mode = theme.palette.mode;
   const bgColor = mode === 'dark' ? theme.palette.dark[800] : theme.palette.grey[50];
   const menuSelectedBack = mode === 'dark' ? theme.palette.secondary.main + 15 : theme.palette.secondary.light;
-  const menuSelected = mode === 'dark' ? theme.palette.secondary.main : theme.palette.secondary.dark;
+  // Const menuSelected = mode === 'dark' ? theme.palette.secondary.main : theme.palette.secondary.dark;
 
   return {
     MuiButton: {

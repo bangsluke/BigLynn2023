@@ -195,11 +195,8 @@ const SPACING = {
 function DYNAMICSPACING(propertyName: string) {
   // A function that returns the dynamic value for a property, given the object name and property name
   // E.g. ThemingS.DYNAMICSPACING("headerHeight") will return 2rem on mobile, or 3rem on desktop
-  const windowSize = useWindowDimensions(); // Retrieve the window dimension (e.g. Mobile)
-  // Console.log("propertyName", propertyName);
-  // Console.log("SPACING[propertyName]", SPACING[propertyName]);
-  // Console.log("SPACING[propertyName][windowSize]", SPACING[propertyName][windowSize]);
-  return SPACING[propertyName][windowSize]; // Return the stored value
+  // Const windowSize = useWindowDimensions(); // Retrieve the window dimension (e.g. Mobile)
+  // Return SPACING[propertyName][windowSize]; // Return the stored value
 }
 
 export interface CSSConfig {
