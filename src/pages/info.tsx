@@ -91,7 +91,7 @@ export default function Info() {
         <Grid container spacing={ThemingS.themeConfig.gridSpacing}>
           <Grid item xs={12}> */}
       <div style={{ minHeight: '500px' }}>
-        <h2>Frequently Asked Questions</h2>
+        <h2 id="FAQ">Frequently Asked Questions</h2>
         <h3>
           A section dedicated to those who didn&#39;t read the above section and of course &#39;Mr Question&#39; himself, Keith Joseph
         </h3>
@@ -103,13 +103,16 @@ export default function Info() {
         <Grid container spacing={ThemingS.themeConfig.gridSpacing}>
           <Grid item xs={12}> */}
       <div style={{ minHeight: '500px' }}>
-        <h2>Stats</h2>
+        <h2 id="stats">Stats</h2>
       </div>
       {/* <Stats /> */}
       {/* </Grid>
         </Grid>
       </MainCard> */}
       {/* <MainCard title="Extra" id="extra"></MainCard> */}
+      <div style={{ minHeight: '500px' }}>
+        <h2 id="links">Links</h2>
+      </div>
 
       <Footer />
     </>
