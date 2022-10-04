@@ -1,6 +1,5 @@
 import { useTheme } from '@mui/material/styles';
 import { Button, Card, Grid, Typography, Link } from '@mui/material';
-import Avatar from 'components/ui/Avatar';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import ThemingS from 'services/ThemingS';
 
