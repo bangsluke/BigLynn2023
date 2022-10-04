@@ -20,7 +20,7 @@ const InfoPageFooter = () => {
   const theme = useTheme();
 
   // Sort the social media links by the id property - https://www.w3schools.com/jsref/jsref_sort.asp & https://www.javascripttutorial.net/array/javascript-sort-an-array-of-objects/
-  const sortedLinks: SocialMediaInfoType[] = SocialMediaInfo.sort(function (a, b) {
+  const sortedLinks = SocialMediaInfo.sort(function (a, b) {
     return a.id - b.id;
   });
 

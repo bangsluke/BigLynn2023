@@ -1,6 +1,6 @@
 import { Container, Grid, Typography } from '@mui/material';
 import ThemingS from 'services/ThemingS';
-import FeatureCard from 'components/ui/FeatureCard';
+// Import FeatureCard from 'components/ui/FeatureCard';
 
 const InfoPageFeatureSection = () => {
   // Sort the features by the id property - https://www.w3schools.com/jsref/jsref_sort.asp & https://www.javascripttutorial.net/array/javascript-sort-an-array-of-objects/
