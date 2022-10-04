@@ -1,28 +1,81 @@
 import { useState, useEffect } from 'react';
 import { CSSProperties } from 'react';
 import { createTheme } from '@mui/material/styles';
+import { PaletteMode } from '@mui/material';
 
-const COLORS = {};
+export type ConfigProps = {
+  fontFamily: string;
+  borderRadius: number;
+  outlinedFilled: boolean;
+  navType: PaletteMode;
+  presetColor: string;
+  locale: string;
+  container: boolean;
+  drawerWidth: number;
+  drawerPadding: string;
+  gridSpacing: number;
+};
+
+const themeConfig: ConfigProps = {
+  fontFamily: `'Roboto', sans-serif`,
+  borderRadius: 8,
+  outlinedFilled: true,
+  navType: 'light', // Light, dark
+  presetColor: 'default', // Default, theme1, theme2, theme3, theme4, theme5, theme6
+  locale: 'de', // 'en' - English, 'fr' - French, 'ro' - Romanian, 'zh' - Chinese
+  container: false,
+  drawerWidth: 260,
+  drawerPadding: '10px',
+  gridSpacing: 2
+};
+
+const COLORS = {
+  // DVP Orange
+  main: '#F25F3A',
+  // DVP Light Orange
+  light: '#FCB8A7',
+  // DVP Lighter Orange
+  lighter: '#FCDFD8',
+  // DVP Light Grey
+  lightbackground: '#E8E8E8',
+  // DVP Dark Grey
+  darkbackground: '9F9F9F#',
+  // White
+  white: '#FFF',
+  // Black
+  black: '#000',
+  // RLE Green
+  secondary: '#00644A'
+};
 
 const toolTheme = createTheme({
   // Define the colours used throughout the tool
   palette: {
     primary: {
-      // Main: COLORS.main,
-      // Light: COLORS.light
+      // DVP Orange
+      main: COLORS.main,
+      // DVP Light Orange
+      light: COLORS.light
     },
     secondary: {
-      // Main: COLORS.secondary
+      // RLE Green
+      main: COLORS.light
+    },
+    info: {
+      // DVP Orange
+      main: COLORS.light,
+      // DVP Lighter Orange
+      light: COLORS.lighter
     },
     background: {
-      // Default: COLORS.lightbackground,
-      // Paper: COLORS.darkbackground
+      // DVP Light Grey
+      default: COLORS.white,
+      paper: COLORS.white
     },
     common: {
-      // Black: COLORS.black,
-      // White: COLORS.white
+      black: COLORS.black,
+      white: COLORS.white
     }
-    // Background: "TBC",
   },
   breakpoints: {
     values: {
@@ -93,7 +146,7 @@ function useWindowDimensions() {
   return windowSize;
 }
 
-const SPACING: any = {
+const SPACING = {
   // Header height
   headerHeight: {
     // Phone: "3rem",
@@ -107,9 +160,17 @@ const SPACING: any = {
   dividerHeightDesktop: '6rem',
   // Logo container height - the height of the container for both header logos
   logoContainerHeight: '6rem',
+  // DVP Logo Width - the DVP Logo width
+  dvpLogoWidth: '11.25rem',
   // Base Company Logo Width - the starting width of the company logo before modification
   baseCompanyLogoWidth: '6rem',
   // The multiplication factor to extend the company logo if required
+  companyLogoWidthModifier: {
+    BON: 1,
+    BMW: 1,
+    FORD: 2,
+    MERCEDES: 1
+  },
   // Navigation height
   navHeight: {
     // Phone: "3rem",
@@ -160,7 +221,8 @@ export const ThemingS = {
   COLORS,
   SPACING,
   toolTheme,
-  DYNAMICSPACING
+  DYNAMICSPACING,
+  themeConfig
 };
 
 export default ThemingS;

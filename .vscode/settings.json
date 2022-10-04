@@ -7,9 +7,11 @@
     "Horiz",
     "Nein",
     "darkbackground",
+    "didn",
+    "eventdetails",
     "geben",
     "lightbackground",
     "mindestens"
   ],
-  "cSpell.words": ["camelcase", "PROTOTYPEBOM", "SSTS"]
+  "cSpell.words": ["camelcase", "Organiser", "PROTOTYPEBOM", "SSTS"]
 }
