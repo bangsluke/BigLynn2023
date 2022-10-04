@@ -1,8 +1,11 @@
 import { useTheme, styled } from '@mui/material/styles';
-import { Container, Grid, Typography } from '@mui/material';
+import { Container, Grid, Typography, Link } from '@mui/material';
 import ThemingS from 'services/ThemingS';
-import SocialMediaInfo from 'data/SocialMediaInfo';
-import SocialMediaCard from 'components/ui/SocialMediaCard';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import LanguageIcon from '@mui/icons-material/Language';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import InstagramIcon from '@mui/icons-material/Instagram';
 
 // Style
 const FooterWrapper = styled('div')(({ theme }) => ({
@@ -16,18 +19,25 @@ const FooterWrapper = styled('div')(({ theme }) => ({
   }
 }));
 
+const FooterLink = styled(Link)({
+  color: '#fff',
+  borderRadius: '8px',
+  display: 'inline-flex',
+  alignItems: 'center',
+  textDecoration: 'none !important',
+  opacity: '0.8',
+  '& svg': {
+    fontsize: '1.125rem',
+    marginRight: 8
+  },
+  '&:hover': {
+    opacity: '1'
+  }
+});
+
 const InfoPageFooter = () => {
   const theme = useTheme();
-
-  // Sort the social media links by the id property - https://www.w3schools.com/jsref/jsref_sort.asp & https://www.javascripttutorial.net/array/javascript-sort-an-array-of-objects/
-  const sortedLinks = SocialMediaInfo.sort(function (a, b) {
-    return a.id - b.id;
-  });
-
-  // Map over the social media links info to create all links.
-  const socialMediaElements = sortedLinks.map((link) => {
-    return <SocialMediaCard key={link.id} iconName={link.iconName} name={link.name} URL={link.URL} />;
-  });
+  const showText = useMediaQuery(theme.breakpoints.up('md'));
 
   return (
     <>
@@ -46,7 +56,30 @@ const InfoPageFooter = () => {
                 spacing={2}
                 sx={{ justifyContent: 'flex-end', [theme.breakpoints.down('md')]: { justifyContent: 'center' } }}
               >
-                {socialMediaElements}
+                <Grid item>
+                  <FooterLink href="https://www.stokebynayland.com/" target="_blank" underline="hover">
+                    <LanguageIcon fontSize={showText ? 'large' : 'small'} />
+                    {showText ? 'Website' : null}
+                  </FooterLink>
+                </Grid>
+                <Grid item>
+                  <FooterLink href="https://www.facebook.com/SbNResort" target="_blank" underline="hover">
+                    <FacebookIcon fontSize={showText ? 'large' : 'small'} />
+                    {showText ? 'Facebook' : null}
+                  </FooterLink>
+                </Grid>
+                <Grid item>
+                  <FooterLink href="https://twitter.com/SbNResort" target="_blank" underline="hover">
+                    <TwitterIcon fontSize={showText ? 'large' : 'small'} />
+                    {showText ? 'Twitter' : null}
+                  </FooterLink>
+                </Grid>
+                <Grid item>
+                  <FooterLink href="https://www.instagram.com/SbNResort/" target="_blank" underline="hover">
+                    <InstagramIcon fontSize={showText ? 'large' : 'small'} />
+                    {showText ? 'Instagram' : null}
+                  </FooterLink>
+                </Grid>
               </Grid>
             </Grid>
           </Grid>
