@@ -5,7 +5,6 @@ import { CssBaseline, StyledEngineProvider } from '@mui/material';
 import { createTheme, ThemeOptions, ThemeProvider, Theme } from '@mui/material/styles';
 
 // Project import
-import useConfig from '../hooks/useConfig';
 import Palette from './palette';
 import Typography from './typography';
 
@@ -13,16 +12,10 @@ import componentStyleOverrides from './compStyleOverride';
 import customShadows from './shadows';
 
 // Assets
-import colors from '../scss/_themes-vars.module.scss';
-// Import theme1 from '../scss/_theme1.module.scss';
-// Import theme2 from '../scss/_theme2.module.scss';
-// Import theme3 from '../scss/_theme3.module.scss';
-// Import theme4 from '../scss/_theme4.module.scss';
-// Import theme5 from '../scss/_theme5.module.scss';
-// Import theme6 from '../scss/_theme6.module.scss';
+// Import colors from '../scss/_themes-vars.module.scss';
 
 // Types
-import { ColorProps } from 'types';
+// Import { ColorProps } from 'types';
 import { CustomShadowProps } from 'types/default-theme';
 import { TypographyOptions } from '@mui/material/styles/createTypography';
 
@@ -31,8 +24,13 @@ interface Props {
 }
 
 export default function ThemeCustomization({ children }: Props) {
-  const config = useConfig();
-  const { borderRadius, fontFamily, navType, outlinedFilled, presetColor, rtlLayout } = useConfig();
+  const fontFamily = `'Roboto', sans-serif`;
+  const rtlLayout = true;
+  const borderRadius = 6;
+  const outlinedFilled = true;
+  const navType = 'light'; // Light, dark
+  const presetColor = 'default'; // Default, theme1, theme2, theme3, theme4, theme5, theme6
+  // Const locale = 'en';
 
   const theme: Theme = useMemo<Theme>(() => Palette(navType, presetColor), [navType, presetColor]);
 
@@ -43,33 +41,33 @@ export default function ThemeCustomization({ children }: Props) {
   );
   const themeCustomShadows: CustomShadowProps = useMemo<CustomShadowProps>(() => customShadows(navType, theme), [navType, theme]);
 
-  let color: ColorProps;
-  switch (config.presetColor) {
-    // Case 'theme1':
-    //   Color = theme1;
-    //   Break;
-    // Case 'theme2':
-    //   Color = theme2;
-    //   Break;
-    // Case 'theme3':
-    //   Color = theme3;
-    //   Break;
-    // Case 'theme4':
-    //   Color = theme4;
-    //   Break;
-    // Case 'theme5':
-    //   Color = theme5;
-    //   Break;
-    // Case 'theme6':
-    //   Color = theme6;
-    //   Break;
-    case 'default':
-    default:
-      color = colors;
-  }
+  // Let color: ColorProps;
+  // Switch (config.presetColor) {
+  //   // Case 'theme1':
+  //   //   Color = theme1;
+  //   //   Break;
+  //   // Case 'theme2':
+  //   //   Color = theme2;
+  //   //   Break;
+  //   // Case 'theme3':
+  //   //   Color = theme3;
+  //   //   Break;
+  //   // Case 'theme4':
+  //   //   Color = theme4;
+  //   //   Break;
+  //   // Case 'theme5':
+  //   //   Color = theme5;
+  //   //   Break;
+  //   // Case 'theme6':
+  //   //   Color = theme6;
+  //   //   Break;
+  //   Case 'default':
+  //   Default:
+  //     Color = colors;
+  // }
 
   const themeOption = {
-    colors: color,
+    // Colors: color,
     heading: '',
     paper: '',
     backgroundDefault: '',
@@ -79,37 +77,37 @@ export default function ThemeCustomization({ children }: Props) {
     textDark: '',
     menuSelected: '',
     menuSelectedBack: '',
-    divider: '',
-    customization: config
+    divider: ''
+    // Customization: config
   };
 
-  switch (config.navType) {
-    case 'dark':
-      themeOption.paper = color.darkLevel2;
-      themeOption.backgroundDefault = color.darkPaper;
-      themeOption.background = color.darkBackground;
-      themeOption.darkTextPrimary = color.darkTextPrimary;
-      themeOption.darkTextSecondary = color.darkTextSecondary;
-      themeOption.textDark = color.darkTextPrimary;
-      themeOption.menuSelected = color.darkSecondaryMain;
-      themeOption.menuSelectedBack = color.darkSecondaryMain + 15;
-      themeOption.divider = color.darkTextPrimary;
-      themeOption.heading = color.darkTextTitle;
-      break;
-    case 'light':
-    default:
-      themeOption.paper = color.paper;
-      themeOption.backgroundDefault = color.paper;
-      themeOption.background = color.primaryLight;
-      themeOption.darkTextPrimary = color.grey700;
-      themeOption.darkTextSecondary = color.grey500;
-      themeOption.textDark = color.grey900;
-      themeOption.menuSelected = color.secondaryDark;
-      themeOption.menuSelectedBack = color.secondaryLight;
-      themeOption.divider = color.grey200;
-      themeOption.heading = color.grey900;
-      break;
-  }
+  // Switch (config.navType) {
+  //   Case 'dark':
+  //     ThemeOption.paper = color.darkLevel2;
+  //     ThemeOption.backgroundDefault = color.darkPaper;
+  //     ThemeOption.background = color.darkBackground;
+  //     ThemeOption.darkTextPrimary = color.darkTextPrimary;
+  //     ThemeOption.darkTextSecondary = color.darkTextSecondary;
+  //     ThemeOption.textDark = color.darkTextPrimary;
+  //     ThemeOption.menuSelected = color.darkSecondaryMain;
+  //     ThemeOption.menuSelectedBack = color.darkSecondaryMain + 15;
+  //     ThemeOption.divider = color.darkTextPrimary;
+  //     ThemeOption.heading = color.darkTextTitle;
+  //     Break;
+  //   Case 'light':
+  //   Default:
+  //     ThemeOption.paper = color.paper;
+  //     ThemeOption.backgroundDefault = color.paper;
+  //     ThemeOption.background = color.primaryLight;
+  //     ThemeOption.darkTextPrimary = color.grey700;
+  //     ThemeOption.darkTextSecondary = color.grey500;
+  //     ThemeOption.textDark = color.grey900;
+  //     ThemeOption.menuSelected = color.secondaryDark;
+  //     ThemeOption.menuSelectedBack = color.secondaryLight;
+  //     ThemeOption.divider = color.grey200;
+  //     ThemeOption.heading = color.grey900;
+  //     Break;
+  // }
 
   const themeOptions: ThemeOptions = useMemo(
     () => ({
