@@ -2,7 +2,7 @@
 import * as Icons from '@mui/icons-material';
 import stringSimilarity from 'string-similarity';
 
-function useIcons(word) {
+function useIcons(word: any) {
   const iconsNames = Object.keys(Icons);
 
   const matches = stringSimilarity.findBestMatch(word, iconsNames);
