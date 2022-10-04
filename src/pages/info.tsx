@@ -72,29 +72,39 @@ export default function Info() {
       {/* <MainCard>
         <Grid container spacing={ThemingS.themeConfig.gridSpacing}>
           <Grid item xs={12}> */}
-      <h2>Welcome to the official website of the Big Lynn 2023.</h2>
+      <div style={{ minHeight: '500px' }}>
+        <h2>Welcome to the official website of the Big Lynn 2023.</h2>
+      </div>
       {/* </Grid>
         </Grid>
       </MainCard> */}
       {/* <MainCard title="Event Details" id="eventdetails">
         <Grid container spacing={ThemingS.themeConfig.gridSpacing}>
           <Grid item xs={12}> */}
-      <h2 id="eventdetails">Event Details</h2>
+      <div style={{ minHeight: '500px' }}>
+        <h2 id="eventdetails">Event Details</h2>
+      </div>
       {/* </Grid>
         </Grid>
       </MainCard> */}
       {/* <MainCard title="FAQ" id="FAQ">
         <Grid container spacing={ThemingS.themeConfig.gridSpacing}>
           <Grid item xs={12}> */}
-      <h2>Frequently Asked Questions</h2>
-      <h3>A section dedicated to those who didn&#39;t read the above section and of course &#39;Mr Question&#39; himself, Keith Joseph</h3>
+      <div style={{ minHeight: '500px' }}>
+        <h2>Frequently Asked Questions</h2>
+        <h3>
+          A section dedicated to those who didn&#39;t read the above section and of course &#39;Mr Question&#39; himself, Keith Joseph
+        </h3>
+      </div>
       {/* </Grid>
         </Grid>
       </MainCard> */}
       {/* <MainCard title="Stats" id="stats">
         <Grid container spacing={ThemingS.themeConfig.gridSpacing}>
           <Grid item xs={12}> */}
-      <h2>Stats</h2>
+      <div style={{ minHeight: '500px' }}>
+        <h2>Stats</h2>
+      </div>
       {/* <Stats /> */}
       {/* </Grid>
         </Grid>
