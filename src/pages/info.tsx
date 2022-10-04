@@ -1,8 +1,8 @@
 import { styled } from '@mui/material/styles';
-import { Grid } from '@mui/material';
-import MainCard from 'components/ui/MainCard';
-import ThemingS from 'services/ThemingS';
-import Stats from 'components/features/stats/stats';
+// Import { Grid } from '@mui/material';
+// Import MainCard from 'components/ui/MainCard';
+// Import ThemingS from 'services/ThemingS';
+// Import Stats from 'components/features/stats/stats';
 // Import InfoPageDemoSection from 'components/features/InfoPageComponents/InfoPageDemoSection';
 // Import InvolvedSection from 'components/features/InfoPageComponents/InvolvedSection';
 
@@ -69,36 +69,37 @@ export default function Info() {
 				<SubscribeSection />
 			</SecondWrapper> */}
 
-      <MainCard>
+      {/* <MainCard>
         <Grid container spacing={ThemingS.themeConfig.gridSpacing}>
-          <Grid item xs={12}>
-            <h2>Welcome to the official website of the Big Lynn 2023.</h2>
-          </Grid>
+          <Grid item xs={12}> */}
+      <h2>Welcome to the official website of the Big Lynn 2023.</h2>
+      {/* </Grid>
         </Grid>
-      </MainCard>
-      <MainCard title="Event Details" id="eventdetails">
+      </MainCard> */}
+      {/* <MainCard title="Event Details" id="eventdetails">
         <Grid container spacing={ThemingS.themeConfig.gridSpacing}>
-          <Grid item xs={12}>
-            <h2>Location</h2>
-          </Grid>
+          <Grid item xs={12}> */}
+      <h2>Location</h2>
+      {/* </Grid>
         </Grid>
-      </MainCard>
-      <MainCard title="FAQ" id="FAQ">
+      </MainCard> */}
+      {/* <MainCard title="FAQ" id="FAQ">
         <Grid container spacing={ThemingS.themeConfig.gridSpacing}>
-          <Grid item xs={12}>
-            <h2>Frequently Asked Questions</h2>
-            <h3>A section dedicated to those who didn't read the above section and of course "Mr Question" himself, Keith Joseph</h3>
-          </Grid>
+          <Grid item xs={12}> */}
+      <h2>Frequently Asked Questions</h2>
+      <h3>A section dedicated to those who didn&#39;t read the above section and of course &#39;Mr Question&#39; himself, Keith Joseph</h3>
+      {/* </Grid>
         </Grid>
-      </MainCard>
-      <MainCard title="Stats" id="stats">
+      </MainCard> */}
+      {/* <MainCard title="Stats" id="stats">
         <Grid container spacing={ThemingS.themeConfig.gridSpacing}>
-          <Grid item xs={12}>
-            {/* <Stats /> */}
-          </Grid>
+          <Grid item xs={12}> */}
+      <h2>Stats</h2>
+      {/* <Stats /> */}
+      {/* </Grid>
         </Grid>
-      </MainCard>
-      <MainCard title="Extra" id="extra"></MainCard>
+      </MainCard> */}
+      {/* <MainCard title="Extra" id="extra"></MainCard> */}
 
       <Footer />
     </>
