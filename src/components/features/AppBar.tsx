@@ -21,6 +21,7 @@ import Logo from 'components/ui/Logo';
 import { IconHome2, IconBook, IconMail, IconPlayerPlay } from '@tabler/icons';
 import MenuIcon from '@mui/icons-material/Menu';
 import NavigationInfo from 'data/NavigationInfo';
+import NavElementWithIcon from 'components/features/NavElementWithIcon';
 
 // Elevation scroll
 interface ElevationScrollProps {
@@ -63,14 +64,18 @@ const InfoPageAppBar = ({ ...others }) => {
   });
 
   // Map over the navigation links info to create all links.
-  // Const socialMediaElements = sortedNavLinks.map((link) => {
-  //   Return (
-  //     // <SocialMediaCard key={link.id} iconName={link.iconName} name={link.name} URL={link.URL} />
-  //     <Button color="inherit" component={Link} href="mailto:luke.bangs@rle.co.uk" target="_blank">
-  //       Contact Us
-  //     </Button>
-  //   );
-  // });
+  const navButtonElements = sortedNavLinks.map((link) => {
+    return (
+      <Button key={link.id} color="inherit" component={Link} href={`#${link.anchor}`}>
+        {link.name}
+      </Button>
+    );
+  });
+
+  // Map over the navigation links info to create all links with icons.
+  const navButtonElementsWithIcons = sortedNavLinks.map((link) => {
+    return <NavElementWithIcon key={link.id} id={link.id} name={link.name} anchor={link.anchor} iconName={link.iconName} />;
+  });
 
   return (
     <ElevationScroll {...others}>
@@ -81,22 +86,9 @@ const InfoPageAppBar = ({ ...others }) => {
               <Logo />
             </Typography>
             <Stack direction="row" sx={{ display: { xs: 'none', sm: 'block' } }} spacing={2}>
-              <Button color="inherit" component={Link} href="https://www.rle.international/?lang=en" target="_blank">
-                RLE International
-              </Button>
-              <Button
-                color="inherit"
-                component={Link}
-                href="https://git.rle.de/Documentation/QualityControl/-/blob/testing-strategy/Documentation/SUMMARY.md"
-                target="_blank"
-              >
-                Documentation
-              </Button>
-              <Button color="inherit" component={Link} href="mailto:luke.bangs@rle.co.uk" target="_blank">
-                Contact Us
-              </Button>
+              {navButtonElements}
               <Button component={Link} href="/landing" disableElevation variant="contained" color="secondary">
-                Begin
+                Begin Browsing
               </Button>
             </Stack>
             <Box sx={{ display: { xs: 'block', sm: 'none' } }}>
@@ -107,6 +99,7 @@ const InfoPageAppBar = ({ ...others }) => {
                 {drawerToggle && (
                   <Box sx={{ width: 'auto' }} role="presentation" onClick={drawerToggler(false)} onKeyDown={drawerToggler(false)}>
                     <List>
+                      {navButtonElementsWithIcons}
                       <Link style={{ textDecoration: 'none' }} href="https://www.rle.international/?lang=en" target="_blank">
                         <ListItemButton component="a">
                           <ListItemIcon>

@@ -79,7 +79,7 @@ export default function Info() {
       {/* <MainCard title="Event Details" id="eventdetails">
         <Grid container spacing={ThemingS.themeConfig.gridSpacing}>
           <Grid item xs={12}> */}
-      <h2>Location</h2>
+      <h2 id="eventdetails">Event Details</h2>
       {/* </Grid>
         </Grid>
       </MainCard> */}
