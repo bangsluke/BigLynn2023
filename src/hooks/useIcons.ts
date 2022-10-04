@@ -2,12 +2,15 @@
 import * as Icons from '@mui/icons-material';
 import stringSimilarity from 'string-similarity';
 
+type IconType = { [index: string]: any };
+
 function useIcons(word: any) {
   const iconsNames = Object.keys(Icons);
 
   const matches = stringSimilarity.findBestMatch(word, iconsNames);
-  const bestMatch = matches.bestMatch.target;
-  const Icon = Icons[bestMatch];
+  const bestMatch: any = matches.bestMatch.target;
+  // @ts-ignore
+  const Icon: IconType = Icons[bestMatch];
   return Icon;
 }
 export default useIcons;

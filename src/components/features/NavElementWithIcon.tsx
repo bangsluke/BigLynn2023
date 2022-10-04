@@ -12,6 +12,7 @@ const NavElementWithIcon = (props: { id: number; name: string; anchor: string; i
     <Link key={id} style={{ textDecoration: 'none' }} href={`#${anchor}`}>
       <ListItemButton component="a">
         <ListItemIcon>
+          {/* @ts-ignore */}
           <MUIIcon fontSize="large" />
         </ListItemIcon>
         <ListItemText primary={name} />
