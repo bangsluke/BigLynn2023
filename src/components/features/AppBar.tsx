@@ -20,6 +20,7 @@ import {
 import Logo from 'components/ui/Logo';
 import { IconHome2, IconBook, IconMail, IconPlayerPlay } from '@tabler/icons';
 import MenuIcon from '@mui/icons-material/Menu';
+import NavigationInfo from 'data/NavigationInfo';
 
 // Elevation scroll
 interface ElevationScrollProps {
@@ -55,6 +56,21 @@ const InfoPageAppBar = ({ ...others }) => {
     }
     setDrawerToggle(open);
   };
+
+  // Sort the navigation links by the id property - https://www.w3schools.com/jsref/jsref_sort.asp & https://www.javascripttutorial.net/array/javascript-sort-an-array-of-objects/
+  const sortedNavLinks = NavigationInfo.sort(function (a, b) {
+    return a.id - b.id;
+  });
+
+  // Map over the navigation links info to create all links.
+  // Const socialMediaElements = sortedNavLinks.map((link) => {
+  //   Return (
+  //     // <SocialMediaCard key={link.id} iconName={link.iconName} name={link.name} URL={link.URL} />
+  //     <Button color="inherit" component={Link} href="mailto:luke.bangs@rle.co.uk" target="_blank">
+  //       Contact Us
+  //     </Button>
+  //   );
+  // });
 
   return (
     <ElevationScroll {...others}>

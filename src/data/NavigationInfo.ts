@@ -14,12 +14,18 @@ const NavigationInfo = [
   },
   {
     id: 3,
+    name: 'Itinerary',
+    anchor: 'itinerary',
+    iconName: 'QueryStatsIcon'
+  },
+  {
+    id: 4,
     name: 'Stats',
     anchor: 'stats',
     iconName: 'QueryStatsIcon'
   },
   {
-    id: 4,
+    id: 5,
     name: 'FAQ',
     anchor: 'FAQ',
     iconName: 'HelpIcon'

@@ -35,8 +35,8 @@ const InfoPageFooter = () => {
         <Container>
           <Grid container alignItems="center" spacing={ThemingS.themeConfig.gridSpacing}>
             <Grid item xs={12} sm={4}>
-              <Typography variant="subtitle2" component="div" color="inherit">
-                &#169; RLE International
+              <Typography variant="h4" component="div" color="inherit">
+                &#169; bangsluke
               </Typography>
             </Grid>
             <Grid item xs={12} sm={8}>
