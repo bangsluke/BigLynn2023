@@ -2,7 +2,7 @@
 // Like '/berry-material-react/react/default'
 export const BASE_PATH = '';
 
-export const DASHBOARD_PATH = '/summary';
+export const DASHBOARD_PATH = '/info';
 
 const config = {
   fontFamily: `'Roboto', sans-serif`,

@@ -22,12 +22,7 @@ module.exports = {
     return [
       {
         source: '/',
-        destination: '/summary',
-        permanent: true
-      },
-      {
-        source: '/login',
-        destination: '/summary',
+        destination: '/info',
         permanent: true
       }
     ];
