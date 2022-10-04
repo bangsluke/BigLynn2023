@@ -18,10 +18,9 @@ import {
   useScrollTrigger
 } from '@mui/material';
 import Logo from 'components/ui/Logo';
-import { IconHome2, IconBook, IconMail, IconPlayerPlay } from '@tabler/icons';
+import { IconCalendarEvent, IconCheckupList, IconReportAnalytics, IconQuestionMark } from '@tabler/icons';
 import MenuIcon from '@mui/icons-material/Menu';
 import NavigationInfo from 'data/NavigationInfo';
-import NavElementWithIcon from 'components/features/NavElementWithIcon';
 
 // Elevation scroll
 interface ElevationScrollProps {
@@ -72,11 +71,6 @@ const InfoPageAppBar = ({ ...others }) => {
     );
   });
 
-  // Map over the navigation links info to create all links with icons.
-  const navButtonElementsWithIcons = sortedNavLinks.map((link) => {
-    return <NavElementWithIcon key={link.id} id={link.id} name={link.name} anchor={link.anchor} iconName={link.iconName} />;
-  });
-
   return (
     <ElevationScroll {...others}>
       <MuiAppBar>
@@ -99,41 +93,36 @@ const InfoPageAppBar = ({ ...others }) => {
                 {drawerToggle && (
                   <Box sx={{ width: 'auto' }} role="presentation" onClick={drawerToggler(false)} onKeyDown={drawerToggler(false)}>
                     <List>
-                      {navButtonElementsWithIcons}
-                      <Link style={{ textDecoration: 'none' }} href="https://www.rle.international/?lang=en" target="_blank">
+                      <Link style={{ textDecoration: 'none' }} href="#eventDetails">
                         <ListItemButton component="a">
                           <ListItemIcon>
-                            <IconHome2 />
+                            <IconCalendarEvent />
                           </ListItemIcon>
-                          <ListItemText primary="RLE International" />
+                          <ListItemText primary="Event Details" />
                         </ListItemButton>
                       </Link>
-                      <Link
-                        style={{ textDecoration: 'none' }}
-                        href="https://git.rle.de/Documentation/QualityControl/-/blob/testing-strategy/Documentation/SUMMARY.md"
-                        target="_blank"
-                      >
+                      <Link style={{ textDecoration: 'none' }} href="#itinerary">
                         <ListItemButton component="a">
                           <ListItemIcon>
-                            <IconBook />
+                            <IconCheckupList />
                           </ListItemIcon>
-                          <ListItemText primary="Documentation" />
+                          <ListItemText primary="Itinerary" />
                         </ListItemButton>
                       </Link>
-                      <Link style={{ textDecoration: 'none' }} href="mailto:luke.bangs@rle.co.uk" target="_blank">
+                      <Link style={{ textDecoration: 'none' }} href="#stats">
                         <ListItemButton component="a">
                           <ListItemIcon>
-                            <IconMail />
+                            <IconReportAnalytics />
                           </ListItemIcon>
-                          <ListItemText primary="Contact Us" />
+                          <ListItemText primary="Statistics" />
                         </ListItemButton>
                       </Link>
-                      <Link style={{ textDecoration: 'none' }} href="/landing">
+                      <Link style={{ textDecoration: 'none' }} href="#FAQ">
                         <ListItemButton component="a">
                           <ListItemIcon>
-                            <IconPlayerPlay />
+                            <IconQuestionMark />
                           </ListItemIcon>
-                          <ListItemText primary="Begin" />
+                          <ListItemText primary="FAQ" />
                         </ListItemButton>
                       </Link>
                     </List>

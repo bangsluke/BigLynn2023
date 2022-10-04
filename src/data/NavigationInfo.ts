@@ -3,32 +3,22 @@ const NavigationInfo = [
   {
     id: 1,
     name: 'Event Details',
-    anchor: 'eventDetails',
-    iconName: 'InfoIcon'
+    anchor: 'eventDetails'
   },
   {
     id: 2,
-    name: 'Location',
-    anchor: 'eventDetails',
-    iconName: 'FacebookIcon'
+    name: 'Itinerary',
+    anchor: 'itinerary'
   },
   {
     id: 3,
-    name: 'Itinerary',
-    anchor: 'itinerary',
-    iconName: 'QueryStatsIcon'
+    name: 'Statistics',
+    anchor: 'stats'
   },
   {
     id: 4,
-    name: 'Stats',
-    anchor: 'stats',
-    iconName: 'QueryStatsIcon'
-  },
-  {
-    id: 5,
     name: 'FAQ',
-    anchor: 'FAQ',
-    iconName: 'HelpIcon'
+    anchor: 'FAQ'
   }
 ];
 
