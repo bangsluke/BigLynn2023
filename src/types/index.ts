@@ -7,28 +7,18 @@ declare module 'react' {
   }
 }
 
-// material-ui
-import { Theme } from '@mui/material/styles';
+// Material-ui
+// Import { Theme } from '@mui/material/styles';
 import { SvgIconTypeMap, SnackbarOrigin, ChipProps, TableCellProps } from '@mui/material';
 
 import { OverridableComponent } from '@mui/material/OverridableComponent';
 
-// project imports
-import { UserProfile } from 'types/user-profile';
+// Project imports
 import { TablerIcon } from '@tabler/icons';
-import { CartStateProps } from './cart';
-import { KanbanStateProps } from './kanban';
-import { CustomerStateProps } from './customer';
-import { ContactStateProps } from './contact';
-import { ProductStateProps } from './product';
-import { ChatStateProps } from './chat';
-import { CalendarStateProps } from './calendar';
-import { MailStateProps } from './mail';
-import { UserStateProps } from './user';
 
-// declare module '@mui/styles/defaultTheme' {
+// Declare module '@mui/styles/defaultTheme' {
 //   // eslint-disable-next-line @typescript-eslint/no-empty-interface
-//   interface DefaultTheme extends Theme {}
+//   Interface DefaultTheme extends Theme {}
 // }
 
 export type ArrangementOrder = 'asc' | 'desc' | undefined;
@@ -130,15 +120,6 @@ export interface ColorPaletteProps {
 
 export interface DefaultRootStateProps {
   snackbar: SnackbarStateProps;
-  cart: CartStateProps;
-  kanban: KanbanStateProps;
-  customer: CustomerStateProps;
-  contact: ContactStateProps;
-  product: ProductStateProps;
-  chat: ChatStateProps;
-  calendar: CalendarStateProps;
-  mail: MailStateProps;
-  user: UserStateProps;
 }
 
 export interface ColorProps {
@@ -164,7 +145,7 @@ export type KeyedObject = {
 export interface InitialLoginContextProps {
   isLoggedIn: boolean;
   isInitialized?: boolean;
-  user?: UserProfile | null | undefined;
+  user?: any;
 }
 
 export interface FormInputProps {

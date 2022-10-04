@@ -5,8 +5,8 @@ import SubCard from 'components/ui/SubCard';
 import Avatar from 'components/ui/Avatar';
 import InstagramIcon from '@mui/icons-material/Instagram';
 
-const FeatureCard = (props: { id: number; iconName: string; title: string; description: string }) => {
-  const { iconName, title, description } = props; // Destructure props
+const FeatureCard = (props: { id: number; title: string; description: string }) => {
+  const { title, description } = props; // Destructure props
   const theme = useTheme();
 
   return (

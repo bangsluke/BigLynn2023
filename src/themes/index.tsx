@@ -16,7 +16,7 @@ import customShadows from './shadows';
 
 // Types
 // Import { ColorProps } from 'types';
-import { CustomShadowProps } from 'types/default-theme';
+// Import { CustomShadowProps } from 'types/default-theme';
 import { TypographyOptions } from '@mui/material/styles/createTypography';
 
 interface Props {
@@ -39,7 +39,7 @@ export default function ThemeCustomization({ children }: Props) {
     () => Typography(theme, borderRadius, fontFamily),
     [theme, borderRadius, fontFamily]
   );
-  const themeCustomShadows: CustomShadowProps = useMemo<CustomShadowProps>(() => customShadows(navType, theme), [navType, theme]);
+  const themeCustomShadows = useMemo(() => customShadows(navType, theme), [navType, theme]);
 
   // Let color: ColorProps;
   // Switch (config.presetColor) {
@@ -66,20 +66,20 @@ export default function ThemeCustomization({ children }: Props) {
   //     Color = colors;
   // }
 
-  const themeOption = {
-    // Colors: color,
-    heading: '',
-    paper: '',
-    backgroundDefault: '',
-    background: '',
-    darkTextPrimary: '',
-    darkTextSecondary: '',
-    textDark: '',
-    menuSelected: '',
-    menuSelectedBack: '',
-    divider: ''
-    // Customization: config
-  };
+  // Const themeOption = {
+  //   // Colors: color,
+  //   Heading: '',
+  //   Paper: '',
+  //   BackgroundDefault: '',
+  //   Background: '',
+  //   DarkTextPrimary: '',
+  //   DarkTextSecondary: '',
+  //   TextDark: '',
+  //   MenuSelected: '',
+  //   MenuSelectedBack: '',
+  //   Divider: ''
+  //   // Customization: config
+  // };
 
   // Switch (config.navType) {
   //   Case 'dark':

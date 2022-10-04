@@ -1,7 +1,6 @@
 import { FC, ReactNode, useMemo } from 'react';
-import { AppBar, Box, Container, CssBaseline, Toolbar, useMediaQuery } from '@mui/material';
+import { AppBar, Box, CssBaseline, Toolbar } from '@mui/material';
 import { styled, Theme, useTheme } from '@mui/material/styles';
-import ThemingS from 'services/ThemingS';
 import Header from 'components/ui/Header';
 
 interface MainStyleProps {

@@ -42,6 +42,16 @@ const ThirdWrapper = styled('div')(({ theme }) => ({
   }
 }));
 
+const AnchorOffset = styled('h2')({
+  '&:before': {
+    display: 'block',
+    content: '""',
+    height: '110px' /* Give height of your fixed element */,
+    marginTop: '-110px' /* Give negative margin of your fixed element */,
+    visibility: 'hidden'
+  }
+});
+
 export default function Info() {
   return (
     <>
@@ -82,7 +92,9 @@ export default function Info() {
         <Grid container spacing={ThemingS.themeConfig.gridSpacing}>
           <Grid item xs={12}> */}
       <div style={{ minHeight: '500px' }}>
-        <h2 id="eventdetails">Event Details</h2>
+        <AnchorOffset id="eventdetails" className="offset">
+          Event Details
+        </AnchorOffset>
       </div>
       {/* </Grid>
         </Grid>
@@ -91,7 +103,9 @@ export default function Info() {
         <Grid container spacing={ThemingS.themeConfig.gridSpacing}>
           <Grid item xs={12}> */}
       <div style={{ minHeight: '500px' }}>
-        <h2 id="FAQ">Frequently Asked Questions</h2>
+        <AnchorOffset id="FAQ" className="offset">
+          Frequently Asked Questions
+        </AnchorOffset>
         <h3>
           A section dedicated to those who didn&#39;t read the above section and of course &#39;Mr Question&#39; himself, Keith Joseph
         </h3>
@@ -103,7 +117,9 @@ export default function Info() {
         <Grid container spacing={ThemingS.themeConfig.gridSpacing}>
           <Grid item xs={12}> */}
       <div style={{ minHeight: '500px' }}>
-        <h2 id="stats">Stats</h2>
+        <AnchorOffset id="stats" className="offset">
+          Stats
+        </AnchorOffset>
       </div>
       {/* <Stats /> */}
       {/* </Grid>
@@ -111,7 +127,9 @@ export default function Info() {
       </MainCard> */}
       {/* <MainCard title="Extra" id="extra"></MainCard> */}
       <div style={{ minHeight: '500px' }}>
-        <h2 id="links">Links</h2>
+        <AnchorOffset id="links" className="offset">
+          Links
+        </AnchorOffset>
       </div>
 
       <Footer />
