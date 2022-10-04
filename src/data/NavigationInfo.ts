@@ -4,7 +4,7 @@ const NavigationInfo = [
     id: 1,
     name: 'Event Details',
     anchor: 'eventDetails',
-    iconName: 'LanguageIcon'
+    iconName: 'InfoIcon'
   },
   {
     id: 2,
@@ -13,16 +13,16 @@ const NavigationInfo = [
     iconName: 'FacebookIcon'
   },
   {
-    id: 2,
+    id: 3,
     name: 'Stats',
     anchor: 'stats',
-    iconName: 'FacebookIcon'
+    iconName: 'QueryStatsIcon'
   },
   {
-    id: 3,
+    id: 4,
     name: 'FAQ',
     anchor: 'FAQ',
-    iconName: 'TwitterIcon'
+    iconName: 'HelpIcon'
   }
 ];
 
