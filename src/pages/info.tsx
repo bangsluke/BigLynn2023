@@ -10,6 +10,7 @@ import { styled } from '@mui/material/styles';
 // Import SubscribeSection from "components/features/InfoPageComponents/Subscribe";
 import AppBar from 'components/features/AppBar';
 import HeaderSection from 'components/features/HeaderSection';
+import StatsSection from 'components/features/StatsSection';
 import Meta from 'components/ui/Meta';
 // Import FeatureSection from 'components/features/FeatureSection';
 // Import TimelineSection from 'components/features/TimelineSection';
@@ -60,24 +61,6 @@ export default function Info() {
         <AppBar />
         <HeaderSection />
       </HeaderWrapper>
-      {/* <SecondWrapper>
-        <FeatureSection />
-      </SecondWrapper> */}
-      {/* <ThirdWrapper>
-        <InfoPageDemoSection />
-      </ThirdWrapper> */}
-      {/* <SecondWrapper>
-        <InvolvedSection toolInfo={ToolInfo.involvedSection} />
-      </SecondWrapper> */}
-      {/* <ThirdWrapper>
-        <TimelineSection />
-      </ThirdWrapper> */}
-      {/* <SecondWrapper>
-				<KeyFeatureSection />
-			</SecondWrapper>
-			<SecondWrapper>
-				<SubscribeSection />
-			</SecondWrapper> */}
 
       {/* <MainCard title="Event Details" id="eventdetails">
         <Grid container spacing={ThemingS.themeConfig.gridSpacing}>
@@ -116,11 +99,12 @@ export default function Info() {
       {/* <MainCard title="Stats" id="stats">
         <Grid container spacing={ThemingS.themeConfig.gridSpacing}>
           <Grid item xs={12}> */}
-      <div style={{ minHeight: '500px' }}>
+
+      <SecondWrapper>
         <AnchorOffset id="statistics" className="offset">
-          Statistics
+          <StatsSection />
         </AnchorOffset>
-      </div>
+      </SecondWrapper>
       {/* <Stats /> */}
       {/* </Grid>
         </Grid>
@@ -146,6 +130,25 @@ export default function Info() {
           Useful Links
         </AnchorOffset>
       </div>
+
+      {/* <SecondWrapper>
+        <FeatureSection />
+      </SecondWrapper> */}
+      {/* <ThirdWrapper>
+        <InfoPageDemoSection />
+      </ThirdWrapper> */}
+      {/* <SecondWrapper>
+        <InvolvedSection toolInfo={ToolInfo.involvedSection} />
+      </SecondWrapper> */}
+      {/* <ThirdWrapper>
+        <TimelineSection />
+      </ThirdWrapper> */}
+      {/* <SecondWrapper>
+				<KeyFeatureSection />
+			</SecondWrapper>
+			<SecondWrapper>
+				<SubscribeSection />
+			</SecondWrapper> */}
 
       <Footer />
     </>
