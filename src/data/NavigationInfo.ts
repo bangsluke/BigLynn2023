@@ -12,13 +12,23 @@ const NavigationInfo = [
   },
   {
     id: 3,
-    name: 'Statistics',
-    anchor: 'stats'
+    name: 'Rules',
+    anchor: 'rules'
   },
   {
     id: 4,
+    name: 'Statistics',
+    anchor: 'statistics'
+  },
+  {
+    id: 5,
     name: 'FAQ',
     anchor: 'FAQ'
+  },
+  {
+    id: 6,
+    name: 'Useful Links',
+    anchor: 'usefulLinks'
   }
 ];
 

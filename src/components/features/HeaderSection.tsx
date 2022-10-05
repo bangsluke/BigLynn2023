@@ -1,6 +1,7 @@
-import { useTheme, styled } from '@mui/material/styles';
-import { Link, Box, Button, Container, Grid, Typography } from '@mui/material';
+import { Box, Button, Container, Grid, Link, Typography } from '@mui/material';
+import { styled, useTheme } from '@mui/material/styles';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import ThemingS from 'services/ThemingS';
 
 // Styles
@@ -86,6 +87,24 @@ const InfoPageHeaderSection = () => {
                 </Typography>
               </motion.div>
             </Grid>
+
+            {/* Hold the header images for mobile */}
+            <Grid item xs={12} sx={{ display: { lg: 'none', md: 'flex' }, textAlign: 'center' }}>
+              {/* <Box sx={{ position: 'relative', mt: 8.75 }}> */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{
+                  type: 'spring',
+                  stiffness: 150,
+                  damping: 30,
+                  delay: 0.6
+                }}
+              >
+                <Image src="/images/Big-Lynn-Logo.svg" alt="Big Lynn Logo" layout="fixed" width="400" height="110" priority />
+              </motion.div>
+              {/* </Box> */}
+            </Grid>
             {/* Hold the summary text */}
             <Grid item xs={12}>
               <motion.div
@@ -141,7 +160,7 @@ const InfoPageHeaderSection = () => {
             </Grid>
           </Grid>
         </Grid>
-        {/* Hold the header images */}
+        {/* Hold the header images for desktop */}
         <Grid item xs={12} md={7} sx={{ display: { xs: 'none', md: 'flex' } }}>
           <Box sx={{ position: 'relative', mt: 8.75 }}>
             <motion.div
