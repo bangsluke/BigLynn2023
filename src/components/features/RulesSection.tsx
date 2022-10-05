@@ -23,7 +23,7 @@ export default function RulesSection() {
               </Typography>
             </Grid>
             <Grid item xs={12}>
-              <Typography variant="body2">The official rules and absurdities this group uses to play 'golf'</Typography>
+              <Typography variant="body2">The official rules and absurdities this group uses to play &#39;golf&#39;</Typography>
             </Grid>
           </Grid>
         </Grid>

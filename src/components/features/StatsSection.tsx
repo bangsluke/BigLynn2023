@@ -1,6 +1,5 @@
 import { Container, Grid, Typography } from '@mui/material';
 import PlayerPointsChartCard from 'components/features/stats/PlayerPointsChartCard';
-import TotalLineChartCard from 'components/ui/TotalLineChartCard';
 import ThemingS from 'services/ThemingS';
 
 export default function StatsSection() {
@@ -39,7 +38,7 @@ export default function StatsSection() {
             <Grid item lg={6} md={6} sm={6} xs={12}>
               <Grid container direction="column" spacing={ThemingS.themeConfig.gridSpacing}>
                 <Grid item lg={12} md={12} sm={12} xs={12}>
-                  <TotalLineChartCard />
+                  {/* <TotalLineChartCard /> */}
                 </Grid>
                 <Grid item lg={12} md={12} sm={12} xs={12}>
                   {/* <BodystyleCard inputData={inputData} setInputData={setInputData} /> */}
