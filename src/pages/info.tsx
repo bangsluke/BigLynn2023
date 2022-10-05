@@ -8,12 +8,19 @@ import { styled } from '@mui/material/styles';
 
 // Import KeyFeatureSection from "components/features/InfoPageComponents/KeyFeatureSection";
 // Import SubscribeSection from "components/features/InfoPageComponents/Subscribe";
-import Meta from 'components/ui/Meta';
+
 import AppBar from 'components/features/AppBar';
 import HeaderSection from 'components/features/HeaderSection';
+import ItinerarySection from 'components/features/ItinerarySection';
+import RulesSection from 'components/features/RulesSection';
+import StatsSection from 'components/features/StatsSection';
+import Meta from 'components/ui/Meta';
 // Import FeatureSection from 'components/features/FeatureSection';
 // Import TimelineSection from 'components/features/TimelineSection';
+import EventDetailsSection from 'components/features/EventDetailsSection';
+import FAQSection from 'components/features/FAQSection';
 import Footer from 'components/features/Footer';
+import UsefulLinksSection from 'components/features/UsefulLinksSection';
 
 const HeaderWrapper = styled('div')(({ theme }) => ({
   // BackgroundColor: "#FFF",
@@ -42,6 +49,15 @@ const ThirdWrapper = styled('div')(({ theme }) => ({
   }
 }));
 
+const FourthWrapper = styled('div')(({ theme }) => ({
+  backgroundColor: theme.palette.secondary.light,
+  borderRadius: '8px',
+  paddingTop: 100,
+  [theme.breakpoints.down('md')]: {
+    paddingTop: 60
+  }
+}));
+
 const AnchorOffset = styled('h2')({
   '&:before': {
     display: 'block',
@@ -60,77 +76,42 @@ export default function Info() {
         <AppBar />
         <HeaderSection />
       </HeaderWrapper>
-      {/* <SecondWrapper>
-        <FeatureSection />
-      </SecondWrapper> */}
-      {/* <ThirdWrapper>
-        <InfoPageDemoSection />
-      </ThirdWrapper> */}
-      {/* <SecondWrapper>
-        <InvolvedSection toolInfo={ToolInfo.involvedSection} />
-      </SecondWrapper> */}
-      {/* <ThirdWrapper>
-        <TimelineSection />
-      </ThirdWrapper> */}
-      {/* <SecondWrapper>
-				<KeyFeatureSection />
-			</SecondWrapper>
-			<SecondWrapper>
-				<SubscribeSection />
-			</SecondWrapper> */}
 
-      {/* <MainCard>
-        <Grid container spacing={ThemingS.themeConfig.gridSpacing}>
-          <Grid item xs={12}> */}
-      <div style={{ minHeight: '500px' }}>
-        <h2>Welcome to the official website of the Big Lynn 2023.</h2>
-      </div>
-      {/* </Grid>
-        </Grid>
-      </MainCard> */}
-      {/* <MainCard title="Event Details" id="eventdetails">
-        <Grid container spacing={ThemingS.themeConfig.gridSpacing}>
-          <Grid item xs={12}> */}
-      <div style={{ minHeight: '500px' }}>
-        <AnchorOffset id="eventdetails" className="offset">
-          Event Details
+      <ThirdWrapper>
+        <AnchorOffset id="eventDetails" className="offset">
+          <EventDetailsSection />
         </AnchorOffset>
-      </div>
-      {/* </Grid>
-        </Grid>
-      </MainCard> */}
-      {/* <MainCard title="FAQ" id="FAQ">
-        <Grid container spacing={ThemingS.themeConfig.gridSpacing}>
-          <Grid item xs={12}> */}
-      <div style={{ minHeight: '500px' }}>
+      </ThirdWrapper>
+
+      <FourthWrapper>
+        <AnchorOffset id="itinerary" className="offset">
+          <ItinerarySection />
+        </AnchorOffset>
+      </FourthWrapper>
+
+      <ThirdWrapper>
+        <AnchorOffset id="rules" className="offset">
+          <RulesSection />
+        </AnchorOffset>
+      </ThirdWrapper>
+
+      <SecondWrapper>
+        <AnchorOffset id="statistics" className="offset">
+          <StatsSection />
+        </AnchorOffset>
+      </SecondWrapper>
+
+      <FourthWrapper>
         <AnchorOffset id="FAQ" className="offset">
-          Frequently Asked Questions
+          <FAQSection />
         </AnchorOffset>
-        <h3>
-          A section dedicated to those who didn&#39;t read the above section and of course &#39;Mr Question&#39; himself, Keith Joseph
-        </h3>
-      </div>
-      {/* </Grid>
-        </Grid>
-      </MainCard> */}
-      {/* <MainCard title="Stats" id="stats">
-        <Grid container spacing={ThemingS.themeConfig.gridSpacing}>
-          <Grid item xs={12}> */}
-      <div style={{ minHeight: '500px' }}>
-        <AnchorOffset id="stats" className="offset">
-          Stats
+      </FourthWrapper>
+
+      <ThirdWrapper>
+        <AnchorOffset id="usefulLinks" className="offset">
+          <UsefulLinksSection />
         </AnchorOffset>
-      </div>
-      {/* <Stats /> */}
-      {/* </Grid>
-        </Grid>
-      </MainCard> */}
-      {/* <MainCard title="Extra" id="extra"></MainCard> */}
-      <div style={{ minHeight: '500px' }}>
-        <AnchorOffset id="links" className="offset">
-          Links
-        </AnchorOffset>
-      </div>
+      </ThirdWrapper>
 
       <Footer />
     </>

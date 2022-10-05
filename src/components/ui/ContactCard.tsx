@@ -1,6 +1,6 @@
-import { useTheme } from '@mui/material/styles';
-import { Button, Card, Grid, Typography, Link } from '@mui/material';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
+import { Button, Card, Grid, Link, Typography } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import ThemingS from 'services/ThemingS';
 
 // Const avatarImage = "/assets/images/users";
@@ -53,7 +53,7 @@ const ContactCard = (props: {
         </Grid>
         <Grid item xs={12}>
           <Typography variant="h3" component="div" textAlign="left">
-            {name}
+            {/* {name} */}
           </Typography>
           <Typography variant="subtitle2" textAlign="left">
             {/* {role} */}
