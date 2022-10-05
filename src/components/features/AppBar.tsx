@@ -1,5 +1,4 @@
-import React, { ReactElement } from 'react';
-import { useTheme } from '@mui/material/styles';
+import MenuIcon from '@mui/icons-material/Menu';
 import {
   AppBar as MuiAppBar,
   Box,
@@ -17,10 +16,11 @@ import {
   Typography,
   useScrollTrigger
 } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import { IconCalendarEvent, IconCheckupList, IconLink, IconQuestionMark, IconReportAnalytics } from '@tabler/icons';
 import Logo from 'components/ui/Logo';
-import { IconCalendarEvent, IconCheckupList, IconReportAnalytics, IconQuestionMark, IconLink } from '@tabler/icons';
-import MenuIcon from '@mui/icons-material/Menu';
 import NavigationInfo from 'data/NavigationInfo';
+import React, { ReactElement } from 'react';
 
 // Elevation scroll
 interface ElevationScrollProps {
@@ -109,7 +109,15 @@ const InfoPageAppBar = ({ ...others }) => {
                           <ListItemText primary="Itinerary" />
                         </ListItemButton>
                       </Link>
-                      <Link style={{ textDecoration: 'none' }} href="#stats">
+                      <Link style={{ textDecoration: 'none' }} href="#rules">
+                        <ListItemButton component="a">
+                          <ListItemIcon>
+                            <IconReportAnalytics />
+                          </ListItemIcon>
+                          <ListItemText primary="Rules" />
+                        </ListItemButton>
+                      </Link>
+                      <Link style={{ textDecoration: 'none' }} href="#statistics">
                         <ListItemButton component="a">
                           <ListItemIcon>
                             <IconReportAnalytics />
@@ -117,6 +125,7 @@ const InfoPageAppBar = ({ ...others }) => {
                           <ListItemText primary="Statistics" />
                         </ListItemButton>
                       </Link>
+
                       <Link style={{ textDecoration: 'none' }} href="#FAQ">
                         <ListItemButton component="a">
                           <ListItemIcon>
@@ -125,7 +134,7 @@ const InfoPageAppBar = ({ ...others }) => {
                           <ListItemText primary="FAQ" />
                         </ListItemButton>
                       </Link>
-                      <Link style={{ textDecoration: 'none' }} href="#links">
+                      <Link style={{ textDecoration: 'none' }} href="#usefulLinks">
                         <ListItemButton component="a">
                           <ListItemIcon>
                             <IconLink />

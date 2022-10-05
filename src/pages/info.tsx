@@ -8,9 +8,9 @@ import { styled } from '@mui/material/styles';
 
 // Import KeyFeatureSection from "components/features/InfoPageComponents/KeyFeatureSection";
 // Import SubscribeSection from "components/features/InfoPageComponents/Subscribe";
-import Meta from 'components/ui/Meta';
 import AppBar from 'components/features/AppBar';
 import HeaderSection from 'components/features/HeaderSection';
+import Meta from 'components/ui/Meta';
 // Import FeatureSection from 'components/features/FeatureSection';
 // Import TimelineSection from 'components/features/TimelineSection';
 import Footer from 'components/features/Footer';
@@ -79,23 +79,49 @@ export default function Info() {
 				<SubscribeSection />
 			</SecondWrapper> */}
 
-      {/* <MainCard>
-        <Grid container spacing={ThemingS.themeConfig.gridSpacing}>
-          <Grid item xs={12}> */}
-      <div style={{ minHeight: '500px' }}>
-        <h2>Welcome to the official website of the Big Lynn 2023.</h2>
-      </div>
-      {/* </Grid>
-        </Grid>
-      </MainCard> */}
       {/* <MainCard title="Event Details" id="eventdetails">
         <Grid container spacing={ThemingS.themeConfig.gridSpacing}>
           <Grid item xs={12}> */}
       <div style={{ minHeight: '500px' }}>
-        <AnchorOffset id="eventdetails" className="offset">
-          Event Details
+        <AnchorOffset id="eventDetails" className="offset">
+          Event Details.
+          <p>Add information such as the course details. Location.</p>
         </AnchorOffset>
       </div>
+      {/* </Grid>
+        </Grid>
+      </MainCard> */}
+      {/* <MainCard title="Itinerary" id="itinerary">
+        <Grid container spacing={ThemingS.themeConfig.gridSpacing}>
+          <Grid item xs={12}> */}
+      <div style={{ minHeight: '500px' }}>
+        <AnchorOffset id="itinerary" className="offset">
+          Itinerary
+        </AnchorOffset>
+      </div>
+      {/* </Grid>
+        </Grid>
+      </MainCard> */}
+      {/* <MainCard title="Rules" id="rules">
+        <Grid container spacing={ThemingS.themeConfig.gridSpacing}>
+          <Grid item xs={12}> */}
+      <div style={{ minHeight: '500px' }}>
+        <AnchorOffset id="rules" className="offset">
+          Rules
+        </AnchorOffset>
+      </div>
+      {/* </Grid>
+        </Grid>
+      </MainCard> */}
+      {/* <MainCard title="Stats" id="stats">
+        <Grid container spacing={ThemingS.themeConfig.gridSpacing}>
+          <Grid item xs={12}> */}
+      <div style={{ minHeight: '500px' }}>
+        <AnchorOffset id="statistics" className="offset">
+          Statistics
+        </AnchorOffset>
+      </div>
+      {/* <Stats /> */}
       {/* </Grid>
         </Grid>
       </MainCard> */}
@@ -107,28 +133,17 @@ export default function Info() {
           Frequently Asked Questions
         </AnchorOffset>
         <h3>
-          A section dedicated to those who didn&#39;t read the above section and of course &#39;Mr Question&#39; himself, Keith Joseph
+          A section dedicated to those who didn&#39;t read the above sections and of course &#39;Mr Question&#39; himself, Keith Joseph
         </h3>
       </div>
       {/* </Grid>
         </Grid>
       </MainCard> */}
-      {/* <MainCard title="Stats" id="stats">
-        <Grid container spacing={ThemingS.themeConfig.gridSpacing}>
-          <Grid item xs={12}> */}
-      <div style={{ minHeight: '500px' }}>
-        <AnchorOffset id="stats" className="offset">
-          Stats
-        </AnchorOffset>
-      </div>
-      {/* <Stats /> */}
-      {/* </Grid>
-        </Grid>
-      </MainCard> */}
+
       {/* <MainCard title="Extra" id="extra"></MainCard> */}
       <div style={{ minHeight: '500px' }}>
-        <AnchorOffset id="links" className="offset">
-          Links
+        <AnchorOffset id="usefulLinks" className="offset">
+          Useful Links
         </AnchorOffset>
       </div>
 
