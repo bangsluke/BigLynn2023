@@ -22,16 +22,6 @@ const AnswerWrapper = styled('p')(({ theme }) => ({
   marginBottom: '50px'
 }));
 
-const LinkWrapper = styled('a')(({ theme }) => ({
-  fontWeight: 200,
-  fontStyle: 'italic',
-  textAlign: 'right',
-  minHeight: '2rem',
-  maxWidth: '100%',
-  borderRadius: '20px',
-  marginBottom: '50px'
-}));
-
 export default function FAQSection() {
   return (
     <Container>

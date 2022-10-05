@@ -1,4 +1,4 @@
-import * as createTheme from '@mui/material/styles';
+import '@mui/material/styles';
 import { customShadows } from 'themes/shadows';
 
 declare module '@mui/material/styles' {
