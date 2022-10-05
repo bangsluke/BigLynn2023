@@ -1,8 +1,17 @@
-import { Container, Grid, Typography } from '@mui/material';
+import { Container, FormControl, Grid, InputLabel, MenuItem, Select, Tooltip, Typography } from '@mui/material';
 import PlayerPointsChartCard from 'components/features/stats/PlayerPointsChartCard';
+import { useState } from 'react';
 import ThemingS from 'services/ThemingS';
 
 export default function StatsSection() {
+  // Define the data needed for the view option
+  const [viewOption, setViewOption] = useState({});
+
+  const viewChange = (event: any) => {
+    let newValue = event.target.value;
+    setViewOption(newValue);
+  };
+
   return (
     <Container>
       <Grid container spacing={ThemingS.themeConfig.gridSpacing}>
@@ -30,9 +39,33 @@ export default function StatsSection() {
         </Grid>
         <Grid item xs={12}>
           <Grid container alignItems="center" justifyContent="space-between" spacing={ThemingS.themeConfig.gridSpacing}>
-            {/* Show the test data as a table */}
+            {/* Hold the dropdown selectors */}
             <Grid item lg={6} md={6} sm={12} xs={12}>
-              {/* <TestDataCard /> */}
+              {/* View Option Dropdown */}
+              <Tooltip title="Select the company to work with" placement="right">
+                <>
+                  {/* Added <> fragment to avoid https://mui.com/material-ui/react-tooltip/#custom-child-element issue */}
+                  <FormControl sx={{ m: 1, minWidth: 200 }} color="primary">
+                    <InputLabel id="demo-simple-select-autowidth-label">View Option</InputLabel>
+                    <Select
+                      labelId="demo-simple-select-autowidth-label"
+                      id="demo-simple-select-autowidth"
+                      value={viewOption}
+                      onChange={viewChange}
+                      autoWidth
+                      label="Select option..."
+                      name="View Option Select"
+                    >
+                      <MenuItem key="1" value="Player Stats">
+                        Player Stats
+                      </MenuItem>
+                      <MenuItem key="2" value="Year Stats">
+                        Year Stats
+                      </MenuItem>
+                    </Select>
+                  </FormControl>
+                </>
+              </Tooltip>
             </Grid>
             {/* Hold the Project Constraints, Bodystyle and Calculation Iterations cards */}
             <Grid item lg={6} md={6} sm={6} xs={12}>
