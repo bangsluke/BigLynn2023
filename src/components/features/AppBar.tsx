@@ -17,7 +17,7 @@ import {
   useScrollTrigger
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import { IconCalendarEvent, IconCheckupList, IconLink, IconQuestionMark, IconReportAnalytics } from '@tabler/icons';
+import { IconCalendarEvent, IconCheckupList, IconLink, IconQuestionMark, IconReportAnalytics, IconRuler2 } from '@tabler/icons';
 import Logo from 'components/ui/Logo';
 import NavigationInfo from 'data/NavigationInfo';
 import React, { ReactElement } from 'react';
@@ -112,7 +112,7 @@ const InfoPageAppBar = ({ ...others }) => {
                       <Link style={{ textDecoration: 'none' }} href="#rules">
                         <ListItemButton component="a">
                           <ListItemIcon>
-                            <IconReportAnalytics />
+                            <IconRuler2 />
                           </ListItemIcon>
                           <ListItemText primary="Rules" />
                         </ListItemButton>
@@ -125,7 +125,6 @@ const InfoPageAppBar = ({ ...others }) => {
                           <ListItemText primary="Statistics" />
                         </ListItemButton>
                       </Link>
-
                       <Link style={{ textDecoration: 'none' }} href="#FAQ">
                         <ListItemButton component="a">
                           <ListItemIcon>
