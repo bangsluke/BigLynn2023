@@ -3,11 +3,11 @@ import PlayerPointsChartCard from 'components/features/stats/PlayerPointsChartCa
 import TotalLineChartCard from 'components/ui/TotalLineChartCard';
 import ThemingS from 'services/ThemingS';
 
-export default function InputsPage() {
+export default function StatsSection() {
   return (
     <Container>
       <Grid container spacing={ThemingS.themeConfig.gridSpacing}>
-        {/* Hold the text */}
+        {/* Hold the section header text*/}
         <Grid item xs={12} lg={5} md={10}>
           <Grid container spacing={2} sx={{ mb: 0 }}>
             <Grid item xs={12}>
@@ -25,7 +25,7 @@ export default function InputsPage() {
               </Typography>
             </Grid>
             <Grid item xs={12}>
-              <Typography variant="body2">All the Big Lynn scores and stats since the birth of the competition.</Typography>
+              <Typography variant="body2">All the Big Lynn scores and stats since the birth of the competition</Typography>
             </Grid>
           </Grid>
         </Grid>
