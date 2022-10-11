@@ -146,7 +146,7 @@ const InfoPageHeaderSection = () => {
               >
                 <Grid container spacing={2} sx={{ justifyContent: { xs: 'center', md: 'flex-start' } }}>
                   <Grid item>
-                    <Button component={Link} href="/landing" target="_blank" size="large" variant="contained" color="secondary">
+                    <Button component={Link} href="#eventDetails" size="large" variant="contained" color="secondary">
                       Begin Browsing
                     </Button>
                   </Grid>
