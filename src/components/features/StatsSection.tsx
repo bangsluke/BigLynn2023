@@ -8,8 +8,7 @@ export default function StatsSection() {
   const [viewOption, setViewOption] = useState({});
 
   const viewChange = (event: any) => {
-    let newValue = event.target.value;
-    setViewOption(newValue);
+    setViewOption(event.target.value);
   };
 
   return (
