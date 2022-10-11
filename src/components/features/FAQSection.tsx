@@ -25,7 +25,7 @@ const AnswerWrapper = styled('p')(({ theme }) => ({
 export default function FAQSection() {
   return (
     <Container>
-      <Grid container spacing={ThemingS.themeConfig.gridSpacing}>
+      <Grid container spacing={ThemingS.themeConfig.gridSpacing} sx={{ height: 'max-content' }}>
         {/* Hold the section header text */}
         <Grid item xs={12} lg={8} md={10}>
           <Grid container spacing={2} sx={{ mb: 0 }}>
@@ -54,7 +54,7 @@ export default function FAQSection() {
         {/* Hold the body information */}
         <Grid item xs={12}>
           <Grid container spacing={2} sx={{ mb: 0 }}>
-            <Grid item xs={12} sx={{ height: '400px' }}>
+            <Grid item xs={12}>
               <QuestionWrapper>What&#39;s on the Menu?</QuestionWrapper>
               <AnswerWrapper>(Provide link to menu if available) here you go. I hear the salmon is particularly good…</AnswerWrapper>
               <QuestionWrapper>Will there be a sauna?</QuestionWrapper>
