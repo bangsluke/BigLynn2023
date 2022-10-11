@@ -24,6 +24,11 @@ module.exports = {
         source: '/',
         destination: '/info',
         permanent: true
+      },
+      {
+        source: '/login',
+        destination: '/info',
+        permanent: true
       }
     ];
   },
