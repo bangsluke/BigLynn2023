@@ -1,7 +1,29 @@
 import { Container, Grid, Typography } from '@mui/material';
+import LinkCard from 'components/ui/LinkCard';
+import LinksData from 'data/LinksData';
 import ThemingS from 'services/ThemingS';
+import { LinkData } from 'types/index';
 
 export default function UsefulLinksSection() {
+  // Sort the links by the id property - https://www.w3schools.com/jsref/jsref_sort.asp & https://www.javascripttutorial.net/array/javascript-sort-an-array-of-objects/
+  const sortedLinks: LinkData[] = LinksData.sort(function (a, b) {
+    return a.id - b.id;
+  });
+
+  // Map over the links info to create all link cards.
+  const linkElements = sortedLinks.map((link) => {
+    return (
+      <LinkCard
+        id={link.id}
+        key={link.id}
+        iconName={link.iconName}
+        title={link.title}
+        description={link.description}
+        linkURL={link.linkURL}
+      />
+    );
+  });
+
   return (
     <Container>
       <Grid container spacing={ThemingS.themeConfig.gridSpacing}>
@@ -28,11 +50,9 @@ export default function UsefulLinksSection() {
           </Grid>
         </Grid>
         {/* Hold the body information */}
-        <Grid item xs={12}>
-          <Grid container spacing={2} sx={{ mb: 0 }}>
-            <Grid item xs={12} sx={{ height: '400px' }}>
-              Useful links
-            </Grid>
+        <Grid item xs={12} sx={{ mb: 5 }}>
+          <Grid container justifyContent="center" spacing={ThemingS.themeConfig.gridSpacing} sx={{ textAlign: 'center' }}>
+            {linkElements}
           </Grid>
         </Grid>
       </Grid>
