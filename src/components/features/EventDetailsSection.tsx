@@ -40,12 +40,13 @@ export default function EventDetailsSection() {
           </Grid>
         </Grid>
         {/* Hold the body information */}
-        <Grid item xs={12}>
-          <Grid container spacing={2} sx={{ mb: 0 }}>
-            <Grid item xs={12} sx={{ height: '400px' }}>
+        <Grid item xs={12} sx={{ height: 'max-content', mb: 0 }}>
+          <Grid container spacing={2}>
+            <Grid item xs={12} sx={{ height: 'max-content' }}>
               Event Details text
             </Grid>
 
+            {/* Map and Directions */}
             <Grid item xs={12} sx={{ height: 'max-content' }}>
               Map
               {/* Add an iframe holding a map to Chelmsford. */}
@@ -62,6 +63,65 @@ export default function EventDetailsSection() {
                   ></iframe>
                 </figure>
               </MapBoxWrapper>
+            </Grid>
+
+            {/* Course Information */}
+            <Grid item xs={12} sx={{ height: 'max-content' }}>
+              Golf Course Detail
+              <Typography variant="body1" component="div">
+                Created in the early 70s both the Gainsborough and Constable golf courses are well-established amongst lakes and mature
+                trees. The designs skilfully incorporate the inherent natural beauty of the land.
+              </Typography>
+            </Grid>
+
+            <Grid item xs={12} sx={{ height: 'max-content' }}>
+              <Typography variant="h3" component="div">
+                Gainsborough
+              </Typography>
+              <Typography variant="h4" component="div">
+                Description
+              </Typography>
+              <Typography variant="body1" component="div">
+                The Gainsborough course measures over 7,000 yards with a Par of 71. The undulating terrain and four substantial lakes
+                challenge the skills of golfers of all abilities. The 10th requires a drive and second shot over the same lake, when played
+                from the back tee, and has been voted one of the most outstanding holes in East Anglia by the Professional Golf Association
+                (PGA).
+              </Typography>
+              <Typography variant="h4" component="div">
+                Course Facts
+              </Typography>
+              <Typography variant="body1" component="div">
+                <ul>The amateur course record from the white tees is 63</ul>
+                <ul>In competitions during 2017, the 10th hole has only recorded 4 birdies</ul>
+                <ul>The 10th hole is the hardest on the course, with an average score score 5.77 for men and 6.64 for ladies</ul>
+                <ul>The Gainsborough is 7,098 yards from the black tees and 6,321 yards from the white tees</ul>
+              </Typography>
+            </Grid>
+
+            <Grid item xs={12} sx={{ height: 'max-content' }}>
+              <Typography variant="h3" component="div">
+                Constable
+              </Typography>
+              <Typography variant="h4" component="div">
+                Description
+              </Typography>
+              <Typography variant="body1" component="div">
+                The Constable course is also set amongst wooded plantations with several natural water hazards in peaceful countryside. It
+                measures 6,544 yards with a Par of 72, and, as with the Gainsborough, the final hole presents a formidable drive over one of
+                the large lakes, to a plateau green with the Sports Bar beckoning beyond.
+              </Typography>
+              <Typography variant="h4" component="div">
+                Course Facts
+              </Typography>
+              <Typography variant="body1" component="div">
+                <ul>The amateur course record from the white tees is 70</ul>
+                <ul>In competitions during 2017, the 18th hole has only recorded 3 birdies</ul>
+                <ul>
+                  The 14th hole is the hardest for men with average score 5.27, and the 3rd hole is the hardest for ladies with an average
+                  score of 6.14
+                </ul>
+                <ul>The Constable course is 6,477 yards from the white tees</ul>
+              </Typography>
             </Grid>
           </Grid>
         </Grid>
