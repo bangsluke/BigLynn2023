@@ -9,7 +9,7 @@ declare module 'react' {
 
 // Material-ui
 // Import { Theme } from '@mui/material/styles';
-import { SvgIconTypeMap, SnackbarOrigin, ChipProps, TableCellProps } from '@mui/material';
+import { ChipProps, SnackbarOrigin, SvgIconTypeMap, TableCellProps } from '@mui/material';
 
 import { OverridableComponent } from '@mui/material/OverridableComponent';
 
@@ -170,3 +170,11 @@ export type StringBoolFunc = (s: string) => boolean;
 export type StringNumFunc = (s: string) => number;
 export type NumbColorFunc = (n: number) => StringColorProps | undefined;
 export type ChangeEventFunc = (e: React.ChangeEvent<HTMLInputElement>) => void;
+
+export interface LinkData {
+  id: number;
+  iconName: string;
+  title: string;
+  description: string;
+  linkURL: string;
+}
