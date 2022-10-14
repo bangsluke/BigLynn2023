@@ -9,7 +9,7 @@ const LinkCard = (props: { id: number; iconName: string; title: string; descript
   const { iconName, title, description, linkURL } = props; // Destructure props
   const theme = useTheme();
 
-  console.log(linkURL);
+  // Console.log(linkURL);
 
   // Dynamically import the MUI Icon - https://stackoverflow.com/a/66828783
   const MUIIcon = useIcons(iconName);
