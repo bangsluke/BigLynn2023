@@ -30,7 +30,7 @@ export default function ItinerarySection() {
         {/* Hold the body information */}
         <Grid item xs={12} sx={{ height: '400px', mb: 0 }}>
           <Typography variant="body1" component="div">
-            Itinerary text - 2 nights' dinner, bed & breakfast at the Stoke by Nayland Hotel, Golf & Spa and 3 rounds of golf (2 on
+            Itinerary text - 2 nights&#39; dinner, bed & breakfast at the Stoke by Nayland Hotel, Golf & Spa and 3 rounds of golf (2 on
             Gainsborough Course, 1 on Constable Course)
             <ul>• At 12:40 18 holes on Gainsborough Course (Sat 15 Jul 2023)</ul>
             <ul>• From 15:00 Check-in at Stoke by Nayland Hotel, Golf & Spa for 2 nights (Golf Deluxe Twin room) (Sat 15 Jul 2023) </ul>
