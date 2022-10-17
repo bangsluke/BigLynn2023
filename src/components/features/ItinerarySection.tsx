@@ -11,7 +11,7 @@ export default function ItinerarySection() {
   }, []);
 
   return (
-    <Container data-aos="fade-left" data-aos-duration="3000">
+    <Container>
       <Grid container spacing={ThemingS.themeConfig.gridSpacing}>
         {/* Hold the section header text */}
         <Grid item xs={12} lg={5} md={10}>

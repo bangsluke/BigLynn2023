@@ -5,18 +5,19 @@ import { styled } from '@mui/material/styles';
 // Import Stats from 'components/features/stats/stats';
 // Import InfoPageDemoSection from 'components/features/InfoPageComponents/InfoPageDemoSection';
 // Import InvolvedSection from 'components/features/InfoPageComponents/InvolvedSection';
-
 // Import KeyFeatureSection from "components/features/InfoPageComponents/KeyFeatureSection";
 // Import SubscribeSection from "components/features/InfoPageComponents/Subscribe";
-
 import AppBar from 'components/features/AppBar';
 import HeaderSection from 'components/features/HeaderSection';
 import ItinerarySection from 'components/features/ItinerarySection';
 import RulesSection from 'components/features/RulesSection';
 import StatsSection from 'components/features/StatsSection';
 import Meta from 'components/ui/Meta';
+import { useEffect } from 'react';
 // Import FeatureSection from 'components/features/FeatureSection';
 // Import TimelineSection from 'components/features/TimelineSection';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
 import EventDetailsSection from 'components/features/EventDetailsSection';
 import FAQSection from 'components/features/FAQSection';
 import Footer from 'components/features/Footer';
@@ -69,6 +70,11 @@ const AnchorOffset = styled('h2')({
 });
 
 export default function Info() {
+  useEffect(() => {
+    AOS.init({ duration: 1200 });
+    AOS.refresh();
+  }, []);
+
   return (
     <>
       <Meta title="Big Lynn 2023" description="The official website of the 2023 Big Lynn Competition." />
@@ -79,13 +85,13 @@ export default function Info() {
 
       <ThirdWrapper>
         <AnchorOffset id="eventDetails" className="offset">
-          <EventDetailsSection />
+          <EventDetailsSection data-aos="fade-right" data-aos-duration="3000" />
         </AnchorOffset>
       </ThirdWrapper>
 
       <FourthWrapper>
         <AnchorOffset id="itinerary" className="offset">
-          <ItinerarySection />
+          <ItinerarySection data-aos="fade-left" data-aos-duration="3000" />
         </AnchorOffset>
       </FourthWrapper>
 
