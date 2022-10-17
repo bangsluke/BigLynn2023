@@ -15,10 +15,10 @@ const LinkCard = (props: { id: number; iconName: string; title: string; descript
   const MUIIcon = useIcons(iconName);
 
   return (
-    <Grid item md={4} sm={6}>
+    <Grid item xs={6} sm={6} md={4} lg={4} xl={3}>
       <FadeInWhenVisible>
         <a target="_blank" href={linkURL} rel="noopener noreferrer">
-          <SubCard sx={{ minHeight: '16rem' }}>
+          <SubCard sx={{ minHeight: { xs: '22rem', sm: '16rem', md: 10 } }}>
             <Grid container justifyContent="center" spacing={2}>
               {/* Link icon */}
               <Grid item>
@@ -35,7 +35,7 @@ const LinkCard = (props: { id: number; iconName: string; title: string; descript
               </Grid>
               {/* Link title */}
               <Grid item xs={12}>
-                <Typography variant="h3">{title}</Typography>
+                <Typography variant="h4">{title}</Typography>
               </Grid>
               {/* Link description */}
               <Grid item xs={12}>
