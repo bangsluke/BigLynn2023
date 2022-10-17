@@ -32,6 +32,7 @@
     "@mui/x-date-pickers": "^5.0.0-alpha.3",
     "@reduxjs/toolkit": "^1.8.2",
     "@tabler/icons": "^1.68.0",
+    "@types/aos": "^3.0.4",
     "@types/jest": "^29.1.1",
     "@types/string-similarity": "^4.0.0",
     "amazon-cognito-identity-js": "^5.2.9",
