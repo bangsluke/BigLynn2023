@@ -51,7 +51,7 @@ const InfoPageHeaderSection = () => {
         alignItems="center"
         justifyContent="space-between"
         spacing={ThemingS.themeConfig.gridSpacing}
-        sx={{ mt: { xs: 10, sm: 6, md: 10 }, mb: { xs: 2.5, md: 10 }, backgroundColor: 'null' }}
+        sx={{ mt: { xs: 4, sm: 6, md: 10 }, mb: { xs: 4, md: 10 }, backgroundColor: 'null' }}
       >
         {/* Hold the header text */}
         <Grid item xs={12} md={5} sx={{ backgroundColor: 'null' }}>
@@ -74,7 +74,7 @@ const InfoPageHeaderSection = () => {
                 <Typography
                   variant="h1"
                   sx={{
-                    fontSize: { xs: '2.25rem', sm: '3rem', md: '4rem' },
+                    fontSize: { xs: '2rem', sm: '3rem', md: '4rem' },
                     fontWeight: 900,
                     lineHeight: 1.2,
                     textAlign: 'left'
@@ -101,7 +101,7 @@ const InfoPageHeaderSection = () => {
                   delay: 0.6
                 }}
               >
-                <Image src="/images/Big-Lynn-Logo.svg" alt="Big Lynn Logo" layout="fixed" width="400" height="110" priority />
+                <Image src="/images/2022-Lineup-No-Background.png" alt="2022 Lineup" layout="fixed" width="400" height="280" priority />
               </motion.div>
               {/* </Box> */}
             </Grid>
