@@ -50,7 +50,7 @@ export default function EventDetailsSection() {
             <Grid item xs={12} sx={{ height: 'max-content' }}>
               Map
               {/* Add an iframe holding a map to Chelmsford. */}
-              <MapBoxWrapper data-mapbox>
+              <MapBoxWrapper data-mapbox sx={{ height: { xs: '20rem', sm: '25rem', md: '30rem' } }}>
                 <figure style={{ height: '100%' }}>
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2456.5011337624255!2d0.8636819159960039!3d51.997745682552775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d900b5862e7357%3A0xad04129065912290!2sStoke%20by%20Nayland%20Resort!5e0!3m2!1sen!2suk!4v1665517714971!5m2!1sen!2suk"
