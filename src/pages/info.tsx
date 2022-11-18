@@ -24,102 +24,102 @@ import Footer from 'components/features/Footer';
 import UsefulLinksSection from 'components/features/UsefulLinksSection';
 
 const HeaderWrapper = styled('div')(({ theme }) => ({
-  // BackgroundColor: "#FFF",
-  borderRadius: '8px',
-  overflowX: 'hidden',
-  overflowY: 'clip',
-  [theme.breakpoints.down('md')]: {
-    paddingTop: 42
-  }
+	// BackgroundColor: "#FFF",
+	borderRadius: '8px',
+	overflowX: 'hidden',
+	overflowY: 'clip',
+	[theme.breakpoints.down('md')]: {
+		paddingTop: 42
+	}
 }));
 
 const SecondWrapper = styled('div')(({ theme }) => ({
-  paddingTop: 100,
-  borderRadius: '8px',
-  [theme.breakpoints.down('md')]: {
-    paddingTop: 60
-  }
+	paddingTop: 100,
+	borderRadius: '8px',
+	[theme.breakpoints.down('md')]: {
+		paddingTop: 60
+	}
 }));
 
 const ThirdWrapper = styled('div')(({ theme }) => ({
-  backgroundColor: '#FFF',
-  borderRadius: '8px',
-  paddingTop: 100,
-  [theme.breakpoints.down('md')]: {
-    paddingTop: 60
-  }
+	backgroundColor: '#FFF',
+	borderRadius: '8px',
+	paddingTop: 100,
+	[theme.breakpoints.down('md')]: {
+		paddingTop: 60
+	}
 }));
 
 const FourthWrapper = styled('div')(({ theme }) => ({
-  backgroundColor: theme.palette.secondary.light,
-  borderRadius: '8px',
-  paddingTop: 100,
-  [theme.breakpoints.down('md')]: {
-    paddingTop: 60
-  }
+	backgroundColor: theme.palette.secondary.light,
+	borderRadius: '8px',
+	paddingTop: 100,
+	[theme.breakpoints.down('md')]: {
+		paddingTop: 60
+	}
 }));
 
 const AnchorOffset = styled('h2')({
-  '&:before': {
-    display: 'block',
-    content: '""',
-    height: '110px' /* Give height of your fixed element */,
-    marginTop: '-110px' /* Give negative margin of your fixed element */,
-    visibility: 'hidden'
-  }
+	'&:before': {
+		display: 'block',
+		content: '""',
+		height: '110px' /* Give height of your fixed element */,
+		marginTop: '-110px' /* Give negative margin of your fixed element */,
+		visibility: 'hidden'
+	}
 });
 
 export default function Info() {
-  useEffect(() => {
-    AOS.init({ duration: 1200 });
-    AOS.refresh();
-  }, []);
+	useEffect(() => {
+		AOS.init({ duration: 1200 });
+		AOS.refresh();
+	}, []);
 
-  return (
-    <>
-      <Meta title="Big Lynn 2023" description="The official website of the 2023 Big Lynn Competition." />
-      <HeaderWrapper id="home">
-        <AppBar />
-        <HeaderSection />
-      </HeaderWrapper>
+	return (
+		<>
+			<Meta title='Big Lynn 2023' description='The official website of the 2023 Big Lynn Competition.' />
+			<HeaderWrapper id='home'>
+				<AppBar />
+				<HeaderSection />
+			</HeaderWrapper>
 
-      <ThirdWrapper>
-        <AnchorOffset id="eventDetails" className="offset">
-          <EventDetailsSection data-aos="fade-right" data-aos-duration="3000" />
-        </AnchorOffset>
-      </ThirdWrapper>
+			<ThirdWrapper>
+				<AnchorOffset id='eventDetails' className='offset'>
+					<EventDetailsSection data-aos='fade-right' data-aos-duration='3000' />
+				</AnchorOffset>
+			</ThirdWrapper>
 
-      <FourthWrapper>
-        <AnchorOffset id="itinerary" className="offset">
-          <ItinerarySection data-aos="fade-left" data-aos-duration="3000" />
-        </AnchorOffset>
-      </FourthWrapper>
+			<FourthWrapper>
+				<AnchorOffset id='itinerary' className='offset'>
+					<ItinerarySection data-aos='fade-left' data-aos-duration='3000' />
+				</AnchorOffset>
+			</FourthWrapper>
 
-      <ThirdWrapper>
-        <AnchorOffset id="rules" className="offset">
-          <RulesSection />
-        </AnchorOffset>
-      </ThirdWrapper>
+			<ThirdWrapper>
+				<AnchorOffset id='rules' className='offset'>
+					<RulesSection />
+				</AnchorOffset>
+			</ThirdWrapper>
 
-      <SecondWrapper>
-        <AnchorOffset id="statistics" className="offset">
-          <StatsSection />
-        </AnchorOffset>
-      </SecondWrapper>
+			<SecondWrapper>
+				<AnchorOffset id='statistics' className='offset'>
+					<StatsSection />
+				</AnchorOffset>
+			</SecondWrapper>
 
-      <FourthWrapper>
-        <AnchorOffset id="FAQ" className="offset">
-          <FAQSection />
-        </AnchorOffset>
-      </FourthWrapper>
+			<FourthWrapper>
+				<AnchorOffset id='FAQ' className='offset'>
+					<FAQSection />
+				</AnchorOffset>
+			</FourthWrapper>
 
-      <ThirdWrapper>
-        <AnchorOffset id="usefulLinks" className="offset">
-          <UsefulLinksSection />
-        </AnchorOffset>
-      </ThirdWrapper>
+			<ThirdWrapper>
+				<AnchorOffset id='usefulLinks' className='offset'>
+					<UsefulLinksSection />
+				</AnchorOffset>
+			</ThirdWrapper>
 
-      <Footer />
-    </>
-  );
+			<Footer />
+		</>
+	);
 }
