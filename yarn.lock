@@ -1710,6 +1710,11 @@
     "@typescript-eslint/types" "5.36.2"
     eslint-visitor-keys "^3.3.0"
 
+"@xata.io/client@^0.21.0":
+  version "0.21.0"
+  resolved "https://registry.yarnpkg.com/@xata.io/client/-/client-0.21.0.tgz#6a8ccca46f0d6630592c3a73e21b862e4137ed23"
+  integrity sha512-0fMF66nECWg6MTstEsP9aE3GQxNYJu7gloAbwUAY58gWcCZnWjxHhueoAc+eUZxLsb7kvG3VM3M8LGnXsK+Wag==
+
 a11y-focus-store@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/a11y-focus-store/-/a11y-focus-store-1.0.0.tgz#ae52561cb86ae6c2904c1a4abf2e5820bf5305b0"

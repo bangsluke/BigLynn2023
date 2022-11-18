@@ -1,7 +1,10 @@
-import { Container, FormControl, Grid, InputLabel, MenuItem, Select, Tooltip, Typography } from '@mui/material';
-import PlayerPointsChartCard from 'components/features/stats/PlayerPointsChartCard';
-import { useState } from 'react';
-import ThemingS from 'services/ThemingS';
+import { Container, FormControl, Grid, InputLabel, MenuItem, Select, Tooltip, Typography } from "@mui/material";
+import PlayerPointsChartCard from "components/features/stats/PlayerPointsChartCard";
+import { useState } from "react";
+import ThemingS from "services/ThemingS";
+import { getXataClient, XataClient } from "../../../util/xata";
+
+const xata = getXataClient();
 
 export default function StatsSection() {
 	// Define the data needed for the view option
@@ -10,6 +13,11 @@ export default function StatsSection() {
 	const viewChange = (event: any) => {
 		setViewOption(event.target.value);
 	};
+
+	const records = await xata.db.Players.sort("Name", "asc").getAll();
+
+	console.log(records);
+	new XataClient();
 
 	return (
 		<Container>
@@ -21,14 +29,14 @@ export default function StatsSection() {
 							<Grid container spacing={1}>
 								<Grid item>
 									<Typography variant='h5' color='primary'>
-                    Statistics
+										Statistics
 									</Typography>
 								</Grid>
 							</Grid>
 						</Grid>
 						<Grid item xs={12}>
 							<Typography variant='h2' component='div'>
-                The Martin Bangs Collection
+								The Martin Bangs Collection
 							</Typography>
 						</Grid>
 						<Grid item xs={12}>
@@ -55,10 +63,10 @@ export default function StatsSection() {
 											label='Select option...'
 											name='View Option Select'>
 											<MenuItem key='1' value='Player Stats'>
-                        Player Stats
+												Player Stats
 											</MenuItem>
 											<MenuItem key='2' value='Year Stats'>
-                        Year Stats
+												Year Stats
 											</MenuItem>
 										</Select>
 									</FormControl>
