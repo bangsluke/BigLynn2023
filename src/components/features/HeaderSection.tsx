@@ -5,6 +5,8 @@ import Image from 'next/image';
 import ThemingS from 'services/ThemingS';
 
 // Styles
+
+// Style the background golf course image
 const HeaderImage = styled('img')(({ theme }) => ({
   maxWidth: '100%',
   borderRadius: '20px',
@@ -16,6 +18,7 @@ const HeaderImage = styled('img')(({ theme }) => ({
   }
 }));
 
+// Style the moving image
 const HeaderAnimationImage = styled('img')(({ theme }) => ({
   maxWidth: '100%',
   borderRadius: '20px',
@@ -28,7 +31,7 @@ const HeaderAnimationImage = styled('img')(({ theme }) => ({
   animation: '5s wings ease-in-out infinite',
   transition: '0.5s',
   '&:hover': {
-    transform: 'rotate(0deg) skew(0deg) scale(0.5) translate(20px, -120px)'
+    transform: 'rotate(0deg) skew(0deg) scale(0.3) translate(20px, -120px)'
   },
   '&:after': {
     backgroundColor: 'red',
@@ -53,7 +56,7 @@ const InfoPageHeaderSection = () => {
         spacing={ThemingS.themeConfig.gridSpacing}
         sx={{ mt: { xs: 4, sm: 6, md: 10 }, mb: { xs: 4, md: 10 }, backgroundColor: 'null' }}
       >
-        {/* Hold the header text */}
+        {/* Hold the header text and images for mobile */}
         <Grid item xs={12} md={5} sx={{ backgroundColor: 'null' }}>
           <Grid
             container
@@ -87,7 +90,6 @@ const InfoPageHeaderSection = () => {
                 </Typography>
               </motion.div>
             </Grid>
-
             {/* Hold the header images for mobile */}
             <Grid item xs={12} sx={{ display: { lg: 'none', md: 'flex' }, textAlign: 'center' }}>
               {/* <Box sx={{ position: 'relative', mt: 8.75 }}> */}
@@ -162,6 +164,7 @@ const InfoPageHeaderSection = () => {
         </Grid>
         {/* Hold the header images for desktop */}
         <Grid item xs={12} md={7} sx={{ display: { xs: 'none', md: 'flex' } }}>
+          {/* Hold the golf course image behind */}
           <Box sx={{ position: 'relative', mt: 8.75 }}>
             <motion.div
               initial={{ opacity: 0, scale: 0 }}
@@ -176,11 +179,12 @@ const InfoPageHeaderSection = () => {
               <HeaderImage src={'/images/Gainsborough-Course.jpg'} alt="Gainsborough Course" />
             </motion.div>
           </Box>
+          {/* Hold the movable image of the people lineup */}
           <Box
             sx={{
               position: 'absolute',
-              mt: 8.75,
               animation: '10s slideY linear infinite'
+              // BackgroundColor: 'red'
             }}
           >
             <motion.div
