@@ -2,11 +2,8 @@ import { Container, FormControl, Grid, InputLabel, MenuItem, Select, Tooltip, Ty
 import PlayerPointsChartCard from "components/features/stats/PlayerPointsChartCard";
 import { useState } from "react";
 import ThemingS from "services/ThemingS";
-import { getXataClient, XataClient } from "../../../util/xata";
 
-const xata = getXataClient();
-
-export default function StatsSection() {
+const StatsSection = () => {
 	// Define the data needed for the view option
 	const [viewOption, setViewOption] = useState({});
 
@@ -14,10 +11,22 @@ export default function StatsSection() {
 		setViewOption(event.target.value);
 	};
 
-	const records = await xata.db.Players.sort("Name", "asc").getAll();
+	const options = {
+		method: "POST",
+		headers: {
+			Authorization:
+				"Bearer eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL3hhdGEuaW8iLCJzdWIiOiJ1c3JfOGY3NnRmYjRvbDVrOTQ3MnAyOWVvM2ZkNTgiLCJleHAiOjE2Njg3ODg2MDcsImlhdCI6MTY2ODc4NzcwNywid29ya3NwYWNlcyI6eyJhc2p0a2QiOnsicm9sZSI6Im93bmVyIn19fQ.dimebbFH5VSegcnmjdmG2c-c61mIDulQdpj4OdhN0RRQGTsCICDlpbYpz8J9auCSiQA-SVLqDf22ni_6k60oDg",
+			"Content-Type": "application/json",
+		},
+		body: '{"sort":{"Name":"asc"},"page":{"size":15}}',
+	};
 
-	console.log(records);
-	new XataClient();
+	const players = fetch("https://luke-bangs-s-workspace-asjtkd.eu-west-1.xata.sh/db/big-lynn-2023:main/tables/Players/query", options)
+		.then((response) => response.json())
+		.then((response) => console.log(response))
+		.catch((err) => console.error(err));
+
+	// Console.log("players", players.records);
 
 	return (
 		<Container>
@@ -72,6 +81,28 @@ export default function StatsSection() {
 									</FormControl>
 								</>
 							</Tooltip>
+							{/* Player Selection Dropdown */}
+							<Tooltip title='Select the player whos stats you wish to view' placement='right'>
+								<>
+									{/* Added <> fragment to avoid https://mui.com/material-ui/react-tooltip/#custom-child-element issue */}
+									<FormControl sx={{ m: 1, minWidth: 200 }} color='primary'>
+										<InputLabel id='demo-simple-select-autowidth-label'>View Option</InputLabel>
+										<Select
+											labelId='demo-simple-select-autowidth-label'
+											id='demo-simple-select-autowidth'
+											value={viewOption}
+											onChange={viewChange}
+											autoWidth
+											label='Select option...'
+											name='View Option Select'>
+											<MenuItem>Hello</MenuItem>
+											{/* {players?.map((t) => (
+												<MenuItem key={t.id}>{t.Name}</MenuItem>
+											))} */}
+										</Select>
+									</FormControl>
+								</>
+							</Tooltip>
 						</Grid>
 						{/* Hold the Project Constraints, Bodystyle and Calculation Iterations cards */}
 						<Grid item lg={6} md={6} sm={6} xs={12}>
@@ -100,4 +131,6 @@ export default function StatsSection() {
 			</Grid>
 		</Container>
 	);
-}
+};
+
+export default StatsSection;
