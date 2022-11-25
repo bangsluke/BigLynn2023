@@ -14,7 +14,7 @@ const StatsSection = () => {
 	const options = {
 		method: "POST",
 		headers: {
-			Authorization: "Bearer process.env.XATA_BEARER_TOKEN",
+			Authorization: `Bearer ${process.env.XATA_BEARER_TOKEN}`,
 			"Content-Type": "application/json",
 		},
 		body: '{"sort":{"Name":"asc"},"page":{"size":15}}',
