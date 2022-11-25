@@ -18,7 +18,7 @@ const DatabaseClient = buildClient();
 
 const defaultOptions = {
 	enableBrowser: true, // TODO: Should I delete this?
-	apiKey: "xau_8Q9v6YrRzXgPcSvgjOvVbYEwkKm1lgBo4",
+	apiKey: process.env.XATA_API_KEY,
 	databaseURL: "https://Luke-Bangs-s-workspace-asjtkd.eu-west-1.xata.sh/db/big-lynn-2023",
 };
 

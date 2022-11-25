@@ -14,8 +14,7 @@ const StatsSection = () => {
 	const options = {
 		method: "POST",
 		headers: {
-			Authorization:
-				"Bearer eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL3hhdGEuaW8iLCJzdWIiOiJ1c3JfOGY3NnRmYjRvbDVrOTQ3MnAyOWVvM2ZkNTgiLCJleHAiOjE2Njg3ODg2MDcsImlhdCI6MTY2ODc4NzcwNywid29ya3NwYWNlcyI6eyJhc2p0a2QiOnsicm9sZSI6Im93bmVyIn19fQ.dimebbFH5VSegcnmjdmG2c-c61mIDulQdpj4OdhN0RRQGTsCICDlpbYpz8J9auCSiQA-SVLqDf22ni_6k60oDg",
+			Authorization: `Bearer ${process.env.XATA_BEARER_TOKEN}`,
 			"Content-Type": "application/json",
 		},
 		body: '{"sort":{"Name":"asc"},"page":{"size":15}}',
