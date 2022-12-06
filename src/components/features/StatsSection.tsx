@@ -1,9 +1,12 @@
 import { Container, FormControl, Grid, InputLabel, MenuItem, Select, Tooltip, Typography } from "@mui/material";
 import PlayerPointsChartCard from "components/features/stats/PlayerPointsChartCard";
-import { useState } from "react";
+import { FC, useState } from "react";
 import ThemingS from "services/ThemingS";
+import { XataClient } from "xata";
 
-const StatsSection = () => {
+type Props = Awaited<ReturnType<typeof getServerSideProps>>["props"];
+
+const StatsSection: FC<Props> = (players) => {
 	// Define the data needed for the view option
 	const [viewOption, setViewOption] = useState({});
 
@@ -11,21 +14,17 @@ const StatsSection = () => {
 		setViewOption(event.target.value);
 	};
 
-	const options = {
-		method: "POST",
-		headers: {
-			Authorization: `Bearer ${process.env.XATA_BEARER_TOKEN}`,
-			"Content-Type": "application/json",
-		},
-		body: '{"sort":{"Name":"asc"},"page":{"size":15}}',
-	};
+	console.log("players", players);
 
-	const players = fetch("https://luke-bangs-s-workspace-asjtkd.eu-west-1.xata.sh/db/big-lynn-2023:main/tables/Players/query", options)
-		.then((response) => response.json())
-		.then((response) => console.log(response))
-		.catch((err) => console.error(err));
-
-	// Console.log("players", players.records);
+	// Function PlayersList() {
+	// 	If (players.length === 0) {
+	// 		Return <div>Loading...</div>;
+	// 	} else {
+	// 		// TODO: Add a type for player
+	// 		// Map over the players and create a menu item for each one
+	// 		Return players.map((player: any) => <MenuItem key={player.id}>{player.name}</MenuItem>);
+	// 	}
+	// }
 
 	return (
 		<Container>
@@ -95,9 +94,11 @@ const StatsSection = () => {
 											label='Select option...'
 											name='View Option Select'>
 											<MenuItem>Hello</MenuItem>
-											{/* {players?.map((t) => (
-												<MenuItem key={t.id}>{t.Name}</MenuItem>
-											))} */}
+											{/* <PlayersList /> */}
+											{players.map((player: any) => (
+												<MenuItem key={player.id}>{player.name}</MenuItem>
+											))}
+											;
 										</Select>
 									</FormControl>
 								</>
@@ -133,3 +134,14 @@ const StatsSection = () => {
 };
 
 export default StatsSection;
+
+const xata = new XataClient();
+
+export const getServerSideProps = async () => {
+	const players = await xata.db.players.getMany();
+	return {
+		props: {
+			players,
+		},
+	};
+};
