@@ -4,6 +4,7 @@ import { useState } from "react";
 import ThemingS from "services/ThemingS";
 
 import { getData } from "getData";
+import { getPlayers } from "getPlayers";
 
 const StatsSection = () => {
 	// Define the data needed for the view option
@@ -15,6 +16,9 @@ const StatsSection = () => {
 
 	const sheetTitle = getData();
 	console.log("sheetTitle: ", sheetTitle);
+
+	const players = getPlayers();
+	console.log("players: ", players);
 
 	return (
 		<Container>
@@ -84,6 +88,7 @@ const StatsSection = () => {
 											label='Select option...'
 											name='View Option Select'>
 											<MenuItem>Hello</MenuItem>
+											<MenuItem>World</MenuItem>
 										</Select>
 									</FormControl>
 								</>

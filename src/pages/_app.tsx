@@ -37,17 +37,3 @@ export default function CustomApp(props: { Component: any; pageProps: any }) {
 		</BaseApp>
 	);
 }
-
-// Export async function getStaticProps() {
-// 	// Get external data from the file system, API, DB, etc.
-// 	Const data = await getVideoData();
-
-// 	Console.log("data", data);
-
-// 	// The value of the `props` key will be
-// 	//  Passed to the `Home` component
-// 	Return {
-// 		Props: { data },
-// 	};
-// }
-// GetStaticProps();
