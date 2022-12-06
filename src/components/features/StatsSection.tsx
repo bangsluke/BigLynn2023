@@ -1,12 +1,11 @@
 import { Container, FormControl, Grid, InputLabel, MenuItem, Select, Tooltip, Typography } from "@mui/material";
 import PlayerPointsChartCard from "components/features/stats/PlayerPointsChartCard";
-import { FC, useState } from "react";
+import { useState } from "react";
 import ThemingS from "services/ThemingS";
-import { XataClient } from "xata";
 
-type Props = Awaited<ReturnType<typeof getServerSideProps>>["props"];
+import { getData } from "getData";
 
-const StatsSection: FC<Props> = (players) => {
+const StatsSection = () => {
 	// Define the data needed for the view option
 	const [viewOption, setViewOption] = useState({});
 
@@ -14,17 +13,8 @@ const StatsSection: FC<Props> = (players) => {
 		setViewOption(event.target.value);
 	};
 
-	console.log("players", players);
-
-	// Function PlayersList() {
-	// 	If (players.length === 0) {
-	// 		Return <div>Loading...</div>;
-	// 	} else {
-	// 		// TODO: Add a type for player
-	// 		// Map over the players and create a menu item for each one
-	// 		Return players.map((player: any) => <MenuItem key={player.id}>{player.name}</MenuItem>);
-	// 	}
-	// }
+	const sheetTitle = getData();
+	console.log("sheetTitle: ", sheetTitle);
 
 	return (
 		<Container>
@@ -94,11 +84,6 @@ const StatsSection: FC<Props> = (players) => {
 											label='Select option...'
 											name='View Option Select'>
 											<MenuItem>Hello</MenuItem>
-											{/* <PlayersList /> */}
-											{players.map((player: any) => (
-												<MenuItem key={player.id}>{player.name}</MenuItem>
-											))}
-											;
 										</Select>
 									</FormControl>
 								</>
@@ -134,14 +119,3 @@ const StatsSection: FC<Props> = (players) => {
 };
 
 export default StatsSection;
-
-const xata = new XataClient();
-
-export const getServerSideProps = async () => {
-	const players = await xata.db.players.getMany();
-	return {
-		props: {
-			players,
-		},
-	};
-};
