@@ -1,20 +1,20 @@
 {
-  "cSpell.ignoreWords": [
-    "APEXCHART",
-    "Abbrechen",
-    "Beschreibung",
-    "Bitstream",
-    "DYNAMICSPACING",
-    "Felder",
-    "Horiz",
-    "Nein",
-    "Overridable",
-    "darkbackground",
-    "didn",
-    "eventdetails",
-    "geben",
-    "lightbackground",
-    "mindestens"
-  ],
-  "cSpell.words": ["camelcase", "Gimmee", "Organiser", "PROTOTYPEBOM", "rigours", "SSTS", "Stableford"]
+	"cSpell.ignoreWords": [
+		"APEXCHART",
+		"Abbrechen",
+		"Beschreibung",
+		"Bitstream",
+		"DYNAMICSPACING",
+		"Felder",
+		"Horiz",
+		"Nein",
+		"Overridable",
+		"darkbackground",
+		"didn",
+		"eventdetails",
+		"geben",
+		"lightbackground",
+		"mindestens"
+	],
+	"cSpell.words": ["camelcase", "codegen", "Gimmee", "Organiser", "PROTOTYPEBOM", "rigours", "SSTS", "Stableford"]
 }

@@ -8,4 +8,12 @@ Use `yarn dev` to start up the tool and it will be available at http://localhost
 
 ## Google Sheets API
 
-Used the following video to get the sheet working - https://www.youtube.com/watch?v=K6Vcfm7TA5U&t=43s&ab_channel=Fireship.
+Used the following links to get the sheet API working
+
+- https://www.andredevries.dev/posts/google-sheets-database-nextjs
+- https://theoephraim.github.io/node-google-spreadsheet/#/getting-started/authentication
+
+Steps (using above links):
+
+1. Create a service account in the Google Cloud Console (https://theoephraim.github.io/node-google-spreadsheet/#/getting-started/authentication?id=service-account)
+

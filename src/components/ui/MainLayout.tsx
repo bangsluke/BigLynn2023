@@ -9,45 +9,44 @@ interface MainStyleProps {
 
 // Styles
 const MyLayout = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(({ theme }: MainStyleProps) => {
-  return {
-    ...theme.typography.mainContent
-  };
+	return {
+		...theme.typography.mainContent
+	};
 });
 
 const MainLayout: FC<{ children: ReactNode }> = ({ children }) => {
-  const theme = useTheme();
+	const theme = useTheme();
 
-  const header = useMemo(
-    () => (
-      <Toolbar>
-        <Header />
-      </Toolbar>
-    ),
-    []
-  );
+	const header = useMemo(
+		() => (
+			<Toolbar>
+				<Header />
+			</Toolbar>
+		),
+		[]
+	);
 
-  return (
-    <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
-      {/* Header */}
-      <AppBar
-        enableColorOnDark
-        position="fixed"
-        color="inherit"
-        elevation={0}
-        sx={{
-          bgcolor: theme.palette.background.default
-        }}
-      >
-        {header}
-      </AppBar>
+	return (
+		<Box sx={{ display: 'flex' }}>
+			<CssBaseline />
+			{/* Header */}
+			<AppBar
+				enableColorOnDark
+				position='fixed'
+				color='inherit'
+				elevation={0}
+				sx={{
+					bgcolor: theme.palette.background.default
+				}}>
+				{header}
+			</AppBar>
 
-      {/* Main content */}
-      <MyLayout theme={theme} sx={{ marginTop: '100px' }}>
-        {children}
-      </MyLayout>
-    </Box>
-  );
+			{/* Main content */}
+			<MyLayout theme={theme} sx={{ marginTop: '100px' }}>
+				{children}
+			</MyLayout>
+		</Box>
+	);
 };
 
 export default MainLayout;
