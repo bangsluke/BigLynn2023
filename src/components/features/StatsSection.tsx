@@ -1,10 +1,23 @@
 import { Container, FormControl, Grid, InputLabel, MenuItem, Select, Tooltip, Typography } from "@mui/material";
+import axios from "axios";
+import { getData } from "components/features/stats/GoogleSheetsAPI/getData";
+import { getPlayers } from "components/features/stats/GoogleSheetsAPI/getPlayers";
 import PlayerPointsChartCard from "components/features/stats/PlayerPointsChartCard";
 import { useState } from "react";
 import ThemingS from "services/ThemingS";
+import { savedDataResponse } from "./stats/SheetDBio/data/savedDataResponse";
 
-import { getData } from "getData";
-import { getPlayers } from "getPlayers";
+// Define the possible data methods can be selected
+enum dataMethods {
+	savedData = "savedData",
+	GoogleSheetsAPI = "GoogleSheetsAPI",
+	sheetDBio = "sheetDBio", // https://sheetdb.io/
+}
+// To switch from savedData to an API call, change the value of the dataMethod variable to dataMethods.sheetDBio below.
+// Then save the returnedData object into the data folder into file "savedDataResponse.js" and change the dataMethod variable back to dataMethods.savedData.
+
+// Define which method should be used to retrieve the data
+const dataMethod: dataMethods = dataMethods.savedData;
 
 const StatsSection = () => {
 	// Define the data needed for the view option
@@ -14,11 +27,31 @@ const StatsSection = () => {
 		setViewOption(event.target.value);
 	};
 
-	const sheetTitle = getData();
-	console.log("sheetTitle: ", sheetTitle);
+	// Have a switch case statement to determine which method to use to get the data
+	let returnedData;
+	switch (dataMethod) {
+		case dataMethods.savedData:
+			returnedData = savedDataResponse;
+			break;
+		case dataMethods.GoogleSheetsAPI:
+			// Get the data from the Google Sheets API
+			const sheetTitle = getData();
+			console.log("sheetTitle: ", sheetTitle);
 
-	const players = getPlayers();
-	console.log("players: ", players);
+			const players = getPlayers();
+			console.log("players: ", players);
+
+		case dataMethods.sheetDBio:
+			// Get the data from the sheetdb.io API
+			axios.get("https://sheetdb.io/api/v1/rk65krxr1m5a9?sheet=PlayerData").then((response) => {
+				console.log("returnedData", response.data);
+				returnedData = response.data;
+			});
+			break;
+		default:
+			returnedData = savedDataResponse;
+			break;
+	}
 
 	return (
 		<Container>
