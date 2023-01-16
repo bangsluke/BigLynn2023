@@ -5,7 +5,7 @@ import { getPlayers } from "components/features/stats/GoogleSheetsAPI/getPlayers
 import PlayerPointsChartCard from "components/features/stats/PlayerPointsChartCard";
 import { useState } from "react";
 import ThemingS from "services/ThemingS";
-import { savedDataResponse } from "./stats/SheetDBio/data/savedDataResponse";
+import savedDataResponse from "./stats/SheetDBio/data/savedDataResponse";
 
 // Define the possible data methods can be selected
 enum dataMethods {
@@ -20,18 +20,12 @@ enum dataMethods {
 const dataMethod: dataMethods = dataMethods.savedData;
 
 const StatsSection = () => {
-	// Define the data needed for the view option
-	const [viewOption, setViewOption] = useState({});
-
-	const viewChange = (event: any) => {
-		setViewOption(event.target.value);
-	};
-
 	// Have a switch case statement to determine which method to use to get the data
-	let returnedData;
+	let playerData, yearData;
 	switch (dataMethod) {
 		case dataMethods.savedData:
-			returnedData = savedDataResponse;
+			playerData = savedDataResponse.playerData;
+			yearData = savedDataResponse.yearData;
 			break;
 		case dataMethods.GoogleSheetsAPI:
 			// Get the data from the Google Sheets API
@@ -40,18 +34,103 @@ const StatsSection = () => {
 
 			const players = getPlayers();
 			console.log("players: ", players);
+			playerData = players;
 
 		case dataMethods.sheetDBio:
-			// Get the data from the sheetdb.io API
+			// Get the player data from the sheetdb.io API
 			axios.get("https://sheetdb.io/api/v1/rk65krxr1m5a9?sheet=PlayerData").then((response) => {
-				console.log("returnedData", response.data);
-				returnedData = response.data;
+				console.log("playerData", response.data);
+				playerData = response.data;
+			});
+			// Get the year data from the sheetdb.io API
+			axios.get("https://sheetdb.io/api/v1/rk65krxr1m5a9?sheet=YearData").then((response) => {
+				console.log("yearData", response.data);
+				yearData = response.data;
 			});
 			break;
 		default:
-			returnedData = savedDataResponse;
+			playerData = savedDataResponse.playerData;
+			yearData = savedDataResponse.yearData;
 			break;
 	}
+
+	// Define the data needed for the view option (player stats or year stats), initially set to player stats
+	const [viewOption, setViewOption] = useState("Player Stats");
+
+	// Define the change handler for the view option
+	const viewChange = (event: any) => {
+		setViewOption(event.target.value);
+	};
+
+	const SecondFilter = () => {
+		// Player Selection Dropdown
+		const PlayerNameSelection = () => {
+			return (
+				<Tooltip title="Select the player who's stats you wish to view" placement='right'>
+					<>
+						{/* Added <> fragment to avoid https://mui.com/material-ui/react-tooltip/#custom-child-element issue */}
+						<FormControl sx={{ m: 1, minWidth: 200 }} color='primary'>
+							<InputLabel id='demo-simple-select-autowidth-label'>Player Selection</InputLabel>
+							<Select
+								labelId='demo-simple-select-autowidth-label'
+								id='demo-simple-select-autowidth'
+								value={viewOption}
+								onChange={viewChange}
+								autoWidth
+								label='Select option...'
+								name='View Option Select'>
+								{playerData.map((player: any) => {
+									return (
+										<MenuItem key={player.Player} value={player.Player}>
+											{player.Player}
+										</MenuItem>
+									);
+								})}
+								{/* <MenuItem>Hello</MenuItem>
+								<MenuItem>World</MenuItem> */}
+							</Select>
+						</FormControl>
+					</>
+				</Tooltip>
+			);
+		};
+
+		// Year Selection Dropdown
+		const YearSelection = () => {
+			return (
+				<Tooltip title='Select the year stats you wish to view' placement='right'>
+					<>
+						{/* Added <> fragment to avoid https://mui.com/material-ui/react-tooltip/#custom-child-element issue */}
+						<FormControl sx={{ m: 1, minWidth: 200 }} color='primary'>
+							<InputLabel id='demo-simple-select-autowidth-label'>Year Selection</InputLabel>
+							<Select
+								labelId='demo-simple-select-autowidth-label'
+								id='demo-simple-select-autowidth'
+								value={viewOption}
+								onChange={viewChange}
+								autoWidth
+								label='Select option...'
+								name='View Option Select'>
+								{yearData.map((year: any) => {
+									return (
+										<MenuItem key={year.Year} value={year.Year}>
+											{year.Year}
+										</MenuItem>
+									);
+								})}
+							</Select>
+						</FormControl>
+					</>
+				</Tooltip>
+			);
+		};
+
+		if (viewOption === "Player Stats") {
+			return <PlayerNameSelection />;
+		} else {
+			return <YearSelection />;
+		}
+	};
 
 	return (
 		<Container>
@@ -106,26 +185,7 @@ const StatsSection = () => {
 									</FormControl>
 								</>
 							</Tooltip>
-							{/* Player Selection Dropdown */}
-							<Tooltip title='Select the player whos stats you wish to view' placement='right'>
-								<>
-									{/* Added <> fragment to avoid https://mui.com/material-ui/react-tooltip/#custom-child-element issue */}
-									<FormControl sx={{ m: 1, minWidth: 200 }} color='primary'>
-										<InputLabel id='demo-simple-select-autowidth-label'>View Option</InputLabel>
-										<Select
-											labelId='demo-simple-select-autowidth-label'
-											id='demo-simple-select-autowidth'
-											value={viewOption}
-											onChange={viewChange}
-											autoWidth
-											label='Select option...'
-											name='View Option Select'>
-											<MenuItem>Hello</MenuItem>
-											<MenuItem>World</MenuItem>
-										</Select>
-									</FormControl>
-								</>
-							</Tooltip>
+							<SecondFilter />
 						</Grid>
 						{/* Hold the Project Constraints, Bodystyle and Calculation Iterations cards */}
 						<Grid item lg={6} md={6} sm={6} xs={12}>
