@@ -17,3 +17,12 @@ Steps (using above links):
 
 1. Create a service account in the Google Cloud Console (https://theoephraim.github.io/node-google-spreadsheet/#/getting-started/authentication?id=service-account)
 
+## SheetDB.io
+
+Really simple method of creating a REST API for a Google Sheet. https://sheetdb.io/
+
+> Note: There is a 500 API request per month limit though before you have to begin paying for the service which is expensive. See "https://sheetdb.io/app/statistics/usage" for usage
+
+1. Either install and use axios (yarn add axios) or use the SheetDB.io library (npm install sheetdb-js --save).
+2. Create an API for the Google Sheet using the SheetDB.io website at "https://sheetdb.io/app/api". All you need to do is copy across the URL from the Google Sheet and paste it into the SheetDB.io website.
+3. If you call a get request on the API, e.g. axios.get("https://sheetdb.io/api/v1/sob72d8vw4tpv").then((response), then all of the data on the first sheet of the Google Sheet will be returned. To instead select a sheet, add ?sheet=SheetName to the end of the URL, e.g. axios.get("https://sheetdb.io/api/v1/sob72d8vw4tpv?sheet=Sheet1").then((response). See "https://docs.sheetdb.io/?html--javascript#multiple-sheets-tabs" for more details.

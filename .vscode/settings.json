@@ -5,16 +5,37 @@
 		"Beschreibung",
 		"Bitstream",
 		"DYNAMICSPACING",
+		"Djgg",
 		"Felder",
 		"Horiz",
 		"Nein",
 		"Overridable",
+		"clsx",
+		"csstype",
 		"darkbackground",
+		"daygrid",
 		"didn",
 		"eventdetails",
+		"formik",
 		"geben",
 		"lightbackground",
-		"mindestens"
+		"mindestens",
+		"recaptcha",
+		"reduxjs",
+		"stylis",
+		"timegrid"
 	],
-	"cSpell.words": ["camelcase", "codegen", "Gimmee", "Organiser", "PROTOTYPEBOM", "rigours", "SSTS", "Stableford"]
+	"cSpell.words": [
+		"biglynn",
+		"camelcase",
+		"codegen",
+		"creds",
+		"Gimmee",
+		"hookform",
+		"Organiser",
+		"PROTOTYPEBOM",
+		"rigours",
+		"SSTS",
+		"Stableford"
+	]
 }
