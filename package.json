@@ -27,7 +27,7 @@
 		"@mui/material": "^5.8.1",
 		"@mui/styles": "^5.8.0",
 		"@mui/system": "^5.8.1",
-		"@mui/utils": "^5.8.0",
+		"@mui/utils": "^5.11.2",
 		"@mui/x-data-grid": "^5.11.1",
 		"@mui/x-date-pickers": "^5.0.0-alpha.3",
 		"@reduxjs/toolkit": "^1.8.2",
