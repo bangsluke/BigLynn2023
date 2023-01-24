@@ -969,6 +969,15 @@
     "@mui/utils" "^5.11.0"
     prop-types "^15.8.1"
 
+"@mui/private-theming@^5.11.2":
+  version "5.11.2"
+  resolved "https://registry.yarnpkg.com/@mui/private-theming/-/private-theming-5.11.2.tgz#93eafb317070888a988efa8d6a9ec1f69183a606"
+  integrity sha512-qZwMaqRFPwlYmqwVKblKBGKtIjJRAj3nsvX93pOmatsXyorW7N/0IPE/swPgz1VwChXhHO75DwBEx8tB+aRMNg==
+  dependencies:
+    "@babel/runtime" "^7.20.7"
+    "@mui/utils" "^5.11.2"
+    prop-types "^15.8.1"
+
 "@mui/styled-engine@^5.11.0":
   version "5.11.0"
   resolved "https://registry.yarnpkg.com/@mui/styled-engine/-/styled-engine-5.11.0.tgz#79afb30c612c7807c4b77602cf258526d3997c7b"
@@ -979,7 +988,7 @@
     csstype "^3.1.1"
     prop-types "^15.8.1"
 
-"@mui/styles@^5.0.0", "@mui/styles@^5.8.0":
+"@mui/styles@^5.0.0":
   version "5.11.0"
   resolved "https://registry.yarnpkg.com/@mui/styles/-/styles-5.11.0.tgz#11ea8b43ea25c83e7eb071172fa333f7d01230bd"
   integrity sha512-Y4Qz/uoWz9NUC7AN+Ybzv8LF3RjlKs85yayLsdXJz0kZxqIJshOMZ4G1Hb5omNwVx9oCePmO9a+zemXZS76ATw==
@@ -989,6 +998,29 @@
     "@mui/private-theming" "^5.11.0"
     "@mui/types" "^7.2.3"
     "@mui/utils" "^5.11.0"
+    clsx "^1.2.1"
+    csstype "^3.1.1"
+    hoist-non-react-statics "^3.3.2"
+    jss "^10.9.2"
+    jss-plugin-camel-case "^10.9.2"
+    jss-plugin-default-unit "^10.9.2"
+    jss-plugin-global "^10.9.2"
+    jss-plugin-nested "^10.9.2"
+    jss-plugin-props-sort "^10.9.2"
+    jss-plugin-rule-value-function "^10.9.2"
+    jss-plugin-vendor-prefixer "^10.9.2"
+    prop-types "^15.8.1"
+
+"@mui/styles@^5.11.2":
+  version "5.11.2"
+  resolved "https://registry.yarnpkg.com/@mui/styles/-/styles-5.11.2.tgz#8616272389051f0287e1e3b24d2bae937757552e"
+  integrity sha512-Yg6+PMPV4Mx1UJHow2e/nND2bQNWS1H38zrkJxlucXfaR0+aglO6u8R/OXmVspDj+Z5YW5B27lxRDvxCQN9nGw==
+  dependencies:
+    "@babel/runtime" "^7.20.7"
+    "@emotion/hash" "^0.9.0"
+    "@mui/private-theming" "^5.11.2"
+    "@mui/types" "^7.2.3"
+    "@mui/utils" "^5.11.2"
     clsx "^1.2.1"
     csstype "^3.1.1"
     hoist-non-react-statics "^3.3.2"
