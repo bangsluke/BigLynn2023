@@ -35,7 +35,7 @@
 		"@types/aos": "^3.0.4",
 		"@types/jest": "^29.2.5",
 		"@types/string-similarity": "^4.0.0",
-		"@xata.io/client": "^0.21.3",
+		"@xata.io/client": "^0.21.6",
 		"amazon-cognito-identity-js": "^5.2.9",
 		"aos": "^3.0.0-beta.6",
 		"apexcharts": "^3.35.2",
