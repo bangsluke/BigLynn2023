@@ -33,7 +33,7 @@
 		"@reduxjs/toolkit": "^1.8.2",
 		"@tabler/icons": "^1.68.0",
 		"@types/aos": "^3.0.4",
-		"@types/jest": "^29.1.1",
+		"@types/jest": "^29.2.5",
 		"@types/string-similarity": "^4.0.0",
 		"@xata.io/client": "^0.21.3",
 		"amazon-cognito-identity-js": "^5.2.9",
