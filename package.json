@@ -31,7 +31,7 @@
 		"@mui/x-data-grid": "^5.11.1",
 		"@mui/x-date-pickers": "^5.0.0-alpha.3",
 		"@reduxjs/toolkit": "^1.8.2",
-		"@tabler/icons": "^1.68.0",
+		"@tabler/icons": "^1.119.0",
 		"@types/aos": "^3.0.4",
 		"@types/jest": "^29.2.5",
 		"@types/string-similarity": "^4.0.0",
