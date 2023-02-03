@@ -1,19 +1,21 @@
-import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
-import { Button, Card, Grid, Link, Typography } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
-import ThemingS from 'services/ThemingS';
+import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
+import { Button, Card, Grid, Link, Typography } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+import ThemingS from "services/ThemingS";
 
 // Const avatarImage = "/assets/images/users";
 
-const ContactCard = (props: {
-  id: number;
-  imagePath: string;
-  contactNumber: string;
-  email: string;
-  name: string;
-  location: string;
-  role: string;
-}) => {
+// Const ContactCard = (props: {
+//   Id: number;
+//   ImagePath: string;
+//   ContactNumber: string;
+//   Email: string;
+//   Name: string;
+//   Location: string;
+//   Role: string;
+// }) => {
+
+const ContactCard = () => {
 	const theme = useTheme();
 
 	// Const avatarProfile = avatar && `${avatarImage}/${avatar}`;
@@ -29,9 +31,9 @@ const ContactCard = (props: {
 		<Card
 			sx={{
 				p: 2,
-				bgcolor: theme.palette.mode === 'dark' ? theme.palette.dark.main : theme.palette.grey[50],
-				border: theme.palette.mode === 'dark' ? 'none' : '1px solid',
-				borderColor: theme.palette.grey[100]
+				bgcolor: theme.palette.mode === "dark" ? theme.palette.dark.main : theme.palette.grey[50],
+				border: theme.palette.mode === "dark" ? "none" : "1px solid",
+				borderColor: theme.palette.grey[100],
 			}}>
 			<Grid container spacing={ThemingS.themeConfig.gridSpacing}>
 				<Grid item xs={12}>
@@ -43,7 +45,7 @@ const ContactCard = (props: {
 							// OnClick={() => {
 							// 	If (onActive) onActive();
 							// }}
-							style={{ cursor: 'pointer' }}>
+							style={{ cursor: "pointer" }}>
 							{/* <Avatar alt={name} size='lg' src={avatarProfile} sx={{ width: 72, height: 72 }} /> */}
 							{/* <Avatar alt={name} size="lg" src={imagePath} sx={{ width: 72, height: 72 }} /> */}
 						</Grid>
@@ -59,7 +61,7 @@ const ContactCard = (props: {
 				</Grid>
 				<Grid item xs={12}>
 					<Typography variant='subtitle2' textAlign='left'>
-            Email
+						Email
 					</Typography>
 					<Typography variant='h6' textAlign='left'>
 						{/* {email} */}
@@ -69,7 +71,7 @@ const ContactCard = (props: {
 					<Grid container spacing={ThemingS.themeConfig.gridSpacing}>
 						<Grid item xs={6}>
 							<Typography variant='subtitle2' textAlign='left'>
-                Phone
+								Phone
 							</Typography>
 							<Typography variant='h6' textAlign='left'>
 								{/* {contactNumber} */}
@@ -77,7 +79,7 @@ const ContactCard = (props: {
 						</Grid>
 						<Grid item xs={6}>
 							<Typography variant='subtitle2' textAlign='left'>
-                Location
+								Location
 							</Typography>
 							<Typography variant='h6' textAlign='left'>
 								{/* {location} */}
@@ -90,12 +92,12 @@ const ContactCard = (props: {
 						<Grid item xs={12}>
 							<Button
 								variant='outlined'
-								sx={{ width: '100%' }}
+								sx={{ width: "100%" }}
 								startIcon={<AlternateEmailIcon />}
 								component={Link}
 								href='mailto:luke.bangs@rle.co.uk'
 								target='_blank'>
-                Contact
+								Contact
 							</Button>
 						</Grid>
 					</Grid>
