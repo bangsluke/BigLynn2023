@@ -200,3 +200,11 @@ export interface YearData {
 	"7th": string;
 	"8th": string;
 }
+
+// Define the TabPanelProps type - mui.com/material-ui/react-tabs/
+export interface TabPanelProps {
+	children?: React.ReactNode;
+	index: number;
+	value: number;
+	backgroundColor?: string;
+}
