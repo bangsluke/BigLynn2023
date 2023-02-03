@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://i.imgur.com/OhMP4b0.png" alt="Big Lynn Logo" width="200"/>
+</p>
+
 # Big Lynn 2023
 
 An information page for the Big Lynn 2023 golf competition including details and stats from past years.
@@ -6,7 +10,24 @@ An information page for the Big Lynn 2023 golf competition including details and
 
 Use `yarn dev` to start up the tool and it will be available at http://localhost:3000/
 
-## Google Sheets API
+Look at package.json for other commands.
+
+## Update The Data
+
+The best way to quickly update the data from the Google Sheet is to use the SheetDB.io service, detailed [fully below](#sheetdbio).
+
+Steps:
+1. Go to https://sheetdb.io/
+2. Sign in using Google Account
+3. On the StatsSection.tsx, change the constant `dataMethod` to be `DataMethods.sheetDBio`
+4. Two axios calls will be made via the sheetDBio API, which can be seen on the web page
+5. Run the main page and in the console logs, the response from the API will be shown
+6. Copy and paste the response into the `savedDataResponse.ts` file in the `data` folder
+7. Once done, return the `dataMethod` to be `DataMethods.savedData`
+
+## Possible Data Sources
+
+### Google Sheets API
 
 Used the following links to get the sheet API working
 
@@ -17,7 +38,7 @@ Steps (using above links):
 
 1. Create a service account in the Google Cloud Console (https://theoephraim.github.io/node-google-spreadsheet/#/getting-started/authentication?id=service-account)
 
-## SheetDB.io
+### SheetDB.io
 
 Really simple method of creating a REST API for a Google Sheet. https://sheetdb.io/
 
