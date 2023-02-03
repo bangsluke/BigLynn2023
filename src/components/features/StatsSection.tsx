@@ -1,14 +1,38 @@
 import ReactDataGrid from "@inovua/reactdatagrid-community";
 import "@inovua/reactdatagrid-community/index.css";
-import { Container, FormControl, Grid, InputLabel, MenuItem, Select, Tooltip, Typography } from "@mui/material";
+import { Box, Container, FormControl, Grid, InputLabel, MenuItem, Select, Tab, Tabs, Tooltip, Typography } from "@mui/material";
 import axios from "axios";
 import { getData } from "components/features/stats/GoogleSheetsAPI/getData";
 import { getPlayers } from "components/features/stats/GoogleSheetsAPI/getPlayers";
 import PlayerPointsChartCard from "components/features/stats/PlayerPointsChartCard";
-import { useState } from "react";
+import { SyntheticEvent, useState } from "react";
 import ThemingS from "services/ThemingS";
 import savedDataResponse from "../../data/savedDataResponse";
-import { PlayerData, YearData } from "../../types";
+import { PlayerData, TabPanelProps, YearData } from "../../types";
+
+// Define the TabPanelComponent - https://mui.com/material-ui/react-tabs/
+function TabPanel(props: TabPanelProps) {
+	const { children, value, backgroundColor, index, ...other } = props;
+	return (
+		<div
+			style={{ height: "71vh", width: "100%", padding: "0", margin: "0", backgroundColor: "null" }}
+			role='tabpanel'
+			hidden={value !== index}
+			id={`simple-tabpanel-${index}`}
+			aria-labelledby={`simple-tab-${index}`}
+			{...other}>
+			{value === index && <Box sx={{ pt: 1, backgroundColor, width: "100%", height: "100%" }}>{children}</Box>}
+		</div>
+	);
+}
+
+// Return tab props - https://mui.com/material-ui/react-tabs/
+function a11yProps(index: number) {
+	return {
+		id: `simple-tab-${index}`,
+		"aria-controls": `simple-tabpanel-${index}`,
+	};
+}
 
 const columns = [
 	{ name: "player", header: "Player", minWidth: 100, defaultFlex: 1 },
@@ -69,10 +93,13 @@ switch (dataMethod) {
 }
 
 const StatsSection = () => {
-	// Console.log("playerData: ", playerData);
-	// Console.log("yearData: ", yearData);
+	// Create a state for the tab that is being viewed. 0 is Stats Summary, 1 is Full Stats Details
+	const [tabViewIndex, setTabViewIndex] = useState(0);
 
-	// Const dataSource = playerData;
+	// Create a function to handle the tab view change
+	const handleTabsViewChange = (event: SyntheticEvent, newValue: number) => {
+		setTabViewIndex(newValue);
+	};
 
 	// Define the data needed for the view option (player stats or year stats), initially set to player stats
 	const [viewOption, setViewOption] = useState("Player Stats");
@@ -181,54 +208,57 @@ const StatsSection = () => {
 					<Grid container alignItems='center' justifyContent='space-between' spacing={ThemingS.themeConfig.gridSpacing}>
 						{/* Hold the dropdown selectors */}
 						<Grid item lg={6} md={6} sm={12} xs={12}>
-							{/* View Option Dropdown */}
-							<Tooltip title='Select the company to work with' placement='right'>
-								<>
-									{/* Added <> fragment to avoid https://mui.com/material-ui/react-tooltip/#custom-child-element issue */}
-									<FormControl sx={{ m: 1, minWidth: 200 }} color='primary'>
-										<InputLabel id='demo-simple-select-autowidth-label'>View Option</InputLabel>
-										<Select
-											labelId='demo-simple-select-autowidth-label'
-											id='demo-simple-select-autowidth'
-											value={viewOption}
-											onChange={viewChange}
-											autoWidth
-											label='Select option...'
-											name='View Option Select'>
-											<MenuItem key='1' value='Player Stats'>
-												Player Stats
-											</MenuItem>
-											<MenuItem key='2' value='Year Stats'>
-												Year Stats
-											</MenuItem>
-										</Select>
-									</FormControl>
-								</>
-							</Tooltip>
-							<SecondFilter />
-						</Grid>
-						{/* Hold the Project Constraints, Bodystyle and Calculation Iterations cards */}
-						<Grid item lg={6} md={6} sm={6} xs={12}>
-							<Grid container direction='column' spacing={ThemingS.themeConfig.gridSpacing}>
-								<Grid item lg={12} md={12} sm={12} xs={12}>
-									{/* <TotalLineChartCard /> */}
-								</Grid>
-								<Grid item lg={12} md={12} sm={12} xs={12}>
-									{/* <BodystyleCard inputData={inputData} setInputData={setInputData} /> */}
-								</Grid>
-								<Grid item lg={12} md={12} sm={12} xs={12}>
-									{/* <CalculationIterationsCard /> */}
-								</Grid>
+							<Grid container direction='row' spacing={ThemingS.themeConfig.gridSpacing}>
+								{/* View Option Dropdown */}
+								<Tooltip title='Select the company to work with' placement='right'>
+									<>
+										{/* Added <> fragment to avoid https://mui.com/material-ui/react-tooltip/#custom-child-element issue */}
+										<FormControl sx={{ m: 1, minWidth: 200 }} color='primary'>
+											<InputLabel id='demo-simple-select-autowidth-label'>View Option</InputLabel>
+											<Select
+												labelId='demo-simple-select-autowidth-label'
+												id='demo-simple-select-autowidth'
+												value={viewOption}
+												onChange={viewChange}
+												autoWidth
+												label='Select option...'
+												name='View Option Select'>
+												<MenuItem key='1' value='Player Stats'>
+													Player Stats
+												</MenuItem>
+												<MenuItem key='2' value='Year Stats'>
+													Year Stats
+												</MenuItem>
+											</Select>
+										</FormControl>
+									</>
+								</Tooltip>
+								{/* Player Name/Year Selection Dropdown */}
+								<SecondFilter />
 							</Grid>
 						</Grid>
-						{/* Hold the Player Scores Chart section card */}
-						<Grid item lg={12} md={12} sm={12} xs={12}>
-							<PlayerPointsChartCard />
-						</Grid>
-						{/* Hold the main data table section card */}
-						<Grid item lg={12} md={12} sm={12} xs={12}>
-							<ReactDataGrid idProperty='id' theme='default-light' columns={columns} dataSource={playerData} style={gridStyle} />
-						</Grid>
+
+						{/* Add a box that holds the tabs */}
+						<Box sx={{ color: "white", borderBottom: 1, borderColor: "divider", width: "100%", backgroundColor: "null" }}>
+							<Tabs value={tabViewIndex} onChange={handleTabsViewChange} aria-label='basic tabs example' centered>
+								<Tab sx={{ color: "white" }} label='Charts' {...a11yProps(0)} />
+								<Tab sx={{ color: "white" }} label='Table' {...a11yProps(1)} />{" "}
+							</Tabs>
+						</Box>
+						{/* TabPanel 0 - Charts */}
+						<TabPanel value={tabViewIndex} index={0} backgroundColor={"null"}>
+							{/* Hold the Player Scores Chart section card */}
+							<Grid item lg={12} md={12} sm={12} xs={12}>
+								<PlayerPointsChartCard />
+							</Grid>
+						</TabPanel>
+						{/* TabPanel 1 - Table */}
+						<TabPanel value={tabViewIndex} index={1} backgroundColor={"null"}>
+							{/* Hold the main data table section card */}
+							<Grid item lg={12} md={12} sm={12} xs={12}>
+								<ReactDataGrid idProperty='id' theme='default-light' columns={columns} dataSource={playerData} style={gridStyle} />
+							</Grid>
+						</TabPanel>
 					</Grid>
 				</Grid>
 			</Grid>

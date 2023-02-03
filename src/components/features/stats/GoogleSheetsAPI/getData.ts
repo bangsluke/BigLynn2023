@@ -1,7 +1,8 @@
 export async function getData() {
 	const { GoogleSpreadsheet } = require("google-spreadsheet");
 
-	const creds = require("./biglynn2023-56293908d413.json");
+	// Const creds = require("./biglynn2023-56293908d413.json"); // For now, comment out to allow build
+	const creds = "";
 
 	// Initialize the sheet - doc ID is the long id in the sheets URL
 	const doc = new GoogleSpreadsheet("13vUKIiVuYGmoSFvf2TNKi9lLDjgg3-fvDbC9E1GvHuo");
