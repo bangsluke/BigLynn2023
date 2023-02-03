@@ -1,4 +1,4 @@
-import { PlayerData, YearData } from "../../../../../types";
+import { PlayerData, YearData } from "../types";
 
 const playerData: PlayerData[] = [
 	{

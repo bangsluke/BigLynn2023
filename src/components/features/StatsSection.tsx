@@ -7,8 +7,8 @@ import { getPlayers } from "components/features/stats/GoogleSheetsAPI/getPlayers
 import PlayerPointsChartCard from "components/features/stats/PlayerPointsChartCard";
 import { useState } from "react";
 import ThemingS from "services/ThemingS";
+import savedDataResponse from "../../data/savedDataResponse";
 import { PlayerData, YearData } from "../../types";
-import savedDataResponse from "./stats/SheetDBio/data/savedDataResponse";
 
 const columns = [
 	{ name: "player", header: "Player", minWidth: 100, defaultFlex: 1 },
@@ -30,7 +30,7 @@ enum DataMethods {
 // Then save the returnedData object into the data folder into file "savedDataResponse.js" and change the dataMethod variable back to dataMethods.savedData.
 
 // Define which method should be used to retrieve the data
-const dataMethod: DataMethods = DataMethods.savedData;
+const dataMethod: DataMethods = DataMethods.sheetDBio;
 
 // Have a switch case statement to determine which method to use to get the data
 let playerData: PlayerData[], yearData: YearData[];
