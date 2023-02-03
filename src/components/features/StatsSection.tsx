@@ -1,3 +1,5 @@
+import ReactDataGrid from "@inovua/reactdatagrid-community";
+import "@inovua/reactdatagrid-community/index.css";
 import { Container, FormControl, Grid, InputLabel, MenuItem, Select, Tooltip, Typography } from "@mui/material";
 import axios from "axios";
 import { getData } from "components/features/stats/GoogleSheetsAPI/getData";
@@ -5,10 +7,21 @@ import { getPlayers } from "components/features/stats/GoogleSheetsAPI/getPlayers
 import PlayerPointsChartCard from "components/features/stats/PlayerPointsChartCard";
 import { useState } from "react";
 import ThemingS from "services/ThemingS";
-import savedDataResponse from "./stats/SheetDBio/data/savedDataResponse";
+import savedDataResponse from "../../data/savedDataResponse";
+import { PlayerData, YearData } from "../../types";
+
+const columns = [
+	{ name: "player", header: "Player", minWidth: 100, defaultFlex: 1 },
+	{ name: "apps", header: "Apps", maxWidth: 100, defaultFlex: 1 },
+	{ name: "totalPoints", header: "Total Points", maxWidth: 100, defaultFlex: 1 },
+	{ name: "wins", header: "Wins", maxWidth: 100, defaultFlex: 1 },
+	{ name: "win%", header: "Win %", maxWidth: 100, defaultFlex: 1 },
+];
+
+const gridStyle = { minHeight: 550 };
 
 // Define the possible data methods can be selected
-enum dataMethods {
+enum DataMethods {
 	savedData = "savedData",
 	GoogleSheetsAPI = "GoogleSheetsAPI",
 	sheetDBio = "sheetDBio", // https://sheetdb.io/
@@ -17,42 +30,45 @@ enum dataMethods {
 // Then save the returnedData object into the data folder into file "savedDataResponse.js" and change the dataMethod variable back to dataMethods.savedData.
 
 // Define which method should be used to retrieve the data
-const dataMethod: dataMethods = dataMethods.savedData;
+const dataMethod: DataMethods = DataMethods.savedData;
+
+// Have a switch case statement to determine which method to use to get the data
+let playerData: PlayerData[], yearData: YearData[];
+switch (dataMethod) {
+	case DataMethods.savedData:
+		playerData = savedDataResponse.playerData;
+		yearData = savedDataResponse.yearData;
+		break;
+	case DataMethods.GoogleSheetsAPI:
+		// Get the data from the Google Sheets API
+		const sheetTitle = getData();
+		console.log("sheetTitle: ", sheetTitle);
+		const players = getPlayers();
+		console.log("players: ", players);
+		playerData = players;
+	case DataMethods.sheetDBio:
+		// Get the player data from the sheetdb.io API
+		axios.get("https://sheetdb.io/api/v1/rk65krxr1m5a9?sheet=PlayerData").then((response) => {
+			console.log("playerData", response.data);
+			playerData = response.data;
+		});
+		// Get the year data from the sheetdb.io API
+		axios.get("https://sheetdb.io/api/v1/rk65krxr1m5a9?sheet=YearData").then((response) => {
+			console.log("yearData", response.data);
+			yearData = response.data;
+		});
+		break;
+	default:
+		playerData = savedDataResponse.playerData;
+		yearData = savedDataResponse.yearData;
+		break;
+}
 
 const StatsSection = () => {
-	// Have a switch case statement to determine which method to use to get the data
-	let playerData, yearData;
-	switch (dataMethod) {
-		case dataMethods.savedData:
-			playerData = savedDataResponse.playerData;
-			yearData = savedDataResponse.yearData;
-			break;
-		case dataMethods.GoogleSheetsAPI:
-			// Get the data from the Google Sheets API
-			const sheetTitle = getData();
-			console.log("sheetTitle: ", sheetTitle);
+	// Console.log("playerData: ", playerData);
+	// Console.log("yearData: ", yearData);
 
-			const players = getPlayers();
-			console.log("players: ", players);
-			playerData = players;
-
-		case dataMethods.sheetDBio:
-			// Get the player data from the sheetdb.io API
-			axios.get("https://sheetdb.io/api/v1/rk65krxr1m5a9?sheet=PlayerData").then((response) => {
-				console.log("playerData", response.data);
-				playerData = response.data;
-			});
-			// Get the year data from the sheetdb.io API
-			axios.get("https://sheetdb.io/api/v1/rk65krxr1m5a9?sheet=YearData").then((response) => {
-				console.log("yearData", response.data);
-				yearData = response.data;
-			});
-			break;
-		default:
-			playerData = savedDataResponse.playerData;
-			yearData = savedDataResponse.yearData;
-			break;
-	}
+	// Const dataSource = playerData;
 
 	// Define the data needed for the view option (player stats or year stats), initially set to player stats
 	const [viewOption, setViewOption] = useState("Player Stats");
@@ -79,13 +95,13 @@ const StatsSection = () => {
 								autoWidth
 								label='Select option...'
 								name='View Option Select'>
-								{playerData.map((player: any) => {
+								{/* {playerData.map((player: any) => {
 									return (
 										<MenuItem key={player.Player} value={player.Player}>
 											{player.Player}
 										</MenuItem>
 									);
-								})}
+								})} */}
 								{/* <MenuItem>Hello</MenuItem>
 								<MenuItem>World</MenuItem> */}
 							</Select>
@@ -205,9 +221,9 @@ const StatsSection = () => {
 						<Grid item lg={12} md={12} sm={12} xs={12}>
 							<PlayerPointsChartCard />
 						</Grid>
-						{/* Hold the Player Positions Chart section card */}
+						{/* Hold the main data table section card */}
 						<Grid item lg={12} md={12} sm={12} xs={12}>
-							{/* <PlayerPositionsChartCard /> */}
+							<ReactDataGrid idProperty='id' theme='default-light' columns={columns} dataSource={playerData} style={gridStyle} />
 						</Grid>
 					</Grid>
 				</Grid>

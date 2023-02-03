@@ -18,8 +18,10 @@
 		"eventdetails",
 		"formik",
 		"geben",
+		"inovua",
 		"lightbackground",
 		"mindestens",
+		"reactdatagrid",
 		"recaptcha",
 		"reduxjs",
 		"stylis",
@@ -37,5 +39,6 @@
 		"rigours",
 		"SSTS",
 		"Stableford"
-	]
+	],
+	"githubPullRequests.ignoredPullRequestBranches": ["main"]
 }
