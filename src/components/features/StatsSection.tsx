@@ -39,13 +39,17 @@ switch (dataMethod) {
 		playerData = savedDataResponse.playerData;
 		yearData = savedDataResponse.yearData;
 		break;
+	// @ts-ignore
 	case DataMethods.GoogleSheetsAPI:
 		// Get the data from the Google Sheets API
 		const sheetTitle = getData();
 		console.log("sheetTitle: ", sheetTitle);
-		const players = getPlayers();
+		// @ts-ignore
+		const players: PlayerData = getPlayers();
 		console.log("players: ", players);
+		// @ts-ignore
 		playerData = players;
+	// @ts-ignore
 	case DataMethods.sheetDBio:
 		// Get the player data from the sheetdb.io API
 		axios.get("https://sheetdb.io/api/v1/rk65krxr1m5a9?sheet=PlayerData").then((response) => {
