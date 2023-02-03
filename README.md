@@ -6,6 +6,8 @@ An information page for the Big Lynn 2023 golf competition including details and
 
 Use `yarn dev` to start up the tool and it will be available at http://localhost:3000/
 
+Look at package.json for other commands.
+
 ## Google Sheets API
 
 Used the following links to get the sheet API working
