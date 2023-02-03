@@ -59,6 +59,17 @@ const AnchorOffset = styled("h2")({
 	},
 });
 
+// Define which sections to display. Useful for testing
+const displayedSection = {
+	header: true,
+	eventDetails: false,
+	itinerary: false,
+	rules: false,
+	stats: true,
+	faq: false,
+	usefulLinks: false,
+};
+
 export default function Info() {
 	useEffect(() => {
 		AOS.init({ duration: 1200 });
@@ -68,42 +79,42 @@ export default function Info() {
 	return (
 		<>
 			<Meta title='Big Lynn 2023' description='The official website of the 2023 Big Lynn Competition.' />
-			<HeaderWrapper id='home' style={{ display: "none" }}>
+			<HeaderWrapper id='home' style={{ display: displayedSection.header ? "block" : "none" }}>
 				<AppBar />
 				<HeaderSection />
 			</HeaderWrapper>
 
-			<ThirdWrapper style={{ display: "none" }}>
+			<ThirdWrapper style={{ display: displayedSection.eventDetails ? "block" : "none" }}>
 				<AnchorOffset id='eventDetails' className='offset'>
 					<EventDetailsSection data-aos='fade-right' data-aos-duration='3000' />
 				</AnchorOffset>
 			</ThirdWrapper>
 
-			<FourthWrapper style={{ display: "none" }}>
+			<FourthWrapper style={{ display: displayedSection.itinerary ? "block" : "none" }}>
 				<AnchorOffset id='itinerary' className='offset'>
 					<ItinerarySection data-aos='fade-left' data-aos-duration='3000' />
 				</AnchorOffset>
 			</FourthWrapper>
 
-			<ThirdWrapper style={{ display: "none" }}>
+			<ThirdWrapper style={{ display: displayedSection.rules ? "block" : "none" }}>
 				<AnchorOffset id='rules' className='offset'>
 					<RulesSection />
 				</AnchorOffset>
 			</ThirdWrapper>
 
-			<SecondWrapper>
+			<SecondWrapper style={{ display: displayedSection.stats ? "block" : "none" }}>
 				<AnchorOffset id='statistics' className='offset'>
 					<StatsSection />
 				</AnchorOffset>
 			</SecondWrapper>
 
-			<FourthWrapper>
+			<FourthWrapper style={{ display: displayedSection.faq ? "block" : "none" }}>
 				<AnchorOffset id='FAQ' className='offset'>
 					<FAQSection />
 				</AnchorOffset>
 			</FourthWrapper>
 
-			<ThirdWrapper>
+			<ThirdWrapper style={{ display: displayedSection.usefulLinks ? "block" : "none" }}>
 				<AnchorOffset id='usefulLinks' className='offset'>
 					<UsefulLinksSection />
 				</AnchorOffset>
