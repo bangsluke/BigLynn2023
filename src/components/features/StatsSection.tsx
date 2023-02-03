@@ -30,7 +30,7 @@ enum DataMethods {
 // Then save the returnedData object into the data folder into file "savedDataResponse.js" and change the dataMethod variable back to dataMethods.savedData.
 
 // Define which method should be used to retrieve the data
-const dataMethod: DataMethods = DataMethods.sheetDBio;
+const dataMethod: DataMethods = DataMethods.savedData;
 
 // Have a switch case statement to determine which method to use to get the data
 let playerData: PlayerData[], yearData: YearData[];
@@ -95,13 +95,13 @@ const StatsSection = () => {
 								autoWidth
 								label='Select option...'
 								name='View Option Select'>
-								{playerData.map((player: any) => {
+								{/* {playerData.map((player: any) => {
 									return (
 										<MenuItem key={player.Player} value={player.Player}>
 											{player.Player}
 										</MenuItem>
 									);
-								})}
+								})} */}
 								{/* <MenuItem>Hello</MenuItem>
 								<MenuItem>World</MenuItem> */}
 							</Select>

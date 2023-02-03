@@ -181,19 +181,22 @@ export interface LinkData {
 
 export interface PlayerData {
 	player: string;
-	apps: number;
-	wins: number;
+	apps: string;
+	wins: string;
 	"win%": string;
-	totalPoints: number;
+	totalPoints: string;
 }
 
 export interface YearData {
-	Year: number;
+	Year: string;
 	ColumnLetter: string;
-	NumberPlayers: number;
+	NumberPlayers: string;
 	"1st": string;
 	"2nd": string;
 	"3rd": string;
 	"4th": string;
 	"5th": string;
+	"6th": string;
+	"7th": string;
+	"8th": string;
 }
