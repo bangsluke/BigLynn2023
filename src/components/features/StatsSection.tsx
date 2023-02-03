@@ -65,8 +65,8 @@ switch (dataMethod) {
 }
 
 const StatsSection = () => {
-	console.log("playerData: ", playerData);
-	console.log("yearData: ", yearData);
+	// Console.log("playerData: ", playerData);
+	// Console.log("yearData: ", yearData);
 
 	// Const dataSource = playerData;
 
