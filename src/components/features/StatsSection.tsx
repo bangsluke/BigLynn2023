@@ -237,12 +237,11 @@ const StatsSection = () => {
 								<SecondFilter />
 							</Grid>
 						</Grid>
-
 						{/* Add a box that holds the tabs */}
 						<Box sx={{ color: "white", borderBottom: 1, borderColor: "divider", width: "100%", backgroundColor: "null" }}>
 							<Tabs value={tabViewIndex} onChange={handleTabsViewChange} aria-label='basic tabs example' centered>
 								<Tab sx={{ color: "white" }} label='Charts' {...a11yProps(0)} />
-								<Tab sx={{ color: "white" }} label='Table' {...a11yProps(1)} />{" "}
+								<Tab sx={{ color: "white" }} label='Table' {...a11yProps(1)} />
 							</Tabs>
 						</Box>
 						{/* TabPanel 0 - Charts */}
