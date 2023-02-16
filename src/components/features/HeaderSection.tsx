@@ -26,7 +26,10 @@ const HeaderAnimationImage = styled("img")(({ theme }) => ({
 	transform: "scale(1) translate(20px, -40px)",
 	transformOrigin: theme.direction === "rtl" ? "100% 50%" : "0 50%",
 	[theme.breakpoints.down("lg")]: {
-		transform: "scale(0.6)",
+		transform: "scale(0.6) translate(20px, -40px)",
+	},
+	[theme.breakpoints.down("md")]: {
+		transform: "scale(0.6) translate(20px, -40px)",
 	},
 }));
 
