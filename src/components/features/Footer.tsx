@@ -44,17 +44,34 @@ const InfoPageFooter = () => {
 			<FooterWrapper>
 				<Container>
 					<Grid container alignItems='center' spacing={ThemingS.themeConfig.gridSpacing}>
-						<Grid item xs={4} sm={4}>
+						<Grid item xs={5} sm={4}>
 							<Typography variant='h4' component='div' color='inherit'>
 								&#169; bangsluke
 							</Typography>
 						</Grid>
-						<Grid item xs={8} sm={8}>
+						<Grid item xs={7} sm={8}>
 							<Grid
 								container
 								alignItems='center'
 								spacing={2}
-								sx={{ justifyContent: "flex-end", [theme.breakpoints.down("md")]: { justifyContent: "center" } }}>
+								sx={{
+									justifyContent: "flex-end",
+									[theme.breakpoints.down("md")]: { justifyContent: "center" },
+									[theme.breakpoints.down("sm")]: {
+										"& svg": {
+											marginRight: "1px",
+										},
+									},
+								}}>
+								<Grid
+									item
+									sx={{
+										[theme.breakpoints.down("sm")]: {
+											display: "none",
+										},
+									}}>
+									Stoke By Nayland Links:
+								</Grid>
 								<Grid item>
 									<FooterLink href='https://www.stokebynayland.com/' target='_blank' underline='hover'>
 										<LanguageIcon fontSize={showText ? "large" : "small"} />
