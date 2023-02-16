@@ -1,4 +1,4 @@
-import MenuIcon from '@mui/icons-material/Menu';
+import MenuIcon from "@mui/icons-material/Menu";
 import {
 	AppBar as MuiAppBar,
 	Box,
@@ -14,36 +14,36 @@ import {
 	Stack,
 	Toolbar,
 	Typography,
-	useScrollTrigger
-} from '@mui/material';
-import { useTheme } from '@mui/material/styles';
-import { IconCalendarEvent, IconCheckupList, IconLink, IconQuestionMark, IconReportAnalytics, IconRuler2 } from '@tabler/icons';
-import Logo from 'components/ui/Logo';
-import NavigationInfo from 'data/NavigationInfo';
-import React, { ReactElement } from 'react';
+	useScrollTrigger,
+} from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+import { IconCalendarEvent, IconCheckupList, IconLink, IconQuestionMark, IconReportAnalytics, IconRuler2 } from "@tabler/icons";
+import Logo from "components/ui/Logo";
+import NavigationInfo from "data/NavigationInfo";
+import React, { ReactElement } from "react";
 
 // Elevation scroll
 interface ElevationScrollProps {
-  children: ReactElement;
-  window?: Window | Node;
+	children: ReactElement;
+	window?: Window | Node;
 }
 function ElevationScroll({ children, window }: ElevationScrollProps) {
 	const theme = useTheme();
 	const trigger = useScrollTrigger({
 		disableHysteresis: true,
 		threshold: 0,
-		target: window!
+		target: window!,
 	});
-	const darkBorder = theme.palette.mode === 'dark' ? theme.palette.dark.dark : theme.palette.grey[200];
+	const darkBorder = theme.palette.mode === "dark" ? theme.palette.dark.dark : theme.palette.grey[200];
 
 	return React.cloneElement(children, {
 		elevation: trigger ? 2 : 0,
 		style: {
 			backgroundColor: theme.palette.background.default,
-			borderBottom: trigger ? 'none' : '1px solid',
-			borderColor: trigger ? '' : darkBorder,
-			color: theme.palette.text.dark
-		}
+			borderBottom: trigger ? "none" : "1px solid",
+			borderColor: trigger ? "" : darkBorder,
+			color: theme.palette.text.dark,
+		},
 	});
 }
 
@@ -51,7 +51,7 @@ const InfoPageAppBar = ({ ...others }) => {
 	const [drawerToggle, setDrawerToggle] = React.useState<boolean>(false);
 	/** Method called on multiple components with different event types */
 	const drawerToggler = (open: boolean) => (event: any) => {
-		if (event.type! === 'keydown' && (event.key! === 'Tab' || event.key! === 'Shift')) {
+		if (event.type! === "keydown" && (event.key! === "Tab" || event.key! === "Shift")) {
 			return;
 		}
 		setDrawerToggle(open);
@@ -76,24 +76,24 @@ const InfoPageAppBar = ({ ...others }) => {
 			<MuiAppBar>
 				<Container>
 					<Toolbar>
-						<Typography component='div' sx={{ flexGrow: 1, textAlign: 'left' }} data-testid='app-bar-drawer'>
+						<Typography component='div' sx={{ flexGrow: 1, textAlign: "left" }} data-testid='app-bar-drawer'>
 							<Logo />
 						</Typography>
-						<Stack direction='row' sx={{ display: { xs: 'none', sm: 'block' } }} spacing={2}>
+						<Stack direction='row' sx={{ display: { xs: "none", sm: "none", md: "block" } }} spacing={2}>
 							{navButtonElements}
 							<Button component={Link} href='/landing' disableElevation variant='contained' color='secondary'>
-                Begin Browsing
+								Begin Browsing
 							</Button>
 						</Stack>
-						<Box sx={{ display: { xs: 'block', sm: 'none' } }}>
+						<Box sx={{ display: { xs: "block", sm: "block", md: "none" } }}>
 							<IconButton color='inherit' onClick={drawerToggler(true)} size='large'>
 								<MenuIcon />
 							</IconButton>
 							<Drawer anchor='top' open={drawerToggle} onClose={drawerToggler(false)}>
 								{drawerToggle && (
-									<Box sx={{ width: 'auto' }} role='presentation' onClick={drawerToggler(false)} onKeyDown={drawerToggler(false)}>
+									<Box sx={{ width: "auto" }} role='presentation' onClick={drawerToggler(false)} onKeyDown={drawerToggler(false)}>
 										<List>
-											<Link style={{ textDecoration: 'none' }} href='#eventDetails'>
+											<Link style={{ textDecoration: "none" }} href='#eventDetails'>
 												<ListItemButton component='a'>
 													<ListItemIcon>
 														<IconCalendarEvent />
@@ -101,7 +101,7 @@ const InfoPageAppBar = ({ ...others }) => {
 													<ListItemText primary='Event Details' />
 												</ListItemButton>
 											</Link>
-											<Link style={{ textDecoration: 'none' }} href='#itinerary'>
+											<Link style={{ textDecoration: "none" }} href='#itinerary'>
 												<ListItemButton component='a'>
 													<ListItemIcon>
 														<IconCheckupList />
@@ -109,7 +109,7 @@ const InfoPageAppBar = ({ ...others }) => {
 													<ListItemText primary='Itinerary' />
 												</ListItemButton>
 											</Link>
-											<Link style={{ textDecoration: 'none' }} href='#rules'>
+											<Link style={{ textDecoration: "none" }} href='#rules'>
 												<ListItemButton component='a'>
 													<ListItemIcon>
 														<IconRuler2 />
@@ -117,7 +117,7 @@ const InfoPageAppBar = ({ ...others }) => {
 													<ListItemText primary='Rules' />
 												</ListItemButton>
 											</Link>
-											<Link style={{ textDecoration: 'none' }} href='#statistics'>
+											<Link style={{ textDecoration: "none" }} href='#statistics'>
 												<ListItemButton component='a'>
 													<ListItemIcon>
 														<IconReportAnalytics />
@@ -125,7 +125,7 @@ const InfoPageAppBar = ({ ...others }) => {
 													<ListItemText primary='Statistics' />
 												</ListItemButton>
 											</Link>
-											<Link style={{ textDecoration: 'none' }} href='#FAQ'>
+											<Link style={{ textDecoration: "none" }} href='#FAQ'>
 												<ListItemButton component='a'>
 													<ListItemIcon>
 														<IconQuestionMark />
@@ -133,7 +133,7 @@ const InfoPageAppBar = ({ ...others }) => {
 													<ListItemText primary='FAQ' />
 												</ListItemButton>
 											</Link>
-											<Link style={{ textDecoration: 'none' }} href='#usefulLinks'>
+											<Link style={{ textDecoration: "none" }} href='#usefulLinks'>
 												<ListItemButton component='a'>
 													<ListItemIcon>
 														<IconLink />
