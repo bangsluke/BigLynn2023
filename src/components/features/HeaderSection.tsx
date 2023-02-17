@@ -43,7 +43,7 @@ const InfoPageHeaderSection = () => {
 				alignItems='center'
 				justifyContent='space-between'
 				spacing={ThemingS.themeConfig.gridSpacing}
-				sx={{ mt: { xs: 4, sm: 6, md: 10 }, mb: { xs: 4, md: 10 }, backgroundColor: "null" }}>
+				sx={{ mt: { xs: 0, sm: 1, md: 6, lg: 10 }, mb: { xs: 0, md: 6, lg: 10 }, backgroundColor: "null" }}>
 				{/* Hold the header text and images for mobile */}
 				<Grid item xs={12} md={5} sx={{ backgroundColor: "null" }}>
 					<Grid
