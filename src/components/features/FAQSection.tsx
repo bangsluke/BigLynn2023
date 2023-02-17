@@ -61,6 +61,11 @@ export default function FAQSection() {
 							<AnswerWrapper>
 								No, unfortunately after the last conversations that occurred in it, HR stepped in and banned saunas
 							</AnswerWrapper>
+							<QuestionWrapper>How many times has Dave sworn at Big Lynn Events?</QuestionWrapper>
+							<AnswerWrapper>
+								If you mean the **** word, then Dave has said **** a total of 327 times, but if you mean ****, then Dave has said **** a
+								total of 249 times. And don&#39;t get me started on the number of times he&#39;s said ****.
+							</AnswerWrapper>
 							<QuestionWrapper>Who can I complain to about Dave&#39;s language?</QuestionWrapper>
 							<AnswerWrapper>
 								Fortunately we&#39;ve been able to hire someone to deal with such issues. Please direct all concerns to them{" "}

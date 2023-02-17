@@ -62,7 +62,7 @@ const AnchorOffset = styled("h2")({
 // Define which sections to display. Useful for testing
 const displayedSection = {
 	header: true,
-	eventDetails: true,
+	eventDetails: false,
 	itinerary: false,
 	rules: false,
 	stats: true,
