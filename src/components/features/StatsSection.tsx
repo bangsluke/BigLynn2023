@@ -1,6 +1,6 @@
 import ReactDataGrid from "@inovua/reactdatagrid-community";
 import "@inovua/reactdatagrid-community/index.css";
-import { Box, Container, FormControl, Grid, InputLabel, MenuItem, Select, Tab, Tabs, Tooltip, Typography } from "@mui/material";
+import { Box, Container, FormControl, Grid, InputLabel, MenuItem, Select, Tab, Tabs, Typography } from "@mui/material";
 import axios from "axios";
 import { getData } from "components/features/stats/GoogleSheetsAPI/getData";
 import { getPlayers } from "components/features/stats/GoogleSheetsAPI/getPlayers";
@@ -43,6 +43,9 @@ const columns = [
 ];
 
 const gridStyle = { minHeight: 550 };
+
+// Define a common minimum width for the dropdowns
+const MinDropdownWidth = 140;
 
 // Define the possible data methods can be selected
 enum DataMethods {
@@ -93,82 +96,80 @@ switch (dataMethod) {
 }
 
 const StatsSection = () => {
-	// Create a state for the tab that is being viewed. 0 is Stats Summary, 1 is Full Stats Details
-	const [tabViewIndex, setTabViewIndex] = useState(0);
-
-	// Create a function to handle the tab view change
-	const handleTabsViewChange = (event: SyntheticEvent, newValue: number) => {
-		setTabViewIndex(newValue);
-	};
-
 	// Define the data needed for the view option (player stats or year stats), initially set to player stats
 	const [viewOption, setViewOption] = useState("Player Stats");
+	const [playerOption, setPlayerOption] = useState("Andy Brown");
+	const [yearOption, setYearOption] = useState("2022");
 
 	// Define the change handler for the view option
 	const viewChange = (event: any) => {
+		// Console.log("viewChange: event.target.value: ", event.target.value);
 		setViewOption(event.target.value);
 	};
 
+	// Define the change handler for the player option
+	const playerChange = (event: any) => {
+		// Console.log("playerChange: event.target.value: ", event.target.value);
+		setPlayerOption(event.target.value);
+	};
+
+	// Define the change handler for the year option
+	const yearChange = (event: any) => {
+		// Console.log("yearChange: event.target.value: ", event.target.value);
+		setYearOption(event.target.value);
+	};
+
+	// Pick which dropdown to display based on the view option
 	const SecondFilter = () => {
 		// Player Selection Dropdown
 		const PlayerNameSelection = () => {
 			return (
-				<Tooltip title="Select the player who's stats you wish to view" placement='right'>
-					<>
-						{/* Added <> fragment to avoid https://mui.com/material-ui/react-tooltip/#custom-child-element issue */}
-						<FormControl sx={{ m: 1, minWidth: 200 }} color='primary'>
-							<InputLabel id='demo-simple-select-autowidth-label'>Player Selection</InputLabel>
-							<Select
-								labelId='demo-simple-select-autowidth-label'
-								id='demo-simple-select-autowidth'
-								value={viewOption}
-								onChange={viewChange}
-								autoWidth
-								label='Select option...'
-								name='View Option Select'>
-								{/* {playerData.map((player: any) => {
-									return (
-										<MenuItem key={player.Player} value={player.Player}>
-											{player.Player}
-										</MenuItem>
-									);
-								})} */}
-								{/* <MenuItem>Hello</MenuItem>
+				<FormControl sx={{ m: 0, minWidth: MinDropdownWidth, width: "90%" }} color='primary'>
+					<InputLabel id='demo-simple-select-autowidth-label'>Player Selection</InputLabel>
+					<Select
+						labelId='demo-simple-select-autowidth-label'
+						id='demo-simple-select-autowidth'
+						value={playerOption}
+						onChange={playerChange}
+						autoWidth
+						label='Select option...'
+						name='View Option Select'>
+						{playerData.map((player: any) => {
+							return (
+								<MenuItem key={player.player} value={player.player}>
+									{player.player}
+								</MenuItem>
+							);
+						})}
+						{/* <MenuItem>Hello</MenuItem>
 								<MenuItem>World</MenuItem> */}
-							</Select>
-						</FormControl>
-					</>
-				</Tooltip>
+					</Select>
+				</FormControl>
 			);
 		};
 
 		// Year Selection Dropdown
 		const YearSelection = () => {
 			return (
-				<Tooltip title='Select the year stats you wish to view' placement='right'>
-					<>
-						{/* Added <> fragment to avoid https://mui.com/material-ui/react-tooltip/#custom-child-element issue */}
-						<FormControl sx={{ m: 1, minWidth: 200 }} color='primary'>
-							<InputLabel id='demo-simple-select-autowidth-label'>Year Selection</InputLabel>
-							<Select
-								labelId='demo-simple-select-autowidth-label'
-								id='demo-simple-select-autowidth'
-								value={viewOption}
-								onChange={viewChange}
-								autoWidth
-								label='Select option...'
-								name='View Option Select'>
-								{yearData.map((year: any) => {
-									return (
-										<MenuItem key={year.Year} value={year.Year}>
-											{year.Year}
-										</MenuItem>
-									);
-								})}
-							</Select>
-						</FormControl>
-					</>
-				</Tooltip>
+				<FormControl sx={{ m: 0, minWidth: MinDropdownWidth, width: "90%" }} color='primary'>
+					<InputLabel id='demo-simple-select-autowidth-label'>Year Selection</InputLabel>
+					<Select
+						labelId='demo-simple-select-autowidth-label'
+						id='demo-simple-select-autowidth'
+						value={yearOption}
+						onChange={yearChange}
+						autoWidth
+						label='Select option...'
+						name='View Option Select'>
+						{yearData.map((year: any) => {
+							return (
+								<MenuItem key={year.Year} value={year.Year}>
+									{year.Year}
+								</MenuItem>
+							);
+						})}
+					</Select>
+				</FormControl>
 			);
 		};
 
@@ -177,6 +178,14 @@ const StatsSection = () => {
 		} else {
 			return <YearSelection />;
 		}
+	};
+
+	// Create a state for the tab that is being viewed. 0 is Stats Summary, 1 is Full Stats Details
+	const [tabViewIndex, setTabViewIndex] = useState(0);
+
+	// Create a function to handle the tab view change
+	const handleTabsViewChange = (event: SyntheticEvent, newValue: number) => {
+		setTabViewIndex(newValue);
 	};
 
 	return (
@@ -200,41 +209,42 @@ const StatsSection = () => {
 							</Typography>
 						</Grid>
 						<Grid item xs={12}>
-							<Typography variant='body2'>All the Big Lynn scores and stats since the birth of the competition</Typography>
+							<Typography variant='body2' sx={{ marginBottom: "0.5rem" }}>
+								All the Big Lynn scores and stats since the birth of the competition
+							</Typography>
 						</Grid>
 					</Grid>
 				</Grid>
 				<Grid item xs={12}>
 					<Grid container alignItems='center' justifyContent='space-between' spacing={ThemingS.themeConfig.gridSpacing}>
 						{/* Hold the dropdown selectors */}
-						<Grid item lg={6} md={6} sm={12} xs={12}>
-							<Grid container direction='row' spacing={ThemingS.themeConfig.gridSpacing}>
-								{/* View Option Dropdown */}
-								<Tooltip title='Select the company to work with' placement='right'>
-									<>
-										{/* Added <> fragment to avoid https://mui.com/material-ui/react-tooltip/#custom-child-element issue */}
-										<FormControl sx={{ m: 1, minWidth: 200 }} color='primary'>
-											<InputLabel id='demo-simple-select-autowidth-label'>View Option</InputLabel>
-											<Select
-												labelId='demo-simple-select-autowidth-label'
-												id='demo-simple-select-autowidth'
-												value={viewOption}
-												onChange={viewChange}
-												autoWidth
-												label='Select option...'
-												name='View Option Select'>
-												<MenuItem key='1' value='Player Stats'>
-													Player Stats
-												</MenuItem>
-												<MenuItem key='2' value='Year Stats'>
-													Year Stats
-												</MenuItem>
-											</Select>
-										</FormControl>
-									</>
-								</Tooltip>
-								{/* Player Name/Year Selection Dropdown */}
-								<SecondFilter />
+						<Grid item xs={12} sx={{ marginBottom: "0.5rem", backgroundColor: "null" }}>
+							<Grid container direction='row' spacing={1}>
+								<Grid item xs={6} spacing={0} sx={{ backgroundColor: "null" }}>
+									{/* View Option Dropdown */}
+									<FormControl sx={{ m: 0, minWidth: MinDropdownWidth, width: "90%" }} color='primary'>
+										<InputLabel id='demo-simple-select-autowidth-label'>View Option</InputLabel>
+										<Select
+											labelId='demo-simple-select-autowidth-label'
+											id='demo-simple-select-autowidth'
+											value={viewOption}
+											onChange={viewChange}
+											autoWidth
+											label='Select option...'
+											name='View Option Select'>
+											<MenuItem key='1' value='Player Stats'>
+												Player Stats
+											</MenuItem>
+											<MenuItem key='2' value='Year Stats'>
+												Year Stats
+											</MenuItem>
+										</Select>
+									</FormControl>
+								</Grid>
+								<Grid item xs={6} sx={{ backgroundColor: "null" }}>
+									{/* Player Name/Year Selection Dropdown */}
+									<SecondFilter />
+								</Grid>
 							</Grid>
 						</Grid>
 						{/* Add a box that holds the tabs */}
