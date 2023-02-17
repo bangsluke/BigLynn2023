@@ -13,39 +13,94 @@ import AppBar from "components/ui/AppBar";
 import Meta from "components/ui/Meta";
 import { useEffect } from "react";
 
+// Define which sections to display. Useful for testing
+const displayedSection = {
+	header: true,
+	eventDetails: true,
+	itinerary: true,
+	rules: true,
+	stats: true,
+	faq: true,
+	usefulLinks: true,
+};
+
+// Define the padding for each section
+const SectionPadding = {
+	desktopTop: 50,
+	desktopBottom: 30,
+	tabletTop: 30,
+	tabletBottom: 10,
+	mobileTop: 10,
+	mobileBottom: 5,
+};
+
+// Define the margin for each section
+const SectionMargin = {
+	desktop: 50,
+	tablet: 30,
+	mobile: 15,
+};
+
 const HeaderWrapper = styled("div")(({ theme }) => ({
 	// BackgroundColor: "#FFF",
 	borderRadius: "8px",
 	overflowX: "hidden",
 	overflowY: "clip",
 	[theme.breakpoints.down("md")]: {
-		paddingTop: 42,
+		paddingTop: 2,
 	},
 }));
 
 const SecondWrapper = styled("div")(({ theme }) => ({
-	paddingTop: 100,
 	borderRadius: "8px",
+	paddingTop: SectionPadding.desktopTop, // Padding for the largest screens
+	paddingBottom: SectionPadding.desktopBottom, // Padding for the largest screens
+	marginBottom: SectionMargin.desktop, // Margin for the largest screens
+	[theme.breakpoints.down("xl")]: {
+		paddingTop: SectionPadding.tabletTop, // Padding for the larger screens
+		paddingBottom: SectionPadding.tabletBottom, // Padding for the larger screens
+		marginBottom: SectionMargin.tablet, // Margin for the larger screens
+	},
 	[theme.breakpoints.down("md")]: {
-		paddingTop: 60,
+		paddingTop: SectionPadding.mobileTop, // Padding for the smaller screens
+		paddingBottom: SectionPadding.mobileBottom, // Padding for the smaller screens
+		marginBottom: SectionMargin.mobile, // Margin for the smaller screens
 	},
 }));
 
 const ThirdWrapper = styled("div")(({ theme }) => ({
 	backgroundColor: "#FFF",
 	borderRadius: "8px",
-	paddingTop: 100,
+	paddingTop: SectionPadding.desktopTop, // Padding for the largest screens
+	paddingBottom: SectionPadding.desktopBottom, // Padding for the largest screens
+	marginBottom: SectionMargin.desktop, // Margin for the largest screens
+	[theme.breakpoints.down("xl")]: {
+		paddingTop: SectionPadding.tabletTop, // Padding for the larger screens
+		paddingBottom: SectionPadding.tabletBottom, // Padding for the larger screens
+		marginBottom: SectionMargin.tablet, // Margin for the larger screens
+	},
 	[theme.breakpoints.down("md")]: {
-		paddingTop: 60,
+		paddingTop: SectionPadding.mobileTop, // Padding for the smaller screens
+		paddingBottom: SectionPadding.mobileBottom, // Padding for the smaller screens
+		marginBottom: SectionMargin.mobile, // Margin for the smaller screens
 	},
 }));
 
 const FourthWrapper = styled("div")(({ theme }) => ({
 	backgroundColor: theme.palette.secondary.light,
 	borderRadius: "8px",
-	paddingTop: 100,
+	paddingTop: SectionPadding.desktopTop, // Padding for the largest screens
+	paddingBottom: SectionPadding.desktopBottom, // Padding for the largest screens
+	marginBottom: SectionMargin.desktop, // Margin for the largest screens
+	[theme.breakpoints.down("xl")]: {
+		paddingTop: SectionPadding.tabletTop, // Padding for the larger screens
+		paddingBottom: SectionPadding.tabletBottom, // Padding for the larger screens
+		marginBottom: SectionMargin.tablet, // Margin for the larger screens
+	},
 	[theme.breakpoints.down("md")]: {
-		paddingTop: 60,
+		paddingTop: SectionPadding.mobileTop, // Padding for the smaller screens
+		paddingBottom: SectionPadding.mobileBottom, // Padding for the smaller screens
+		marginBottom: SectionMargin.mobile, // Margin for the smaller screens
 	},
 }));
 
@@ -58,17 +113,6 @@ const AnchorOffset = styled("h2")({
 		visibility: "hidden",
 	},
 });
-
-// Define which sections to display. Useful for testing
-const displayedSection = {
-	header: true,
-	eventDetails: false,
-	itinerary: false,
-	rules: false,
-	stats: true,
-	faq: false,
-	usefulLinks: false,
-};
 
 export default function Info() {
 	useEffect(() => {
