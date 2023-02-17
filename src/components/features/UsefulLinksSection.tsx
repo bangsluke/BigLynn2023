@@ -1,8 +1,8 @@
-import { Container, Grid, Typography } from '@mui/material';
-import LinkCard from 'components/ui/LinkCard';
-import LinksData from 'data/LinksData';
-import ThemingS from 'services/ThemingS';
-import { LinkData } from 'types/index';
+import { Container, Grid, Typography } from "@mui/material";
+import LinkCard from "components/ui/LinkCard";
+import LinksData from "data/LinksData";
+import ThemingS from "services/ThemingS";
+import { LinkData } from "types/index";
 
 export default function UsefulLinksSection() {
 	// Sort the links by the id property - https://www.w3schools.com/jsref/jsref_sort.asp & https://www.javascripttutorial.net/array/javascript-sort-an-array-of-objects/
@@ -34,24 +34,26 @@ export default function UsefulLinksSection() {
 							<Grid container spacing={1}>
 								<Grid item>
 									<Typography variant='h5' color='primary'>
-                    Useful Links
+										Useful Links
 									</Typography>
 								</Grid>
 							</Grid>
 						</Grid>
 						<Grid item xs={12}>
 							<Typography variant='h2' component='div'>
-                Links to other places
+								Links to other places
 							</Typography>
 						</Grid>
 						<Grid item xs={12}>
-							<Typography variant='body2'>For further reading if this site still hasn&#39;t given you everything</Typography>
+							<Typography variant='body2'>
+								For further reading if this site still hasn&#39;t given you everything you could ever need
+							</Typography>
 						</Grid>
 					</Grid>
 				</Grid>
 				{/* Hold the body information */}
-				<Grid item xs={12} sx={{ mb: 5 }}>
-					<Grid container justifyContent='center' spacing={ThemingS.themeConfig.gridSpacing} sx={{ textAlign: 'center' }}>
+				<Grid item xs={12} sx={{ mb: { xs: 1, lg: 3 } }}>
+					<Grid container justifyContent='center' spacing={ThemingS.themeConfig.gridSpacing} sx={{ textAlign: "center" }}>
 						{linkElements}
 					</Grid>
 				</Grid>

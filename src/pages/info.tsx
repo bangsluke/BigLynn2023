@@ -31,7 +31,7 @@ const SectionPadding = {
 	tabletTop: 30,
 	tabletBottom: 10,
 	mobileTop: 10,
-	mobileBottom: 5,
+	mobileBottom: 2,
 };
 
 // Define the margin for each section
