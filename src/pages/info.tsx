@@ -108,8 +108,8 @@ const AnchorOffset = styled("h2")({
 	"&:before": {
 		display: "block",
 		content: '""',
-		height: "110px" /* Give height of your fixed element */,
-		marginTop: "-110px" /* Give negative margin of your fixed element */,
+		height: "4rem" /* Give height of your fixed element */,
+		marginTop: "-4rem" /* Give negative margin of your fixed element */,
 		visibility: "hidden",
 	},
 });

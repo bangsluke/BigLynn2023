@@ -41,7 +41,7 @@ const MainLayout: FC<{ children: ReactNode }> = ({ children }) => {
 			</AppBar>
 
 			{/* Main content */}
-			<MyLayout theme={theme} sx={{ marginTop: "100px" }}>
+			<MyLayout theme={theme} sx={{ marginTop: { xs: "3.5rem", md: "4.5rem" } }}>
 				{children}
 			</MyLayout>
 		</Box>
