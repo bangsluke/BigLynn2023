@@ -63,11 +63,11 @@ const AnchorOffset = styled("h2")({
 const displayedSection = {
 	header: true,
 	eventDetails: true,
-	itinerary: false,
-	rules: false,
+	itinerary: true,
+	rules: true,
 	stats: true,
-	faq: false,
-	usefulLinks: false,
+	faq: true,
+	usefulLinks: true,
 };
 
 export default function Info() {
