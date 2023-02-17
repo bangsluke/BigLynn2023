@@ -1,6 +1,6 @@
 import MenuIcon from "@mui/icons-material/Menu";
 import {
-	AppBar as MuiAppBar,
+	AppBar,
 	Box,
 	Button,
 	Container,
@@ -21,6 +21,12 @@ import { IconCalendarEvent, IconCheckupList, IconLink, IconQuestionMark, IconRep
 import Logo from "components/ui/Logo";
 import NavigationInfo from "data/NavigationInfo";
 import React, { ReactElement } from "react";
+
+// Define the height of the app bar for desktop and mobile
+const AppBarHeight = {
+	desktop: "4rem",
+	mobile: "3rem",
+};
 
 // Elevation scroll
 interface ElevationScrollProps {
@@ -48,8 +54,10 @@ function ElevationScroll({ children, window }: ElevationScrollProps) {
 }
 
 const InfoPageAppBar = ({ ...others }) => {
+	// Define the state for the drawer toggle
 	const [drawerToggle, setDrawerToggle] = React.useState<boolean>(false);
-	/** Method called on multiple components with different event types */
+
+	// Define the function to toggle the drawer
 	const drawerToggler = (open: boolean) => (event: any) => {
 		if (event.type! === "keydown" && (event.key! === "Tab" || event.key! === "Shift")) {
 			return;
@@ -73,9 +81,9 @@ const InfoPageAppBar = ({ ...others }) => {
 
 	return (
 		<ElevationScroll {...others}>
-			<MuiAppBar>
-				<Container>
-					<Toolbar>
+			<AppBar sx={{ height: { xs: AppBarHeight.mobile, md: AppBarHeight.desktop } }}>
+				<Container sx={{ height: { xs: AppBarHeight.mobile, md: AppBarHeight.desktop } }}>
+					<Toolbar sx={{ height: { xs: AppBarHeight.mobile, md: AppBarHeight.desktop } }}>
 						<Typography component='div' sx={{ flexGrow: 1, textAlign: "left" }} data-testid='app-bar-drawer'>
 							<Logo />
 						</Typography>
@@ -148,7 +156,7 @@ const InfoPageAppBar = ({ ...others }) => {
 						</Box>
 					</Toolbar>
 				</Container>
-			</MuiAppBar>
+			</AppBar>
 		</ElevationScroll>
 	);
 };

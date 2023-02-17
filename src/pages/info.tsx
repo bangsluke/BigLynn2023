@@ -1,7 +1,6 @@
 import { styled } from "@mui/material/styles";
 import AOS from "aos";
 import "aos/dist/aos.css"; // You can also use <link> for styles
-import AppBar from "components/features/AppBar";
 import EventDetailsSection from "components/features/EventDetailsSection";
 import FAQSection from "components/features/FAQSection";
 import Footer from "components/features/Footer";
@@ -10,6 +9,7 @@ import ItinerarySection from "components/features/ItinerarySection";
 import RulesSection from "components/features/RulesSection";
 import StatsSection from "components/features/StatsSection";
 import UsefulLinksSection from "components/features/UsefulLinksSection";
+import AppBar from "components/ui/AppBar";
 import Meta from "components/ui/Meta";
 import { useEffect } from "react";
 
