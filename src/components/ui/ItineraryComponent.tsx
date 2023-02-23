@@ -1,8 +1,8 @@
-import { Grid } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import FadeInWhenVisible from "components/ui/Animation";
-import Avatar from "components/ui/Avatar";
+import "aos/dist/aos.css"; // You can also use <link> for styles
 import useIcons from "hooks/useIcons";
+import { VerticalTimelineElement } from "react-vertical-timeline-component";
+import "react-vertical-timeline-component/style.min.css";
 
 const ItineraryComponent = (props: { id: number; time: string; iconName: string; title: string; url: string }) => {
 	const { iconName, time, title, url } = props; // Destructure props
@@ -10,72 +10,23 @@ const ItineraryComponent = (props: { id: number; time: string; iconName: string;
 
 	const MUIIcon = useIcons(iconName); // Dynamically import the MUI Icon - https://stackoverflow.com/a/66828783
 
-	const ItineraryComponentStyle = {
-		// Styles go here
-		backgroundColor: "white",
-		// BackgroundColor: "red",
-		width: "100%",
-		height: "3rem",
-		borderRadius: "1.5rem",
-		marginBottom: "1.5rem",
-		timeSection: {
-			backgroundColor: theme.palette.grey[700],
-			color: "white",
-			fontSize: "1rem",
-			borderRadius: "1.5rem",
-			width: "5rem",
-			height: "3rem",
-			display: "flex",
-			alignItems: "center",
-			justifyContent: "center",
-		},
-		iconSection: {
-			// BackgroundColor: "orange",
-			width: "5rem",
-			height: "3rem",
-			display: "flex",
-			alignItems: "center",
-			justifyContent: "center",
-		},
-		titleSection: {
-			// BackgroundColor: "blue",
-			fontSize: "1rem",
-			width: "100%",
-			height: "3rem",
-			display: "flex",
-			alignItems: "center",
-			justifyContent: "flex-start",
-		},
-	};
-
 	return (
-		<FadeInWhenVisible>
+		<>
 			{/* Wrap the contents in a link */}
 			<a target='_blank' href={url} rel='noopener noreferrer' style={{ textDecoration: "none" }}>
-				<Grid container direction='row' style={ItineraryComponentStyle}>
-					{/* Hold the time along the left side */}
-					<Grid item xs={1} style={ItineraryComponentStyle.timeSection}>
-						{time}
-					</Grid>
-					{/* Hold the MUI icon */}
-					<Grid item xs={1} style={ItineraryComponentStyle.iconSection}>
-						<Avatar
-							size='sm'
-							variant='rounded'
-							sx={{
-								background: theme.palette.primary.light,
-								color: theme.palette.primary.main,
-							}}>
-							<MUIIcon fontSize='small' />
-						</Avatar>
-					</Grid>
-					{/* Hold the title and details along the right side */}
-					<Grid item xs={10} style={ItineraryComponentStyle.titleSection}>
-						{title}
-					</Grid>
-				</Grid>
+				<VerticalTimelineElement
+					className='vertical-timeline-element--work'
+					contentStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
+					contentArrowStyle={{ borderRight: "7px solid  rgb(33, 150, 243)" }}
+					date='2011 - present'
+					iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
+					icon={<MUIIcon fontSize='small' />}>
+					<h3 className='vertical-timeline-element-title'>Creative Director</h3>
+					<h4 className='vertical-timeline-element-subtitle'>Miami, FL</h4>
+					<p>Creative Direction, User Experience, Visual Design, Project Management, Team Leading</p>
+				</VerticalTimelineElement>
 			</a>
-		</FadeInWhenVisible>
+		</>
 	);
 };
 
