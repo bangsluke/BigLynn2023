@@ -4,8 +4,17 @@ import useIcons from "hooks/useIcons";
 import { VerticalTimelineElement } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 
-const ItineraryComponent = (props: { id: number; time: string; iconName: string; title: string; url: string }) => {
-	const { iconName, time, title, url } = props; // Destructure props
+const ItineraryComponent = (props: {
+	id: number;
+	time: string;
+	iconName: string;
+	title: string;
+	subtitle: string;
+	description: string;
+	url: string;
+	position: "left" | "right";
+}) => {
+	const { iconName, time, title, subtitle, description, url, position } = props; // Destructure props
 	const theme = useTheme();
 
 	const MUIIcon = useIcons(iconName); // Dynamically import the MUI Icon - https://stackoverflow.com/a/66828783
@@ -18,12 +27,13 @@ const ItineraryComponent = (props: { id: number; time: string; iconName: string;
 					className='vertical-timeline-element--work'
 					contentStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
 					contentArrowStyle={{ borderRight: "7px solid  rgb(33, 150, 243)" }}
-					date='2011 - present'
+					date={time}
 					iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
-					icon={<MUIIcon fontSize='small' />}>
-					<h3 className='vertical-timeline-element-title'>Creative Director</h3>
-					<h4 className='vertical-timeline-element-subtitle'>Miami, FL</h4>
-					<p>Creative Direction, User Experience, Visual Design, Project Management, Team Leading</p>
+					icon={<MUIIcon fontSize='small' />}
+					position={position}>
+					<h3 className='vertical-timeline-element-title'>{title}</h3>
+					<h4 className='vertical-timeline-element-subtitle'>{subtitle}</h4>
+					<p>{description}</p>
 				</VerticalTimelineElement>
 			</a>
 		</>

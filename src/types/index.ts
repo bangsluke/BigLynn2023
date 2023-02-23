@@ -217,5 +217,8 @@ export interface ItineraryItem {
 	time: string;
 	datetime: number;
 	title: string;
+	subtitle: string;
+	description: string;
 	url: string;
+	position: "left" | "right";
 }
