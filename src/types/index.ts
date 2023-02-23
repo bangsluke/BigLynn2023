@@ -208,3 +208,17 @@ export interface TabPanelProps {
 	value: number;
 	backgroundColor?: string;
 }
+
+// Define the ItineraryItem type
+export interface ItineraryItem {
+	id: number;
+	iconName: string;
+	date: string;
+	time: string;
+	datetime: number;
+	title: string;
+	subtitle: string;
+	description: string;
+	url: string;
+	position: "left" | "right";
+}
