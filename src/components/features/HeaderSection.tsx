@@ -36,6 +36,23 @@ const HeaderAnimationImage = styled("img")(({ theme }) => ({
 const InfoPageHeaderSection = () => {
 	const theme = useTheme();
 
+	// Share handler - https://dev.to/ruppysuppy/7-javascript-web-apis-to-build-futuristic-websites-you-didnt-know-38bc
+	async function shareHandler() {
+		navigator.share({
+			title: "Big Lynn 2023",
+			text: "Check out my Big Lynn Stats",
+			url: "https://biglynn2023.netlify.app/info",
+		});
+	}
+
+	async function enterFullscreen() {
+		await document.documentElement.requestFullscreen();
+	}
+
+	async function exitFullscreen() {
+		await document.exitFullscreen();
+	}
+
 	return (
 		<Container>
 			<Grid
@@ -132,6 +149,27 @@ const InfoPageHeaderSection = () => {
 										<Button component={Link} href='#eventDetails' size='large' variant='contained' color='secondary'>
 											Begin Browsing
 										</Button>
+									</Grid>
+									<Grid item>
+										<div onClick={shareHandler}>
+											<Button component={Link} href='' size='large' variant='contained' color='secondary'>
+												Share this page
+											</Button>
+										</div>
+									</Grid>
+									<Grid item>
+										<div onClick={enterFullscreen}>
+											<Button component={Link} size='large' variant='contained' color='secondary'>
+												Full Screen
+											</Button>
+										</div>
+									</Grid>
+									<Grid item>
+										<div onClick={exitFullscreen}>
+											<Button component={Link} size='large' variant='contained' color='secondary'>
+												Exit Full Screen
+											</Button>
+										</div>
 									</Grid>
 									<Grid item>
 										<Button component={Link} href='mailto:bangsluke@gmail.com' target='_blank' size='large' variant='text'>
