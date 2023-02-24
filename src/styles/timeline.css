@@ -1,0 +1,15 @@
+/* Define specific styling for the timeline component  */
+.timeline-holder {
+	/* background-color: white; */
+	width: 95%;
+	margin: 1rem auto 0 auto;
+}
+
+.timelineDateStyle {
+	font-size: "5rem" !important;
+	/* color: "#fff" !important; */
+	/* background-color: red; */
+	/* border-radius: "2rem"; */
+	font-size: larger;
+	/* height: "5rem"; */
+}
