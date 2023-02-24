@@ -85,6 +85,7 @@
 		"react-redux": "^7.2.6",
 		"react-slick": "^0.28.1",
 		"react-spring": "^9.4.3",
+		"react-swipeable-views": "^0.14.0",
 		"react-syntax-highlighter": "^15.5.0",
 		"react-timer-hook": "^3.0.5",
 		"react-to-print": "^2.14.7",
