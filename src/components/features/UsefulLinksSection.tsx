@@ -2,7 +2,7 @@ import { Container, Grid, Typography } from "@mui/material";
 import LinkCard from "components/ui/LinkCard";
 import LinksData from "data/LinksData";
 import ThemingS from "services/ThemingS";
-import { LinkData } from "types/index";
+import { LinkData } from "types/types";
 
 export default function UsefulLinksSection() {
 	// Sort the links by the id property - https://www.w3schools.com/jsref/jsref_sort.asp & https://www.javascripttutorial.net/array/javascript-sort-an-array-of-objects/

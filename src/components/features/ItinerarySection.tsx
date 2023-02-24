@@ -3,12 +3,11 @@ import AOS from "aos";
 import "aos/dist/aos.css"; // You can also use <link> for styles
 import ItineraryComponent from "components/ui/ItineraryComponent";
 import ItineraryInfo from "data/ItineraryInfo";
-import useIcons from "hooks/useIcons";
 import { useEffect } from "react";
-import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
+import { VerticalTimeline } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import ThemingS from "services/ThemingS";
-import { ItineraryItem } from "../../types";
+import { ItineraryItem } from "types/types";
 
 export default function ItinerarySection() {
 	useEffect(() => {
@@ -27,18 +26,20 @@ export default function ItinerarySection() {
 			<ItineraryComponent
 				id={item.id}
 				key={item.id}
-				iconName={item.iconName}
+				datetime={item.datetime}
 				time={item.time}
 				title={item.title}
 				subtitle={item.subtitle}
 				description={item.description}
 				url={item.url}
 				position={item.position}
+				backgroundColor={item.backgroundColor}
+				iconName={item.iconName}
 			/>
 		);
 	});
 
-	const MUIIcon = useIcons("MapIcon"); // Dynamically import the MUI Icon - https://stackoverflow.com/a/66828783
+	// Const MUIIcon = useIcons("MapIcon"); // Dynamically import the MUI Icon - https://stackoverflow.com/a/66828783
 
 	return (
 		<Container>
@@ -66,11 +67,16 @@ export default function ItinerarySection() {
 					</Grid>
 				</Grid>
 				<Grid item xs={12}>
-					{/* https://www.npmjs.com/package/react-vertical-timeline-component */}
-					<VerticalTimeline>
-						{itineraryElements}
-						<VerticalTimelineElement iconStyle={{ background: "rgb(16, 204, 82)", color: "#fff" }} icon={<MUIIcon fontSize='small' />} />
-					</VerticalTimeline>
+					<div className='timeline-holder'>
+						{/* Add the vertical timeline - https://www.npmjs.com/package/react-vertical-timeline-component */}
+						<VerticalTimeline
+							animate={true} // Add the appear on scroll animation
+							layout={"2-columns"}
+							lineColor={"white"}>
+							{itineraryElements}
+							{/* <VerticalTimelineElement iconStyle={{ background: "rgb(16, 204, 82)", color: "#fff" }} icon={<MUIIcon fontSize='small' />} /> */}
+						</VerticalTimeline>
+					</div>
 				</Grid>
 			</Grid>
 		</Container>
