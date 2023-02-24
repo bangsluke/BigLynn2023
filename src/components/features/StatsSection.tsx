@@ -98,7 +98,7 @@ switch (dataMethod) {
 const StatsSection = () => {
 	// Define the data needed for the view option (player stats or year stats), initially set to player stats
 	const [viewOption, setViewOption] = useState("Player Stats");
-	const [playerOption, setPlayerOption] = useState("Andy Brown");
+	const [playerOption, setPlayerOption] = useState("Andy");
 	const [yearOption, setYearOption] = useState("2022");
 
 	// Define the change handler for the view option
