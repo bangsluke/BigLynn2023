@@ -213,7 +213,7 @@ export interface TabPanelProps {
 export interface ItineraryItem {
 	id: number;
 	iconName: string;
-	date: string;
+	date?: string;
 	time: string;
 	datetime: number;
 	title: string;
@@ -221,4 +221,5 @@ export interface ItineraryItem {
 	description: string;
 	url: string;
 	position: "left" | "right";
+	backgroundColor: string;
 }

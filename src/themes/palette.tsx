@@ -12,7 +12,7 @@ import defaultColor from "../scss/_themes-vars.module.scss";
 // Import theme6 from '../scss/_theme6.module.scss';
 
 // Types
-import { ColorProps } from "types";
+import { ColorProps } from "types/types";
 
 // ==============================|| DEFAULT THEME - PALETTE  ||============================== //
 

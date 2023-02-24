@@ -8,7 +8,7 @@ import PlayerPointsChartCard from "components/features/stats/PlayerPointsChartCa
 import { SyntheticEvent, useState } from "react";
 import ThemingS from "services/ThemingS";
 import savedDataResponse from "../../data/savedDataResponse";
-import { PlayerData, TabPanelProps, YearData } from "../../types";
+import { PlayerData, TabPanelProps, YearData } from "../../types/types";
 
 // Define the TabPanelComponent - https://mui.com/material-ui/react-tabs/
 function TabPanel(props: TabPanelProps) {
