@@ -220,7 +220,7 @@ const StatsSection = () => {
 						{/* Hold the dropdown selectors */}
 						<Grid item xs={12} sx={{ marginBottom: "0.5rem", backgroundColor: "null" }}>
 							<Grid container direction='row' spacing={1}>
-								<Grid item xs={6} spacing={0} sx={{ backgroundColor: "null" }}>
+								<Grid item xs={6} sx={{ backgroundColor: "null" }}>
 									{/* View Option Dropdown */}
 									<FormControl sx={{ m: 0, minWidth: MinDropdownWidth, width: "90%" }} color='primary'>
 										<InputLabel id='demo-simple-select-autowidth-label'>View Option</InputLabel>
