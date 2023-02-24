@@ -207,6 +207,7 @@ export interface TabPanelProps {
 	index: number;
 	value: number;
 	backgroundColor?: string;
+	dir?: string;
 }
 
 // Define the ItineraryItem type
