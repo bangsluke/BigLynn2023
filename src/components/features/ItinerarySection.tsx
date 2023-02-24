@@ -1,13 +1,20 @@
-import { Container, Grid, Typography } from "@mui/material";
+import { AppBar, Container, Grid, Tab, Tabs, Typography } from "@mui/material";
 import AOS from "aos";
 import "aos/dist/aos.css"; // You can also use <link> for styles
 import ItineraryComponent from "components/ui/ItineraryComponent";
 import ItineraryInfo from "data/ItineraryInfo";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { VerticalTimeline } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import ThemingS from "services/ThemingS";
 import { ItineraryItem } from "types/types";
+
+function a11yProps(index: number) {
+	return {
+		id: `full-width-tab-${index}`,
+		"aria-controls": `full-width-tabpanel-${index}`,
+	};
+}
 
 export default function ItinerarySection() {
 	useEffect(() => {
@@ -15,8 +22,25 @@ export default function ItinerarySection() {
 		AOS.refresh();
 	}, []);
 
+	const [value, setValue] = useState(0); // Define the state and a handle change function for the tab value
+	const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+		setValue(newValue);
+	};
+
+	// Grab the itinerary info from the data file based on the selected tab
+	let selectedItinerary: ItineraryItem[] = [];
+	if (value === 0) {
+		selectedItinerary = ItineraryInfo.Saturday;
+	} else if (value === 1) {
+		selectedItinerary = ItineraryInfo.Sunday;
+	} else if (value === 2) {
+		selectedItinerary = ItineraryInfo.Monday;
+	} else {
+		selectedItinerary = ItineraryInfo.Saturday;
+	}
+
 	// Sort the itinerary items by the datetime property - https://www.w3schools.com/jsref/jsref_sort.asp & https://www.javascripttutorial.net/array/javascript-sort-an-array-of-objects/
-	const sortedItinerary: ItineraryItem[] = ItineraryInfo.sort(function (a, b) {
+	let sortedItinerary: ItineraryItem[] = selectedItinerary.sort(function (a, b) {
 		return a.datetime - b.datetime;
 	});
 
@@ -38,8 +62,6 @@ export default function ItinerarySection() {
 			/>
 		);
 	});
-
-	// Const MUIIcon = useIcons("MapIcon"); // Dynamically import the MUI Icon - https://stackoverflow.com/a/66828783
 
 	return (
 		<Container>
@@ -66,17 +88,28 @@ export default function ItinerarySection() {
 						</Grid>
 					</Grid>
 				</Grid>
+
 				<Grid item xs={12}>
-					<div className='timeline-holder'>
-						{/* Add the vertical timeline - https://www.npmjs.com/package/react-vertical-timeline-component */}
-						<VerticalTimeline
-							animate={true} // Add the appear on scroll animation
-							layout={"2-columns"}
-							lineColor={"white"}>
-							{itineraryElements}
-							{/* <VerticalTimelineElement iconStyle={{ background: "rgb(16, 204, 82)", color: "#fff" }} icon={<MUIIcon fontSize='small' />} /> */}
-						</VerticalTimeline>
-					</div>
+					<AppBar position='static' color='transparent' sx={{ backgroundColor: "null" }}>
+						<Tabs
+							value={value}
+							onChange={handleChange}
+							centered
+							indicatorColor='primary'
+							textColor='inherit'
+							variant='fullWidth'
+							aria-label='full width tabs example'>
+							<Tab label='Saturday' {...a11yProps(0)} />
+							<Tab label='Sunday' {...a11yProps(1)} />
+							<Tab label='Monday' {...a11yProps(2)} />
+						</Tabs>
+					</AppBar>
+					<VerticalTimeline
+						animate={true} // Add the appear on scroll animation
+						layout={"2-columns"}
+						lineColor={"white"}>
+						{itineraryElements}
+					</VerticalTimeline>
 				</Grid>
 			</Grid>
 		</Container>
