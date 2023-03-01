@@ -1854,10 +1854,10 @@
     "@typescript-eslint/types" "5.46.1"
     eslint-visitor-keys "^3.3.0"
 
-"@xata.io/client@^0.21.6":
-  version "0.21.6"
-  resolved "https://registry.yarnpkg.com/@xata.io/client/-/client-0.21.6.tgz#e95e7cb428b3b8974cc02b848810bf013b4ac4cb"
-  integrity sha512-XAHQsopU8aXCwhieEGSzBgAwkBv5UKMOAxQg9oeGF6okE66QCe987j/nxsk6vYZKYgsv7cgnOikpwXbYv7oIsQ==
+"@xata.io/client@^0.22.1":
+  version "0.22.3"
+  resolved "https://registry.yarnpkg.com/@xata.io/client/-/client-0.22.3.tgz#a52b5ebedec7e1c40f7d9c1bda1b90ea98b779f4"
+  integrity sha512-2brx6LMhckQpRiXDhxDKa0H4cre5yDvOJ4DA/AskHyoyd5ZacqnLx9eFOThITC0/egu+6e6QKn1MtwY+gq5wTA==
 
 a11y-focus-store@^1.0.0:
   version "1.0.0"
