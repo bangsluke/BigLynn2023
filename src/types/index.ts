@@ -173,6 +173,7 @@ export type ChangeEventFunc = (e: React.ChangeEvent<HTMLInputElement>) => void;
 
 export interface LinkData {
 	id: number;
+	key: string;
 	iconName: string;
 	title: string;
 	description: string;

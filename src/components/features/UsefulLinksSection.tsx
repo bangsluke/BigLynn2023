@@ -15,7 +15,7 @@ export default function UsefulLinksSection() {
 		return (
 			<LinkCard
 				id={link.id}
-				key={link.id}
+				key={link.key}
 				iconName={link.iconName}
 				title={link.title}
 				description={link.description}
