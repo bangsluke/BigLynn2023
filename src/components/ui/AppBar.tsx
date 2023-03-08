@@ -20,7 +20,7 @@ import { useTheme } from "@mui/material/styles";
 import { IconCalendarEvent, IconCheckupList, IconLink, IconQuestionMark, IconReportAnalytics, IconRuler2 } from "@tabler/icons";
 import Logo from "components/ui/Logo";
 import NavigationInfo from "data/NavigationInfo";
-import React, { ReactElement } from "react";
+import { cloneElement, ReactElement, useState } from "react";
 
 // Define the height of the app bar for desktop and mobile
 const AppBarHeight = {
@@ -42,7 +42,7 @@ function ElevationScroll({ children, window }: ElevationScrollProps) {
 	});
 	const darkBorder = theme.palette.mode === "dark" ? theme.palette.dark.dark : theme.palette.grey[200];
 
-	return React.cloneElement(children, {
+	return cloneElement(children, {
 		elevation: trigger ? 2 : 0,
 		style: {
 			backgroundColor: theme.palette.background.default,
@@ -55,7 +55,7 @@ function ElevationScroll({ children, window }: ElevationScrollProps) {
 
 const InfoPageAppBar = ({ ...others }) => {
 	// Define the state for the drawer toggle
-	const [drawerToggle, setDrawerToggle] = React.useState<boolean>(false);
+	const [drawerToggle, setDrawerToggle] = useState<boolean>(false);
 
 	// Define the function to toggle the drawer
 	const drawerToggler = (open: boolean) => (event: any) => {

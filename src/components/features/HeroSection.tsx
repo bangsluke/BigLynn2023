@@ -1,7 +1,9 @@
 import { Box, Button, Container, Grid, Link, Typography } from "@mui/material";
 import { styled, useTheme } from "@mui/material/styles";
 import { motion } from "framer-motion";
+import useScreenSize from "hooks/useMediaQuery";
 import Image from "next/image";
+import { useState } from "react";
 import ThemingS from "services/ThemingS";
 
 // Styles
@@ -35,6 +37,8 @@ const HeaderAnimationImage = styled("img")(({ theme }) => ({
 
 const HeroSection = () => {
 	const theme = useTheme();
+	const [fullScreenBoolean, setFullScreenBoolean] = useState<boolean>(false);
+	const screenSize = useScreenSize();
 
 	// Share handler - https://dev.to/ruppysuppy/7-javascript-web-apis-to-build-futuristic-websites-you-didnt-know-38bc
 	async function shareHandler() {
@@ -45,13 +49,50 @@ const HeroSection = () => {
 		});
 	}
 
-	async function enterFullscreen() {
-		await document.documentElement.requestFullscreen();
+	// Fullscreen toggle handler
+	async function toggleFullscreen() {
+		if (fullScreenBoolean) {
+			await document.exitFullscreen();
+			setFullScreenBoolean(false);
+		} else {
+			await document.documentElement.requestFullscreen();
+			setFullScreenBoolean(true);
+		}
 	}
 
-	async function exitFullscreen() {
-		await document.exitFullscreen();
+	// Get the button size based on the screen size
+	interface ButtonSize {
+		size: "small" | "medium" | "large" | undefined;
 	}
+	let buttonSize: ButtonSize = { size: "small" };
+	let buttonHeight: string = "2rem";
+	if (screenSize === "lg" || screenSize === "xl") {
+		buttonSize = { size: "large" };
+		buttonHeight = "3rem";
+	} else {
+		buttonSize = { size: "small" };
+		buttonHeight = "2rem";
+	}
+
+	// Define the styles for the buttons and containers
+	const Styles = {
+		ButtonContainers: {
+			backgroundColor: "null",
+			padding: "0px",
+			margin: "0px",
+			textAlign: "center",
+			display: "flex",
+			justifyContent: "center",
+			alignItems: "center",
+		},
+		ButtonStyle: {
+			height: buttonHeight,
+			width: "max-content",
+		},
+	};
+
+	// Console.log("buttonSize", buttonSize);
+	// Console.log("buttonSize.size", buttonSize.size);
 
 	return (
 		<Container>
@@ -92,6 +133,7 @@ const HeroSection = () => {
 								</Typography>
 							</motion.div>
 						</Grid>
+
 						{/* Hold the header images for mobile */}
 						<Grid item xs={12} sx={{ display: { lg: "none", md: "flex" }, textAlign: "center" }}>
 							{/* <Box sx={{ position: 'relative', mt: 8.75 }}> */}
@@ -108,6 +150,7 @@ const HeroSection = () => {
 							</motion.div>
 							{/* </Box> */}
 						</Grid>
+
 						{/* Hold the summary text */}
 						<Grid item xs={12}>
 							<motion.div
@@ -133,6 +176,7 @@ const HeroSection = () => {
 								</Typography>
 							</motion.div>
 						</Grid>
+
 						{/* Hold the two option buttons below the text */}
 						<Grid item xs={12} sx={{ my: 3.25 }}>
 							<motion.div
@@ -145,34 +189,42 @@ const HeroSection = () => {
 									delay: 0.4,
 								}}>
 								<Grid container spacing={2} sx={{ justifyContent: { xs: "center", md: "flex-start" } }}>
-									<Grid item>
-										<Button component={Link} href='#eventDetails' size='large' variant='contained' color='secondary'>
+									{/* Hold the begin browsing button */}
+									<Grid item xs={6} sm={4} md={6} sx={Styles.ButtonContainers}>
+										<Button
+											component={Link}
+											href='#eventDetails'
+											size={buttonSize.size}
+											variant='contained'
+											color='primary'
+											sx={Styles.ButtonStyle}>
 											Begin Browsing
 										</Button>
 									</Grid>
-									<Grid item>
+									{/* Hold the share button */}
+									<Grid item xs={6} sm={4} md={6} sx={Styles.ButtonContainers}>
 										<div onClick={shareHandler}>
-											<Button component={Link} href='' size='large' variant='contained' color='secondary'>
+											<Button component={Link} href='' size={buttonSize.size} variant='contained' color='secondary' sx={Styles.ButtonStyle}>
 												Share this page
 											</Button>
 										</div>
 									</Grid>
-									<Grid item>
-										<div onClick={enterFullscreen}>
-											<Button component={Link} size='large' variant='contained' color='secondary'>
-												Full Screen
+									{/* Hold the toggle fullscreen button */}
+									<Grid item xs={6} sm={4} md={6} sx={{ ...Styles.ButtonContainers, display: { xs: "none", md: "block" } }}>
+										<div onClick={toggleFullscreen}>
+											<Button component={Link} size={buttonSize.size} variant='contained' color='secondary' sx={Styles.ButtonStyle}>
+												{fullScreenBoolean ? "Exit Full Screen" : "Enter Full Screen"}
 											</Button>
 										</div>
 									</Grid>
-									<Grid item>
-										<div onClick={exitFullscreen}>
-											<Button component={Link} size='large' variant='contained' color='secondary'>
-												Exit Full Screen
-											</Button>
-										</div>
-									</Grid>
-									<Grid item>
-										<Button component={Link} href='mailto:bangsluke@gmail.com' target='_blank' size='large' variant='text'>
+									{/* Hold the contact organiser text */}
+									<Grid item xs={12} md={6} sx={Styles.ButtonContainers}>
+										<Button
+											component={Link}
+											href='mailto:bangsluke@gmail.com?subject=Fuck me this site is awesome'
+											target='_blank'
+											size={buttonSize.size}
+											variant='text'>
 											Contact Your Organiser
 										</Button>
 									</Grid>
