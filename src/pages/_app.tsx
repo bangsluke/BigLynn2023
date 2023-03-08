@@ -1,8 +1,10 @@
+import { ThemeProvider } from "@mui/material/styles";
 import MainLayout from "components/ui/MainLayout";
 import Head from "next/head";
 import { useRef } from "react";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import "react-perfect-scrollbar/dist/css/styles.css";
+import ThemingS from "services/ThemingS";
 import "styles/timeline.css";
 import ThemeCustomization from "themes";
 
@@ -18,14 +20,16 @@ export const BaseApp = (props: { children: any }) => {
 				paddingRight: "0px",
 			}}
 			ref={appScrollComponent}>
-			<ThemeCustomization>
-				<Head>
-					<meta name='title' content='Big Lynn 2023' />
-					<meta name='description' content='The official website of the 2023 Big Lynn Competition.' />
-					<meta name='viewport' content='width=device-width, initial-scale=1' />
-				</Head>
-				<MainLayout>{props.children}</MainLayout>
-			</ThemeCustomization>
+			<ThemeProvider theme={ThemingS.toolTheme}>
+				<ThemeCustomization>
+					<Head>
+						<meta name='title' content='Big Lynn 2023' />
+						<meta name='description' content='The official website of the 2023 Big Lynn Competition.' />
+						<meta name='viewport' content='width=device-width, initial-scale=1' />
+					</Head>
+					<MainLayout>{props.children}</MainLayout>
+				</ThemeCustomization>
+			</ThemeProvider>
 		</PerfectScrollbar>
 	);
 };
