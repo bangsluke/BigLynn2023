@@ -1,5 +1,6 @@
-import { AppBar, Container, Grid, Tab, Tabs, Typography } from "@mui/material";
+import { AppBar, Container, Grid, Link, Tab, Tabs, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import Image from "next/image";
 import { useState } from "react";
 import ThemingS from "services/ThemingS";
 
@@ -23,50 +24,82 @@ function a11yProps(index: number) {
 
 const GainsboroughDetails = () => {
 	return (
-		<>
-			<Typography variant='h4' style={{ margin: "0.5rem 0.5rem" }}>
-				Description
-			</Typography>
-			<Typography variant='body1' style={{ margin: "0.5rem 0.5rem" }}>
-				The Gainsborough course measures over 7,000 yards with a Par of 71. The undulating terrain and four substantial lakes challenge the
-				skills of golfers of all abilities. The 10th requires a drive and second shot over the same lake, when played from the back tee, and
-				has been voted one of the most outstanding holes in East Anglia by the Professional Golf Association (PGA).
-			</Typography>
-			<Typography variant='h4' style={{ margin: "0.5rem 0.5rem" }}>
-				Course Facts
-			</Typography>
-			<Typography variant='body1' style={{ margin: "0.5rem 0.5rem" }}>
-				<ul>The amateur course record from the white tees is 63</ul>
-				<ul>In competitions during 2017, the 10th hole has only recorded 4 birdies</ul>
-				<ul>The 10th hole is the hardest on the course, with an average score score 5.77 for men and 6.64 for ladies</ul>
-				<ul>The Gainsborough is 7,098 yards from the black tees and 6,321 yards from the white tees</ul>
-			</Typography>
-		</>
+		<Grid container spacing={ThemingS.themeConfig.gridSpacing} sx={{ backgroundColor: "null" }}>
+			{/* Hold the course description */}
+			<Grid item xs={12}>
+				<Typography variant='h4' style={{ margin: "0.5rem 0.5rem" }}>
+					Description
+				</Typography>
+				<Typography variant='body1' style={{ margin: "0.5rem 0.5rem" }}>
+					The Gainsborough course measures over 7,000 yards with a Par of 71. The undulating terrain and four substantial lakes challenge
+					the skills of golfers of all abilities. The 10th requires a drive and second shot over the same lake, when played from the back
+					tee, and has been voted one of the most outstanding holes in East Anglia by the Professional Golf Association (PGA).
+				</Typography>
+			</Grid>
+			{/* Hold the course image */}
+			<Grid item xs={12} md={4} lg={2} sx={{ textAlign: "center" }}>
+				<Link
+					style={{ textDecoration: "none" }}
+					target='_blank'
+					href='https://stokebynayland.com/wp-content/uploads/2020/08/Gainsborough-course-guide.pdf?_ga=2.168750881.1606001850.1678297032-2118266097.1678297032'>
+					<Image src='/images/GainsboroughCourseImage.png' alt='Gainsborough Course Image' layout='fixed' width='121.45' height='200' />
+				</Link>
+			</Grid>
+			{/* Hold the course facts */}
+			<Grid item xs={12} md={8} lg={10}>
+				<Typography variant='h4' style={{ margin: "0.5rem 0.5rem" }}>
+					Course Facts
+				</Typography>
+				<Typography variant='body1' style={{ margin: "0rem 0.5rem" }}>
+					<p>The amateur course record from the white tees is 63</p>
+					<p>In competitions during 2017, the 10th hole has only recorded 4 birdies</p>
+					<p>The 10th hole is the hardest on the course, with an average score score 5.77 for men and 6.64 for ladies</p>
+					<p>The Gainsborough is 7,098 yards from the black tees and 6,321 yards from the white tees</p>
+				</Typography>
+			</Grid>
+		</Grid>
 	);
 };
 
 const ConstableDetails = () => {
 	return (
-		<>
-			<Typography variant='h4' style={{ margin: "0.5rem 0.5rem" }}>
-				Description
-			</Typography>
-			<Typography variant='body1' style={{ margin: "0.5rem 0.5rem" }}>
-				The Constable course is also set amongst wooded plantations with several natural water hazards in peaceful countryside. It measures
-				6,544 yards with a Par of 72, and, as with the Gainsborough, the final hole presents a formidable drive over one of the large lakes,
-				to a plateau green with the Sports Bar beckoning beyond.
-			</Typography>
-			<Typography variant='h4'>Course Facts</Typography>
-			<Typography variant='body1' style={{ margin: "0.5rem 0.5rem" }}>
-				<ul>The amateur course record from the white tees is 70</ul>
-				<ul>In competitions during 2017, the 18th hole has only recorded 3 birdies</ul>
-				<ul>
-					The 14th hole is the hardest for men with average score 5.27, and the 3rd hole is the hardest for ladies with an average score of
-					6.14
-				</ul>
-				<ul>The Constable course is 6,477 yards from the white tees</ul>
-			</Typography>
-		</>
+		<Grid container spacing={ThemingS.themeConfig.gridSpacing} sx={{ backgroundColor: "null" }}>
+			{/* Hold the course description */}
+			<Grid item xs={12}>
+				<Typography variant='h4' style={{ margin: "0.5rem 0.5rem" }}>
+					Description
+				</Typography>
+				<Typography variant='body1' style={{ margin: "0.5rem 0.5rem" }}>
+					The Constable course is also set amongst wooded plantations with several natural water hazards in peaceful countryside. It
+					measures 6,544 yards with a Par of 72, and, as with the Gainsborough, the final hole presents a formidable drive over one of the
+					large lakes, to a plateau green with the Sports Bar beckoning beyond.
+				</Typography>
+			</Grid>
+			{/* Hold the course image */}
+			<Grid item xs={12} md={4} lg={2} sx={{ textAlign: "center" }}>
+				<Link
+					style={{ textDecoration: "none" }}
+					target='_blank'
+					href='https://stokebynayland.com/wp-content/uploads/2020/08/Constable-course-guide.pdf?_ga=2.161777596.1606001850.1678297032-2118266097.1678297032'>
+					<Image src='/images/ConstableCourseImage.png' alt='Constable Course Image' layout='fixed' width='121.45' height='200' />
+				</Link>
+			</Grid>
+			{/* Hold the course facts */}
+			<Grid item xs={12} md={8} lg={10}>
+				<Typography variant='h4' style={{ margin: "0.5rem 0.5rem" }}>
+					Course Facts
+				</Typography>
+				<Typography variant='body1' style={{ margin: "0rem 0.5rem" }}>
+					<p>The amateur course record from the white tees is 70</p>
+					<p>In competitions during 2017, the 18th hole has only recorded 3 birdies</p>
+					<p>
+						The 14th hole is the hardest for men with average score 5.27, and the 3rd hole is the hardest for ladies with an average score
+						of 6.14
+					</p>
+					<p>The Constable course is 6,477 yards from the white tees</p>
+				</Typography>
+			</Grid>
+		</Grid>
 	);
 };
 
