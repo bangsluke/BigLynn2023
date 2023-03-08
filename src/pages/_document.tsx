@@ -1,8 +1,8 @@
-import { Html, Head, Main, NextScript } from 'next/document';
+import { Head, Html, Main, NextScript } from "next/document";
 
 export default function Document() {
 	return (
-		<Html>
+		<Html style={{ scrollBehavior: "smooth" }}>
 			<Head>
 				<meta name='title' content='Big Lynn 2023' />
 				<meta name='description' content='The official website of the 2023 Big Lynn Competition.' />
