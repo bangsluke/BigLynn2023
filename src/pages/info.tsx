@@ -4,7 +4,7 @@ import "aos/dist/aos.css"; // You can also use <link> for styles
 import EventDetailsSection from "components/features/EventDetailsSection";
 import FAQSection from "components/features/FAQSection";
 import Footer from "components/features/Footer";
-import HeaderSection from "components/features/HeaderSection";
+import HeroSection from "components/features/HeroSection";
 import ItinerarySection from "components/features/ItinerarySection";
 import RulesSection from "components/features/RulesSection";
 import StatsSection from "components/features/StatsSection";
@@ -15,7 +15,7 @@ import { useEffect } from "react";
 
 // Define which sections to display. Useful for testing
 const displayedSection = {
-	header: true,
+	hero: true,
 	eventDetails: true,
 	itinerary: true,
 	rules: true,
@@ -123,9 +123,9 @@ export default function Info() {
 	return (
 		<>
 			<Meta title='Big Lynn 2023' description='The official website of the 2023 Big Lynn Competition.' />
-			<HeaderWrapper id='home' style={{ display: displayedSection.header ? "block" : "none" }}>
+			<HeaderWrapper id='home' style={{ display: displayedSection.hero ? "block" : "none" }}>
 				<AppBar />
-				<HeaderSection />
+				<HeroSection />
 			</HeaderWrapper>
 
 			<ThirdWrapper style={{ display: displayedSection.eventDetails ? "block" : "none" }}>

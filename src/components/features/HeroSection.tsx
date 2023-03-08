@@ -33,7 +33,7 @@ const HeaderAnimationImage = styled("img")(({ theme }) => ({
 	},
 }));
 
-const InfoPageHeaderSection = () => {
+const HeroSection = () => {
 	const theme = useTheme();
 
 	// Share handler - https://dev.to/ruppysuppy/7-javascript-web-apis-to-build-futuristic-websites-you-didnt-know-38bc
@@ -222,4 +222,4 @@ const InfoPageHeaderSection = () => {
 	);
 };
 
-export default InfoPageHeaderSection;
+export default HeroSection;
