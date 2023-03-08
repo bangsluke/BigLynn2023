@@ -171,8 +171,13 @@ export type StringNumFunc = (s: string) => number;
 export type NumbColorFunc = (n: number) => StringColorProps | undefined;
 export type ChangeEventFunc = (e: React.ChangeEvent<HTMLInputElement>) => void;
 
+export interface NavigationAnchor {
+	id: Num;
+}
+
 export interface LinkData {
 	id: number;
+	key: string;
 	iconName: string;
 	title: string;
 	description: string;
