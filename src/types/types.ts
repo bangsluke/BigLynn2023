@@ -172,7 +172,10 @@ export type NumbColorFunc = (n: number) => StringColorProps | undefined;
 export type ChangeEventFunc = (e: React.ChangeEvent<HTMLInputElement>) => void;
 
 export interface NavigationAnchor {
-	id: Num;
+	id: number;
+	key: string;
+	name: string;
+	anchor: string;
 }
 
 export interface LinkData {

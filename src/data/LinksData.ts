@@ -1,10 +1,11 @@
 import { LinkData } from "types/types";
+import { v4 as uuid } from "uuid";
 
 // Define the data used for the Useful Links section
 const LinksData: LinkData[] = [
 	{
 		id: 1,
-		key: crypto.randomUUID(),
+		key: uuid(),
 		iconName: "MapIcon",
 		title: "Gainsborough Course Map",
 		description: "Map of the course for planning those wild shots",
@@ -13,7 +14,7 @@ const LinksData: LinkData[] = [
 	},
 	{
 		id: 2,
-		key: crypto.randomUUID(),
+		key: uuid(),
 		iconName: "MapIcon",
 		title: "Constable Course Map",
 		description: "Map of the course for planning those wild shots",
@@ -22,7 +23,7 @@ const LinksData: LinkData[] = [
 	},
 	{
 		id: 3,
-		key: crypto.randomUUID(),
+		key: uuid(),
 		iconName: "ScoreboardIcon",
 		title: "Gainsborough Course Scorecard",
 		description: "Downloadable scorecard for recording the occasional par",
@@ -31,7 +32,7 @@ const LinksData: LinkData[] = [
 	},
 	{
 		id: 4,
-		key: crypto.randomUUID(),
+		key: uuid(),
 		iconName: "ScoreboardIcon",
 		title: "Constable Course Scorecard",
 		description: "Downloadable scorecard for recording those multiple bogeys",
@@ -40,7 +41,7 @@ const LinksData: LinkData[] = [
 	},
 	{
 		id: 5,
-		key: crypto.randomUUID(),
+		key: uuid(),
 		iconName: "LiveHelpIcon",
 		title: "Gainsborough Course Guide",
 		description: "Guide to help you through each hole",
@@ -49,7 +50,7 @@ const LinksData: LinkData[] = [
 
 	{
 		id: 6,
-		key: crypto.randomUUID(),
+		key: uuid(),
 		iconName: "LiveHelpIcon",
 		title: "Constable Course Guide",
 		description: "Guide to help you through each hole",
@@ -58,7 +59,7 @@ const LinksData: LinkData[] = [
 
 	{
 		id: 7,
-		key: crypto.randomUUID(),
+		key: uuid(),
 		iconName: "FastfoodIcon",
 		title: "Room Service Food Menu",
 		description: "Easy room service for that late night snacking",
@@ -66,7 +67,7 @@ const LinksData: LinkData[] = [
 	},
 	{
 		id: 8,
-		key: crypto.randomUUID(),
+		key: uuid(),
 		iconName: "LocalbarIcon",
 		title: "Room Service Drinks Menu",
 		description: "For getting that weird in your bedroom buzz on",

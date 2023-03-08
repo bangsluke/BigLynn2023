@@ -1,43 +1,44 @@
-import { NavigationAnchor } from "types/index";
+import { v4 as uuid } from "uuid";
+import { NavigationAnchor } from "../types/types";
 
 // Define the navigation information used for the app bar.
-const NavigationInfo: NavigationAnchor[]= [
+const NavigationInfo: NavigationAnchor[] = [
 	{
 		id: 1,
-		key: crypto.randomUUID(),
-		name: 'Event Details',
-		anchor: 'eventDetails'
+		key: uuid(),
+		name: "Event Details",
+		anchor: "eventDetails",
 	},
 	{
 		id: 2,
-		key: crypto.randomUUID(),
-		name: 'Itinerary',
-		anchor: 'itinerary'
+		key: uuid(),
+		name: "Itinerary",
+		anchor: "itinerary",
 	},
 	{
 		id: 3,
-		key: crypto.randomUUID(),
-		name: 'Rules',
-		anchor: 'rules'
+		key: uuid(),
+		name: "Rules",
+		anchor: "rules",
 	},
 	{
 		id: 4,
-		key: crypto.randomUUID(),
-		name: 'Statistics',
-		anchor: 'statistics'
+		key: uuid(),
+		name: "Statistics",
+		anchor: "statistics",
 	},
 	{
 		id: 5,
-		key: crypto.randomUUID(),
-		name: 'FAQ',
-		anchor: 'FAQ'
+		key: uuid(),
+		name: "FAQ",
+		anchor: "FAQ",
 	},
 	{
 		id: 6,
-		key: crypto.randomUUID(),
-		name: 'Useful Links',
-		anchor: 'usefulLinks'
-	}
+		key: uuid(),
+		name: "Useful Links",
+		anchor: "usefulLinks",
+	},
 ];
 
 export default NavigationInfo;
