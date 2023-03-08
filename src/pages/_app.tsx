@@ -3,6 +3,7 @@ import Head from "next/head";
 import { useRef } from "react";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import "react-perfect-scrollbar/dist/css/styles.css";
+import "styles/timeline.css";
 import ThemeCustomization from "themes";
 
 export const BaseApp = (props: { children: any }) => {

@@ -1,14 +1,67 @@
-import { Container, Grid, Typography } from '@mui/material';
-import AOS from 'aos';
-import 'aos/dist/aos.css'; // You can also use <link> for styles
-import { useEffect } from 'react';
-import ThemingS from 'services/ThemingS';
+import { AppBar, Container, Grid, Tab, Tabs, Typography } from "@mui/material";
+import AOS from "aos";
+import "aos/dist/aos.css"; // You can also use <link> for styles
+import ItineraryComponent from "components/ui/ItineraryComponent";
+import ItineraryInfo from "data/ItineraryInfo";
+import { useEffect, useState } from "react";
+import { VerticalTimeline } from "react-vertical-timeline-component";
+import "react-vertical-timeline-component/style.min.css";
+import ThemingS from "services/ThemingS";
+import { ItineraryItem } from "types/types";
+
+function a11yProps(index: number) {
+	return {
+		id: `full-width-tab-${index}`,
+		"aria-controls": `full-width-tabpanel-${index}`,
+	};
+}
 
 export default function ItinerarySection() {
 	useEffect(() => {
 		AOS.init({ duration: 1200 });
 		AOS.refresh();
 	}, []);
+
+	const [value, setValue] = useState(0); // Define the state and a handle change function for the tab value
+	const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+		setValue(newValue);
+	};
+
+	// Grab the itinerary info from the data file based on the selected tab
+	let selectedItinerary: ItineraryItem[] = [];
+	if (value === 0) {
+		selectedItinerary = ItineraryInfo.Saturday;
+	} else if (value === 1) {
+		selectedItinerary = ItineraryInfo.Sunday;
+	} else if (value === 2) {
+		selectedItinerary = ItineraryInfo.Monday;
+	} else {
+		selectedItinerary = ItineraryInfo.Saturday;
+	}
+
+	// Sort the itinerary items by the datetime property - https://www.w3schools.com/jsref/jsref_sort.asp & https://www.javascripttutorial.net/array/javascript-sort-an-array-of-objects/
+	let sortedItinerary: ItineraryItem[] = selectedItinerary.sort(function (a, b) {
+		return a.datetime - b.datetime;
+	});
+
+	// Map over the itinerary info to create all itinerary items
+	const itineraryElements = sortedItinerary.map((item) => {
+		return (
+			<ItineraryComponent
+				id={item.id}
+				key={item.id}
+				datetime={item.datetime}
+				time={item.time}
+				title={item.title}
+				subtitle={item.subtitle}
+				description={item.description}
+				url={item.url}
+				position={item.position}
+				backgroundColor={item.backgroundColor}
+				iconName={item.iconName}
+			/>
+		);
+	});
 
 	return (
 		<Container>
@@ -20,14 +73,14 @@ export default function ItinerarySection() {
 							<Grid container spacing={1}>
 								<Grid item>
 									<Typography variant='h5' color='primary'>
-                    Itinerary
+										Itinerary
 									</Typography>
 								</Grid>
 							</Grid>
 						</Grid>
 						<Grid item xs={12}>
 							<Typography variant='h2' component='div'>
-                What? When? Where?
+								What? When? Where?
 							</Typography>
 						</Grid>
 						<Grid item xs={12}>
@@ -35,33 +88,28 @@ export default function ItinerarySection() {
 						</Grid>
 					</Grid>
 				</Grid>
-				{/* Hold the body information */}
-				<Grid item xs={12} sx={{ height: '400px', mb: 0 }}>
-					<Typography variant='body1' component='div'>
-            Itinerary text - 2 nights&#39; dinner, bed & breakfast at the Stoke by Nayland Hotel, Golf & Spa and 3 rounds of golf (2 on
-            Gainsborough Course, 1 on Constable Course)
-						<ul data-aos='fade-in' data-aos-duration='3000' data-aos-delay='50'>
-              • At 12:40 18 holes on Gainsborough Course (Sat 15 Jul 2023)
-						</ul>
-						<ul data-aos='fade-in' data-aos-duration='3000' data-aos-delay='100'>
-              • From 15:00 Check-in at Stoke by Nayland Hotel, Golf & Spa for 2 nights (Golf Deluxe Twin room) (Sat 15 Jul 2023){' '}
-						</ul>
-						<ul data-aos='fade-in' data-aos-duration='3000' data-aos-delay='150'>
-              • At 20:00 Dinner at The Restaurant, standard menu (Sat 15 Jul 2023){' '}
-						</ul>
-						<ul data-aos='fade-in' data-aos-duration='3000' data-aos-delay='200'>
-              • At 12:40 18 holes on Constable Course (Sun 16 Jul 2023)
-						</ul>
-						<ul data-aos='fade-in' data-aos-duration='3000' data-aos-delay='250'>
-              • At 20:00 Dinner at The Restaurant, standard menu (Sun 16 Jul 2023){' '}
-						</ul>
-						<ul data-aos='fade-in' data-aos-duration='3000' data-aos-delay='300'>
-              • At 10:40 18 holes on Gainsborough Course (Mon 17 Jul 2023){' '}
-						</ul>
-						<ul data-aos='fade-in' data-aos-duration='3000' data-aos-delay='350'>
-              • By 11:00 Check-out of Stoke by Nayland Hotel, Golf & Spa (Mon 17 Jul 2023)
-						</ul>
-					</Typography>
+
+				<Grid item xs={12}>
+					<AppBar position='static' color='transparent' sx={{ backgroundColor: "null" }}>
+						<Tabs
+							value={value}
+							onChange={handleChange}
+							centered
+							indicatorColor='primary'
+							textColor='inherit'
+							variant='fullWidth'
+							aria-label='full width tabs example'>
+							<Tab label='Saturday' {...a11yProps(0)} />
+							<Tab label='Sunday' {...a11yProps(1)} />
+							<Tab label='Monday' {...a11yProps(2)} />
+						</Tabs>
+					</AppBar>
+					<VerticalTimeline
+						animate={true} // Add the appear on scroll animation
+						layout={"2-columns"}
+						lineColor={"white"}>
+						{itineraryElements}
+					</VerticalTimeline>
 				</Grid>
 			</Grid>
 		</Container>

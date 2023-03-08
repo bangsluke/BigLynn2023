@@ -1,0 +1,51 @@
+/* Define specific styling for the timeline component  */
+.timeline-holder {
+	/* background-color: white; */
+	/* background-color: blue; */
+	width: 95%;
+	margin: 1rem auto 0 auto;
+}
+
+/* Designed for mobile first */
+.itinerary-title {
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+
+.itinerary-description {
+	font-size: 1rem;
+	font-weight: normal;
+	/* background-color: aqua; */
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+	.itinerary-title {
+		/* background-color: blue; */
+		background-color: "null";
+	}
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+	.itinerary-title {
+		font-size: 1.3rem;
+		/* background-color: red; */
+	}
+}
+
+/* MUI md - Large devices (laptops/desktops, 900px and up) */
+@media only screen and (min-width: 900px) {
+	.itinerary-title {
+		font-size: 1.5rem;
+		/* background-color: yellow; */
+	}
+}
+
+/* MUI lg - Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+	.itinerary-title {
+		font-size: 1.5rem;
+		/* background-color: green; */
+	}
+}

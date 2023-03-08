@@ -1,4 +1,4 @@
-import { LinkData } from "types/index";
+import { LinkData } from "types/types";
 
 // Define the data used for the Useful Links section
 const LinksData: LinkData[] = [

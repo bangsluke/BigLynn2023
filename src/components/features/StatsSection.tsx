@@ -8,7 +8,7 @@ import PlayerPointsChartCard from "components/features/stats/PlayerPointsChartCa
 import { SyntheticEvent, useState } from "react";
 import ThemingS from "services/ThemingS";
 import savedDataResponse from "../../data/savedDataResponse";
-import { PlayerData, TabPanelProps, YearData } from "../../types";
+import { PlayerData, TabPanelProps, YearData } from "../../types/types";
 
 // Define the TabPanelComponent - https://mui.com/material-ui/react-tabs/
 function TabPanel(props: TabPanelProps) {
@@ -98,7 +98,7 @@ switch (dataMethod) {
 const StatsSection = () => {
 	// Define the data needed for the view option (player stats or year stats), initially set to player stats
 	const [viewOption, setViewOption] = useState("Player Stats");
-	const [playerOption, setPlayerOption] = useState("Andy Brown");
+	const [playerOption, setPlayerOption] = useState("Andy");
 	const [yearOption, setYearOption] = useState("2022");
 
 	// Define the change handler for the view option
@@ -220,7 +220,7 @@ const StatsSection = () => {
 						{/* Hold the dropdown selectors */}
 						<Grid item xs={12} sx={{ marginBottom: "0.5rem", backgroundColor: "null" }}>
 							<Grid container direction='row' spacing={1}>
-								<Grid item xs={6} spacing={0} sx={{ backgroundColor: "null" }}>
+								<Grid item xs={6} sx={{ backgroundColor: "null" }}>
 									{/* View Option Dropdown */}
 									<FormControl sx={{ m: 0, minWidth: MinDropdownWidth, width: "90%" }} color='primary'>
 										<InputLabel id='demo-simple-select-autowidth-label'>View Option</InputLabel>

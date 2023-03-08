@@ -11,8 +11,7 @@ const LinkCard = (props: { id: number; iconName: string; title: string; descript
 
 	// Console.log(linkURL);
 
-	// Dynamically import the MUI Icon - https://stackoverflow.com/a/66828783
-	const MUIIcon = useIcons(iconName);
+	const MUIIcon = useIcons(iconName); // Dynamically import the MUI Icon - https://stackoverflow.com/a/66828783
 
 	return (
 		<Grid item xs={6} sm={6} md={4} lg={4} xl={3}>
