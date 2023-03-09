@@ -1,6 +1,7 @@
 import { Container, Grid, Typography } from "@mui/material";
 import HandicapAdjustmentTable from "components/features/HandicapAdjustmentTable";
 import ScoresTable from "components/features/ScoresTable";
+import SectionHeader from "components/ui/SectionHeader";
 import { useRef } from "react";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import "react-perfect-scrollbar/dist/css/styles.css";
@@ -15,27 +16,11 @@ export default function RulesSection() {
 		<Container>
 			<Grid container spacing={ThemingS.themeConfig.gridSpacing} sx={{ minHeight: RuleSectionHeight }}>
 				{/* Hold the section header text */}
-				<Grid item xs={12} lg={12} md={10} sx={{ mb: 4 }}>
-					<Grid container spacing={2}>
-						<Grid item xs={12}>
-							<Grid container spacing={1}>
-								<Grid item>
-									<Typography variant='h5' color='primary'>
-										Rules
-									</Typography>
-								</Grid>
-							</Grid>
-						</Grid>
-						<Grid item xs={12}>
-							<Typography variant='h2' component='div'>
-								Big Bastard
-							</Typography>
-						</Grid>
-						<Grid item xs={12}>
-							<Typography variant='body2'>The official rules and absurdities this group uses to play &#39;golf&#39;</Typography>
-						</Grid>
-					</Grid>
-				</Grid>
+				<SectionHeader
+					header='Rules'
+					subheader='Big Bastard'
+					description='The official rules and absurdities this group uses to play &#39;golf&#39;'
+				/>
 
 				{/* Hold the contents section and body section alongside one another */}
 				<Grid item xs={12} sx={{ mb: 4, backgroundColor: "null" }}>

@@ -1,7 +1,8 @@
-import { AppBar, Container, Grid, Tab, Tabs, Typography } from "@mui/material";
+import { AppBar, Container, Grid, Tab, Tabs } from "@mui/material";
 import AOS from "aos";
 import "aos/dist/aos.css"; // You can also use <link> for styles
 import ItineraryComponent from "components/ui/ItineraryComponent";
+import SectionHeader from "components/ui/SectionHeader";
 import ItineraryInfo from "data/ItineraryInfo";
 import { useEffect, useState } from "react";
 import { VerticalTimeline } from "react-vertical-timeline-component";
@@ -67,28 +68,9 @@ export default function ItinerarySection() {
 		<Container>
 			<Grid container spacing={ThemingS.themeConfig.gridSpacing}>
 				{/* Hold the section header text */}
-				<Grid item xs={12} lg={5} md={10}>
-					<Grid container spacing={2} sx={{ mb: 0 }}>
-						<Grid item xs={12}>
-							<Grid container spacing={1}>
-								<Grid item>
-									<Typography variant='h5' color='primary'>
-										Itinerary
-									</Typography>
-								</Grid>
-							</Grid>
-						</Grid>
-						<Grid item xs={12}>
-							<Typography variant='h2' component='div'>
-								What? When? Where?
-							</Typography>
-						</Grid>
-						<Grid item xs={12}>
-							<Typography variant='body2'>The planned rounds of golf and key timings</Typography>
-						</Grid>
-					</Grid>
-				</Grid>
+				<SectionHeader header='Itinerary' subheader='What? When? Where?' description='The planned rounds of golf and key timings' />
 
+				{/* Hold the itinerary tabs and the itinerary items */}
 				<Grid item xs={12}>
 					<AppBar position='static' color='transparent' sx={{ backgroundColor: "null" }}>
 						<Tabs

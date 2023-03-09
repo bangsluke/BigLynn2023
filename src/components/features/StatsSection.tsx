@@ -1,10 +1,11 @@
 import ReactDataGrid from "@inovua/reactdatagrid-community";
 import "@inovua/reactdatagrid-community/index.css";
-import { Box, Container, FormControl, Grid, InputLabel, MenuItem, Select, Tab, Tabs, Typography } from "@mui/material";
+import { Box, Container, FormControl, Grid, InputLabel, MenuItem, Select, Tab, Tabs } from "@mui/material";
 import axios from "axios";
 import { getData } from "components/features/stats/GoogleSheetsAPI/getData";
 import { getPlayers } from "components/features/stats/GoogleSheetsAPI/getPlayers";
 import PlayerPointsChartCard from "components/features/stats/PlayerPointsChartCard";
+import SectionHeader from "components/ui/SectionHeader";
 import { SyntheticEvent, useState } from "react";
 import ThemingS from "services/ThemingS";
 import savedDataResponse from "../../data/savedDataResponse";
@@ -192,29 +193,13 @@ const StatsSection = () => {
 		<Container>
 			<Grid container spacing={ThemingS.themeConfig.gridSpacing}>
 				{/* Hold the section header text*/}
-				<Grid item xs={12} lg={5} md={10}>
-					<Grid container spacing={2} sx={{ mb: 0 }}>
-						<Grid item xs={12}>
-							<Grid container spacing={1}>
-								<Grid item>
-									<Typography variant='h5' color='primary'>
-										Statistics
-									</Typography>
-								</Grid>
-							</Grid>
-						</Grid>
-						<Grid item xs={12}>
-							<Typography variant='h2' component='div'>
-								The Martin Bangs Collection
-							</Typography>
-						</Grid>
-						<Grid item xs={12}>
-							<Typography variant='body2' sx={{ marginBottom: "0.5rem" }}>
-								All the Big Lynn scores and stats since the birth of the competition
-							</Typography>
-						</Grid>
-					</Grid>
-				</Grid>
+				<SectionHeader
+					header='Statistics'
+					subheader='The Martin Bangs Collection'
+					description='All the Big Lynn scores and stats since the birth of the competition'
+				/>
+
+				{/* Hold the dropdown selectors and stats data */}
 				<Grid item xs={12}>
 					<Grid container alignItems='center' justifyContent='space-between' spacing={ThemingS.themeConfig.gridSpacing}>
 						{/* Hold the dropdown selectors */}

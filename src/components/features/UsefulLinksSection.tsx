@@ -1,5 +1,6 @@
-import { Container, Grid, Typography } from "@mui/material";
+import { Container, Grid } from "@mui/material";
 import LinkCard from "components/ui/LinkCard";
+import SectionHeader from "components/ui/SectionHeader";
 import LinksData from "data/LinksData";
 import ThemingS from "services/ThemingS";
 import { LinkData } from "types/types";
@@ -28,29 +29,12 @@ export default function UsefulLinksSection() {
 		<Container>
 			<Grid container spacing={ThemingS.themeConfig.gridSpacing}>
 				{/* Hold the section header text */}
-				<Grid item xs={12} lg={5} md={10}>
-					<Grid container spacing={2} sx={{ mb: 0 }}>
-						<Grid item xs={12}>
-							<Grid container spacing={1}>
-								<Grid item>
-									<Typography variant='h5' color='primary'>
-										Useful Links
-									</Typography>
-								</Grid>
-							</Grid>
-						</Grid>
-						<Grid item xs={12}>
-							<Typography variant='h2' component='div'>
-								Links to other places
-							</Typography>
-						</Grid>
-						<Grid item xs={12}>
-							<Typography variant='body2'>
-								For further reading if this site still hasn&#39;t given you everything you could ever need
-							</Typography>
-						</Grid>
-					</Grid>
-				</Grid>
+				<SectionHeader
+					header='Useful Links'
+					subheader='Links to other places'
+					description="For further reading if this site still hasn't given you everything you could ever need"
+				/>
+
 				{/* Hold the body information */}
 				<Grid item xs={12} sx={{ mb: { xs: 1, lg: 3 } }}>
 					<Grid container justifyContent='center' spacing={ThemingS.themeConfig.gridSpacing} sx={{ textAlign: "center" }}>
