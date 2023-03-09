@@ -1,6 +1,6 @@
 import { Grid, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import FadeInWhenVisible from "components/ui/Animation";
+import Animation from "components/ui/Animation";
 import Avatar from "components/ui/Avatar";
 import SubCard from "components/ui/SubCard";
 import useIcons from "hooks/useIcons";
@@ -15,7 +15,7 @@ const LinkCard = (props: { id: number; iconName: string; title: string; descript
 
 	return (
 		<Grid item xs={6} sm={6} md={4} lg={4} xl={3}>
-			<FadeInWhenVisible>
+			<Animation transitionDuration={0.3} transitionFromDirection='bottom'>
 				<a target='_blank' href={linkURL} rel='noopener noreferrer' style={{ textDecoration: "none" }}>
 					<SubCard sx={{ height: { md: "11rem" } }}>
 						<Grid container justifyContent='center' spacing={1}>
@@ -46,7 +46,7 @@ const LinkCard = (props: { id: number; iconName: string; title: string; descript
 						</Grid>
 					</SubCard>
 				</a>
-			</FadeInWhenVisible>
+			</Animation>
 		</Grid>
 	);
 };
