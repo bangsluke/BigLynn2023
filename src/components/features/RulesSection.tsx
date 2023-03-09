@@ -1,6 +1,6 @@
 import { Container, Grid, Typography } from "@mui/material";
-import HandicapAdjustmentTable from "components/features/HandicapAdjustmentTable";
-import ScoresTable from "components/features/ScoresTable";
+import HandicapAdjustmentTable from "components/features/rules/HandicapAdjustmentTable";
+import ScoresTable from "components/features/rules/ScoresTable";
 import SectionHeader from "components/ui/SectionHeader";
 import { useRef } from "react";
 import PerfectScrollbar from "react-perfect-scrollbar";
