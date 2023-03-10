@@ -2,8 +2,7 @@ import { Container, Grid } from "@mui/material";
 import SectionHeader from "components/ui/SectionHeader";
 import Link from "next/link";
 import ThemingS from "services/ThemingS";
-import Answer from "./faq/Answer";
-import Question from "./faq/Question";
+import Message from "./faq/Message";
 
 export default function FAQSection() {
 	const Styles = {
@@ -29,46 +28,46 @@ export default function FAQSection() {
 				<Grid item xs={12}>
 					<Grid container spacing={2} sx={{ mb: 0 }}>
 						<Grid item xs={12} sx={Styles.ChatBackground}>
-							<Question>
+							<Message type='question'>
 								<p>What&#39;s on the Menu?</p>
-							</Question>
-							<Answer>
+							</Message>
+							<Message type='answer'>
 								<p>
 									{/* TODO: Add a link to the menu */}
 									<Link href="mailto:david.rose@blueyonder.co.uk?subject=I'd Like To Complain About Your Language">here</Link>. (Provide
 									link to menu if available) here you go. I hear the salmon is particularly good…
 								</p>
-							</Answer>
+							</Message>
 
-							<Question>
-								<p>Will there be a sauna?</p>
-							</Question>
-							<Answer>
-								<p>No, unfortunately after the last conversations that occurred in it, HR stepped in and banned saunas</p>
-							</Answer>
+							<Message type='question'>
+								<p>Will there be a private sauna?</p>
+							</Message>
+							<Message type='answer'>
+								<p>No, unfortunately after the last conversations that occurred in it, HR stepped in and banned private saunas</p>
+							</Message>
 
-							<Question>
+							<Message type='question'>
 								<p>How many times has Dave sworn at Big Lynn Events?</p>
-							</Question>
-							<Answer>
+							</Message>
+							<Message type='answer'>
 								<p>If you mean the **** word, then Dave has said **** a total of 327 times.</p>
-							</Answer>
-							<Answer>
+							</Message>
+							<Message type='answer'>
 								<p>But if you mean ****, then Dave has said **** a total of 249 times.</p>
-							</Answer>
-							<Answer>
+							</Message>
+							<Message type='answer'>
 								<p>And don&#39;t get me started on the number of times he&#39;s said ****.</p>
-							</Answer>
+							</Message>
 
-							<Question>
+							<Message type='question'>
 								<p>Who can I complain to about Dave&#39;s language?</p>
-							</Question>
-							<Answer>
+							</Message>
+							<Message type='answer'>
 								<p>
 									Fortunately we&#39;ve been able to hire someone to deal with such issues. Please direct all concerns to them{" "}
 									<Link href="mailto:david.rose@blueyonder.co.uk?subject=I'd Like To Complain About Your Language">here</Link>.
 								</p>
-							</Answer>
+							</Message>
 						</Grid>
 					</Grid>
 				</Grid>
