@@ -23,6 +23,7 @@ export default function Message(props: MessageProps) {
 			borderRadius: "8px",
 			color: "white",
 			// MarginBottom: "50px",
+			display: "inline-block",
 		},
 		AnswerStyle: {
 			fontWeight: 200,
@@ -41,6 +42,7 @@ export default function Message(props: MessageProps) {
 			padding: "8px 16px",
 			// Border-radius: 8px;
 			// MarginBottom: "50px",
+			display: "inline-block",
 		},
 	};
 
