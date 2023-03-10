@@ -1,5 +1,6 @@
 import { AppBar, Container, Grid, Link, Tab, Tabs, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import SectionHeader from "components/ui/SectionHeader";
 import Image from "next/image";
 import { useState } from "react";
 import ThemingS from "services/ThemingS";
@@ -123,34 +124,18 @@ export default function EventDetailsSection() {
 		<Container>
 			<Grid container spacing={ThemingS.themeConfig.gridSpacing} sx={{ height: "max-content" }}>
 				{/* Hold the section header text */}
-				<Grid item xs={12} lg={5} md={10}>
-					<Grid container spacing={2} sx={{ mb: 0 }}>
-						<Grid item xs={12}>
-							<Grid container spacing={1}>
-								<Grid item>
-									<Typography variant='h5' color='primary'>
-										Event Details
-									</Typography>
-								</Grid>
-							</Grid>
-						</Grid>
-						<Grid item xs={12}>
-							<Typography variant='h2' component='div'>
-								Big Lynn 2023
-							</Typography>
-						</Grid>
-						<Grid item xs={12}>
-							<Typography variant='body2'>Everything you need to know about the competitions 27th year...</Typography>
-						</Grid>
-					</Grid>
-				</Grid>
+				<SectionHeader
+					header='Event Details'
+					subheader='Big Lynn 2023'
+					description='Everything you need to know about the competitions 27th year...'
+				/>
 
 				{/* Hold the body information */}
 				<Grid item xs={12} sx={{ height: "max-content", mb: 0 }}>
 					<Grid container spacing={2}>
 						{/* Map and Directions */}
 						<Grid item xs={12} sx={{ height: "max-content", display: "flex", flexDirection: "column" }}>
-							<Typography variant='h3' style={{ marginTop: "0.5rem" }}>
+							<Typography variant='h3' color='primary' style={{ marginTop: "0.5rem" }}>
 								Stoke By Nayland
 							</Typography>
 							<Typography variant='body1' style={{ marginTop: "1rem" }}>
@@ -191,7 +176,7 @@ export default function EventDetailsSection() {
 
 						{/* Course Information */}
 						<Grid item xs={12} sx={{ height: "max-content" }}>
-							<Typography variant='h3' style={{ marginTop: "0.5rem" }}>
+							<Typography variant='h3' color='primary' style={{ marginTop: "0.5rem" }}>
 								Golf Course Details
 							</Typography>
 							<Typography variant='body1' component='div' style={{ marginTop: "1rem" }}>
