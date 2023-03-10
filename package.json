@@ -23,7 +23,7 @@
 		"@fullcalendar/timeline": "^5.11.4",
 		"@hookform/resolvers": "^2.8.10",
 		"@inovua/reactdatagrid-community": "^5.8.4",
-		"@mui/icons-material": "^5.10.6",
+		"@mui/icons-material": "^5.11.9",
 		"@mui/lab": "^5.0.0-alpha.72",
 		"@mui/material": "^5.11.8",
 		"@mui/styles": "^5.11.2",
