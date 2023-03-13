@@ -13,7 +13,7 @@
 		"@babel/preset-react": "^7.16.7",
 		"@emotion/cache": "^11.7.1",
 		"@emotion/react": "^11.9.0",
-		"@emotion/styled": "^11.8.1",
+		"@emotion/styled": "^11.10.6",
 		"@fullcalendar/common": "^5.11.4",
 		"@fullcalendar/daygrid": "^5.11.4",
 		"@fullcalendar/interaction": "^5.11.4",
