@@ -144,7 +144,7 @@ export default function EventDetailsSection() {
 				<Grid item xs={12} sx={{ height: "max-content", mb: 0 }}>
 					<Grid container spacing={2}>
 						{/* Map and Directions */}
-						<Grid item xs={12} sx={{ height: "max-content", display: "flex", flexDirection: "column" }}>
+						<Grid item xs={12} sx={{ height: "max-content", display: "flex", flexDirection: "column", mb: 2 }}>
 							<Typography variant='h3' color='primary' style={{ marginTop: "0.5rem" }}>
 								Stoke By Nayland
 							</Typography>
