@@ -20,7 +20,7 @@ const rows = [
 export default function ScoresTable() {
 	const Styles = {
 		tableContainer: {
-			width: { xs: "100%", sm: "100%", md: "80%", lg: "100%" },
+			width: { xs: "100%", sm: "100%", md: "80%", lg: "80%" },
 			margin: "0px auto",
 		},
 		tableCell: {
