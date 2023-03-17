@@ -48,14 +48,20 @@ const GainsboroughDetails = () => {
 			</Grid>
 			{/* Hold the course facts */}
 			<Grid item xs={12} md={8} lg={10}>
-				<Typography variant='h4' style={{ margin: "0.5rem 0.5rem" }}>
+				<Typography variant='h4' style={{ margin: "0.5rem 0rem" }}>
 					Course Facts
 				</Typography>
 				<Typography variant='body1' style={{ margin: "0rem 0.5rem" }}>
-					<p>The amateur course record from the white tees is 63</p>
-					<p>In competitions during 2017, the 10th hole has only recorded 4 birdies</p>
-					<p>The 10th hole is the hardest on the course, with an average score score 5.77 for men and 6.64 for ladies</p>
-					<p>The Gainsborough is 7,098 yards from the black tees and 6,321 yards from the white tees</p>
+					- The amateur course record from the white tees is 63
+				</Typography>
+				<Typography variant='body1' style={{ margin: "0rem 0.5rem" }}>
+					- In competitions during 2017, the 10th hole has only recorded 4 birdies
+				</Typography>
+				<Typography variant='body1' style={{ margin: "0rem 0.5rem" }}>
+					- The 10th hole is the hardest on the course, with an average score score 5.77 for men and 6.64 for ladies
+				</Typography>
+				<Typography variant='body1' style={{ margin: "0rem 0.5rem" }}>
+					- The Gainsborough is 7,098 yards from the black tees and 6,321 yards from the white tees
 				</Typography>
 			</Grid>
 		</Grid>
@@ -87,17 +93,21 @@ const ConstableDetails = () => {
 			</Grid>
 			{/* Hold the course facts */}
 			<Grid item xs={12} md={8} lg={10}>
-				<Typography variant='h4' style={{ margin: "0.5rem 0.5rem" }}>
+				<Typography variant='h4' style={{ margin: "0.5rem 0rem" }}>
 					Course Facts
 				</Typography>
 				<Typography variant='body1' style={{ margin: "0rem 0.5rem" }}>
-					<p>The amateur course record from the white tees is 70</p>
-					<p>In competitions during 2017, the 18th hole has only recorded 3 birdies</p>
-					<p>
-						The 14th hole is the hardest for men with average score 5.27, and the 3rd hole is the hardest for ladies with an average score
-						of 6.14
-					</p>
-					<p>The Constable course is 6,477 yards from the white tees</p>
+					- The amateur course record from the white tees is 70
+				</Typography>
+				<Typography variant='body1' style={{ margin: "0rem 0.5rem" }}>
+					- In competitions during 2017, the 18th hole has only recorded 3 birdies
+				</Typography>
+				<Typography variant='body1' style={{ margin: "0rem 0.5rem" }}>
+					- The 14th hole is the hardest for men with average score 5.27, and the 3rd hole is the hardest for ladies with an average score
+					of 6.14
+				</Typography>
+				<Typography variant='body1' style={{ margin: "0rem 0.5rem" }}>
+					- The Constable course is 6,477 yards from the white tees
 				</Typography>
 			</Grid>
 		</Grid>
