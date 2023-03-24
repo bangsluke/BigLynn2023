@@ -21,7 +21,7 @@ const themeConfig: ConfigProps = {
 	outlinedFilled: true,
 	navType: "light", // Light, dark
 	presetColor: "default", // Default, theme1, theme2, theme3, theme4, theme5, theme6
-	locale: "de", // 'en' - English, 'fr' - French, 'ro' - Romanian, 'zh' - Chinese
+	locale: "en", // 'en' - English, 'fr' - French, 'ro' - Romanian, 'zh' - Chinese
 	container: false,
 	drawerWidth: 260,
 	drawerPadding: "10px",
