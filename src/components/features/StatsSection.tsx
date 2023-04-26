@@ -58,11 +58,12 @@ enum DataMethods {
 // Then save the returnedData object into the data folder into file "savedDataResponse.js" and change the dataMethod variable back to dataMethods.savedData.
 
 // Define which method should be used to retrieve the data
-const dataMethod: DataMethods = DataMethods.savedData;
+const dataMethod: DataMethods = DataMethods.GoogleSheetsAPI;
 
 // Have a switch case statement to determine which method to use to get the data
 let playerData: PlayerData[], yearData: YearData[];
 switch (dataMethod) {
+	// @ts-ignore
 	case DataMethods.savedData:
 		playerData = savedDataResponse.playerData;
 		yearData = savedDataResponse.yearData;
@@ -95,6 +96,8 @@ switch (dataMethod) {
 		yearData = savedDataResponse.yearData;
 		break;
 }
+
+console.log(process.env);
 
 const StatsSection = () => {
 	// Define the data needed for the view option (player stats or year stats), initially set to player stats
@@ -135,13 +138,14 @@ const StatsSection = () => {
 						autoWidth
 						label='Select option...'
 						name='View Option Select'>
-						{playerData.map((player: any) => {
+						Test
+						{/* {playerData.map((player: any) => {
 							return (
 								<MenuItem key={player.player} value={player.player}>
 									{player.player}
 								</MenuItem>
 							);
-						})}
+						})} */}
 						{/* <MenuItem>Hello</MenuItem>
 								<MenuItem>World</MenuItem> */}
 					</Select>
