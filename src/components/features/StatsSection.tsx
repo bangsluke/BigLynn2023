@@ -3,6 +3,7 @@ import { Container, FormControl, Grid, InputLabel, MenuItem, Select } from "@mui
 import { useTheme } from "@mui/material/styles";
 import axios from "axios";
 import { getPlayers } from "components/features/stats/GoogleSheetsAPI/getPlayers";
+import { getYears } from "components/features/stats/GoogleSheetsAPI/getYears";
 import PlayerSection from "components/features/stats/Players/PlayerSection";
 import YearSection from "components/features/stats/Years/YearSection";
 import SectionHeader from "components/ui/SectionHeader";
@@ -42,6 +43,9 @@ switch (dataMethod) {
 		// @ts-ignore
 		playerData = getPlayers();
 		console.log("playerData: ", playerData);
+		// @ts-ignore
+		yearData = getYears();
+		console.log("yearData: ", yearData);
 		break;
 	// @ts-ignore
 	case DataMethods.sheetDBio:
