@@ -1,22 +1,29 @@
 export async function getPlayers() {
+	const Config = {
+		GoogleSpreadsheetID: "13vUKIiVuYGmoSFvf2TNKi9lLDjgg3-fvDbC9E1GvHuo",
+		SheetName: "PlayerData",
+	};
+
 	const { GoogleSpreadsheet } = require("google-spreadsheet");
 
 	//const creds = require("./biglynn2023-56293908d413.json"); // For now, comment out to allow build
 	// const creds = "";
 
 	// Initialize the sheet - doc ID is the long id in the sheets URL
-	const doc = new GoogleSpreadsheet("13vUKIiVuYGmoSFvf2TNKi9lLDjgg3-fvDbC9E1GvHuo");
+	const doc = new GoogleSpreadsheet(Config.GoogleSpreadsheetID);
 
 	// Initialize Auth - see https://theoephraim.github.io/node-google-spreadsheet/#/getting-started/authentication
 	//await doc.useServiceAccountAuth(creds);
-	console.log("API key from 'getPlayers'", process.env.GOOGLE_SHEETS_API_KEY);
-	doc.useApiKey(process.env.GOOGLE_SHEETS_API_KEY);
+	// console.log("API key from 'getPlayers'", process.env.NEXT_PUBLIC_API_KEY);
+	doc.useApiKey(process.env.NEXT_PUBLIC_API_KEY);
 
 	await doc.loadInfo(); // Loads document properties and worksheets
+
+	console.log("doc details", doc);
 	console.log("doc.title", doc.title);
 
 	// Const sheet = doc.sheetsByIndex[0]; // Or use doc.sheetsById[id] or doc.sheetsByTitle[title]
-	const sheet = doc.sheetsByTitle.PlayerData;
+	const sheet = doc.sheetsByTitle[Config.SheetName];
 	console.log("sheet.title", sheet.title);
 	console.log("sheet.rowCount", sheet.rowCount);
 
@@ -28,6 +35,7 @@ export async function getPlayers() {
 
 		return {
 			name: row.player,
+			// apps: row.apps,
 		};
 	});
 	// This returns the data

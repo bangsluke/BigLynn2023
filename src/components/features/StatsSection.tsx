@@ -2,7 +2,6 @@ import ReactDataGrid from "@inovua/reactdatagrid-community";
 import "@inovua/reactdatagrid-community/index.css";
 import { Box, Container, FormControl, Grid, InputLabel, MenuItem, Select, Tab, Tabs } from "@mui/material";
 import axios from "axios";
-import { getData } from "components/features/stats/GoogleSheetsAPI/getData";
 import { getPlayers } from "components/features/stats/GoogleSheetsAPI/getPlayers";
 import PlayerPointsChartCard from "components/features/stats/PlayerPointsChartCard";
 import SectionHeader from "components/ui/SectionHeader";
@@ -71,13 +70,14 @@ switch (dataMethod) {
 	// @ts-ignore
 	case DataMethods.GoogleSheetsAPI:
 		// Get the data from the Google Sheets API
-		const sheetTitle = getData();
-		console.log("sheetTitle: ", sheetTitle);
+		// const sheetTitle = getData();
+		// console.log("sheetTitle: ", sheetTitle);
 		// @ts-ignore
 		const players: PlayerData = getPlayers();
 		console.log("players: ", players);
 		// @ts-ignore
 		playerData = players;
+		break;
 	// @ts-ignore
 	case DataMethods.sheetDBio:
 		// Get the player data from the sheetdb.io API
@@ -96,8 +96,6 @@ switch (dataMethod) {
 		yearData = savedDataResponse.yearData;
 		break;
 }
-
-console.log(process.env);
 
 const StatsSection = () => {
 	// Define the data needed for the view option (player stats or year stats), initially set to player stats
