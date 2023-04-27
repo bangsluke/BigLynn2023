@@ -52,6 +52,7 @@ const Palette = (navType: PaletteMode, presetColor: string) => {
 				light: navType === "dark" ? colors.darkPrimaryLight : colors.primaryLight,
 				main: navType === "dark" ? colors.darkPrimaryMain : colors.primaryMain,
 				dark: navType === "dark" ? colors.darkPrimaryDark : colors.primaryDark,
+				100: navType === "dark" ? colors.darkPrimary100 : colors.primary100,
 				200: navType === "dark" ? colors.darkPrimary200 : colors.primary200,
 				800: navType === "dark" ? colors.darkPrimary800 : colors.primary800,
 			},
