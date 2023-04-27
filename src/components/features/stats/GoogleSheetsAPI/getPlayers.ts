@@ -19,26 +19,40 @@ export async function getPlayers() {
 
 	await doc.loadInfo(); // Loads document properties and worksheets
 
-	console.log("doc details", doc);
-	console.log("doc.title", doc.title);
+	// console.log("doc details", doc);
+	// console.log("doc.title", doc.title);
 
 	// Const sheet = doc.sheetsByIndex[0]; // Or use doc.sheetsById[id] or doc.sheetsByTitle[title]
 	const sheet = doc.sheetsByTitle[Config.SheetName];
-	console.log("sheet.title", sheet.title);
-	console.log("sheet.rowCount", sheet.rowCount);
+	// console.log("sheet.title", sheet.title);
+	// console.log("sheet.rowCount", sheet.rowCount);
 
 	const rows = await sheet.getRows(); // Return the rows from the 1st sheet
-	console.log("rows", rows);
+	// console.log("rows", rows);
 
 	const allPlayers = rows.map((row: any) => {
 		// Return the data for each row
-
 		return {
 			name: row.player,
-			// apps: row.apps,
+			apps: row.apps,
+			wins: row.wins,
+			winPercent: row.winPercent,
+			totalPoints: row.totalPoints,
 		};
 	});
-	// This returns the data
+
+	// Collate the data to be returned
+	const ReturnedDocInfo = {
+		title: doc.title,
+		sheet: sheet.title,
+		rowCount: sheet.rowCount,
+		sheetData: allPlayers,
+	};
+	console.log("ReturnedDocInfo", ReturnedDocInfo);
+
+	// Log the data that is to be returned by this function
 	console.log("allPlayers", allPlayers);
+
+	// This returns the data
 	return allPlayers;
 }

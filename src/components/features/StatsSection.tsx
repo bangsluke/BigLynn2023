@@ -136,7 +136,6 @@ const StatsSection = () => {
 						autoWidth
 						label='Select option...'
 						name='View Option Select'>
-						Test
 						{/* {playerData.map((player: any) => {
 							return (
 								<MenuItem key={player.player} value={player.player}>
@@ -144,8 +143,8 @@ const StatsSection = () => {
 								</MenuItem>
 							);
 						})} */}
-						{/* <MenuItem>Hello</MenuItem>
-								<MenuItem>World</MenuItem> */}
+						<MenuItem>Hello</MenuItem>
+						<MenuItem>World</MenuItem>
 					</Select>
 				</FormControl>
 			);
