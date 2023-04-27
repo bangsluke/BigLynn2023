@@ -14,7 +14,7 @@ export default function PlayerSection(props: { playerData: any }) {
 	console.log("playerData", playerData);
 
 	// Set the state for the player shown
-	const [playerOption, setPlayerOption] = useState("Andy");
+	const [playerOption, setPlayerOption] = useState("0");
 
 	// Define the change handler for the player option
 	const playerChange = (event: any) => {
@@ -44,7 +44,8 @@ export default function PlayerSection(props: { playerData: any }) {
 					})} */}
 					<MenuItem value='Hello'>Hello</MenuItem>
 					<MenuItem value='World'>World</MenuItem>
-					<MenuItem value='Andy'>Andy</MenuItem>
+					<MenuItem value='0'>Andy</MenuItem>
+					<MenuItem value='1'>Ben</MenuItem>
 					<MenuItem value='All Players'>All Players</MenuItem>
 				</Select>
 			</FormControl>
@@ -66,7 +67,7 @@ export default function PlayerSection(props: { playerData: any }) {
 					{playerOption === "All Players" ? (
 						<AllPlayersSubSection playerData={playerData} />
 					) : (
-						<PlayerSubSection playerName={playerOption} />
+						<PlayerSubSection playerNumber={playerOption} playerData={playerData} />
 					)}
 				</Grid>
 			</Grid>

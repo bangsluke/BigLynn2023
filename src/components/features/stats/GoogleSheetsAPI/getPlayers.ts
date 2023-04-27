@@ -33,7 +33,8 @@ export async function getPlayers() {
 	const allPlayers = rows.map((row: any) => {
 		// Return the data for each row
 		return {
-			name: row.player,
+			firstName: row.firstName,
+			lastName: row.lastName,
 			apps: row.apps,
 			wins: row.wins,
 			winPercent: row.winPercent,
