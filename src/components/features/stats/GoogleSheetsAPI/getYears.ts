@@ -1,9 +1,7 @@
-import { PlayerData } from "types/types";
-
-export async function getPlayers() {
+export async function getYears() {
 	const Config = {
 		GoogleSpreadsheetID: "13vUKIiVuYGmoSFvf2TNKi9lLDjgg3-fvDbC9E1GvHuo",
-		SheetName: "PlayerData",
+		SheetName: "YearData",
 	};
 
 	const { GoogleSpreadsheet } = require("google-spreadsheet");
@@ -32,33 +30,19 @@ export async function getPlayers() {
 	const rows = await sheet.getRows(); // Return the rows from the 1st sheet
 	// console.log("rows", rows);
 
-	const allPlayers: PlayerData = rows.map((row: any) => {
+	const allYears = rows.map((row: any) => {
 		// Return the data for each row
 		return {
-			id: row.id,
-			fullName: row.fullName,
-			firstName: row.firstName,
-			secondName: row.secondName,
-			apps: row.apps,
-			pointsFinishes: row.pointsFinishes,
-			wins: row.wins,
-			winPercentage: row.winPercentage,
-			pointsTotal: row.pointsTotal,
-			pointsAverage: row.pointsAverage,
-			pointsMin: row.pointsMin,
-			pointsMax: row.pointsMax,
-			pointsMinYear: row.pointsMinYear,
-			pointsMaxYear: row.pointsMaxYear,
-			pointsLatest: row.pointsLatest,
-			pointsExpected2023Points: row.pointsExpected2023Points,
-			handicapLatest: row.handicapLatest,
-			handicapMinimum: row.handicapMinimum,
-			handicapMaximum: row.handicapMaximum,
-			handicapExpected: row.handicapExpected,
-			positionAverage: row.positionAverage,
-			positionBestFinish: row.positionBestFinish,
-			positionWorstFinish: row.positionWorstFinish,
-			positionPredicted: row.positionPredicted,
+			year: row.year,
+			numberPlayers: row.numberPlayers,
+			first: row.first,
+			second: row.second,
+			third: row.third,
+			fourth: row.fourth,
+			fifth: row.fifth,
+			sixth: row.sixth,
+			seventh: row.seventh,
+			eighth: row.eighth,
 		};
 	});
 
@@ -67,13 +51,13 @@ export async function getPlayers() {
 		title: doc.title,
 		sheet: sheet.title,
 		rowCount: sheet.rowCount,
-		sheetData: allPlayers,
+		sheetData: allYears,
 	};
-	console.log("1. ReturnedDocInfo from getPlayers.ts", ReturnedDocInfo);
+	// console.log("ReturnedDocInfo", ReturnedDocInfo);
 
 	// Log the data that is to be returned by this function
-	// console.log("allPlayers", allPlayers);
+	// console.log("allYears", allYears);
 
 	// This returns the data
-	return allPlayers;
+	return allYears;
 }
