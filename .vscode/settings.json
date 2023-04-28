@@ -29,7 +29,8 @@
 		"recaptcha",
 		"reduxjs",
 		"stylis",
-		"timegrid"
+		"timegrid",
+		"uuidv"
 	],
 	"cSpell.words": [
 		"biglynn",
