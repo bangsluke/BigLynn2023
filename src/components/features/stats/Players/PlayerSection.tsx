@@ -134,11 +134,9 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 							</MenuItem>
 						);
 					})} */}
-					<MenuItem value='Hello'>Hello</MenuItem>
-					<MenuItem value='World'>World</MenuItem>
 					<MenuItem value='0'>Andy</MenuItem>
 					<MenuItem value='1'>Ben</MenuItem>
-					<MenuItem value='All Players'>All Players</MenuItem>
+					<MenuItem value='100'>All Players</MenuItem>
 				</Select>
 			</FormControl>
 		);
@@ -208,7 +206,7 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 				{/* Hold the contents of the Player Section */}
 				<Grid item lg={12} md={12} sm={12} xs={12} sx={{ mb: { xs: 1, lg: 3 } }}>
 					{/* Add a ternary operator to decide what section to display */}
-					{playerOption === "All Players" ? <AllPlayersSection /> : <IndividualPlayerSection />}
+					{playerOption === 100 ? <AllPlayersSection /> : <IndividualPlayerSection />}
 				</Grid>
 			</Grid>
 		</Container>

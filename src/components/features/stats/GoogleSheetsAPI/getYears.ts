@@ -47,12 +47,12 @@ export async function getYears() {
 	});
 
 	// Collate the data to be returned
-	const ReturnedDocInfo = {
-		title: doc.title,
-		sheet: sheet.title,
-		rowCount: sheet.rowCount,
-		sheetData: allYears,
-	};
+	// const ReturnedDocInfo = {
+	// 	title: doc.title,
+	// 	sheet: sheet.title,
+	// 	rowCount: sheet.rowCount,
+	// 	sheetData: allYears,
+	// };
 	// console.log("ReturnedDocInfo", ReturnedDocInfo);
 
 	// Log the data that is to be returned by this function

@@ -32,7 +32,7 @@ export async function getPlayers() {
 	const rows = await sheet.getRows(); // Return the rows from the 1st sheet
 	// console.log("rows", rows);
 
-	const allPlayers: PlayerData = rows.map((row: any) => {
+	const allPlayers: PlayerData[] = rows.map((row: any) => {
 		// Return the data for each row
 		return {
 			id: row.id,
@@ -72,7 +72,8 @@ export async function getPlayers() {
 	console.log("1. ReturnedDocInfo from getPlayers.ts", ReturnedDocInfo);
 
 	// Log the data that is to be returned by this function
-	// console.log("allPlayers", allPlayers);
+	// console.log("allPlayers from getPlayers.ts", allPlayers);
+	// console.log("typeof allPlayers", typeof allPlayers);
 
 	// This returns the data
 	return allPlayers;

@@ -7,8 +7,10 @@
 		"DYNAMICSPACING",
 		"Dedham",
 		"Djgg",
+		"Fastfood",
 		"Felder",
 		"Horiz",
+		"Localbar",
 		"Nein",
 		"Overridable",
 		"clsx",
@@ -27,7 +29,8 @@
 		"recaptcha",
 		"reduxjs",
 		"stylis",
-		"timegrid"
+		"timegrid",
+		"uuidv"
 	],
 	"cSpell.words": [
 		"biglynn",
