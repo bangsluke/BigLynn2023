@@ -1,5 +1,6 @@
 import { Container, Grid, Typography } from "@mui/material";
 import HandicapAdjustmentTable from "components/features/rules/HandicapAdjustmentTable";
+import Handicaps2023Table from "components/features/rules/Handicaps2023Table";
 import ScoresTable from "components/features/rules/ScoresTable";
 import SectionHeader from "components/ui/SectionHeader";
 import { useRef } from "react";
@@ -40,7 +41,7 @@ export default function RulesSection() {
 				<SectionHeader
 					header='Rules'
 					subheader='Big Bastard'
-					description='The official rules and absurdities this group uses to play &#39;golf&#39;'
+					description='The official rules and absurdities this group uses to play &#39;golf&#39; provided by the Big Bastard himself - Mr. Martin Bangs'
 				/>
 
 				{/* Hold the contents section and body section alongside one another */}
@@ -63,9 +64,6 @@ export default function RulesSection() {
 								</p>
 								<p>
 									<a href='#SHITRules'>Special SHIT Rules</a>
-								</p>
-								<p>
-									<a href='#ExtraSHITRules'>Extra Special SHIT Rules</a>
 								</p>
 								<p>
 									<a href='#prizes'>Prizes</a>
@@ -93,10 +91,8 @@ export default function RulesSection() {
 													Principal competition points
 												</Typography>
 												<Typography variant='body1' component='div' sx={Styles.sectionText}>
-													Extra opportunity for tinkering this year, with 10 players including our first combination player (Dan and Rich
-													Brown) and one player available for 2 days only. I have kept the headline scores the same and then spread points
-													from there, which means that the score difference between each position is less, thereby making it trickier to win
-													the competition early.
+													As the trophy returned to the Bangs clan last year, it makes complete sense to keep points arrangements and the
+													like the same for 2023, so no tinkering this time around.
 												</Typography>
 												<Typography variant='body1' component='div' sx={Styles.sectionText}>
 													Points will be scored each day based upon the following table, depending upon your Stableford points score, which
@@ -129,9 +125,17 @@ export default function RulesSection() {
 													Handicap Adjustments
 												</Typography>
 												<Typography variant='body1' component='div' sx={Styles.sectionText}>
-													Handicap changes for day 2 and day 3 will as always be based upon the performance from the previous day. With 10
-													competitors, the following matrix is to be applied based upon your finishing score. This is less pronounced than
-													usual because the score differentials are lower.
+													In a change of practice, it appears that we decided to amend the starting handicaps for 2023 based upon adjusting
+													the final day handicaps in 2022. Therefore the starting handicaps for 2023 are as follows:
+												</Typography>
+
+												<Grid item xs={12} lg={6} sx={{ pl: 2, pr: 2 }}>
+													<Handicaps2023Table />
+												</Grid>
+
+												<Typography variant='body1' component='div' sx={Styles.sectionText}>
+													Handicap changes for day 2 and day 3 will as always be based upon the performance from the previous day. With 11
+													competitors, the following matrix is to be applied based upon your finishing score.
 												</Typography>
 												<Typography variant='body1' component='div' sx={Styles.sectionText}>
 													Where there are positional ties, all competitors will be adjusted as if they had finished in the tied position –
@@ -157,35 +161,13 @@ export default function RulesSection() {
 											</ul>
 											<ul style={Styles.unorderedList}>- Big Gimmee (1 per round per player)</ul>
 											<ul style={Styles.unorderedList}>
-												- Joker to be called before playing tee shot on any hole for double points on that hole
+												- Joker (1 per round per player) to be called before playing tee shot on any hole for double points on that hole
 											</ul>
 											<ul style={Styles.unorderedList}>- String Theory (Sunday only) - 7 to 1 foot lengths of string drawn at random</ul>
 											<ul style={Styles.unorderedList}>- Big Girl&#39;s Blouse (1 per round per player)</ul>
 										</Typography>
 										<Typography variant='body1' component='div' sx={Styles.sectionText}>
 											Dave Rose (Official Golf Nerd) to hold casting vote any real “Rules of Golf” issues.
-										</Typography>
-									</Grid>
-
-									{/* Extra Rules */}
-									<Grid item xs={12} sx={{ height: "max-content", mb: 2 }}>
-										<Typography variant='h4' component='div' id='extraSHITRules' className='offset' sx={Styles.sectionHeader}>
-											Extra Special SHIT Rules (2022 only)
-										</Typography>
-										<Typography variant='body1' component='div' sx={Styles.sectionText}>
-											The <b>Chuckle Brothers</b> – for the first time we have a two person competitor and this enjoyably adds another thing
-											to argue about. To be clear, Rich’s handicap will be adjusted by the above table based upon Dan B&#39;s finishing
-											position on Saturday. However, there is a freshness factor to add in to the mix, as Rich will not have had the day one
-											rigours of competition/booze that the rest of us suffer. I suggest that we consider on Saturday lunchtime and decide
-											if there needs to be some sort of impact assessment.
-										</Typography>
-										<Typography variant='body1' component='div' sx={Styles.sectionText}>
-											The <b>Ben Bonanza</b> – having offered a Ben Bonus last year, I would like to offer another one this, this time
-											potentially beneficial to Ben instead. If Ben wins the first two days of competition, he will have accumulated at
-											least 50 points, plus any extra bullets. I propose that – to reflect his achievement – he has the chance to receive an
-											additional 15 points, based upon selecting the correct envelope out of three before he leaves on Sunday. This envelope
-											will then be opened after the scoring for those competing on Monday have been totted up and (hopefully) may
-											potentially change the destination of the trophy.
 										</Typography>
 									</Grid>
 
