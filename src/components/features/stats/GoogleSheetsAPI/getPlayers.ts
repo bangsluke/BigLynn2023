@@ -33,12 +33,30 @@ export async function getPlayers() {
 	const allPlayers = rows.map((row: any) => {
 		// Return the data for each row
 		return {
+			id: row.id,
+			fullName: row.fullName,
 			firstName: row.firstName,
-			lastName: row.lastName,
+			secondName: row.secondName,
 			apps: row.apps,
+			pointsFinish: row.pointsFinish,
 			wins: row.wins,
-			winPercent: row.winPercent,
-			totalPoints: row.totalPoints,
+			winPercentage: row.winPercentage,
+			pointsTotal: row.pointsTotal,
+			pointsAverage: row.pointsAverage,
+			pointsMin: row.pointsMin,
+			pointsMax: row.pointsMax,
+			pointsMinYear: row.pointsMinYear,
+			pointsMaxYear: row.pointsMaxYear,
+			pointsLatest: row.pointsLatest,
+			pointsExpected2023Points: row.pointsExpected2023Points,
+			handicapLatest: row.handicapLatest,
+			handicapMinimum: row.handicapMinimum,
+			handicapMaximum: row.handicapMaximum,
+			handicapExpected: row.handicapExpected,
+			positionAverage: row.positionAverage,
+			positionBestFinish: row.positionBestFinish,
+			positionWorstFinish: row.positionWorstFinish,
+			positionPredicted: row.positionPredicted,
 		};
 	});
 

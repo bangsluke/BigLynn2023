@@ -188,11 +188,30 @@ export interface LinkData {
 }
 
 export interface PlayerData {
-	player: string;
-	apps: string;
-	wins: string;
-	"win%": string;
-	totalPoints: string;
+	id: number;
+	fullName: string;
+	firstName: string;
+	secondName: string;
+	apps: number;
+	pointsFinish: number;
+	wins: number;
+	winPercentage: string;
+	pointsTotal: number;
+	pointsAverage: number;
+	pointsMin: number;
+	pointsMax: number;
+	pointsMinYear: number;
+	pointsMaxYear: number;
+	pointsLatest: number;
+	pointsExpected2023Points: number;
+	handicapLatest: number;
+	handicapMinimum: number;
+	handicapMaximum: number;
+	handicapExpected: number;
+	positionAverage: number;
+	positionBestFinish: number;
+	positionWorstFinish: number;
+	positionPredicted: number;
 }
 
 export interface YearData {
