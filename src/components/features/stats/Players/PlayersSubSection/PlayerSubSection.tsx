@@ -13,8 +13,8 @@ export default function PlayerSubSection(props: { playerNumber: any; playerData:
 		<>
 			{/* Hold the selected player information */}
 			<Grid item lg={12} md={12} sm={12} xs={12}>
-				<h1>{playerData[playerNumber].firstName}</h1>
-				<h2>{playerData[playerNumber].lastName}</h2>
+				{/* <h1>{playerData[playerNumber].firstName}</h1> */}
+				{/* <h2>{playerData[playerNumber].lastName}</h2> */}
 			</Grid>
 
 			{/* Hold the main data table section card */}
