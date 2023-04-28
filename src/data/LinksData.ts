@@ -70,7 +70,7 @@ const LinksData: LinkData[] = [
 		key: uuid(),
 		iconName: "LocalbarIcon",
 		title: "Room Service Drinks Menu",
-		description: "For getting that weird in your bedroom buzz on",
+		description: "For getting a weird buzz on in your room?",
 		linkURL:
 			"https://stokebynayland.com/wp-content/uploads/2021/12/SbN-Drinks-Menu.pdf?_ga=2.91780121.2092627377.1665515642-362188512.1665515641",
 	},
