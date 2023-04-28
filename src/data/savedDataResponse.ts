@@ -1,6 +1,6 @@
-import { PlayerData, YearData } from "../types/types";
+import { YearData } from "../types/types";
 
-const playerData: PlayerData[] = [
+const playerData = [
 	{
 		player: "Andy",
 		apps: "22",

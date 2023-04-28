@@ -79,9 +79,6 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 		async function getPlayerStatsData() {
 			// Have a switch case statement to determine which method to use to get the data
 			switch (dataMethod) {
-				case DataMethods.savedData:
-					playerData = savedDataResponse.playerData;
-					break;
 				case DataMethods.GoogleSheetsAPI:
 					// Player Data
 					playerData = await getPlayers(); // Add an await to the function call to wait for the data to be returned
@@ -94,7 +91,12 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 						playerData = response.data;
 					});
 					break;
+				case DataMethods.savedData:
+					//@ts-ignore
+					playerData = savedDataResponse.playerData; // TODO: Fix this
+					break;
 				default:
+					//@ts-ignore
 					playerData = savedDataResponse.playerData;
 					break;
 			}
@@ -111,7 +113,12 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 	const playerChange = (event: any) => {
 		console.log("playerChange: event.target.value: ", event.target.value);
 		setPlayerOption(event.target.value);
-		setSelectedPlayerData(playerData[event.target.value]);
+		if (event.target.value === 100) {
+			// Deal with the All Players option
+			setSelectedPlayerData(ExamplePlayerData);
+		} else {
+			setSelectedPlayerData(playerData[event.target.value]);
+		}
 	};
 
 	// Player Selection Dropdown
