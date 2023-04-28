@@ -53,10 +53,10 @@ export async function getYears() {
 		rowCount: sheet.rowCount,
 		sheetData: allYears,
 	};
-	console.log("ReturnedDocInfo", ReturnedDocInfo);
+	// console.log("ReturnedDocInfo", ReturnedDocInfo);
 
 	// Log the data that is to be returned by this function
-	console.log("allYears", allYears);
+	// console.log("allYears", allYears);
 
 	// This returns the data
 	return allYears;
