@@ -19,7 +19,7 @@ const ItineraryInfo: FullItinerary = {
 			datetime: 202307150815,
 			title: "First Arrival",
 			subtitle: "",
-			description: "Dave arrives at Stoke by Nayland Hotel",
+			description: "Dave arrives at Stoke by Nayland Hotel. Yet to understand why he arrives so early...",
 			url: "https://www.google.co.uk/maps/dir/Stamford+Bridge,+Fulham+Rd.,+London+SW6+1HS/Stoke+by+Nayland+Resort,+Dedham+Vale+AONB,+Keeper's+Lane,+Leavenheath,+Colchester/@51.742419,0.0548923,10z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x48760f864b976f3d:0x48aa38781ea565f8!2m2!1d-0.1909565!2d51.481663!1m5!1m1!1s0x47d900b5862e7357:0xad04129065912290!2m2!1d0.8658706!2d51.9977424!3e0",
 			position: "left",
 			backgroundColor: "#3f87d9",
