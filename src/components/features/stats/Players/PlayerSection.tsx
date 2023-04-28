@@ -13,7 +13,7 @@ import { PlayerData } from "types/types";
 const columns = [
 	{ name: "fullName", header: "Player", minWidth: 100, defaultFlex: 1 },
 	{ name: "apps", header: "Apps", minWidth: 100, defaultFlex: 1 },
-	{ name: "pointsFinish", header: "Points Finish", minWidth: 100, defaultFlex: 1 },
+	{ name: "pointsFinishes", header: "Points Finish", minWidth: 100, defaultFlex: 1 },
 	{ name: "wins", header: "Wins", minWidth: 100, defaultFlex: 1 },
 	{ name: "winPercentage", header: "Win %", minWidth: 100, defaultFlex: 1 },
 	{ name: "pointsTotal", header: "Total Points", minWidth: 100, defaultFlex: 1 },
@@ -43,7 +43,7 @@ const ExamplePlayerData: PlayerData = {
 	firstName: "Andy",
 	secondName: "Brown",
 	apps: 19,
-	pointsFinish: 18,
+	pointsFinishes: 18,
 	wins: 6,
 	winPercentage: "31.6%",
 	pointsTotal: 981,
@@ -153,6 +153,26 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 					<h3>{selectedPlayerData.firstName}</h3>
 					<h3>{selectedPlayerData.secondName}</h3>
 					<p>Appearances: {selectedPlayerData.apps}</p>
+					<p>Points Finishes: {selectedPlayerData.pointsFinishes}</p>
+					<p>Wins: {selectedPlayerData.wins}</p>
+					<p>Win %: {selectedPlayerData.winPercentage}</p>
+					<p>Total Championship Points: {selectedPlayerData.pointsTotal}</p>
+					<p>Average Championship Points: {selectedPlayerData.pointsAverage}</p>
+					<p>Maximum Points: {selectedPlayerData.pointsMax}</p>
+					<p>Maximum Points Year: {selectedPlayerData.pointsMaxYear}</p>
+					<p>Minimum Points: {selectedPlayerData.pointsMin}</p>
+					<p>Minimum Points Year: {selectedPlayerData.pointsMinYear}</p>
+					<p>2022 Points: {selectedPlayerData.pointsLatest}</p>
+					<p>Predicted 2023 Points: {selectedPlayerData.pointsExpected2023Points}</p>
+					<p>Current Handicap: {selectedPlayerData.handicapLatest}</p>
+					<p>Lowest Handicap: {selectedPlayerData.handicapMinimum}</p>
+					<p>Highest Handicap: {selectedPlayerData.handicapMaximum}</p>
+					{/* // TODO: Add the years of the highest and lowest handicaps? */}
+					<p>Predicted 2024 Handicap: {selectedPlayerData.handicapExpected}</p>
+					<p>Average Position: {selectedPlayerData.positionAverage}</p>
+					<p>Best Position: {selectedPlayerData.positionBestFinish}</p>
+					<p>Worst Position: {selectedPlayerData.positionWorstFinish}</p>
+					<p>Predicted 2023 Position: {selectedPlayerData.positionPredicted}</p>
 				</Grid>
 
 				{/* Hold the main data table section card */}

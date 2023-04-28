@@ -1,3 +1,5 @@
+import { PlayerData } from "types/types";
+
 export async function getPlayers() {
 	const Config = {
 		GoogleSpreadsheetID: "13vUKIiVuYGmoSFvf2TNKi9lLDjgg3-fvDbC9E1GvHuo",
@@ -30,7 +32,7 @@ export async function getPlayers() {
 	const rows = await sheet.getRows(); // Return the rows from the 1st sheet
 	// console.log("rows", rows);
 
-	const allPlayers = rows.map((row: any) => {
+	const allPlayers: PlayerData = rows.map((row: any) => {
 		// Return the data for each row
 		return {
 			id: row.id,
@@ -38,7 +40,7 @@ export async function getPlayers() {
 			firstName: row.firstName,
 			secondName: row.secondName,
 			apps: row.apps,
-			pointsFinish: row.pointsFinish,
+			pointsFinishes: row.pointsFinishes,
 			wins: row.wins,
 			winPercentage: row.winPercentage,
 			pointsTotal: row.pointsTotal,

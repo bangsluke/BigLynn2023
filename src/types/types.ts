@@ -193,7 +193,7 @@ export interface PlayerData {
 	firstName: string;
 	secondName: string;
 	apps: number;
-	pointsFinish: number;
+	pointsFinishes: number;
 	wins: number;
 	winPercentage: string;
 	pointsTotal: number;
