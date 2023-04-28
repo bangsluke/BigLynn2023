@@ -149,8 +149,8 @@ export default function EventDetailsSection() {
 								Stoke By Nayland
 							</Typography>
 							<Typography variant='body1' style={{ marginTop: "1rem" }}>
-								Idyllically located in the Dedham Vale Area of Outstanding Natural Beauty, our award-winning, family-owned spa hotel is in
-								the countryside on the Essex/Suffolk border
+								Idyllically located in the Dedham Vale Area of Outstanding Natural Beauty, this award-winning, family-owned spa hotel is in
+								the countryside on the Essex/Suffolk border (perfect location isn&apos;t that right Hoj!)
 							</Typography>
 							<a
 								href='https://www.google.com/maps/dir/?api=1&destination=Stoke+by+Nayland+Resort&origin=Current+Location&travelmode=driving'
