@@ -7,7 +7,7 @@ import { getYears } from "components/features/stats/GoogleSheetsAPI/getYears";
 import PlayerSection from "components/features/stats/Players/PlayerSection";
 import YearSection from "components/features/stats/Years/YearSection";
 import SectionHeader from "components/ui/SectionHeader";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ThemingS from "services/ThemingS";
 import savedDataResponse from "../../data/savedDataResponse";
 import { PlayerData, YearData } from "../../types/types";
@@ -67,10 +67,23 @@ switch (dataMethod) {
 }
 
 const StatsSection = () => {
-	const theme = useTheme();
+	const theme = useTheme(); // Return the theme for use in the stats section styling
 
-	// Define the data needed for the view option (player stats or year stats), initially set to player stats
-	const [viewOption, setViewOption] = useState("Player Stats");
+	const [viewOption, setViewOption] = useState("Player Stats"); // Define the data needed for the view option (player stats or year stats), initially set to player stats
+
+	useEffect(() => {
+		// axios.get("https://sheetdb.io/api/v1/rk65krxr1m5a9?sheet=PlayerData").then((response) => {
+		// 	console.log("responseData", response.data);
+		// 	const testData = response.data;
+		// 	console.log("testData", testData);
+		// });
+
+		async function getData() {
+			const testData = await getPlayers();
+			console.log("testData", testData);
+		}
+		getData();
+	}, []);
 
 	// Define the change handler for the view option
 	const viewChange = (event: any) => {
