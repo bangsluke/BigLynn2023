@@ -27,43 +27,48 @@ enum DataMethods {
 // Define which method should be used to retrieve the data
 const dataMethod: DataMethods = DataMethods.GoogleSheetsAPI;
 
-// Have a switch case statement to determine which method to use to get the data
-let playerData: PlayerData[], yearData: YearData[];
-switch (dataMethod) {
-	// @ts-ignore
-	case DataMethods.savedData:
-		playerData = savedDataResponse.playerData;
-		yearData = savedDataResponse.yearData;
-		break;
-	// @ts-ignore
-	case DataMethods.GoogleSheetsAPI:
-		// Get the data from the Google Sheets API
-		// const sheetTitle = getData();
-		// console.log("sheetTitle: ", sheetTitle);
+// Create an async function to get the data from the Google Sheets API
+let playerData: PlayerData[], yearData: YearData[]; // Define the playerData and yearData variables outside of the function scope
+async function getAllStatsData() {
+	// Have a switch case statement to determine which method to use to get the data
+	switch (dataMethod) {
 		// @ts-ignore
-		playerData = getPlayers();
-		console.log("playerData: ", playerData);
+		case DataMethods.savedData:
+			playerData = savedDataResponse.playerData;
+			yearData = savedDataResponse.yearData;
+			break;
 		// @ts-ignore
-		yearData = getYears();
-		console.log("yearData: ", yearData);
-		break;
-	// @ts-ignore
-	case DataMethods.sheetDBio:
-		// Get the player data from the sheetdb.io API
-		axios.get("https://sheetdb.io/api/v1/rk65krxr1m5a9?sheet=PlayerData").then((response) => {
-			console.log("playerData", response.data);
-			playerData = response.data;
-		});
-		// Get the year data from the sheetdb.io API
-		axios.get("https://sheetdb.io/api/v1/rk65krxr1m5a9?sheet=YearData").then((response) => {
-			console.log("yearData", response.data);
-			yearData = response.data;
-		});
-		break;
-	default:
-		playerData = savedDataResponse.playerData;
-		yearData = savedDataResponse.yearData;
-		break;
+		case DataMethods.GoogleSheetsAPI:
+			// Get the data from the Google Sheets API
+			// const sheetTitle = getData();
+			// console.log("sheetTitle: ", sheetTitle);
+
+			// Player Data
+			playerData = await getPlayers(); // Add an await to the function call to wait for the data to be returned
+			console.log("playerData", playerData);
+
+			// Year Data
+			yearData = await getYears(); // Add an await to the function call to wait for the data to be returned
+			console.log("yearData", yearData);
+			break;
+		// @ts-ignore
+		case DataMethods.sheetDBio:
+			// Get the player data from the sheetdb.io API
+			axios.get("https://sheetdb.io/api/v1/rk65krxr1m5a9?sheet=PlayerData").then((response) => {
+				console.log("playerData", response.data);
+				playerData = response.data;
+			});
+			// Get the year data from the sheetdb.io API
+			axios.get("https://sheetdb.io/api/v1/rk65krxr1m5a9?sheet=YearData").then((response) => {
+				console.log("yearData", response.data);
+				yearData = response.data;
+			});
+			break;
+		default:
+			playerData = savedDataResponse.playerData;
+			yearData = savedDataResponse.yearData;
+			break;
+	}
 }
 
 const StatsSection = () => {
@@ -72,17 +77,8 @@ const StatsSection = () => {
 	const [viewOption, setViewOption] = useState("Player Stats"); // Define the data needed for the view option (player stats or year stats), initially set to player stats
 
 	useEffect(() => {
-		// axios.get("https://sheetdb.io/api/v1/rk65krxr1m5a9?sheet=PlayerData").then((response) => {
-		// 	console.log("responseData", response.data);
-		// 	const testData = response.data;
-		// 	console.log("testData", testData);
-		// });
-
-		async function getData() {
-			const testData = await getPlayers();
-			console.log("testData", testData);
-		}
-		getData();
+		// Call the function to get the data from the Google Sheets API
+		getAllStatsData();
 	}, []);
 
 	// Define the change handler for the view option

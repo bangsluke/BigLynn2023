@@ -11,10 +11,10 @@ const MinDropdownWidth = 140; // TODO: Extract to a common file
 export default function PlayerSection(props: { playerData: any }) {
 	const { playerData } = props; // Destructure props
 
-	console.log("playerData", playerData);
+	console.log("playerData from PlayerSection", playerData);
 
 	// Set the state for the player shown
-	const [playerOption, setPlayerOption] = useState("0");
+	const [playerOption, setPlayerOption] = useState("BenJoseph");
 
 	// Define the change handler for the player option
 	const playerChange = (event: any) => {
@@ -44,8 +44,8 @@ export default function PlayerSection(props: { playerData: any }) {
 					})} */}
 					<MenuItem value='Hello'>Hello</MenuItem>
 					<MenuItem value='World'>World</MenuItem>
-					<MenuItem value='0'>Andy</MenuItem>
-					<MenuItem value='1'>Ben</MenuItem>
+					<MenuItem value='AndyBrown'>Andy</MenuItem>
+					<MenuItem value='BenJoseph'>Ben</MenuItem>
 					<MenuItem value='All Players'>All Players</MenuItem>
 				</Select>
 			</FormControl>
@@ -67,7 +67,7 @@ export default function PlayerSection(props: { playerData: any }) {
 					{playerOption === "All Players" ? (
 						<AllPlayersSubSection playerData={playerData} />
 					) : (
-						<PlayerSubSection playerNumber={playerOption} playerData={playerData} />
+						<PlayerSubSection playerName={playerOption} playerData={playerData} />
 					)}
 				</Grid>
 			</Grid>

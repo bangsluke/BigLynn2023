@@ -49,10 +49,10 @@ export async function getPlayers() {
 		rowCount: sheet.rowCount,
 		sheetData: allPlayers,
 	};
-	console.log("ReturnedDocInfo", ReturnedDocInfo);
+	console.log("ReturnedDocInfo from getPlayers.ts", ReturnedDocInfo);
 
 	// Log the data that is to be returned by this function
-	console.log("allPlayers", allPlayers);
+	// console.log("allPlayers", allPlayers);
 
 	// This returns the data
 	return allPlayers;
