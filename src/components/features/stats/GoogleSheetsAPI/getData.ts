@@ -1,14 +1,15 @@
 export async function getData() {
 	const { GoogleSpreadsheet } = require("google-spreadsheet");
 
-	// Const creds = require("./biglynn2023-56293908d413.json"); // For now, comment out to allow build
-	const creds = "";
+	//const creds = require("./biglynn2023-56293908d413.json"); // For now, comment out to allow build
+	// const creds = "";
 
 	// Initialize the sheet - doc ID is the long id in the sheets URL
 	const doc = new GoogleSpreadsheet("13vUKIiVuYGmoSFvf2TNKi9lLDjgg3-fvDbC9E1GvHuo");
 
 	// Initialize Auth - see https://theoephraim.github.io/node-google-spreadsheet/#/getting-started/authentication
-	await doc.useServiceAccountAuth(creds);
+	//await doc.useServiceAccountAuth(creds);
+	doc.useApiKey(process.env.GOOGLE_SHEETS_API_KEY);
 
 	await doc.loadInfo(); // Loads document properties and worksheets
 	console.log("doc.title", doc.title);
