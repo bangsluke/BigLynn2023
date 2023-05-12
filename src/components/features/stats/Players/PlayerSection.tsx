@@ -4,12 +4,13 @@ import { Container, FormControl, Grid, InputLabel, MenuItem, Select } from "@mui
 import axios from "axios";
 import { DataMethods } from "components/features/StatsSection";
 import { getPlayers } from "components/features/stats/GoogleSheetsAPI/getPlayers";
+import HandicapRange from "components/features/stats/Players/HandicapRange";
 import PlayerPointsChartCard from "components/features/stats/Players/PlayersSubSection/PlayerPointsChartCard";
+import StatHolder from "components/features/stats/StatHolder";
 import { useEffect, useState } from "react";
 import { FadeLoader } from "react-spinners";
 import ThemingS from "services/ThemingS";
 import { PlayerData } from "types/types";
-import StatHolder from "../StatHolder";
 
 const columns = [
 	{ name: "fullName", header: "Player", minWidth: 100, defaultFlex: 1 },
@@ -165,8 +166,21 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 			<>
 				{/* Hold the selected player information */}
 				<Grid item lg={12} md={12} sm={12} xs={12}>
-					<h3>{selectedPlayerData.firstName}</h3>
-					<h3>{selectedPlayerData.secondName}</h3>
+					<Grid container spacing={ThemingS.themeConfig.gridSpacing} justifyContent='center' alignItems='center'>
+						<Grid item xs={6} style={{ backgroundColor: "null" }}>
+							<h3>
+								{selectedPlayerData.firstName} {selectedPlayerData.secondName}
+							</h3>
+						</Grid>
+						<Grid item xs={6} style={{ backgroundColor: "null", textAlign: "center" }}>
+							<HandicapRange
+								lowestHandicap={selectedPlayerData.handicapMinimum}
+								highestHandicap={selectedPlayerData.handicapMaximum}
+								currentHandicap={selectedPlayerData.handicapLatest}
+							/>
+						</Grid>
+					</Grid>
+
 					<hr style={{ marginBottom: "20px" }} />
 					<Grid container spacing={ThemingS.themeConfig.gridSpacing} justifyContent='center' alignItems='center'>
 						<StatHolder headerText='Appearances' value={selectedPlayerData.apps.toString()} xsWidth={6} />
