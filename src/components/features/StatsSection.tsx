@@ -25,7 +25,7 @@ const dataMethod: DataMethods = DataMethods.GoogleSheetsAPI;
 const StatsSection = () => {
 	const theme = useTheme(); // Return the theme for use in the stats section styling
 
-	const [viewOption, setViewOption] = useState("Player Stats"); // Define the data needed for the view option (player stats or year stats), initially set to player stats
+	const [viewOption, setViewOption] = useState<string>("Player Stats"); // Define the data needed for the view option (player stats or year stats), initially set to player stats
 
 	// Define the change handler for the view option
 	const viewChange = (event: any) => {
