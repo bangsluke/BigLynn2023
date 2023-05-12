@@ -1,8 +1,8 @@
 import ReactDataGrid from "@inovua/reactdatagrid-community";
 import "@inovua/reactdatagrid-community/index.css";
 import { Container, FormControl, Grid, InputLabel, MenuItem, Select } from "@mui/material";
-import axios from "axios";
 import { DataMethods } from "components/features/StatsSection";
+import { getPlayers } from "components/features/stats/GoogleSheetsAPI/getPlayers";
 import PlayerPointsChartCard from "components/features/stats/Players/PlayersSubSection/PlayerPointsChartCard";
 import { useEffect, useState } from "react";
 import ThemingS from "services/ThemingS";
@@ -72,19 +72,36 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 	const { dataMethod } = props; // Destructure props
 
 	const [isLoaded, setIsLoaded] = useState(false);
-	const [shows, setShows] = useState([]);
+
+	const [playerNameData, setPlayerNameData] = useState<PlayerData[]>([]);
 
 	useEffect(() => {
-		axios(`https://api.tvmaze.com/search/shows?q=heist`)
-			.then((r) => {
-				console.log(r);
-				setShows(r.data);
-				setIsLoaded(true);
-			})
-			.catch((e) => {
-				setIsLoaded(false);
-				console.log(e);
-			});
+		const fetchData = async () => {
+			getPlayers()
+				.then((response) => {
+					console.log(response);
+
+					setPlayerNameData(response);
+					setIsLoaded(true);
+				})
+				.catch((error) => {
+					setIsLoaded(false);
+					console.log(error);
+				});
+		};
+		fetchData();
+
+		// axios
+		// 	.get(getPlayers())
+		// 	.then((r) => {
+		// 		console.log(r);
+		// 		setShows(r.data);
+		// 		setIsLoaded(true);
+		// 	})
+		// 	.catch((e) => {
+		// 		setIsLoaded(false);
+		// 		console.log(e);
+		// 	});
 	}, []);
 
 	// // Add a useEffect that returns the data from the Google Sheets API
@@ -137,29 +154,56 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 
 	// Player Selection Dropdown
 	const PlayerNameSelection = () => {
+		if (!isLoaded) {
+			return <p>loading...</p>;
+		}
+
 		return (
-			<FormControl sx={{ mt: 2, minWidth: MinDropdownWidth, width: "90%" }} color='primary'>
-				<InputLabel id='demo-simple-select-autowidth-label'>Player Selection</InputLabel>
-				<Select
-					labelId='demo-simple-select-autowidth-label'
-					id='demo-simple-select-autowidth'
-					value={playerOption}
-					onChange={playerChange}
-					autoWidth
-					label='Select option...'
-					name='View Option Select'>
-					{playerData?.map((player: PlayerData) => {
-						return (
-							<MenuItem key={player.fullName} value={player.id}>
-								{player.firstName}
-							</MenuItem>
-						);
-					})}
-					<MenuItem value='0'>Andy</MenuItem>
-					<MenuItem value='1'>Ben</MenuItem>
-					<MenuItem value='100'>All Players</MenuItem>
-				</Select>
-			</FormControl>
+			isLoaded && (
+				<div>
+					<FormControl sx={{ mt: 2, minWidth: MinDropdownWidth, width: "90%" }} color='primary'>
+						<InputLabel id='demo-simple-select-autowidth-label'>Player Selection</InputLabel>
+						<Select
+							labelId='demo-simple-select-autowidth-label'
+							id='demo-simple-select-autowidth'
+							value={playerOption}
+							onChange={playerChange}
+							autoWidth
+							label='Select option...'
+							name='View Option Select'>
+							{playerNameData?.map((player: PlayerData) => {
+								return (
+									<MenuItem key={player.fullName} value={player.id}>
+										{player.firstName}
+									</MenuItem>
+								);
+							})}
+							<MenuItem value='100'>All Players</MenuItem>
+						</Select>
+					</FormControl>
+				</div>
+			)
+
+			// <FormControl sx={{ mt: 2, minWidth: MinDropdownWidth, width: "90%" }} color='primary'>
+			// 	<InputLabel id='demo-simple-select-autowidth-label'>Player Selection</InputLabel>
+			// 	<Select
+			// 		labelId='demo-simple-select-autowidth-label'
+			// 		id='demo-simple-select-autowidth'
+			// 		value={playerOption}
+			// 		onChange={playerChange}
+			// 		autoWidth
+			// 		label='Select option...'
+			// 		name='View Option Select'>
+			// 		{playerNameData?.map((player: PlayerData) => {
+			// 			return (
+			// 				<MenuItem key={player.fullName} value={player.id}>
+			// 					{player.firstName}
+			// 				</MenuItem>
+			// 			);
+			// 		})}
+			// 		<MenuItem value='100'>All Players</MenuItem>
+			// 	</Select>
+			// </FormControl>
 		);
 	};
 
@@ -224,7 +268,7 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 					<PlayerNameSelection />
 				</Grid>
 
-				{!isLoaded && <p>loading...</p>}
+				{/* {!isLoaded && <p>loading...</p>}
 				{isLoaded && (
 					<div>
 						<FormControl sx={{ mt: 2, minWidth: MinDropdownWidth, width: "90%" }} color='primary'>
@@ -238,8 +282,8 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 								label='Select option...'
 								name='View Option Select'>
 								{shows.map((show, index) => (
-									<div key={index}>
-										{/* <div>
+									<div key={index}> */}
+				{/* <div>
 											<img src={show.show.image ? show.show.image.original : ""} alt='Show Poster' />
 										</div>
 
@@ -249,7 +293,7 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 											<h4>Status: {show.show.status}</h4>
 											<p>Network: {show.show.network ? show.show.network.name : "N/A"}</p>
 										</div> */}
-										<MenuItem key={show.name} value={show.score}>
+				{/* <MenuItem key={show.name} value={show.score}>
 											{show.show.name}
 										</MenuItem>
 									</div>
@@ -257,7 +301,7 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 							</Select>
 						</FormControl>
 					</div>
-				)}
+				)} */}
 
 				{/* Hold the contents of the Player Section */}
 				<Grid item lg={12} md={12} sm={12} xs={12} sx={{ mb: { xs: 1, lg: 3 } }}>
