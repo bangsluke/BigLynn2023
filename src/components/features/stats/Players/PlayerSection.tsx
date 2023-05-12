@@ -100,7 +100,7 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 				// Get the player data from the sheetdb.io API
 				axios.get("https://sheetdb.io/api/v1/rk65krxr1m5a9?sheet=PlayerData").then((response) => {
 					console.log("playerData", response.data);
-					playerData = response.data;
+					setAllPlayerData(response.data);
 				});
 				break;
 			case DataMethods.savedData:
