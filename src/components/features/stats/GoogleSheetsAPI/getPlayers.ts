@@ -1,15 +1,12 @@
 import { PlayerData } from "types/types";
 
 export async function getPlayers() {
+	// Define the config details for the Google Sheet pulling data from
 	const Config = {
 		GoogleSpreadsheetID: "13vUKIiVuYGmoSFvf2TNKi9lLDjgg3-fvDbC9E1GvHuo",
 		SheetName: "PlayerData",
 	};
-
 	const { GoogleSpreadsheet } = require("google-spreadsheet");
-
-	//const creds = require("./biglynn2023-56293908d413.json"); // For now, comment out to allow build
-	// const creds = "";
 
 	// Initialize the sheet - doc ID is the long id in the sheets URL
 	const doc = new GoogleSpreadsheet(Config.GoogleSpreadsheetID);
@@ -18,20 +15,19 @@ export async function getPlayers() {
 	//await doc.useServiceAccountAuth(creds);
 	// console.log("API key from 'getPlayers'", process.env.NEXT_PUBLIC_API_KEY);
 	doc.useApiKey(process.env.NEXT_PUBLIC_API_KEY);
-
 	await doc.loadInfo(); // Loads document properties and worksheets
-
 	// console.log("doc details", doc);
 	// console.log("doc.title", doc.title);
 
+	// Get the sheet by name
 	// Const sheet = doc.sheetsByIndex[0]; // Or use doc.sheetsById[id] or doc.sheetsByTitle[title]
 	const sheet = doc.sheetsByTitle[Config.SheetName];
 	// console.log("sheet.title", sheet.title);
 	// console.log("sheet.rowCount", sheet.rowCount);
 
+	// Get all rows from the sheet and map through them
 	const rows = await sheet.getRows(); // Return the rows from the 1st sheet
 	// console.log("rows", rows);
-
 	const allPlayers: PlayerData[] = rows.map((row: any) => {
 		// Return the data for each row
 		return {
@@ -62,14 +58,14 @@ export async function getPlayers() {
 		};
 	});
 
-	// Collate the data to be returned
-	const ReturnedDocInfo = {
-		title: doc.title,
-		sheet: sheet.title,
-		rowCount: sheet.rowCount,
-		sheetData: allPlayers,
-	};
-	console.log("1. ReturnedDocInfo from getPlayers.ts", ReturnedDocInfo);
+	// Collate the data to be returned for details on the sheet
+	// const ReturnedDocInfo = {
+	// 	title: doc.title,
+	// 	sheet: sheet.title,
+	// 	rowCount: sheet.rowCount,
+	// 	sheetData: allPlayers,
+	// };
+	// console.log("1. ReturnedDocInfo from getPlayers.ts", ReturnedDocInfo);
 
 	// Log the data that is to be returned by this function
 	// console.log("allPlayers from getPlayers.ts", allPlayers);
