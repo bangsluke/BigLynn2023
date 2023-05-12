@@ -1,22 +1,13 @@
 import ReactDataGrid from "@inovua/reactdatagrid-community";
 import "@inovua/reactdatagrid-community/index.css";
 import { Container, FormControl, Grid, InputLabel, MenuItem, Select } from "@mui/material";
+import axios from "axios";
 import { DataMethods } from "components/features/StatsSection";
 import { getPlayers } from "components/features/stats/GoogleSheetsAPI/getPlayers";
 import PlayerPointsChartCard from "components/features/stats/Players/PlayersSubSection/PlayerPointsChartCard";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ThemingS from "services/ThemingS";
 import { PlayerData } from "types/types";
-
-export async function getServerSideProps() {
-	const players = await getPlayers();
-	console.log(players);
-	return {
-		props: {
-			players,
-		},
-	};
-}
 
 const columns = [
 	{ name: "fullName", header: "Player", minWidth: 100, defaultFlex: 1 },
@@ -78,43 +69,41 @@ const MinDropdownWidth = 140; // TODO: Extract to a common file
 // Create an async function to get the data from the Google Sheets API
 let playerData: PlayerData[]; // Define the playerData variable outside of the function scope
 
-export default function PlayerSection(props: { dataMethod: DataMethods; players?: PlayerData[] }) {
-	const { dataMethod, players } = props; // Destructure props
+export default function PlayerSection(props: { dataMethod: DataMethods }) {
+	const { dataMethod } = props; // Destructure props
 
-	console.log("1. players from PlayerSection", players);
+	// Add a useEffect that returns the data from the Google Sheets API
+	useEffect(() => {
+		// Call the function to get the data from the Google Sheets API
+		async function getPlayerStatsData() {
+			// Have a switch case statement to determine which method to use to get the data
+			switch (dataMethod) {
+				case DataMethods.GoogleSheetsAPI:
+					// Player Data
+					playerData = await getPlayers(); // Add an await to the function call to wait for the data to be returned
+					console.log("2. playerData from PlayerSection", playerData);
+					break;
+				case DataMethods.sheetDBio:
+					// Get the player data from the sheetdb.io API
+					axios.get("https://sheetdb.io/api/v1/rk65krxr1m5a9?sheet=PlayerData").then((response) => {
+						console.log("playerData", response.data);
+						playerData = response.data;
+					});
+					break;
+				case DataMethods.savedData:
+					//@ts-ignore
+					playerData = savedDataResponse.playerData; // TODO: Fix this
+					break;
+				default:
+					//@ts-ignore
+					playerData = savedDataResponse.playerData;
+					break;
+			}
+		}
+		getPlayerStatsData(); // Call the function to get the data from the Google Sheets API
+	});
 
-	// // Add a useEffect that returns the data from the Google Sheets API
-	// useEffect(() => {
-	// 	// Call the function to get the data from the Google Sheets API
-	// 	async function getPlayerStatsData() {
-	// 		// Have a switch case statement to determine which method to use to get the data
-	// 		switch (dataMethod) {
-	// 			case DataMethods.GoogleSheetsAPI:
-	// 				// Player Data
-	// 				playerData = await getPlayers(); // Add an await to the function call to wait for the data to be returned
-	// 				console.log("2. playerData from PlayerSection", playerData);
-	// 				break;
-	// 			case DataMethods.sheetDBio:
-	// 				// Get the player data from the sheetdb.io API
-	// 				axios.get("https://sheetdb.io/api/v1/rk65krxr1m5a9?sheet=PlayerData").then((response) => {
-	// 					console.log("playerData", response.data);
-	// 					playerData = response.data;
-	// 				});
-	// 				break;
-	// 			case DataMethods.savedData:
-	// 				//@ts-ignore
-	// 				playerData = savedDataResponse.playerData; // TODO: Fix this
-	// 				break;
-	// 			default:
-	// 				//@ts-ignore
-	// 				playerData = savedDataResponse.playerData;
-	// 				break;
-	// 		}
-	// 	}
-	// 	getPlayerStatsData(); // Call the function to get the data from the Google Sheets API
-	// });
-
-	// console.log("3. playerData from PlayerSection outside useEffect", playerData);
+	console.log("3. playerData from PlayerSection outside useEffect", playerData);
 
 	const [playerOption, setPlayerOption] = useState(0); // Set the state for the ID of the player shown
 	const [selectedPlayerData, setSelectedPlayerData] = useState<PlayerData>(ExamplePlayerData); // Set the state for the data of the player selected
@@ -144,7 +133,7 @@ export default function PlayerSection(props: { dataMethod: DataMethods; players?
 					autoWidth
 					label='Select option...'
 					name='View Option Select'>
-					{players?.map((player: PlayerData) => {
+					{playerData?.map((player: PlayerData) => {
 						return (
 							<MenuItem key={player.fullName} value={player.id}>
 								{player.firstName}
