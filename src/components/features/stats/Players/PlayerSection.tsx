@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { FadeLoader } from "react-spinners";
 import ThemingS from "services/ThemingS";
 import { PlayerData } from "types/types";
+import StatHolder from "../StatHolder";
 
 const columns = [
 	{ name: "fullName", header: "Player", minWidth: 100, defaultFlex: 1 },
@@ -166,10 +167,17 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 				<Grid item lg={12} md={12} sm={12} xs={12}>
 					<h3>{selectedPlayerData.firstName}</h3>
 					<h3>{selectedPlayerData.secondName}</h3>
-					<p>Appearances: {selectedPlayerData.apps}</p>
-					<p>Points Finishes: {selectedPlayerData.pointsFinishes}</p>
-					<p>Wins: {selectedPlayerData.wins}</p>
-					<p>Win %: {selectedPlayerData.winPercentage}</p>
+					<hr style={{ marginBottom: "20px" }} />
+					<Grid container spacing={ThemingS.themeConfig.gridSpacing} justifyContent='center' alignItems='center'>
+						<StatHolder headerText='Appearances' value={selectedPlayerData.apps.toString()} xsWidth={6} />
+						<StatHolder headerText='Points Finishes' value={selectedPlayerData.pointsFinishes.toString()} xsWidth={6} />
+					</Grid>
+					<hr style={{ marginBottom: "20px" }} />
+					<Grid container spacing={ThemingS.themeConfig.gridSpacing} justifyContent='center' alignItems='center'>
+						<StatHolder headerText='Wins' value={selectedPlayerData.wins.toString()} xsWidth={6} />
+						<StatHolder headerText='Win %' value={selectedPlayerData.winPercentage.toString()} xsWidth={6} />
+					</Grid>
+
 					<p>Total Championship Points: {selectedPlayerData.pointsTotal}</p>
 					<p>Average Championship Points: {selectedPlayerData.pointsAverage}</p>
 					<p>Maximum Points: {selectedPlayerData.pointsMax}</p>
