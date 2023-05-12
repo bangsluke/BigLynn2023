@@ -7,6 +7,7 @@ import { getPlayers } from "components/features/stats/GoogleSheetsAPI/getPlayers
 import HandicapRange from "components/features/stats/Players/HandicapRange";
 import PlayerPointsChartCard from "components/features/stats/Players/PlayersSubSection/PlayerPointsChartCard";
 import StatHolder from "components/features/stats/StatHolder";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { FadeLoader } from "react-spinners";
 import ThemingS from "services/ThemingS";
@@ -68,6 +69,8 @@ const ExamplePlayerData: PlayerData = {
 
 // Define a common minimum width for the dropdowns
 const MinDropdownWidth = 140; // TODO: Extract to a common file
+
+const ProfileImageDimensions = 150; // TODO: Extract to a common file
 
 export default function PlayerSection(props: { dataMethod: DataMethods }) {
 	const { dataMethod } = props; // Destructure props
@@ -171,6 +174,21 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 							<h3>
 								{selectedPlayerData.firstName} {selectedPlayerData.secondName}
 							</h3>
+							<div
+								style={{
+									position: "relative",
+									width: `${ProfileImageDimensions}px`,
+									height: `${ProfileImageDimensions}px`,
+								}}>
+								<Image
+									src={`/images/players/${selectedPlayerData.firstName}.png`}
+									alt='Picture of the author'
+									layout='fill'
+									style={{
+										borderRadius: `${ProfileImageDimensions}px`, //👈 and here you can select border radius
+									}}
+								/>
+							</div>
 						</Grid>
 						<Grid item xs={6} style={{ backgroundColor: "null", textAlign: "center" }}>
 							<HandicapRange
@@ -237,8 +255,16 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 			<Container>
 				<Grid container spacing={ThemingS.themeConfig.gridSpacing}>
 					<Grid container direction='row' justifyContent='center' alignItems='center'>
-						<Grid item xs={12} sx={{ textAlign: "center" }}>
-							{/* TODO: Center align the spinner */}
+						<Grid
+							item
+							xs={12}
+							sx={{
+								textAlign: "center",
+								minHeight: "250px",
+								display: "flex",
+								justifyContent: "center",
+								alignItems: "center",
+							}}>
 							<FadeLoader color='#b7eae0' />
 						</Grid>
 					</Grid>
