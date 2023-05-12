@@ -185,8 +185,7 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 									alt='Picture of the author'
 									layout='fill'
 									style={{
-										objectFit: "cover",
-										borderRadius: "100px", //👈 and here you can select border radius
+										borderRadius: `${ProfileImageDimensions}px`, //👈 and here you can select border radius
 									}}
 								/>
 							</div>
@@ -256,8 +255,16 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 			<Container>
 				<Grid container spacing={ThemingS.themeConfig.gridSpacing}>
 					<Grid container direction='row' justifyContent='center' alignItems='center'>
-						<Grid item xs={12} sx={{ textAlign: "center" }}>
-							{/* TODO: Center align the spinner */}
+						<Grid
+							item
+							xs={12}
+							sx={{
+								textAlign: "center",
+								minHeight: "250px",
+								display: "flex",
+								justifyContent: "center",
+								alignItems: "center",
+							}}>
 							<FadeLoader color='#b7eae0' />
 						</Grid>
 					</Grid>
