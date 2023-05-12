@@ -96,7 +96,7 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 						})
 						.catch((error) => {
 							setIsLoaded(false);
-							console.log("error", error);
+							console.log("Error in fetchData (PlayerSection.tsx):", error);
 						});
 				};
 				fetchData(); // Call the function
@@ -196,6 +196,7 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 								highestHandicap={selectedPlayerData.handicapMaximum}
 								currentHandicap={selectedPlayerData.handicapLatest}
 							/>
+							{/* // TODO: Add the years of the highest and lowest handicaps? */}
 						</Grid>
 					</Grid>
 
@@ -210,23 +211,41 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 						<StatHolder headerText='Win %' value={selectedPlayerData.winPercentage.toString()} xsWidth={6} />
 					</Grid>
 
-					<p>Total Championship Points: {selectedPlayerData.pointsTotal}</p>
-					<p>Average Championship Points: {selectedPlayerData.pointsAverage}</p>
-					<p>Maximum Points: {selectedPlayerData.pointsMax}</p>
-					<p>Maximum Points Year: {selectedPlayerData.pointsMaxYear}</p>
-					<p>Minimum Points: {selectedPlayerData.pointsMin}</p>
-					<p>Minimum Points Year: {selectedPlayerData.pointsMinYear}</p>
-					<p>2022 Points: {selectedPlayerData.pointsLatest}</p>
-					<p>Predicted 2023 Points: {selectedPlayerData.pointsExpected2023Points}</p>
-					<p>Current Handicap: {selectedPlayerData.handicapLatest}</p>
-					<p>Lowest Handicap: {selectedPlayerData.handicapMinimum}</p>
-					<p>Highest Handicap: {selectedPlayerData.handicapMaximum}</p>
-					{/* // TODO: Add the years of the highest and lowest handicaps? */}
-					<p>Predicted 2024 Handicap: {selectedPlayerData.handicapExpected}</p>
-					<p>Average Position: {selectedPlayerData.positionAverage}</p>
-					<p>Best Position: {selectedPlayerData.positionBestFinish}</p>
-					<p>Worst Position: {selectedPlayerData.positionWorstFinish}</p>
-					<p>Predicted 2023 Position: {selectedPlayerData.positionPredicted}</p>
+					<hr style={{ marginBottom: "20px" }} />
+					<Grid container spacing={ThemingS.themeConfig.gridSpacing} justifyContent='center' alignItems='center'>
+						<StatHolder headerText='Total Championship Points' value={selectedPlayerData.pointsTotal.toString()} xsWidth={6} />
+						<StatHolder headerText='Average Championship Points' value={selectedPlayerData.pointsAverage.toString()} xsWidth={6} />
+					</Grid>
+
+					<hr style={{ marginBottom: "20px" }} />
+					<Grid container spacing={ThemingS.themeConfig.gridSpacing} justifyContent='center' alignItems='center'>
+						<StatHolder
+							headerText='Maximum Points'
+							value={`${selectedPlayerData.pointsMax.toString() + " in " + selectedPlayerData.pointsMaxYear.toString()}`}
+							xsWidth={6}
+						/>
+						<StatHolder
+							headerText='Minimum Points'
+							value={`${selectedPlayerData.pointsMin.toString() + " in " + selectedPlayerData.pointsMinYear.toString()}`}
+							xsWidth={6}
+						/>
+					</Grid>
+
+					<hr style={{ marginBottom: "20px" }} />
+					<Grid container spacing={ThemingS.themeConfig.gridSpacing} justifyContent='center' alignItems='center'>
+						<StatHolder headerText='Best Position' value={selectedPlayerData.positionBestFinish.toString()} xsWidth={4} />
+						<StatHolder headerText='Worst Position' value={selectedPlayerData.positionWorstFinish.toString()} xsWidth={4} />
+						<StatHolder headerText='Average Position' value={selectedPlayerData.positionAverage.toString()} xsWidth={4} />
+					</Grid>
+
+					<hr style={{ marginBottom: "20px" }} />
+					<h2>Predictions</h2>
+					<Grid container spacing={ThemingS.themeConfig.gridSpacing} justifyContent='center' alignItems='center'>
+						<StatHolder headerText='2022 Points' value={selectedPlayerData.pointsLatest.toString()} xsWidth={6} />
+						<StatHolder headerText='Predicted 2023 Points' value={selectedPlayerData.pointsExpected2023Points.toString()} xsWidth={6} />
+						<StatHolder headerText='Predicted 2023 Position' value={selectedPlayerData.positionPredicted.toString()} xsWidth={6} />
+						<StatHolder headerText='Predicted 2024 Handicap' value={selectedPlayerData.handicapExpected.toString()} xsWidth={6} />
+					</Grid>
 				</Grid>
 				{/* Hold the main data table section card */}
 				<Grid item lg={12} md={12} sm={12} xs={12}>
