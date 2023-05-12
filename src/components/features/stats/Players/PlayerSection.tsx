@@ -67,14 +67,14 @@ const ExamplePlayerData: PlayerData = {
 // Define a common minimum width for the dropdowns
 const MinDropdownWidth = 140; // TODO: Extract to a common file
 
-// Create an async function to get the data from the Google Sheets API
-let playerData: PlayerData[]; // Define the playerData variable outside of the function scope
-
 export default function PlayerSection(props: { dataMethod: DataMethods }) {
 	const { dataMethod } = props; // Destructure props
 
-	const [isLoaded, setIsLoaded] = useState(false);
-	const [playerNameData, setPlayerNameData] = useState<PlayerData[]>([]);
+	const [isLoaded, setIsLoaded] = useState<boolean>(false); // Define a loaded state for the data
+	const [allPlayersSelectedBoolean, setAllPlayersSelectedBoolean] = useState<boolean>(true); // Define a state for whether all players are selected or not
+	const [allPlayerData, setAllPlayerData] = useState<PlayerData[]>([]); // Define all the player data state
+	const [selectedPlayerID, setSelectedPlayerID] = useState<number>(100); // Set the state for the ID of the selected player
+	const [selectedPlayerData, setSelectedPlayerData] = useState<PlayerData>(ExamplePlayerData); // Set the state for the data of the player selected
 
 	// Add a useEffect that returns the data based on the dataMethod
 	useEffect(() => {
@@ -86,7 +86,7 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 					getPlayers()
 						.then((response) => {
 							// console.log("response", response);
-							setPlayerNameData(response);
+							setAllPlayerData(response);
 							setIsLoaded(true);
 						})
 						.catch((error) => {
@@ -114,58 +114,47 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 				playerData = savedDataResponse.playerData;
 				break;
 		}
-	}, []);
-
-	const [playerOption, setPlayerOption] = useState(0); // Set the state for the ID of the player shown
-	const [selectedPlayerData, setSelectedPlayerData] = useState<PlayerData>(ExamplePlayerData); // Set the state for the data of the player selected
+	}, [dataMethod]);
 
 	// Define the change handler for the player option
 	const playerChange = (event: any) => {
-		console.log("playerChange: event.target.value: ", event.target.value);
-		setPlayerOption(event.target.value);
+		// console.log("allPlayerData: ", allPlayerData);
+		// console.log("playerChange: event.target.value: ", event.target.value);
+		setSelectedPlayerID(event.target.value);
 		if (event.target.value === 100) {
-			// Deal with the All Players option
+			// Deal with the All Players option and add some basic example
+			setAllPlayersSelectedBoolean(true);
 			setSelectedPlayerData(ExamplePlayerData);
 		} else {
-			setSelectedPlayerData(playerData[event.target.value]);
+			// Otherwise set the selected player data to the selected player ID
+			setAllPlayersSelectedBoolean(false);
+			setSelectedPlayerData(allPlayerData[event.target.value]);
 		}
 	};
 
 	// Player Selection Dropdown
 	const PlayerNameSelection = () => {
-		if (!isLoaded) {
-			return (
-				<Grid container direction='row' justifyContent='center' alignItems='center'>
-					<Grid item xs={12} sx={{ textAlign: "center" }}>
-						<FadeLoader color='#b7eae0' />
-					</Grid>
-				</Grid>
-			);
-		}
-
 		return (
-			isLoaded && (
-				<FormControl sx={{ mt: 2, minWidth: MinDropdownWidth, width: "90%" }} color='primary'>
-					<InputLabel id='demo-simple-select-autowidth-label'>Player Selection</InputLabel>
-					<Select
-						labelId='demo-simple-select-autowidth-label'
-						id='demo-simple-select-autowidth'
-						value={playerOption}
-						onChange={playerChange}
-						autoWidth
-						label='Select option...'
-						name='View Option Select'>
-						<MenuItem value='100'>All Players</MenuItem>
-						{playerNameData?.map((player: PlayerData) => {
-							return (
-								<MenuItem key={player.fullName} value={player.id}>
-									{player.firstName}
-								</MenuItem>
-							);
-						})}
-					</Select>
-				</FormControl>
-			)
+			<FormControl sx={{ mt: 2, minWidth: MinDropdownWidth, width: "90%" }} color='primary'>
+				<InputLabel id='demo-simple-select-autowidth-label'>Player Selection</InputLabel>
+				<Select
+					labelId='demo-simple-select-autowidth-label'
+					id='demo-simple-select-autowidth'
+					value={selectedPlayerID}
+					onChange={playerChange}
+					autoWidth
+					label='Select option...'
+					name='View Option Select'>
+					<MenuItem value='100'>All Players</MenuItem>
+					{allPlayerData?.map((player: PlayerData) => {
+						return (
+							<MenuItem key={player.fullName} value={player.id}>
+								{player.firstName}
+							</MenuItem>
+						);
+					})}
+				</Select>
+			</FormControl>
 		);
 	};
 
@@ -199,7 +188,6 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 					<p>Worst Position: {selectedPlayerData.positionWorstFinish}</p>
 					<p>Predicted 2023 Position: {selectedPlayerData.positionPredicted}</p>
 				</Grid>
-
 				{/* Hold the main data table section card */}
 				<Grid item lg={12} md={12} sm={12} xs={12}>
 					{/* <h1>{playerName}</h1> */}
@@ -215,27 +203,45 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 			<>
 				{/* Hold the main data table section card */}
 				<Grid item lg={12} md={12} sm={12} xs={12}>
-					<ReactDataGrid idProperty='id' theme='default-light' columns={columns} dataSource={playerData} style={gridStyle} />
+					<ReactDataGrid idProperty='id' theme='default-light' columns={columns} dataSource={allPlayerData} style={gridStyle} />
 				</Grid>
 			</>
 		);
 	};
 
-	return (
-		<Container>
-			<Grid container spacing={ThemingS.themeConfig.gridSpacing}>
-				{/* Hold the contents of the section */}
-				<Grid item xs={12} sx={{ mb: { xs: 1, lg: 3 } }}>
-					{/* Show the player selection drop down */}
-					<PlayerNameSelection />
+	// If not loaded, show a loading spinner
+	if (!isLoaded) {
+		return (
+			<Container>
+				<Grid container spacing={ThemingS.themeConfig.gridSpacing}>
+					<Grid container direction='row' justifyContent='center' alignItems='center'>
+						<Grid item xs={12} sx={{ textAlign: "center" }}>
+							<FadeLoader color='#b7eae0' />
+						</Grid>
+					</Grid>
 				</Grid>
+			</Container>
+		);
+	}
 
-				{/* Hold the contents of the Player Section */}
-				<Grid item lg={12} md={12} sm={12} xs={12} sx={{ mb: { xs: 1, lg: 3 } }}>
-					{/* Add a ternary operator to decide what section to display */}
-					{playerOption === 100 ? <AllPlayersSection /> : <IndividualPlayerSection />}
+	// Once loaded, show the full Player Section
+	return (
+		isLoaded && (
+			<Container>
+				<Grid container spacing={ThemingS.themeConfig.gridSpacing}>
+					{/* Hold the contents of the section */}
+					<Grid item xs={12} sx={{ mb: { xs: 1, lg: 3 } }}>
+						{/* Show the player selection drop down */}
+						<PlayerNameSelection />
+					</Grid>
+
+					{/* Hold the contents of the Player Section */}
+					<Grid item lg={12} md={12} sm={12} xs={12} sx={{ mb: { xs: 1, lg: 3 } }}>
+						{/* Add a ternary operator to decide what section to display */}
+						{allPlayersSelectedBoolean ? <AllPlayersSection /> : <IndividualPlayerSection />}
+					</Grid>
 				</Grid>
-			</Grid>
-		</Container>
+			</Container>
+		)
 	);
 }
