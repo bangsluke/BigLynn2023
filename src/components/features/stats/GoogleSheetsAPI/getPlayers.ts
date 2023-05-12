@@ -63,13 +63,13 @@ export async function getPlayers() {
 	});
 
 	// Collate the data to be returned
-	const ReturnedDocInfo = {
-		title: doc.title,
-		sheet: sheet.title,
-		rowCount: sheet.rowCount,
-		sheetData: allPlayers,
-	};
-	console.log("1. ReturnedDocInfo from getPlayers.ts", ReturnedDocInfo);
+	// const ReturnedDocInfo = {
+	// 	title: doc.title,
+	// 	sheet: sheet.title,
+	// 	rowCount: sheet.rowCount,
+	// 	sheetData: allPlayers,
+	// };
+	// console.log("1. ReturnedDocInfo from getPlayers.ts", ReturnedDocInfo);
 
 	// Log the data that is to be returned by this function
 	// console.log("allPlayers from getPlayers.ts", allPlayers);
