@@ -71,9 +71,9 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 	const { dataMethod } = props; // Destructure props
 
 	const [isLoaded, setIsLoaded] = useState<boolean>(false); // Define a loaded state for the data
-	const [allPlayersSelectedBoolean, setAllPlayersSelectedBoolean] = useState<boolean>(true); // Define a state for whether all players are selected or not
+	const [allPlayersSelectedBoolean, setAllPlayersSelectedBoolean] = useState<boolean>(false); // Define a state for whether all players are selected or not
 	const [allPlayerData, setAllPlayerData] = useState<PlayerData[]>([]); // Define all the player data state
-	const [selectedPlayerID, setSelectedPlayerID] = useState<number>(100); // Set the state for the ID of the selected player
+	const [selectedPlayerID, setSelectedPlayerID] = useState<number>(0); // Set the state for the ID of the selected player
 	const [selectedPlayerData, setSelectedPlayerData] = useState<PlayerData>(ExamplePlayerData); // Set the state for the data of the player selected
 
 	// Add a useEffect that returns the data based on the dataMethod
@@ -216,6 +216,7 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 				<Grid container spacing={ThemingS.themeConfig.gridSpacing}>
 					<Grid container direction='row' justifyContent='center' alignItems='center'>
 						<Grid item xs={12} sx={{ textAlign: "center" }}>
+							{/* TODO: Center align the spinner */}
 							<FadeLoader color='#b7eae0' />
 						</Grid>
 					</Grid>
