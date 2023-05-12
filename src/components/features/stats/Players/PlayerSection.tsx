@@ -6,6 +6,7 @@ import { DataMethods } from "components/features/StatsSection";
 import { getPlayers } from "components/features/stats/GoogleSheetsAPI/getPlayers";
 import PlayerPointsChartCard from "components/features/stats/Players/PlayersSubSection/PlayerPointsChartCard";
 import { useEffect, useState } from "react";
+import { FadeLoader } from "react-spinners";
 import ThemingS from "services/ThemingS";
 import { PlayerData } from "types/types";
 
@@ -73,7 +74,6 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 	const { dataMethod } = props; // Destructure props
 
 	const [isLoaded, setIsLoaded] = useState(false);
-
 	const [playerNameData, setPlayerNameData] = useState<PlayerData[]>([]);
 
 	// Add a useEffect that returns the data based on the dataMethod
@@ -134,33 +134,37 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 	// Player Selection Dropdown
 	const PlayerNameSelection = () => {
 		if (!isLoaded) {
-			return <p>loading...</p>;
+			return (
+				<Grid container direction='row' justifyContent='center' alignItems='center'>
+					<Grid item xs={12} sx={{ textAlign: "center" }}>
+						<FadeLoader color='#b7eae0' />
+					</Grid>
+				</Grid>
+			);
 		}
 
 		return (
 			isLoaded && (
-				<div>
-					<FormControl sx={{ mt: 2, minWidth: MinDropdownWidth, width: "90%" }} color='primary'>
-						<InputLabel id='demo-simple-select-autowidth-label'>Player Selection</InputLabel>
-						<Select
-							labelId='demo-simple-select-autowidth-label'
-							id='demo-simple-select-autowidth'
-							value={playerOption}
-							onChange={playerChange}
-							autoWidth
-							label='Select option...'
-							name='View Option Select'>
-							<MenuItem value='100'>All Players</MenuItem>
-							{playerNameData?.map((player: PlayerData) => {
-								return (
-									<MenuItem key={player.fullName} value={player.id}>
-										{player.firstName}
-									</MenuItem>
-								);
-							})}
-						</Select>
-					</FormControl>
-				</div>
+				<FormControl sx={{ mt: 2, minWidth: MinDropdownWidth, width: "90%" }} color='primary'>
+					<InputLabel id='demo-simple-select-autowidth-label'>Player Selection</InputLabel>
+					<Select
+						labelId='demo-simple-select-autowidth-label'
+						id='demo-simple-select-autowidth'
+						value={playerOption}
+						onChange={playerChange}
+						autoWidth
+						label='Select option...'
+						name='View Option Select'>
+						<MenuItem value='100'>All Players</MenuItem>
+						{playerNameData?.map((player: PlayerData) => {
+							return (
+								<MenuItem key={player.fullName} value={player.id}>
+									{player.firstName}
+								</MenuItem>
+							);
+						})}
+					</Select>
+				</FormControl>
 			)
 		);
 	};
@@ -225,41 +229,6 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 					{/* Show the player selection drop down */}
 					<PlayerNameSelection />
 				</Grid>
-
-				{/* {!isLoaded && <p>loading...</p>}
-				{isLoaded && (
-					<div>
-						<FormControl sx={{ mt: 2, minWidth: MinDropdownWidth, width: "90%" }} color='primary'>
-							<InputLabel id='demo-simple-select-autowidth-label'>Player Selection</InputLabel>
-							<Select
-								labelId='demo-simple-select-autowidth-label'
-								id='demo-simple-select-autowidth'
-								value={playerOption}
-								onChange={playerChange}
-								autoWidth
-								label='Select option...'
-								name='View Option Select'>
-								{shows.map((show, index) => (
-									<div key={index}> */}
-				{/* <div>
-											<img src={show.show.image ? show.show.image.original : ""} alt='Show Poster' />
-										</div>
-
-										<div>
-											<h2>{show.show.name}</h2>
-											<h3>Score: {show.score}</h3>
-											<h4>Status: {show.show.status}</h4>
-											<p>Network: {show.show.network ? show.show.network.name : "N/A"}</p>
-										</div> */}
-				{/* <MenuItem key={show.name} value={show.score}>
-											{show.show.name}
-										</MenuItem>
-									</div>
-								))}
-							</Select>
-						</FormControl>
-					</div>
-				)} */}
 
 				{/* Hold the contents of the Player Section */}
 				<Grid item lg={12} md={12} sm={12} xs={12} sx={{ mb: { xs: 1, lg: 3 } }}>
