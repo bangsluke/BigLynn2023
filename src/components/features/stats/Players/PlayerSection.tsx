@@ -3,7 +3,6 @@ import "@inovua/reactdatagrid-community/index.css";
 import { Container, FormControl, Grid, InputLabel, MenuItem, Select } from "@mui/material";
 import axios from "axios";
 import { DataMethods } from "components/features/StatsSection";
-import { getPlayers } from "components/features/stats/GoogleSheetsAPI/getPlayers";
 import PlayerPointsChartCard from "components/features/stats/Players/PlayersSubSection/PlayerPointsChartCard";
 import { useEffect, useState } from "react";
 import ThemingS from "services/ThemingS";
@@ -72,38 +71,54 @@ let playerData: PlayerData[]; // Define the playerData variable outside of the f
 export default function PlayerSection(props: { dataMethod: DataMethods }) {
 	const { dataMethod } = props; // Destructure props
 
-	// Add a useEffect that returns the data from the Google Sheets API
-	useEffect(() => {
-		// Call the function to get the data from the Google Sheets API
-		async function getPlayerStatsData() {
-			// Have a switch case statement to determine which method to use to get the data
-			switch (dataMethod) {
-				case DataMethods.GoogleSheetsAPI:
-					// Player Data
-					playerData = await getPlayers(); // Add an await to the function call to wait for the data to be returned
-					console.log("2. playerData from PlayerSection", playerData);
-					break;
-				case DataMethods.sheetDBio:
-					// Get the player data from the sheetdb.io API
-					axios.get("https://sheetdb.io/api/v1/rk65krxr1m5a9?sheet=PlayerData").then((response) => {
-						console.log("playerData", response.data);
-						playerData = response.data;
-					});
-					break;
-				case DataMethods.savedData:
-					//@ts-ignore
-					playerData = savedDataResponse.playerData; // TODO: Fix this
-					break;
-				default:
-					//@ts-ignore
-					playerData = savedDataResponse.playerData;
-					break;
-			}
-		}
-		getPlayerStatsData(); // Call the function to get the data from the Google Sheets API
-	});
+	const [isLoaded, setIsLoaded] = useState(false);
+	const [shows, setShows] = useState([]);
 
-	console.log("3. playerData from PlayerSection outside useEffect", playerData);
+	useEffect(() => {
+		axios(`https://api.tvmaze.com/search/shows?q=heist`)
+			.then((r) => {
+				console.log(r);
+				setShows(r.data);
+				setIsLoaded(true);
+			})
+			.catch((e) => {
+				setIsLoaded(false);
+				console.log(e);
+			});
+	}, []);
+
+	// // Add a useEffect that returns the data from the Google Sheets API
+	// useEffect(() => {
+	// 	// Call the function to get the data from the Google Sheets API
+	// 	async function getPlayerStatsData() {
+	// 		// Have a switch case statement to determine which method to use to get the data
+	// 		switch (dataMethod) {
+	// 			case DataMethods.GoogleSheetsAPI:
+	// 				// Player Data
+	// 				playerData = await getPlayers(); // Add an await to the function call to wait for the data to be returned
+	// 				console.log("2. playerData from PlayerSection", playerData);
+	// 				break;
+	// 			case DataMethods.sheetDBio:
+	// 				// Get the player data from the sheetdb.io API
+	// 				axios.get("https://sheetdb.io/api/v1/rk65krxr1m5a9?sheet=PlayerData").then((response) => {
+	// 					console.log("playerData", response.data);
+	// 					playerData = response.data;
+	// 				});
+	// 				break;
+	// 			case DataMethods.savedData:
+	// 				//@ts-ignore
+	// 				playerData = savedDataResponse.playerData; // TODO: Fix this
+	// 				break;
+	// 			default:
+	// 				//@ts-ignore
+	// 				playerData = savedDataResponse.playerData;
+	// 				break;
+	// 		}
+	// 	}
+	// 	getPlayerStatsData(); // Call the function to get the data from the Google Sheets API
+	// });
+
+	// console.log("3. playerData from PlayerSection outside useEffect", playerData);
 
 	const [playerOption, setPlayerOption] = useState(0); // Set the state for the ID of the player shown
 	const [selectedPlayerData, setSelectedPlayerData] = useState<PlayerData>(ExamplePlayerData); // Set the state for the data of the player selected
@@ -208,6 +223,41 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 					{/* Show the player selection drop down */}
 					<PlayerNameSelection />
 				</Grid>
+
+				{!isLoaded && <p>loading...</p>}
+				{isLoaded && (
+					<div>
+						<FormControl sx={{ mt: 2, minWidth: MinDropdownWidth, width: "90%" }} color='primary'>
+							<InputLabel id='demo-simple-select-autowidth-label'>Player Selection</InputLabel>
+							<Select
+								labelId='demo-simple-select-autowidth-label'
+								id='demo-simple-select-autowidth'
+								value={playerOption}
+								onChange={playerChange}
+								autoWidth
+								label='Select option...'
+								name='View Option Select'>
+								{shows.map((show, index) => (
+									<div key={index}>
+										{/* <div>
+											<img src={show.show.image ? show.show.image.original : ""} alt='Show Poster' />
+										</div>
+
+										<div>
+											<h2>{show.show.name}</h2>
+											<h3>Score: {show.score}</h3>
+											<h4>Status: {show.show.status}</h4>
+											<p>Network: {show.show.network ? show.show.network.name : "N/A"}</p>
+										</div> */}
+										<MenuItem key={show.name} value={show.score}>
+											{show.show.name}
+										</MenuItem>
+									</div>
+								))}
+							</Select>
+						</FormControl>
+					</div>
+				)}
 
 				{/* Hold the contents of the Player Section */}
 				<Grid item lg={12} md={12} sm={12} xs={12} sx={{ mb: { xs: 1, lg: 3 } }}>
