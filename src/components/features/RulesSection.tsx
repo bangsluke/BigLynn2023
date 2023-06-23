@@ -3,7 +3,7 @@ import HandicapAdjustmentTable from "components/features/rules/HandicapAdjustmen
 import Handicaps2023Table from "components/features/rules/Handicaps2023Table";
 import ScoresTable from "components/features/rules/ScoresTable";
 import SectionHeader from "components/ui/SectionHeader";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import "react-perfect-scrollbar/dist/css/styles.css";
 import ThemingS from "services/ThemingS";
@@ -11,7 +11,36 @@ import ThemingS from "services/ThemingS";
 export default function RulesSection() {
 	const appScrollComponent = useRef(null);
 
-	const RuleSectionHeight = "600px";
+	// Get the current screen width
+	const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+	useEffect(() => {
+		const handleResize = () => {
+			setScreenWidth(window.innerWidth);
+		};
+		window.addEventListener("resize", handleResize);
+		// Cleanup the event listener when the component is unmounted
+		return () => {
+			window.removeEventListener("resize", handleResize);
+		};
+	}, []);
+
+	// Define a boolean to determine if the screen is mobile or not
+	let MobileScreenTypeBoolean = () => {
+		if (screenWidth < 600) {
+			return true;
+		} else {
+			return false;
+		}
+	};
+	// console.log("RulesSection: MobileScreenTypeBoolean: ", MobileScreenTypeBoolean());
+
+	const RuleSectionHeight = () => {
+		if (screenWidth < 600) {
+			return "Max content";
+		} else {
+			return "600px";
+		}
+	};
 
 	const Styles = {
 		mainRulesSection: {
@@ -145,6 +174,87 @@ export default function RulesSection() {
 		);
 	};
 
+	// Define the two possible layouts for the page
+	const MobileRulesSection = () => {
+		return (
+			<Grid container spacing={2} sx={{ mb: 0 }}>
+				{/* Points Scoring - Principal competition points */}
+				<Grid item xs={12} sx={{ height: "max-content", mb: 2, mr: 2 }}>
+					<PrincipalCompetitionPointsSection />
+				</Grid>
+
+				{/* Bonus Points */}
+				<Grid item xs={12} sx={{ height: "max-content", mb: 2 }}>
+					<BonusPointsSection />
+				</Grid>
+
+				{/* Handicap Adjustments */}
+				<Grid item xs={12} sx={{ height: "max-content", mb: 2 }}>
+					<HandicapAdjustmentsSection />
+				</Grid>
+
+				{/* Special SHIT Rules */}
+				<Grid item xs={12} sx={{ height: "max-content", mb: 2 }}>
+					<SpecialSHITRulesSection />
+				</Grid>
+
+				{/* Prizes */}
+				<Grid item xs={12} sx={{ height: "max-content", mb: 0 }}>
+					<PrizesSection />
+				</Grid>
+			</Grid>
+		);
+	};
+
+	const DesktopRulesSection = () => {
+		return (
+			<PerfectScrollbar
+				id='appScrollComponent'
+				component='div'
+				style={{
+					height: "600px",
+					paddingLeft: "0px",
+					paddingRight: "0px",
+				}}
+				ref={appScrollComponent}>
+				<Grid container spacing={2} sx={{ mb: 0 }}>
+					{/* Points Scoring - Principal competition points */}
+					<Grid item xs={12} sx={{ height: "max-content", mb: 2, mr: 2 }}>
+						<PrincipalCompetitionPointsSection />
+					</Grid>
+
+					{/* Bonus Points */}
+					<Grid item xs={12} sx={{ height: "max-content", mb: 2 }}>
+						<BonusPointsSection />
+					</Grid>
+
+					{/* Handicap Adjustments */}
+					<Grid item xs={12} sx={{ height: "max-content", mb: 2 }}>
+						<HandicapAdjustmentsSection />
+					</Grid>
+
+					{/* Special SHIT Rules */}
+					<Grid item xs={12} sx={{ height: "max-content", mb: 2 }}>
+						<SpecialSHITRulesSection />
+					</Grid>
+
+					{/* Prizes */}
+					<Grid item xs={12} sx={{ height: "max-content", mb: 0 }}>
+						<PrizesSection />
+					</Grid>
+				</Grid>
+			</PerfectScrollbar>
+		);
+	};
+
+	const DisplayRulesSection = () => {
+		if (MobileScreenTypeBoolean() === true) {
+			return <MobileRulesSection />;
+		} else {
+			return <DesktopRulesSection />;
+		}
+	};
+
 	return (
 		<Container>
 			<Grid container spacing={ThemingS.themeConfig.gridSpacing} sx={{ minHeight: RuleSectionHeight }}>
@@ -184,42 +294,7 @@ export default function RulesSection() {
 
 						{/* Hold the body information */}
 						<Grid item xs={12} sm={8} md={9} lg={9} xl={9} sx={Styles.mainRulesSection}>
-							<PerfectScrollbar
-								id='appScrollComponent'
-								component='div'
-								style={{
-									height: RuleSectionHeight,
-									paddingLeft: "0px",
-									paddingRight: "0px",
-								}}
-								ref={appScrollComponent}>
-								<Grid container spacing={2} sx={{ mb: 0 }}>
-									{/* Points Scoring - Principal competition points */}
-									<Grid item xs={12} sx={{ height: "max-content", mb: 2, mr: 2 }}>
-										<PrincipalCompetitionPointsSection />
-									</Grid>
-
-									{/* Bonus Points */}
-									<Grid item xs={12} sx={{ height: "max-content", mb: 2 }}>
-										<BonusPointsSection />
-									</Grid>
-
-									{/* Handicap Adjustments */}
-									<Grid item xs={12} sx={{ height: "max-content", mb: 2 }}>
-										<HandicapAdjustmentsSection />
-									</Grid>
-
-									{/* Special SHIT Rules */}
-									<Grid item xs={12} sx={{ height: "max-content", mb: 2 }}>
-										<SpecialSHITRulesSection />
-									</Grid>
-
-									{/* Prizes */}
-									<Grid item xs={12} sx={{ height: "max-content", mb: 0 }}>
-										<PrizesSection />
-									</Grid>
-								</Grid>
-							</PerfectScrollbar>
+							<DisplayRulesSection />
 						</Grid>
 					</Grid>
 				</Grid>
