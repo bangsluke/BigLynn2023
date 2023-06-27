@@ -9,8 +9,9 @@ export default function FAQSection() {
 		ChatBackground: {
 			backgroundColor: "#f5f5f5",
 			borderRadius: "20px",
-			padding: "20px",
-			margin: "20px",
+			padding: "10px",
+			margin: "10px",
+			maxWidth: "85vw",
 		},
 	};
 
