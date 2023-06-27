@@ -79,6 +79,7 @@ export default function FAQSection() {
 								<p>
 									Fortunately we&#39;ve been able to hire someone to deal with such issues. Please direct all concerns to them{" "}
 									<Link href="mailto:david.rose@blueyonder.co.uk?subject=I'd Like To Complain About Your Language">here</Link>.
+									{/* TODO: Update the email address? Is Dave still using this one? */}
 								</p>
 							</Message>
 						</Grid>
