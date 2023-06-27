@@ -60,13 +60,41 @@ const LinksData: LinkData[] = [
 	{
 		id: 7,
 		key: uuid(),
+		iconName: "LocalDiningIcon",
+		title: "Lakes Restaurant Menu",
+		description: "The main dinner menu",
+		// TODO: Update the link to the correct menu in July
+		linkURL: "https://www.stokebynayland.com/wp-content/uploads/2023/06/Lakes-Dinner-Menu-June-2023-1.pdf",
+	},
+
+	{
+		id: 8,
+		key: uuid(),
+		iconName: "BreakfastDiningIcon",
+		title: "Sports Bar Breakfast Menu",
+		description: "For those up early enough",
+		linkURL: "https://www.stokebynayland.com/wp-content/uploads/2023/05/Sports-Bar-Breakfast-Menu-A5-Final.pdf",
+	},
+
+	{
+		id: 9,
+		key: uuid(),
+		iconName: "RestaurantIcon",
+		title: "Sports Bar Main Menu",
+		description: "For midday dining/pre dinner snacks",
+		linkURL: "https://www.stokebynayland.com/wp-content/uploads/2023/05/Sports-Bar-Main-Menu-A4-Final.pdf",
+	},
+
+	{
+		id: 10,
+		key: uuid(),
 		iconName: "FastfoodIcon",
 		title: "Room Service Food Menu",
 		description: "Easy room service for late night snacking",
 		linkURL: "https://www.stokebynayland.com/wp-content/uploads/2022/05/Room-Service-menu.pdf",
 	},
 	{
-		id: 8,
+		id: 11,
 		key: uuid(),
 		iconName: "LocalbarIcon",
 		title: "Room Service Drinks Menu",
