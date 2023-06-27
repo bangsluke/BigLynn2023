@@ -1996,11 +1996,6 @@
     "@typescript-eslint/types" "5.60.1"
     eslint-visitor-keys "^3.3.0"
 
-"@xata.io/client@^0.23.0":
-  version "0.23.4"
-  resolved "https://registry.yarnpkg.com/@xata.io/client/-/client-0.23.4.tgz#b0d4ddd453603642480e051cca3de0faea73222b"
-  integrity sha512-pSIvi6VaftBFVycdv1a+qAyY0b7y49FnAgU1u+ek9gfqZ4xu285v46kpaF3mY5afy2KZFAc4KYudWBW3Im3XHg==
-
 a11y-focus-store@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/a11y-focus-store/-/a11y-focus-store-1.0.0.tgz#ae52561cb86ae6c2904c1a4abf2e5820bf5305b0"
@@ -6133,8 +6128,8 @@ scheduler@^0.23.0:
   dependencies:
     loose-envify "^1.1.0"
 
-semver@^7.5.2:
-  version "7.5.2"
+semver@^6.3.0:
+  version "6.3.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-6.3.0.tgz#ee0a64c8af5e8ceea67687b133761e1becbd1d3d"
   integrity sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==
 
