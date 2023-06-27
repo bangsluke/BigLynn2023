@@ -62,7 +62,7 @@ const LinksData: LinkData[] = [
 		key: uuid(),
 		iconName: "FastfoodIcon",
 		title: "Room Service Food Menu",
-		description: "Easy room service for that late night snacking",
+		description: "Easy room service for late night snacking",
 		linkURL: "https://www.stokebynayland.com/wp-content/uploads/2022/05/Room-Service-menu.pdf",
 	},
 	{
