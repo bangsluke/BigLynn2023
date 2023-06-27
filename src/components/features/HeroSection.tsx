@@ -103,7 +103,7 @@ const HeroSection = () => {
 				spacing={ThemingS.themeConfig.gridSpacing}
 				sx={{ mt: { xs: 0, sm: 1, md: 6, lg: 10 }, mb: { xs: 0, md: 6, lg: 10 }, backgroundColor: "null" }}>
 				{/* Hold the header text and images for mobile */}
-				<Grid item xs={12} md={5} sx={{ backgroundColor: "null" }}>
+				<Grid item xs={12} lg={5} sx={{ backgroundColor: "null" }}>
 					<Grid
 						container
 						spacing={ThemingS.themeConfig.gridSpacing}
@@ -234,7 +234,7 @@ const HeroSection = () => {
 					</Grid>
 				</Grid>
 				{/* Hold the header images for desktop */}
-				<Grid item xs={12} md={7} sx={{ display: { xs: "none", md: "flex" } }}>
+				<Grid item xs={12} lg={7} sx={{ display: { xs: "none", lg: "flex" } }}>
 					{/* Hold the golf course image behind */}
 					<Box sx={{ position: "relative", mt: 8.75 }}>
 						<motion.div
