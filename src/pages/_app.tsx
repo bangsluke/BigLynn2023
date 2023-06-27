@@ -10,6 +10,7 @@ import ThemeCustomization from "themes";
 
 export const BaseApp = (props: { children: any }) => {
 	const appScrollComponent = useRef(null);
+
 	return (
 		<PerfectScrollbar
 			id='appScrollComponent'
@@ -18,6 +19,10 @@ export const BaseApp = (props: { children: any }) => {
 				height: "100vh",
 				paddingLeft: "0px",
 				paddingRight: "0px",
+				marginLeft: "0px",
+				marginRight: "0px",
+				width: "100vw",
+				// xOverflow: "hidden",
 			}}
 			ref={appScrollComponent}>
 			<ThemeProvider theme={ThemingS.toolTheme}>
