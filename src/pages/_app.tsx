@@ -1,6 +1,6 @@
 import { ThemeProvider } from "@mui/material/styles";
 import MainLayout from "components/ui/MainLayout";
-import Head from "next/head";
+import MetaData from "components/ui/MetaData";
 import { useRef } from "react";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import "react-perfect-scrollbar/dist/css/styles.css";
@@ -22,11 +22,12 @@ export const BaseApp = (props: { children: any }) => {
 			ref={appScrollComponent}>
 			<ThemeProvider theme={ThemingS.toolTheme}>
 				<ThemeCustomization>
-					<Head>
-						<meta name='title' content='Big Lynn 2023' />
-						<meta name='description' content='The official website of the 2023 Big Lynn Competition.' />
-						<meta name='viewport' content='width=device-width, initial-scale=1' />
-					</Head>
+					<MetaData
+						title='Big Lynn 2023'
+						description='The official website of the 2023 Big Lynn Competition.'
+						authorName='Luke Bangs'
+						authorEmail='bangsluke@gmail.com'
+					/>
 					<MainLayout>{props.children}</MainLayout>
 				</ThemeCustomization>
 			</ThemeProvider>
