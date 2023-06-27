@@ -17,10 +17,18 @@ import {
 	useScrollTrigger,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import { IconCalendarEvent, IconCheckupList, IconLink, IconQuestionMark, IconReportAnalytics, IconRuler2 } from "@tabler/icons";
+import {
+	IconArrowUp,
+	IconCalendarEvent,
+	IconCheckupList,
+	IconLink,
+	IconQuestionMark,
+	IconReportAnalytics,
+	IconRuler2,
+} from "@tabler/icons";
 import Logo from "components/ui/Logo";
 import NavigationInfo from "data/NavigationInfo";
-import { cloneElement, ReactElement, useState } from "react";
+import { ReactElement, cloneElement, useState } from "react";
 
 // Define the height of the app bar for desktop and mobile
 const AppBarHeight = {
@@ -101,6 +109,15 @@ const InfoPageAppBar = ({ ...others }) => {
 								{drawerToggle && (
 									<Box sx={{ width: "auto" }} role='presentation' onClick={drawerToggler(false)} onKeyDown={drawerToggler(false)}>
 										<List>
+											<Link style={{ textDecoration: "none" }} href='#top'>
+												<ListItemButton component='a'>
+													<ListItemIcon>
+														<IconArrowUp />
+													</ListItemIcon>
+													<ListItemText primary='To Top' />
+												</ListItemButton>
+											</Link>
+
 											<Link style={{ textDecoration: "none" }} href='#eventDetails'>
 												<ListItemButton component='a'>
 													<ListItemIcon>

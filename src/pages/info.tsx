@@ -15,12 +15,12 @@ import { useEffect } from "react";
 // Define which sections to display. Useful for testing
 const displayedSection = {
 	hero: true,
-	eventDetails: false,
-	itinerary: false,
+	eventDetails: true,
+	itinerary: true,
 	rules: true,
 	stats: true,
-	faq: true,
-	usefulLinks: false,
+	faq: false,
+	usefulLinks: true,
 };
 
 // Define the padding for each section
@@ -103,6 +103,7 @@ const FourthWrapper = styled("div")(({ theme }) => ({
 	},
 }));
 
+// Add an anchor offset to the top of each section to account for the fixed navbar
 const AnchorOffset = styled("h2")({
 	"&:before": {
 		display: "block",
@@ -124,8 +125,10 @@ export default function Info() {
 	return (
 		<>
 			<HeaderWrapper id='home' style={{ display: displayedSection.hero ? "block" : "none" }}>
-				<AppBar />
-				<HeroSection />
+				<AnchorOffset id='top' className='offset'>
+					<AppBar />
+					<HeroSection />
+				</AnchorOffset>
 			</HeaderWrapper>
 
 			<ThirdWrapper style={{ display: displayedSection.eventDetails ? "block" : "none" }}>
