@@ -14,13 +14,13 @@ import { useEffect } from "react";
 
 // Define which sections to display. Useful for testing
 const displayedSection = {
-	hero: true,
-	eventDetails: true,
-	itinerary: true,
+	hero: false,
+	eventDetails: false,
+	itinerary: false,
 	rules: true,
-	stats: true,
-	faq: true,
-	usefulLinks: true,
+	stats: false,
+	faq: false,
+	usefulLinks: false,
 };
 
 // Define the padding for each section

@@ -44,12 +44,12 @@ const InfoPageFooter = () => {
 			<FooterWrapper>
 				<Container>
 					<Grid container alignItems='center' spacing={ThemingS.themeConfig.gridSpacing}>
-						<Grid item xs={5} sm={4}>
-							<Typography variant='h4' component='div' color='inherit'>
+						<Grid item xs={4} sm={4} md={3}>
+							<Typography variant='h5' component='div' color='inherit'>
 								&#169; bangsluke
 							</Typography>
 						</Grid>
-						<Grid item xs={7} sm={8}>
+						<Grid item xs={8} sm={8} md={9}>
 							<Grid
 								container
 								alignItems='center'
