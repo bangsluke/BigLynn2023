@@ -16,7 +16,7 @@ import { useEffect } from "react";
 const displayedSection = {
 	hero: true,
 	eventDetails: true,
-	itinerary: false,
+	itinerary: true,
 	rules: true,
 	stats: true,
 	faq: false,
