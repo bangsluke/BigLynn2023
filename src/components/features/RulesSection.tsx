@@ -56,7 +56,7 @@ export default function RulesSection() {
 		unorderedList: {
 			listStyleType: "square",
 			// Color: "blue",
-			fontWeight: "bold",
+			fontWeight: "normal",
 			margin: "0.3rem 0.5rem",
 			padding: 0,
 			display: "listItem",
