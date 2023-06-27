@@ -20,7 +20,7 @@ export default function MetaData(props: MetaProps) {
 			<meta httpEquiv='content-language' content='en' key='language' />
 			<meta charSet='UTF-8' key='charset' />
 			{/* Scaling */}
-			<meta name='viewport' content='width=device-width, initial-scale=1.0' key='viewport' />
+			{/* <meta name='viewport' content='width=device-width, initial-scale=1.0' key='viewport' /> */}
 			{/* Author and Ownership */}
 			<meta name='author' key='author' content={authorName} />
 			<meta name='copyright' key='copyright' content={authorName} />
