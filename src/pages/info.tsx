@@ -19,7 +19,7 @@ const displayedSection = {
 	itinerary: true,
 	rules: true,
 	stats: true,
-	faq: false,
+	faq: true,
 	usefulLinks: true,
 };
 
