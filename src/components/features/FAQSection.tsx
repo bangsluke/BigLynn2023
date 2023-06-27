@@ -15,8 +15,10 @@ export default function FAQSection() {
 		},
 	};
 
+	// TODO: Fix the width of this section which is causing the horizontal scroll bar
+
 	return (
-		<Container>
+		<Container sx={{ maxWidth: "90vw", backgroundColor: "red", overflow: "hidden" }}>
 			<Grid container spacing={ThemingS.themeConfig.gridSpacing} sx={{ height: "max-content" }}>
 				{/* Hold the section header text */}
 				<SectionHeader
@@ -39,27 +41,35 @@ export default function FAQSection() {
 									link to menu if available) here you go. I hear the salmon is particularly good…
 								</p>
 							</Message>
+						</Grid>
 
+						<Grid item xs={12} sx={Styles.ChatBackground}>
 							<Message type='question'>
 								<p>Will there be a private sauna?</p>
 							</Message>
 							<Message type='answer'>
 								<p>No, unfortunately after the last conversations that occurred in it, HR stepped in and banned private saunas</p>
 							</Message>
+						</Grid>
 
+						<Grid item xs={12} sx={Styles.ChatBackground}>
 							<Message type='question'>
 								<p>How many times has Dave sworn at Big Lynn Events?</p>
 							</Message>
 							<Message type='answer'>
 								<p>If you mean the **** word, then Dave has said **** a total of 327 times.</p>
 							</Message>
+
 							<Message type='answer'>
 								<p>But if you mean ****, then Dave has said **** a total of 249 times.</p>
 							</Message>
+
 							<Message type='answer'>
 								<p>And don&#39;t get me started on the number of times he&#39;s said ****.</p>
 							</Message>
+						</Grid>
 
+						<Grid item xs={12} sx={Styles.ChatBackground}>
 							<Message type='question'>
 								<p>Who can I complain to about Dave&#39;s language?</p>
 							</Message>
