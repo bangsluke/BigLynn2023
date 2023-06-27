@@ -110,9 +110,9 @@ const AnchorOffset = styled("h2")({
 		height: "5rem" /* Give height of your fixed element */,
 		marginTop: "-5rem" /* Give negative margin of your fixed element */,
 		visibility: "visible",
-		width: "0",
+		width: "1px",
 	},
-	backgroundColor: "red",
+	backgroundColor: "yellow",
 });
 
 export default function Info() {
