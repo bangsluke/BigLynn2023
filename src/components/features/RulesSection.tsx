@@ -12,7 +12,7 @@ export default function RulesSection() {
 	const appScrollComponent = useRef(null);
 
 	// Get the current screen width
-	const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+	const [screenWidth, setScreenWidth] = useState(0); // Previously window.innerWidth
 	useEffect(() => {
 		const handleResize = () => {
 			setScreenWidth(window.innerWidth);
