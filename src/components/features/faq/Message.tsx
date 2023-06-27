@@ -8,41 +8,53 @@ interface MessageProps {
 export default function Message(props: MessageProps) {
 	const { children, type } = props;
 
+	const CommonStyles = {
+		BorderRadius: "30px",
+		FontWeight: "400",
+		FontSize: "1rem",
+		MinHeight: "2rem",
+		MaxWidth: "80%",
+		Width: "max-content",
+		Padding: "0px 20px",
+		Margin: "6px 0px",
+		TextColour: "white",
+		LineHeight: "1rem",
+		Display: "inline-block",
+	};
+
 	const Styles = {
 		QuestionStyle: {
-			fontWeight: 600,
-			fontSize: "1.2rem",
-			lineHeight: "1rem",
+			fontWeight: CommonStyles.FontWeight,
+			fontSize: CommonStyles.FontSize,
+			minHeight: CommonStyles.MinHeight,
+			maxWidth: CommonStyles.MaxWidth,
+			width: CommonStyles.Width,
+			borderRadius: CommonStyles.BorderRadius,
+			padding: CommonStyles.Padding,
+			margin: CommonStyles.Margin,
+			color: CommonStyles.TextColour,
+			lineHeight: CommonStyles.LineHeight,
+			display: CommonStyles.Display,
 			textAlign: "left" as "left",
-			minHeight: "2rem",
-			maxWidth: "100%",
-			width: "max-content",
-			// BorderRadius: "20px",
 			backgroundColor: "#49B9FB",
-			padding: "4px 16px",
-			borderRadius: "8px",
-			color: "white",
-			// MarginBottom: "50px",
-			display: "inline-block",
 		},
 		AnswerStyle: {
-			fontWeight: 200,
-			fontSize: "1.1rem",
+			fontWeight: CommonStyles.FontWeight,
+			fontSize: CommonStyles.FontSize,
+			minHeight: CommonStyles.MinHeight,
+			maxWidth: CommonStyles.MaxWidth,
+			width: CommonStyles.Width,
+			borderRadius: CommonStyles.BorderRadius,
+			padding: CommonStyles.Padding,
+			margin: CommonStyles.Margin,
+			color: CommonStyles.TextColour,
+			lineHeight: CommonStyles.LineHeight,
+			display: CommonStyles.Display,
 			fontStyle: "italic",
 			textAlign: "right" as "right",
-			minHeight: "2rem",
-			maxWidth: "100%",
-			width: "max-content",
 			float: "right" as "right",
 			right: "0",
-			borderRadius: "8px",
 			backgroundColor: "#4FD73B",
-			color: "white",
-			// Display: "inline",
-			padding: "8px 16px",
-			// Border-radius: 8px;
-			// MarginBottom: "50px",
-			display: "inline-block",
 		},
 	};
 
@@ -50,8 +62,10 @@ export default function Message(props: MessageProps) {
 	const transitionDirection = type === "question" ? "left" : "right";
 
 	return (
-		<Animation transitionDuration={0.8} transitionFromDirection={transitionDirection}>
-			<div style={style}>{children}</div>
+		<Animation transitionDuration={1} transitionFromDirection={transitionDirection}>
+			<div style={{ display: "inline-block", width: "100%", backgroundColor: "null" }}>
+				<div style={style}>{children}</div>
+			</div>
 		</Animation>
 	);
 }

@@ -18,7 +18,7 @@ export default function FAQSection() {
 	// TODO: Fix the width of this section which is causing the horizontal scroll bar
 
 	return (
-		<Container sx={{ maxWidth: "90vw", backgroundColor: "red", overflow: "hidden" }}>
+		<Container sx={{ maxWidth: "90vw", backgroundColor: "null", overflow: "hidden" }}>
 			<Grid container spacing={ThemingS.themeConfig.gridSpacing} sx={{ height: "max-content" }}>
 				{/* Hold the section header text */}
 				<SectionHeader
@@ -36,9 +36,26 @@ export default function FAQSection() {
 							</Message>
 							<Message type='answer'>
 								<p>
-									{/* TODO: Add a link to the menu */}
-									<Link href="mailto:david.rose@blueyonder.co.uk?subject=I'd Like To Complain About Your Language">here</Link>. (Provide
-									link to menu if available) here you go. I hear the salmon is particularly good…
+									{/* // TODO: Update the link to the correct menu in July */}
+									<Link href='https://www.stokebynayland.com/wp-content/uploads/2023/06/Lakes-Dinner-Menu-June-2023-1.pdf' passHref>
+										<a target='_blank'>Here you go</a>
+									</Link>
+									. The menu does change daily however. I hear the salmon is particularly good…
+								</p>
+							</Message>
+						</Grid>
+
+						<Grid item xs={12} sx={Styles.ChatBackground}>
+							<Message type='question'>
+								<p>Where can I buy more golf balls to replace the ones I will inevitably lose?</p>
+							</Message>
+							<Message type='answer'>
+								<p>
+									Luckily there is an{" "}
+									<Link href='https://www.stokebynayland.com/golf/facilities/retail/' passHref>
+										<a target='_blank'>on-site golf shop</a>
+									</Link>{" "}
+									for this very issue
 								</p>
 							</Message>
 						</Grid>
@@ -77,6 +94,7 @@ export default function FAQSection() {
 								<p>
 									Fortunately we&#39;ve been able to hire someone to deal with such issues. Please direct all concerns to them{" "}
 									<Link href="mailto:david.rose@blueyonder.co.uk?subject=I'd Like To Complain About Your Language">here</Link>.
+									{/* TODO: Update the email address? Is Dave still using this one? */}
 								</p>
 							</Message>
 						</Grid>

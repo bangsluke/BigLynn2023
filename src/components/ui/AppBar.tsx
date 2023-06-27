@@ -95,13 +95,13 @@ const InfoPageAppBar = ({ ...others }) => {
 						<Typography component='div' sx={{ flexGrow: 1, textAlign: "left" }} data-testid='app-bar-drawer'>
 							<Logo />
 						</Typography>
-						<Stack direction='row' sx={{ display: { xs: "none", sm: "none", md: "block" } }} spacing={2}>
+						<Stack direction='row' sx={{ display: { xs: "none", sm: "none", md: "none", lg: "block" } }} spacing={2}>
 							{navButtonElements}
 							<Button component={Link} href='/landing' disableElevation variant='contained' color='secondary'>
 								Begin Browsing
 							</Button>
 						</Stack>
-						<Box sx={{ display: { xs: "block", sm: "block", md: "none" } }}>
+						<Box sx={{ display: { xs: "block", sm: "block", md: "block", lg: "none" } }}>
 							<IconButton color='inherit' onClick={drawerToggler(true)} size='large'>
 								<MenuIcon />
 							</IconButton>
