@@ -19,8 +19,8 @@ const displayedSection = {
 	itinerary: false,
 	rules: true,
 	stats: true,
-	faq: true,
-	usefulLinks: false,
+	faq: false,
+	usefulLinks: true,
 };
 
 // Define the padding for each section
