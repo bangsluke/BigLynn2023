@@ -10,7 +10,6 @@ import RulesSection from "components/features/RulesSection";
 import StatsSection from "components/features/StatsSection";
 import UsefulLinksSection from "components/features/UsefulLinksSection";
 import AppBar from "components/ui/AppBar";
-import Meta from "components/ui/Meta";
 import { useEffect } from "react";
 
 // Define which sections to display. Useful for testing
@@ -122,7 +121,6 @@ export default function Info() {
 
 	return (
 		<>
-			<Meta title='Big Lynn 2023' description='The official website of the 2023 Big Lynn Competition.' />
 			<HeaderWrapper id='home' style={{ display: displayedSection.hero ? "block" : "none" }}>
 				<AppBar />
 				<HeroSection />
