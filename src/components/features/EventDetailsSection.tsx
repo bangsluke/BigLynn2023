@@ -150,7 +150,7 @@ export default function EventDetailsSection() {
 				<Grid item xs={12} sx={{ height: "max-content", mb: 0 }}>
 					<Grid container spacing={2}>
 						{/* Map and Directions */}
-						<Grid item xs={12} sx={{ height: "max-content", display: "flex", flexDirection: "column", mb: 2 }}>
+						<Grid item xs={12} sx={{ height: "max-content", display: "flex", flexDirection: "column", mb: 3 }}>
 							<Typography variant='h3' color='primary' style={{ marginTop: "0.5rem" }}>
 								Stoke By Nayland
 							</Typography>
@@ -164,7 +164,7 @@ export default function EventDetailsSection() {
 								rel='noreferrer'
 								style={{ textAlign: "center" }}>
 								<Typography variant='body1' style={{ marginTop: "1rem" }}>
-									Get Directions
+									Get Directions - Stoke by Nayland Resort, Keepers Lane, Leavenheath, Colchester, Essex, CO6 4PZ
 								</Typography>
 							</a>
 							{/* Add an iframe holding a map to Stoke By Nayland. */}
@@ -191,7 +191,7 @@ export default function EventDetailsSection() {
 						</Grid>
 
 						{/* Course Information */}
-						<Grid item xs={12} sx={{ height: "max-content" }}>
+						<Grid item xs={12} sx={{ height: "max-content", mb: 3 }}>
 							<Typography variant='h3' color='primary' style={{ marginTop: "0.5rem" }}>
 								Golf Course Details
 							</Typography>
@@ -219,6 +219,24 @@ export default function EventDetailsSection() {
 							<Grid item xs={12} sx={{ width: "100%", marginTop: "1rem", minHeight: "5rem" }}>
 								<>{selectedCourse}</>
 							</Grid>
+						</Grid>
+
+						{/* Other Facilities */}
+						<Grid item xs={12} sx={{ height: "max-content" }}>
+							<Typography variant='h3' color='primary' style={{ marginTop: "0.5rem" }}>
+								Other Facilities
+							</Typography>
+							<Typography variant='h5' style={{ marginTop: "1rem" }}>
+								Spa
+							</Typography>
+							<Typography variant='body1' style={{ marginTop: "1rem" }}>
+								There is the{" "}
+								<a href='https://www.stokebynayland.com/spa/peake-spa/' target='_blank' rel='noreferrer'>
+									Peake Spa
+								</a>{" "}
+								with a pool, steam room, sanarium (a weaker version of a sauna), a jacuzzi and a concept shower (whatever that is). It is
+								open from 07:30-19:30, but we will just need to book 2 hours in advance.
+							</Typography>
 						</Grid>
 					</Grid>
 				</Grid>
