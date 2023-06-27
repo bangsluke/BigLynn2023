@@ -47,6 +47,21 @@ export default function FAQSection() {
 
 						<Grid item xs={12} sx={Styles.ChatBackground}>
 							<Message type='question'>
+								<p>Where can I buy more golf balls to replace the ones I will inevitably lose?</p>
+							</Message>
+							<Message type='answer'>
+								<p>
+									Luckily there is an{" "}
+									<Link href='https://www.stokebynayland.com/golf/facilities/retail/' passHref>
+										<a target='_blank'>on-site golf shop</a>
+									</Link>{" "}
+									for this very issue
+								</p>
+							</Message>
+						</Grid>
+
+						<Grid item xs={12} sx={Styles.ChatBackground}>
+							<Message type='question'>
 								<p>Will there be a private sauna?</p>
 							</Message>
 							<Message type='answer'>
