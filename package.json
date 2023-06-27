@@ -23,6 +23,8 @@
 		"@fullcalendar/timeline": "^5.11.4",
 		"@hookform/resolvers": "^2.9.11",
 		"@inovua/reactdatagrid-community": "^5.8.4",
+		"@mui/icons-material": "^5.11.16",
+		"@mui/material": "^5.13.6",
 		"@reduxjs/toolkit": "^1.9.3",
 		"@tabler/icons": "^1.119.0",
 		"@types/aos": "^3.0.4",
