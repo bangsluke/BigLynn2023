@@ -14,12 +14,12 @@ import { useEffect } from "react";
 
 // Define which sections to display. Useful for testing
 const displayedSection = {
-	hero: false,
+	hero: true,
 	eventDetails: false,
 	itinerary: false,
 	rules: true,
-	stats: false,
-	faq: false,
+	stats: true,
+	faq: true,
 	usefulLinks: false,
 };
 
@@ -109,8 +109,10 @@ const AnchorOffset = styled("h2")({
 		content: '""',
 		height: "5rem" /* Give height of your fixed element */,
 		marginTop: "-5rem" /* Give negative margin of your fixed element */,
-		visibility: "hidden",
+		visibility: "visible",
+		width: "0",
 	},
+	backgroundColor: "red",
 });
 
 export default function Info() {
