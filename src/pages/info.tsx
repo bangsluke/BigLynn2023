@@ -19,7 +19,7 @@ const displayedSection = {
 	itinerary: false,
 	rules: true,
 	stats: true,
-	faq: true,
+	faq: false,
 	usefulLinks: false,
 };
 
@@ -109,10 +109,10 @@ const AnchorOffset = styled("h2")({
 		content: '""',
 		height: "5rem" /* Give height of your fixed element */,
 		marginTop: "-5rem" /* Give negative margin of your fixed element */,
-		visibility: "visible",
-		width: "1px",
+		visibility: "hidden" /* Hide the element */,
+		// width: "1px",
 	},
-	backgroundColor: "yellow",
+	// backgroundColor: "yellow",
 });
 
 export default function Info() {
