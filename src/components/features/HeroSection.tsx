@@ -25,7 +25,7 @@ const HeaderAnimationImage = styled("img")(({ theme }) => ({
 	maxWidth: "100%",
 	borderRadius: "20px",
 	filter: "drop-shadow(0px 0px 50px rgb(194 76 46 / 30%))",
-	transform: "scale(1) translate(20px, -40px)",
+	transform: "scale(1) translate(40px, 50px)",
 	transformOrigin: theme.direction === "rtl" ? "100% 50%" : "0 50%",
 	[theme.breakpoints.down("lg")]: {
 		transform: "scale(0.6) translate(20px, -40px)",
@@ -91,9 +91,6 @@ const HeroSection = () => {
 		},
 	};
 
-	// Console.log("buttonSize", buttonSize);
-	// Console.log("buttonSize.size", buttonSize.size);
-
 	return (
 		<Container>
 			<Grid
@@ -106,7 +103,7 @@ const HeroSection = () => {
 				<Grid item xs={12} lg={5} sx={{ backgroundColor: "null" }}>
 					<Grid
 						container
-						spacing={ThemingS.themeConfig.gridSpacing}
+						// spacing={ThemingS.themeConfig.gridSpacing}
 						sx={{ pr: 10, [theme.breakpoints.down("lg")]: { pr: 0, textAlign: "center" } }}>
 						{/* Hold the main bold text */}
 						<Grid item xs={12}>
@@ -135,8 +132,58 @@ const HeroSection = () => {
 						</Grid>
 
 						{/* Hold the header images for mobile */}
-						<Grid item xs={12} sx={{ display: { lg: "none", md: "flex" }, textAlign: "center" }}>
-							{/* <Box sx={{ position: 'relative', mt: 8.75 }}> */}
+						<Grid
+							item
+							xs={12}
+							spacing={0}
+							sx={{
+								display: { md: "block", lg: "none" },
+								textAlign: "center",
+								margin: "1rem auto",
+							}}>
+							<motion.div
+								initial={{ opacity: 0, scale: 0 }}
+								animate={{ opacity: 1, scale: 1 }}
+								transition={{
+									type: "spring",
+									stiffness: 150,
+									damping: 30,
+									delay: 0.6,
+								}}
+								style={{ padding: 0 }}>
+								<Grid
+									container
+									spacing={0}
+									sx={{
+										textAlign: "center",
+										backgroundColor: "null",
+									}}>
+									{/* Display for mobile - red */}
+									<Grid item xs={12} sx={{ backgroundColor: "null", display: { xs: "block", sm: "none", md: "none" } }}>
+										<Image src='/images/2022-Lineup-No-Background.png' alt='2022 Lineup' layout='fixed' width='314' height='280' priority />
+									</Grid>
+									{/* Display for tablet - blue */}
+									<Grid item xs={12} sx={{ backgroundColor: "null", display: { xs: "none", sm: "block", md: "none" } }}>
+										<Image src='/images/2022-Lineup-No-Background.png' alt='2022 Lineup' layout='fixed' width='314' height='280' priority />
+									</Grid>
+									{/* Display for small desktop - green */}
+									<Grid item xs={12} sx={{ backgroundColor: "null", display: { xs: "none", sm: "none", md: "block" } }}>
+										<Image src='/images/2022-Lineup-No-Background.png' alt='2022 Lineup' layout='fixed' width='314' height='280' priority />
+									</Grid>
+								</Grid>
+								{/* <Image src='/images/2022-Lineup-No-Background.png' alt='2022 Lineup' layout='fixed' width='314' height='280' priority /> */}
+							</motion.div>
+						</Grid>
+
+						{/* Hold the header images for tablet */}
+						{/* <Grid
+							item
+							xs={12}
+							sx={{
+								display: { md: "none", sm: "block", xs: "none" },
+								textAlign: "center",
+								backgroundColor: "green",
+							}}>
 							<motion.div
 								initial={{ opacity: 0, scale: 0 }}
 								animate={{ opacity: 1, scale: 1 }}
@@ -148,8 +195,29 @@ const HeroSection = () => {
 								}}>
 								<Image src='/images/2022-Lineup-No-Background.png' alt='2022 Lineup' layout='fixed' width='400' height='280' priority />
 							</motion.div>
-							{/* </Box> */}
-						</Grid>
+						</Grid> */}
+
+						{/* Hold the header images for small laptops */}
+						{/* <Grid
+							item
+							xs={12}
+							sx={{
+								display: { xl: "none", lg: "none", md: "block", sm: "none", xs: "none" },
+								textAlign: "center",
+								backgroundColor: "red",
+							}}>
+							<motion.div
+								initial={{ opacity: 0, scale: 0 }}
+								animate={{ opacity: 1, scale: 1 }}
+								transition={{
+									type: "spring",
+									stiffness: 150,
+									damping: 30,
+									delay: 0.6,
+								}}>
+								<Image src='/images/2022-Lineup-No-Background.png' alt='2022 Lineup' layout='fixed' width='314' height='280' priority />
+							</motion.div>
+						</Grid> */}
 
 						{/* Hold the summary text */}
 						<Grid item xs={12}>

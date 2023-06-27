@@ -18,7 +18,7 @@ export default function FAQSection() {
 	// TODO: Fix the width of this section which is causing the horizontal scroll bar
 
 	return (
-		<Container sx={{ maxWidth: "90vw", backgroundColor: "red", overflow: "hidden" }}>
+		<Container sx={{ maxWidth: "90vw", backgroundColor: "null", overflow: "hidden" }}>
 			<Grid container spacing={ThemingS.themeConfig.gridSpacing} sx={{ height: "max-content" }}>
 				{/* Hold the section header text */}
 				<SectionHeader
