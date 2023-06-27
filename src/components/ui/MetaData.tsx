@@ -20,7 +20,7 @@ export default function MetaData(props: MetaProps) {
 			<meta httpEquiv='content-language' content='en' key='language' />
 			<meta charSet='UTF-8' key='charset' />
 			{/* Scaling */}
-			{/* <meta name='viewport' content='width=device-width, initial-scale=1.0' key='viewport' /> */}
+			<meta name='viewport' content='width=device-width, initial-scale=1.0' key='viewport' />
 			{/* Author and Ownership */}
 			<meta name='author' key='author' content={authorName} />
 			<meta name='copyright' key='copyright' content={authorName} />
@@ -45,12 +45,7 @@ export default function MetaData(props: MetaProps) {
 			{/* <link rel='manifest' href='/favicon/site.webmanifest' /> */}
 			<link rel='mask-icon' href='/favicon/safari-pinned-tab.svg' color='#5bbad5' />
 			<meta name='msapplication-TileColor' content='#da532c' />
-			{/* Fonts - Below warning OK as for single page */}
-			<link rel='preconnect' href='https://fonts.gstatic.com' />
-			<link
-				href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap'
-				rel='stylesheet'
-			/>
+			{/* Fonts - Added in document to get around warning */}
 		</Head>
 	);
 }
