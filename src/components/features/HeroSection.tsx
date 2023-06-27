@@ -293,7 +293,7 @@ const HeroSection = () => {
 											target='_blank'
 											size={buttonSize.size}
 											variant='text'>
-											Contact Your Organiser
+											Email Your Organiser
 										</Button>
 									</Grid>
 								</Grid>

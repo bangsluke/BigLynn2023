@@ -97,7 +97,7 @@ const InfoPageAppBar = ({ ...others }) => {
 						</Typography>
 						<Stack direction='row' sx={{ display: { xs: "none", sm: "none", md: "none", lg: "block" } }} spacing={2}>
 							{navButtonElements}
-							<Button component={Link} href='/landing' disableElevation variant='contained' color='secondary'>
+							<Button component={Link} href='#eventDetails' disableElevation variant='contained' color='secondary'>
 								Begin Browsing
 							</Button>
 						</Stack>
