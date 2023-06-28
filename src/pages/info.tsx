@@ -145,25 +145,25 @@ export default function Info() {
 
 			<ThirdWrapper style={{ display: displayedSection.rules ? "block" : "none" }}>
 				<AnchorOffset id='rules' className='offset'>
-					<RulesSection />
+					<RulesSection data-aos='fade-right' data-aos-duration='3000' />
 				</AnchorOffset>
 			</ThirdWrapper>
 
 			<SecondWrapper style={{ display: displayedSection.stats ? "block" : "none" }}>
 				<AnchorOffset id='statistics' className='offset'>
-					<StatsSection />
+					<StatsSection data-aos='fade-left' data-aos-duration='3000' />
 				</AnchorOffset>
 			</SecondWrapper>
 
 			<FourthWrapper style={{ display: displayedSection.faq ? "block" : "none" }}>
 				<AnchorOffset id='FAQ' className='offset'>
-					<FAQSection />
+					<FAQSection data-aos='fade-right' data-aos-duration='3000' />
 				</AnchorOffset>
 			</FourthWrapper>
 
 			<ThirdWrapper style={{ display: displayedSection.usefulLinks ? "block" : "none" }}>
 				<AnchorOffset id='usefulLinks' className='offset'>
-					<UsefulLinksSection />
+					<UsefulLinksSection data-aos='fade-left' data-aos-duration='3000' />
 				</AnchorOffset>
 			</ThirdWrapper>
 

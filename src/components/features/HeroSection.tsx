@@ -78,7 +78,7 @@ const HeroSection = () => {
 	const Styles = {
 		ButtonContainers: {
 			backgroundColor: "null",
-			padding: "0px",
+			padding: "0.5rem",
 			margin: "0px",
 			textAlign: "center",
 			display: "flex",
@@ -175,50 +175,6 @@ const HeroSection = () => {
 							</motion.div>
 						</Grid>
 
-						{/* Hold the header images for tablet */}
-						{/* <Grid
-							item
-							xs={12}
-							sx={{
-								display: { md: "none", sm: "block", xs: "none" },
-								textAlign: "center",
-								backgroundColor: "green",
-							}}>
-							<motion.div
-								initial={{ opacity: 0, scale: 0 }}
-								animate={{ opacity: 1, scale: 1 }}
-								transition={{
-									type: "spring",
-									stiffness: 150,
-									damping: 30,
-									delay: 0.6,
-								}}>
-								<Image src='/images/2022-Lineup-No-Background.png' alt='2022 Lineup' layout='fixed' width='400' height='280' priority />
-							</motion.div>
-						</Grid> */}
-
-						{/* Hold the header images for small laptops */}
-						{/* <Grid
-							item
-							xs={12}
-							sx={{
-								display: { xl: "none", lg: "none", md: "block", sm: "none", xs: "none" },
-								textAlign: "center",
-								backgroundColor: "red",
-							}}>
-							<motion.div
-								initial={{ opacity: 0, scale: 0 }}
-								animate={{ opacity: 1, scale: 1 }}
-								transition={{
-									type: "spring",
-									stiffness: 150,
-									damping: 30,
-									delay: 0.6,
-								}}>
-								<Image src='/images/2022-Lineup-No-Background.png' alt='2022 Lineup' layout='fixed' width='314' height='280' priority />
-							</motion.div>
-						</Grid> */}
-
 						{/* Hold the summary text */}
 						<Grid item xs={12}>
 							<motion.div
@@ -256,7 +212,7 @@ const HeroSection = () => {
 									damping: 30,
 									delay: 0.4,
 								}}>
-								<Grid container spacing={2} sx={{ justifyContent: { xs: "center", md: "flex-start" } }}>
+								<Grid container sx={{ justifyContent: { xs: "center", md: "flex-start" } }}>
 									{/* Hold the begin browsing button */}
 									<Grid item xs={6} sm={4} md={6} sx={Styles.ButtonContainers}>
 										<Button
@@ -280,7 +236,7 @@ const HeroSection = () => {
 									{/* Hold the toggle fullscreen button */}
 									<Grid item xs={6} sm={4} md={6} sx={{ ...Styles.ButtonContainers, display: { xs: "none", md: "block" } }}>
 										<div onClick={toggleFullscreen}>
-											<Button component={Link} size={buttonSize.size} variant='contained' color='secondary' sx={Styles.ButtonStyle}>
+											<Button component={Link} size={buttonSize.size} variant='text'>
 												{fullScreenBoolean ? "Exit Full Screen" : "Enter Full Screen"}
 											</Button>
 										</div>
