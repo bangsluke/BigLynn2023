@@ -5,6 +5,8 @@ export interface HandicapProps {
 	lowestHandicap: number;
 	highestHandicap: number;
 	currentHandicap: number;
+	handicapMinimumYear?: number;
+	handicapMaximumYear?: number;
 	handicapScaleHeight?: number;
 }
 
@@ -14,7 +16,7 @@ export interface Marks {
 }
 
 export default function HandicapRange(props: HandicapProps) {
-	const { lowestHandicap, highestHandicap, currentHandicap, handicapScaleHeight } = props; // Destructure props
+	const { lowestHandicap, highestHandicap, currentHandicap, handicapMinimumYear, handicapMaximumYear, handicapScaleHeight } = props; // Destructure props
 
 	// Define the minimum and maximum values for the slider and the normalise function
 	const MIN = 0; // MIN = Minimum expected value
@@ -38,6 +40,24 @@ export default function HandicapRange(props: HandicapProps) {
 					}}>
 					Handicap
 				</p>
+				<p
+					style={{
+						fontWeight: "lighter",
+						fontSize: "12px",
+						textTransform: "uppercase",
+						lineHeight: "0.5rem",
+					}}>
+					Lowest: {handicapMinimumYear}
+				</p>
+				<p
+					style={{
+						fontWeight: "lighter",
+						fontSize: "12px",
+						textTransform: "uppercase",
+						lineHeight: "0.5rem",
+					}}>
+					Highest: {handicapMaximumYear}
+				</p>
 			</Grid>
 			<Grid item xs={12} style={{ backgroundColor: "null", height: handicapScaleHeight, margin: 0, padding: 0 }}>
 				<Box
@@ -57,6 +77,7 @@ export default function HandicapRange(props: HandicapProps) {
 							margin: 0,
 							padding: 0,
 						}}
+						// disabled={true}
 					/>
 				</Box>
 			</Grid>

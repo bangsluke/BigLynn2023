@@ -208,6 +208,8 @@ export interface PlayerData {
 	handicapMinimum: number;
 	handicapMaximum: number;
 	handicapExpected: number;
+	handicapMinimumYear: number;
+	handicapMaximumYear: number;
 	positionAverage: number;
 	positionBestFinish: number;
 	positionWorstFinish: number;

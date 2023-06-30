@@ -29,7 +29,9 @@ const columns = [
 	{ name: "pointsExpected2023Points", header: "Predicted 2023 Points", minWidth: 100, defaultFlex: 1 },
 	{ name: "handicapLatest", header: "2023 Handicap", minWidth: 100, defaultFlex: 1 },
 	{ name: "handicapMinimum", header: "Lowest Handicap", minWidth: 100, defaultFlex: 1 },
+	{ name: "handicapMinimumYear", header: "Lowest Handicap Year", minWidth: 100, defaultFlex: 1 },
 	{ name: "handicapMaximum", header: "Highest Handicap", minWidth: 100, defaultFlex: 1 },
+	{ name: "handicapMaximumYear", header: "Highest Handicap Year", minWidth: 100, defaultFlex: 1 },
 	{ name: "handicapExpected", header: "Predicted 2024 Handicap", minWidth: 100, defaultFlex: 1 },
 	{ name: "positionAverage", header: "Average Position", minWidth: 100, defaultFlex: 1 },
 	{ name: "positionBestFinish", header: "Best Finish", minWidth: 100, defaultFlex: 1 },
@@ -61,6 +63,8 @@ const ExamplePlayerData: PlayerData = {
 	handicapMinimum: 11,
 	handicapMaximum: 34,
 	handicapExpected: 12,
+	handicapMinimumYear: 2019,
+	handicapMaximumYear: 2019,
 	positionAverage: 3.0,
 	positionBestFinish: 1,
 	positionWorstFinish: 10,
@@ -69,8 +73,6 @@ const ExamplePlayerData: PlayerData = {
 
 // Define a common minimum width for the dropdowns
 const MinDropdownWidth = 140; // TODO: Extract to a common file
-
-// const ProfileImageDimensions = 150; // TODO: Extract to a common file
 
 export default function PlayerSection(props: { dataMethod: DataMethods }) {
 	const { dataMethod } = props; // Destructure props
@@ -126,10 +128,16 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 	// Initialise the sizes for mobile and tablet
 	let ProfileImageDimensions = 150;
 	let PlayerSectionTopBoxHeight = "16rem";
+	let PlayerHeaderFontSize = "1.5rem";
 	// Update the sizes for desktop and larger
-	if (screenSize === "md" || screenSize === "xl") {
+	if (screenSize === "md") {
 		ProfileImageDimensions = 250;
 		PlayerSectionTopBoxHeight = "22rem";
+		PlayerHeaderFontSize = "2.5rem";
+	} else if (screenSize === "lg" || screenSize === "xl") {
+		ProfileImageDimensions = 250;
+		PlayerSectionTopBoxHeight = "22rem";
+		PlayerHeaderFontSize = "3rem";
 	}
 
 	// Define the style for the top box sections
@@ -194,10 +202,13 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 				{/* Hold the selected player information */}
 				<Grid item lg={12} md={12} sm={12} xs={12}>
 					<Grid container spacing={ThemingS.themeConfig.gridSpacing} justifyContent='center' alignItems='center'>
+						{/* Hold the player name and image */}
 						<Grid item xs={7} md={6} sx={PlayerSectionTopBoxesStyle}>
+							{/* Hold the player name */}
 							<h2
 								style={{
 									backgroundColor: "null",
+									fontSize: PlayerHeaderFontSize,
 									lineHeight: "2rem",
 									textAlign: "center",
 									textTransform: "uppercase",
@@ -206,6 +217,7 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 								}}>
 								{selectedPlayerData.firstName} {selectedPlayerData.secondName}
 							</h2>
+							{/* Hold the player image */}
 							<div
 								style={{
 									position: "relative",
@@ -225,11 +237,14 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 								/>
 							</div>
 						</Grid>
+						{/* Hold the player handicap information */}
 						<Grid item xs={5} md={6} sx={PlayerSectionTopBoxesStyle}>
 							<HandicapRange
 								lowestHandicap={selectedPlayerData.handicapMinimum}
 								highestHandicap={selectedPlayerData.handicapMaximum}
 								currentHandicap={selectedPlayerData.handicapLatest}
+								handicapMinimumYear={selectedPlayerData.handicapMinimumYear}
+								handicapMaximumYear={selectedPlayerData.handicapMaximumYear}
 								handicapScaleHeight={ProfileImageDimensions}
 							/>
 							{/* // TODO: Add the years of the highest and lowest handicaps? */}
