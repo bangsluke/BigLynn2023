@@ -1,6 +1,6 @@
 import { PlayerData } from "types/types";
 
-export async function getPlayers() {
+export async function getPlayerData() {
 	// Define the config details for the Google Sheet pulling data from
 	const Config = {
 		GoogleSpreadsheetID: "13vUKIiVuYGmoSFvf2TNKi9lLDjgg3-fvDbC9E1GvHuo",
@@ -13,7 +13,7 @@ export async function getPlayers() {
 
 	// Initialize Auth - see https://theoephraim.github.io/node-google-spreadsheet/#/getting-started/authentication
 	//await doc.useServiceAccountAuth(creds);
-	// console.log("API key from 'getPlayers'", process.env.NEXT_PUBLIC_API_KEY);
+	// console.log("API key from 'getPlayerData'", process.env.NEXT_PUBLIC_API_KEY);
 	doc.useApiKey(process.env.NEXT_PUBLIC_API_KEY);
 	await doc.loadInfo(); // Loads document properties and worksheets
 	// console.log("doc details", doc);
@@ -65,10 +65,10 @@ export async function getPlayers() {
 	// 	rowCount: sheet.rowCount,
 	// 	sheetData: allPlayers,
 	// };
-	// console.log("1. ReturnedDocInfo from getPlayers.ts", ReturnedDocInfo);
+	// console.log("1. ReturnedDocInfo from getPlayerData.ts", ReturnedDocInfo);
 
 	// Log the data that is to be returned by this function
-	// console.log("allPlayers from getPlayers.ts", allPlayers);
+	// console.log("allPlayers from getPlayerData.ts", allPlayers);
 	// console.log("typeof allPlayers", typeof allPlayers);
 
 	// This returns the data
