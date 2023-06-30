@@ -1,42 +1,30 @@
 import { Box, Grid, Slider } from "@mui/material";
+import { getHandicapMarks } from "./getHandicapMarks";
 
-interface HandicapProps {
+export interface HandicapProps {
 	lowestHandicap: number;
 	highestHandicap: number;
 	currentHandicap: number;
-	handicapScaleHeight: number;
+	handicapScaleHeight?: number;
 }
 
-const MIN = 0; // MIN = Minimum expected value
-const MAX = 36; // MAX = Maximum expected value
-// Function to normalise the values (MIN / MAX could be integrated)
-const normalise = (value: number) => ((value - MIN) * 100) / (MAX - MIN);
+export interface Marks {
+	value: number;
+	label: string;
+}
 
 export default function HandicapRange(props: HandicapProps) {
-	const { lowestHandicap, highestHandicap, currentHandicap, handicapScaleHeight } = props;
+	const { lowestHandicap, highestHandicap, currentHandicap, handicapScaleHeight } = props; // Destructure props
 
-	const marks = [
-		{
-			value: 0,
-			label: "0",
-		},
-		{
-			value: (highestHandicap / 36) * 100,
-			label: `${highestHandicap} - Highest`,
-		},
-		{
-			value: (currentHandicap / 36) * 100,
-			label: `${currentHandicap} - Current`,
-		},
-		{
-			value: (lowestHandicap / 36) * 100,
-			label: `${lowestHandicap} - Lowest`,
-		},
-		{
-			value: 100,
-			label: "36",
-		},
-	];
+	// Define the minimum and maximum values for the slider and the normalise function
+	const MIN = 0; // MIN = Minimum expected value
+	let MAX = 36; // MAX = Maximum expected value
+	if (highestHandicap > MAX) {
+		MAX = highestHandicap;
+	}
+	const normalise = (value: number) => ((value - MIN) * 100) / (MAX - MIN); // Function to normalise the values (MIN / MAX could be integrated)
+
+	const marks: Marks[] = getHandicapMarks({ lowestHandicap, highestHandicap, currentHandicap });
 
 	return (
 		<Grid container spacing={0} justifyContent='center' alignItems='center' sx={{ backgroundColor: "null", margin: 0, padding: 0 }}>
