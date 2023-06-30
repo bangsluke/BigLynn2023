@@ -14,7 +14,7 @@ export async function getYears() {
 
 	// Initialize Auth - see https://theoephraim.github.io/node-google-spreadsheet/#/getting-started/authentication
 	//await doc.useServiceAccountAuth(creds);
-	// console.log("API key from 'getPlayers'", process.env.NEXT_PUBLIC_API_KEY);
+	// console.log("API key from 'getYears'", process.env.NEXT_PUBLIC_API_KEY);
 	doc.useApiKey(process.env.NEXT_PUBLIC_API_KEY);
 
 	await doc.loadInfo(); // Loads document properties and worksheets
