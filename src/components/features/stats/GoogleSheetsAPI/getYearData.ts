@@ -1,4 +1,4 @@
-export async function getYears() {
+export async function getYearData() {
 	const Config = {
 		GoogleSpreadsheetID: "13vUKIiVuYGmoSFvf2TNKi9lLDjgg3-fvDbC9E1GvHuo",
 		SheetName: "YearData",
@@ -47,13 +47,13 @@ export async function getYears() {
 	});
 
 	// Collate the data to be returned
-	// const ReturnedDocInfo = {
-	// 	title: doc.title,
-	// 	sheet: sheet.title,
-	// 	rowCount: sheet.rowCount,
-	// 	sheetData: allYears,
-	// };
-	// console.log("ReturnedDocInfo", ReturnedDocInfo);
+	const ReturnedDocInfo = {
+		title: doc.title,
+		sheet: sheet.title,
+		rowCount: sheet.rowCount,
+		sheetData: allYears,
+	};
+	console.log("ReturnedDocInfo", ReturnedDocInfo);
 
 	// Log the data that is to be returned by this function
 	// console.log("allYears", allYears);

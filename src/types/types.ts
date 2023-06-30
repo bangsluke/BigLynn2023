@@ -216,18 +216,18 @@ export interface PlayerData {
 	positionPredicted: number;
 }
 
-export interface YearData {
-	Year: string;
-	ColumnLetter: string;
-	NumberPlayers: string;
-	"1st": string;
-	"2nd": string;
-	"3rd": string;
-	"4th": string;
-	"5th": string;
-	"6th": string;
-	"7th": string;
-	"8th": string;
+export interface YearDataType {
+	year: string;
+	columnLetter: string;
+	numberPlayers: string;
+	first: string;
+	second: string;
+	third: string;
+	fourth: string;
+	fifth: string;
+	sixth: string;
+	seventh: string;
+	eighth: string;
 }
 
 // Define the TabPanelProps type - mui.com/material-ui/react-tabs/

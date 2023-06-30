@@ -77,6 +77,7 @@ const MinDropdownWidth = 140; // TODO: Extract to a common file
 export default function PlayerSection(props: { dataMethod: DataMethods }) {
 	const { dataMethod } = props; // Destructure props
 
+	// Define the states for the data
 	const [isLoaded, setIsLoaded] = useState<boolean>(false); // Define a loaded state for the data
 	const [allPlayersSelectedBoolean, setAllPlayersSelectedBoolean] = useState<boolean>(false); // Define a state for whether all players are selected or not
 	const [allPlayerData, setAllPlayerData] = useState<PlayerData[]>([]); // Define all the player data state
