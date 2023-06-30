@@ -217,7 +217,7 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 					autoWidth
 					label='Select option...'
 					name='View Option Select'>
-					<MenuItem value='100'>All Players</MenuItem>
+					{/* <MenuItem value='100'>All Players</MenuItem> // TODO: Re-add All Players option?  */}
 					{allPlayerData?.map((player: PlayerData) => {
 						return (
 							<MenuItem key={player.fullName} value={player.id}>
