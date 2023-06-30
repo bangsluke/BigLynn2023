@@ -29,7 +29,9 @@ const columns = [
 	{ name: "pointsExpected2023Points", header: "Predicted 2023 Points", minWidth: 100, defaultFlex: 1 },
 	{ name: "handicapLatest", header: "2023 Handicap", minWidth: 100, defaultFlex: 1 },
 	{ name: "handicapMinimum", header: "Lowest Handicap", minWidth: 100, defaultFlex: 1 },
+	{ name: "handicapMinimumYear", header: "Lowest Handicap Year", minWidth: 100, defaultFlex: 1 },
 	{ name: "handicapMaximum", header: "Highest Handicap", minWidth: 100, defaultFlex: 1 },
+	{ name: "handicapMaximumYear", header: "Highest Handicap Year", minWidth: 100, defaultFlex: 1 },
 	{ name: "handicapExpected", header: "Predicted 2024 Handicap", minWidth: 100, defaultFlex: 1 },
 	{ name: "positionAverage", header: "Average Position", minWidth: 100, defaultFlex: 1 },
 	{ name: "positionBestFinish", header: "Best Finish", minWidth: 100, defaultFlex: 1 },
@@ -61,6 +63,8 @@ const ExamplePlayerData: PlayerData = {
 	handicapMinimum: 11,
 	handicapMaximum: 34,
 	handicapExpected: 12,
+	handicapMinimumYear: 2019,
+	handicapMaximumYear: 2019,
 	positionAverage: 3.0,
 	positionBestFinish: 1,
 	positionWorstFinish: 10,
@@ -70,11 +74,10 @@ const ExamplePlayerData: PlayerData = {
 // Define a common minimum width for the dropdowns
 const MinDropdownWidth = 140; // TODO: Extract to a common file
 
-// const ProfileImageDimensions = 150; // TODO: Extract to a common file
-
 export default function PlayerSection(props: { dataMethod: DataMethods }) {
 	const { dataMethod } = props; // Destructure props
 
+	// Define the states for the data
 	const [isLoaded, setIsLoaded] = useState<boolean>(false); // Define a loaded state for the data
 	const [allPlayersSelectedBoolean, setAllPlayersSelectedBoolean] = useState<boolean>(false); // Define a state for whether all players are selected or not
 	const [allPlayerData, setAllPlayerData] = useState<PlayerData[]>([]); // Define all the player data state
@@ -124,12 +127,24 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 	// Get the screen size to define sizes
 	const screenSize = useScreenSize();
 	// Initialise the sizes for mobile and tablet
-	let ProfileImageDimensions = 150;
-	let PlayerSectionTopBoxHeight = "16rem";
+	let ProfileImageDimensions = 140; // The dimensions of the profile image
+	let PlayerSectionTopBoxHeight = "16rem"; // The height of the top box sections
+	let PlayerHeaderFontSize = "1.3rem"; // The font size of the player name
+	let StatHolderHeaderFontSize = "1rem"; // The font size of the stat holder headers
+	let StatHolderValuesFontSize = "2rem"; // The font size of the stat holder values
 	// Update the sizes for desktop and larger
-	if (screenSize === "md" || screenSize === "xl") {
+	if (screenSize === "md") {
 		ProfileImageDimensions = 250;
 		PlayerSectionTopBoxHeight = "22rem";
+		PlayerHeaderFontSize = "2.5rem";
+		StatHolderHeaderFontSize = "1.5rem";
+		StatHolderValuesFontSize = "2rem";
+	} else if (screenSize === "lg" || screenSize === "xl") {
+		ProfileImageDimensions = 250;
+		PlayerSectionTopBoxHeight = "22rem";
+		PlayerHeaderFontSize = "3rem";
+		StatHolderHeaderFontSize = "1.5rem";
+		StatHolderValuesFontSize = "3rem";
 	}
 
 	// Define the style for the top box sections
@@ -143,6 +158,35 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 		alignItems: "flex-start",
 		textAlign: "center",
 		backgroundColor: "null",
+	};
+
+	// Define the style for the top box section holder
+	const TopSectionBoxesStyle = {
+		width: "100%",
+		padding: "0 0 0 0",
+		margin: "0 auto 1rem auto",
+		display: "flex",
+		flexDirection: "row",
+		justifyContent: "center",
+		alignItems: "center",
+		textAlign: "center",
+		backgroundColor: "null",
+		borderBottom: "2px solid #7cadea",
+	};
+
+	// Define the style for the other stat sections
+	const StatSectionBoxesStyle = {
+		height: "100%",
+		width: "100%",
+		padding: "0 0 1rem 0",
+		margin: "0 auto 1rem auto",
+		display: "flex",
+		flexDirection: "row",
+		justifyContent: "center",
+		alignItems: "center",
+		textAlign: "center",
+		backgroundColor: "null",
+		borderBottom: "2px solid #7cadea",
 	};
 
 	// Define the change handler for the player option
@@ -174,7 +218,7 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 					autoWidth
 					label='Select option...'
 					name='View Option Select'>
-					<MenuItem value='100'>All Players</MenuItem>
+					{/* <MenuItem value='100'>All Players</MenuItem> // TODO: Re-add All Players option?  */}
 					{allPlayerData?.map((player: PlayerData) => {
 						return (
 							<MenuItem key={player.fullName} value={player.id}>
@@ -193,11 +237,14 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 			<>
 				{/* Hold the selected player information */}
 				<Grid item lg={12} md={12} sm={12} xs={12}>
-					<Grid container spacing={ThemingS.themeConfig.gridSpacing} justifyContent='center' alignItems='center'>
+					<Grid container spacing={ThemingS.themeConfig.gridSpacing} justifyContent='center' alignItems='center' sx={TopSectionBoxesStyle}>
+						{/* Hold the player name and image */}
 						<Grid item xs={7} md={6} sx={PlayerSectionTopBoxesStyle}>
+							{/* Hold the player name */}
 							<h2
 								style={{
 									backgroundColor: "null",
+									fontSize: PlayerHeaderFontSize,
 									lineHeight: "2rem",
 									textAlign: "center",
 									textTransform: "uppercase",
@@ -206,6 +253,7 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 								}}>
 								{selectedPlayerData.firstName} {selectedPlayerData.secondName}
 							</h2>
+							{/* Hold the player image */}
 							<div
 								style={{
 									position: "relative",
@@ -225,62 +273,145 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 								/>
 							</div>
 						</Grid>
+						{/* Hold the player handicap information */}
 						<Grid item xs={5} md={6} sx={PlayerSectionTopBoxesStyle}>
 							<HandicapRange
 								lowestHandicap={selectedPlayerData.handicapMinimum}
 								highestHandicap={selectedPlayerData.handicapMaximum}
 								currentHandicap={selectedPlayerData.handicapLatest}
+								handicapMinimumYear={selectedPlayerData.handicapMinimumYear}
+								handicapMaximumYear={selectedPlayerData.handicapMaximumYear}
 								handicapScaleHeight={ProfileImageDimensions}
 							/>
-							{/* // TODO: Add the years of the highest and lowest handicaps? */}
 						</Grid>
 					</Grid>
 
-					<hr style={{ marginBottom: "20px" }} />
-					<Grid container spacing={ThemingS.themeConfig.gridSpacing} justifyContent='center' alignItems='center'>
-						<StatHolder headerText='Appearances' value={selectedPlayerData.apps.toString()} xsWidth={6} />
-						<StatHolder headerText='Points Finishes' value={selectedPlayerData.pointsFinishes.toString()} xsWidth={6} />
-					</Grid>
-					<hr style={{ marginBottom: "20px" }} />
-					<Grid container spacing={ThemingS.themeConfig.gridSpacing} justifyContent='center' alignItems='center'>
-						<StatHolder headerText='Wins' value={selectedPlayerData.wins.toString()} xsWidth={6} />
-						<StatHolder headerText='Win %' value={selectedPlayerData.winPercentage.toString()} xsWidth={6} />
+					<Grid container spacing={ThemingS.themeConfig.gridSpacing} justifyContent='center' alignItems='center' sx={StatSectionBoxesStyle}>
+						<StatHolder
+							headerText='Appearances'
+							value={selectedPlayerData.apps.toString()}
+							xsWidth={6}
+							StatHolderHeaderFontSize={StatHolderHeaderFontSize}
+							StatHolderValuesFontSize={StatHolderValuesFontSize}
+						/>
+						<StatHolder
+							headerText='Points Finishes'
+							value={selectedPlayerData.pointsFinishes.toString()}
+							xsWidth={6}
+							StatHolderHeaderFontSize={StatHolderHeaderFontSize}
+							StatHolderValuesFontSize={StatHolderValuesFontSize}
+						/>
 					</Grid>
 
-					<hr style={{ marginBottom: "20px" }} />
-					<Grid container spacing={ThemingS.themeConfig.gridSpacing} justifyContent='center' alignItems='center'>
-						<StatHolder headerText='Total Championship Points' value={selectedPlayerData.pointsTotal.toString()} xsWidth={6} />
-						<StatHolder headerText='Average Championship Points' value={selectedPlayerData.pointsAverage.toString()} xsWidth={6} />
+					<Grid container spacing={ThemingS.themeConfig.gridSpacing} justifyContent='center' alignItems='center' sx={StatSectionBoxesStyle}>
+						<StatHolder
+							headerText='Wins'
+							value={selectedPlayerData.wins.toString()}
+							xsWidth={6}
+							StatHolderHeaderFontSize={StatHolderHeaderFontSize}
+							StatHolderValuesFontSize={StatHolderValuesFontSize}
+						/>
+						<StatHolder
+							headerText='Win %'
+							value={selectedPlayerData.winPercentage.toString()}
+							xsWidth={6}
+							StatHolderHeaderFontSize={StatHolderHeaderFontSize}
+							StatHolderValuesFontSize={StatHolderValuesFontSize}
+						/>
 					</Grid>
 
-					<hr style={{ marginBottom: "20px" }} />
-					<Grid container spacing={ThemingS.themeConfig.gridSpacing} justifyContent='center' alignItems='center'>
+					<Grid container spacing={ThemingS.themeConfig.gridSpacing} justifyContent='center' alignItems='center' sx={StatSectionBoxesStyle}>
+						<StatHolder
+							headerText='Total Championship Points'
+							value={selectedPlayerData.pointsTotal.toString()}
+							xsWidth={6}
+							StatHolderHeaderFontSize={StatHolderHeaderFontSize}
+							StatHolderValuesFontSize={StatHolderValuesFontSize}
+						/>
+						<StatHolder
+							headerText='Average Championship Points'
+							value={selectedPlayerData.pointsAverage.toString()}
+							xsWidth={6}
+							StatHolderHeaderFontSize={StatHolderHeaderFontSize}
+							StatHolderValuesFontSize={StatHolderValuesFontSize}
+						/>
+					</Grid>
+
+					<Grid container spacing={ThemingS.themeConfig.gridSpacing} justifyContent='center' alignItems='center' sx={StatSectionBoxesStyle}>
 						<StatHolder
 							headerText='Maximum Points'
-							value={`${selectedPlayerData.pointsMax.toString() + " in " + selectedPlayerData.pointsMaxYear.toString()}`}
+							value={`${selectedPlayerData.pointsMax.toString()}`}
+							subValue={` in ${selectedPlayerData.pointsMaxYear.toString()}`}
 							xsWidth={6}
+							StatHolderHeaderFontSize={StatHolderHeaderFontSize}
+							StatHolderValuesFontSize={StatHolderValuesFontSize}
 						/>
 						<StatHolder
 							headerText='Minimum Points'
-							value={`${selectedPlayerData.pointsMin.toString() + " in " + selectedPlayerData.pointsMinYear.toString()}`}
+							value={`${selectedPlayerData.pointsMin.toString()}`}
+							subValue={` in ${selectedPlayerData.pointsMinYear.toString()}`}
 							xsWidth={6}
+							StatHolderHeaderFontSize={StatHolderHeaderFontSize}
+							StatHolderValuesFontSize={StatHolderValuesFontSize}
 						/>
 					</Grid>
 
-					<hr style={{ marginBottom: "20px" }} />
-					<Grid container spacing={ThemingS.themeConfig.gridSpacing} justifyContent='center' alignItems='center'>
-						<StatHolder headerText='Best Position' value={selectedPlayerData.positionBestFinish.toString()} xsWidth={4} />
-						<StatHolder headerText='Worst Position' value={selectedPlayerData.positionWorstFinish.toString()} xsWidth={4} />
-						<StatHolder headerText='Average Position' value={selectedPlayerData.positionAverage.toString()} xsWidth={4} />
+					<Grid container spacing={ThemingS.themeConfig.gridSpacing} justifyContent='center' alignItems='center' sx={StatSectionBoxesStyle}>
+						<StatHolder
+							headerText='Best Position'
+							value={selectedPlayerData.positionBestFinish.toString()}
+							xsWidth={4}
+							StatHolderHeaderFontSize={StatHolderHeaderFontSize}
+							StatHolderValuesFontSize={StatHolderValuesFontSize}
+						/>
+						<StatHolder
+							headerText='Worst Position'
+							value={selectedPlayerData.positionWorstFinish.toString()}
+							xsWidth={4}
+							StatHolderHeaderFontSize={StatHolderHeaderFontSize}
+							StatHolderValuesFontSize={StatHolderValuesFontSize}
+						/>
+						<StatHolder
+							headerText='Average Position'
+							value={selectedPlayerData.positionAverage.toString()}
+							xsWidth={4}
+							StatHolderHeaderFontSize={StatHolderHeaderFontSize}
+							StatHolderValuesFontSize={StatHolderValuesFontSize}
+						/>
 					</Grid>
 
-					<hr style={{ marginBottom: "20px" }} />
 					<h2>Predictions</h2>
-					<Grid container spacing={ThemingS.themeConfig.gridSpacing} justifyContent='center' alignItems='center'>
-						<StatHolder headerText='2022 Points' value={selectedPlayerData.pointsLatest.toString()} xsWidth={6} />
-						<StatHolder headerText='Predicted 2023 Points' value={selectedPlayerData.pointsExpected2023Points.toString()} xsWidth={6} />
-						<StatHolder headerText='Predicted 2023 Position' value={selectedPlayerData.positionPredicted.toString()} xsWidth={6} />
-						<StatHolder headerText='Predicted 2024 Handicap' value={selectedPlayerData.handicapExpected.toString()} xsWidth={6} />
+					<Grid container spacing={ThemingS.themeConfig.gridSpacing} justifyContent='center' alignItems='center' sx={StatSectionBoxesStyle}>
+						<StatHolder
+							headerText='2022 Points'
+							value={selectedPlayerData.pointsLatest.toString()}
+							xsWidth={6}
+							StatHolderHeaderFontSize={StatHolderHeaderFontSize}
+							StatHolderValuesFontSize={StatHolderValuesFontSize}
+						/>
+						<StatHolder
+							headerText='Predicted 2023 Points'
+							value={selectedPlayerData.pointsExpected2023Points.toString()}
+							xsWidth={6}
+							StatHolderHeaderFontSize={StatHolderHeaderFontSize}
+							StatHolderValuesFontSize={StatHolderValuesFontSize}
+						/>
+					</Grid>
+					<Grid container spacing={ThemingS.themeConfig.gridSpacing} justifyContent='center' alignItems='center' sx={StatSectionBoxesStyle}>
+						<StatHolder
+							headerText='Predicted 2023 Position'
+							value={selectedPlayerData.positionPredicted.toString()}
+							xsWidth={6}
+							StatHolderHeaderFontSize={StatHolderHeaderFontSize}
+							StatHolderValuesFontSize={StatHolderValuesFontSize}
+						/>
+						<StatHolder
+							headerText='Predicted 2024 Handicap'
+							value={selectedPlayerData.handicapExpected.toString()}
+							xsWidth={6}
+							StatHolderHeaderFontSize={StatHolderHeaderFontSize}
+							StatHolderValuesFontSize={StatHolderValuesFontSize}
+						/>
 					</Grid>
 				</Grid>
 				{/* Hold the main data table section card */}

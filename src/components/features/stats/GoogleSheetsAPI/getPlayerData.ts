@@ -51,6 +51,8 @@ export async function getPlayerData() {
 			handicapMinimum: row.handicapMinimum,
 			handicapMaximum: row.handicapMaximum,
 			handicapExpected: row.handicapExpected,
+			handicapMinimumYear: row.handicapMinimumYear,
+			handicapMaximumYear: row.handicapMaximumYear,
 			positionAverage: row.positionAverage,
 			positionBestFinish: row.positionBestFinish,
 			positionWorstFinish: row.positionWorstFinish,
