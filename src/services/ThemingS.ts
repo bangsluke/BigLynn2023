@@ -29,45 +29,41 @@ const themeConfig: ConfigProps = {
 };
 
 const COLORS = {
-	// DVP Orange
-	main: "#F25F3A",
-	// DVP Light Orange
-	light: "#FCB8A7",
-	// DVP Lighter Orange
-	lighter: "#FCDFD8",
-	// DVP Light Grey
-	lightbackground: "#E8E8E8",
-	// DVP Dark Grey
-	darkbackground: "9F9F9F#",
+	// Big Lynn Dark Blue
+	main: "#3f87d9",
+	// Big Lynn Light Blue
+	light: "#d1e0f2",
+	// Big Lynn Lighter Blue
+	lighter: "#e3f2fd",
 	// White
 	white: "#FFF",
 	// Black
 	black: "#000",
-	// RLE Green
-	secondary: "#00644A",
+	// Big Lynn Green
+	secondary: "#81dac9",
 };
 
 const toolTheme = createTheme({
 	// Define the colours used throughout the tool
 	palette: {
 		primary: {
-			// DVP Orange
+			// Big Lynn Blue
 			main: COLORS.main,
-			// DVP Light Orange
+			// Big Lynn Light Blue
 			light: COLORS.light,
 		},
 		secondary: {
-			// RLE Green
+			// Big Lynn Green
 			main: COLORS.light,
 		},
 		info: {
-			// DVP Orange
+			// Big Lynn Blue
 			main: COLORS.light,
-			// DVP Lighter Orange
+			// Big Lynn Lighter Blue
 			light: COLORS.lighter,
 		},
 		background: {
-			// DVP Light Grey
+			// Big Lynn Light Grey
 			default: COLORS.white,
 			paper: COLORS.white,
 		},
@@ -159,8 +155,8 @@ const SPACING = {
 	dividerHeightDesktop: "6rem",
 	// Logo container height - the height of the container for both header logos
 	logoContainerHeight: "6rem",
-	// DVP Logo Width - the DVP Logo width
-	dvpLogoWidth: "11.25rem",
+	// Big Lynn Logo Width - the Big Lynn Logo width
+	logoWidth: "11.25rem",
 	// Base Company Logo Width - the starting width of the company logo before modification
 	baseCompanyLogoWidth: "6rem",
 	// The multiplication factor to extend the company logo if required
