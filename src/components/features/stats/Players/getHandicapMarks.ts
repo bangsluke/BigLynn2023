@@ -34,7 +34,7 @@ export function getHandicapMarks(props: HandicapProps) {
 			// Add the highest handicap to the marks
 			marks.push({
 				value: 100,
-				label: highestHandicap.toString(),
+				label: `${highestHandicap} - Highest`,
 			});
 			// Push the lowest handicap to the marks if it makes sense
 			if (lowestHandicap !== currentHandicap) {
