@@ -135,7 +135,6 @@ const HeroSection = () => {
 						<Grid
 							item
 							xs={12}
-							spacing={0}
 							sx={{
 								display: { md: "block", lg: "none" },
 								textAlign: "center",
