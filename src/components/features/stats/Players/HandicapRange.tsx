@@ -29,14 +29,17 @@ export default function HandicapRange(props: HandicapProps) {
 	const marks: Marks[] = getHandicapMarks({ lowestHandicap, highestHandicap, currentHandicap });
 
 	return (
-		<Grid container spacing={0} justifyContent='center' alignItems='center' sx={{ backgroundColor: "null", margin: 0, padding: 0 }}>
-			<Grid item xs={12} style={{ backgroundColor: "null", textAlign: "center", margin: 0, padding: 0 }}>
+		<Grid container spacing={0} justifyContent='center' alignItems='center' sx={{ backgroundColor: "null", padding: 0, margin: 0 }}>
+			{/* Hold the text above the handicap slider */}
+			<Grid item xs={12} style={{ backgroundColor: "null", textAlign: "center", margin: "0 0 1rem 0", padding: 0, width: "100%" }}>
 				<p
 					style={{
 						fontWeight: "lighter",
 						fontSize: "20px",
 						textTransform: "uppercase",
 						lineHeight: "2rem",
+						margin: 0,
+						padding: 0,
 					}}>
 					Handicap
 				</p>
@@ -59,6 +62,7 @@ export default function HandicapRange(props: HandicapProps) {
 					Highest: {handicapMaximumYear}
 				</p>
 			</Grid>
+			{/* Hold the handicap slider */}
 			<Grid item xs={12} style={{ backgroundColor: "null", height: handicapScaleHeight, margin: 0, padding: 0 }}>
 				<Box
 					sx={{
