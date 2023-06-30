@@ -35,7 +35,7 @@ const StatsSection = () => {
 
 	return (
 		<Container>
-			<Grid container spacing={ThemingS.themeConfig.gridSpacing}>
+			<Grid container spacing={ThemingS.themeConfig.gridSpacing} sx={{ backgroundColor: "null" }}>
 				{/* Hold the section header text*/}
 				<SectionHeader
 					header='Statistics'
@@ -44,7 +44,7 @@ const StatsSection = () => {
 				/>
 
 				{/* Hold the dropdown selectors and stats data */}
-				<Grid item xs={12}>
+				<Grid item xs={12} sx={{ backgroundColor: "null" }}>
 					<Grid container alignItems='center' justifyContent='space-between' spacing={ThemingS.themeConfig.gridSpacing}>
 						{/* Hold the dropdown selectors */}
 						<Grid item xs={12} sx={{ marginBottom: "0.5rem", backgroundColor: "null" }}>
@@ -70,7 +70,16 @@ const StatsSection = () => {
 						</Grid>
 
 						{/* Hold the selected section content */}
-						<Grid item xs={12} sx={{ marginBottom: "0.5rem", backgroundColor: theme.palette.primary[100], borderRadius: "8px" }}>
+						<Grid
+							item
+							xs={12}
+							sx={{
+								marginBottom: "0.5rem",
+								backgroundColor: theme.palette.primary[100],
+								borderRadius: "8px",
+								minWidth: { xs: "105%", sm: "100%", md: "100%", lg: "100%", xl: "100%" },
+								padding: "1rem",
+							}}>
 							{/* Add a ternary operator to decide what section to display */}
 							{viewOption === "Player Stats" ? <PlayerSection dataMethod={dataMethod} /> : <YearSection dataMethod={dataMethod} />}
 						</Grid>

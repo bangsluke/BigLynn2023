@@ -257,7 +257,7 @@ export default function RulesSection() {
 
 	return (
 		<Container>
-			<Grid container spacing={ThemingS.themeConfig.gridSpacing} sx={{ minHeight: RuleSectionHeight }}>
+			<Grid container spacing={ThemingS.themeConfig.gridSpacing} sx={{ minHeight: RuleSectionHeight, backgroundColor: "null" }}>
 				{/* Hold the section header text */}
 				<SectionHeader
 					header='Rules'
