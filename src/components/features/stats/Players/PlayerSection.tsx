@@ -3,10 +3,10 @@ import "@inovua/reactdatagrid-community/index.css";
 import { Container, FormControl, Grid, InputLabel, MenuItem, Select } from "@mui/material";
 import axios from "axios";
 import { DataMethods } from "components/features/StatsSection";
-import { getPlayers } from "components/features/stats/GoogleSheetsAPI/getPlayers";
+import { getPlayerData } from "components/features/stats/GoogleSheetsAPI/getPlayerData";
 import HandicapRange from "components/features/stats/Players/HandicapRange";
-import PlayerPointsChartCard from "components/features/stats/Players/PlayersSubSection/PlayerPointsChartCard";
 import StatHolder from "components/features/stats/StatHolder";
+import useScreenSize from "hooks/useMediaQuery";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { FadeLoader } from "react-spinners";
@@ -70,7 +70,7 @@ const ExamplePlayerData: PlayerData = {
 // Define a common minimum width for the dropdowns
 const MinDropdownWidth = 140; // TODO: Extract to a common file
 
-const ProfileImageDimensions = 150; // TODO: Extract to a common file
+// const ProfileImageDimensions = 150; // TODO: Extract to a common file
 
 export default function PlayerSection(props: { dataMethod: DataMethods }) {
 	const { dataMethod } = props; // Destructure props
@@ -88,7 +88,7 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 				// Player Data from Google Sheets API
 				const fetchData = async () => {
 					// https://blog.logrocket.com/async-rendering-react-suspense/
-					getPlayers()
+					getPlayerData()
 						.then((response) => {
 							// console.log("response", response);
 							setAllPlayerData(response);
@@ -120,6 +120,30 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 				break;
 		}
 	}, [dataMethod]);
+
+	// Get the screen size to define sizes
+	const screenSize = useScreenSize();
+	// Initialise the sizes for mobile and tablet
+	let ProfileImageDimensions = 150;
+	let PlayerSectionTopBoxHeight = "16rem";
+	// Update the sizes for desktop and larger
+	if (screenSize === "md" || screenSize === "xl") {
+		ProfileImageDimensions = 250;
+		PlayerSectionTopBoxHeight = "22rem";
+	}
+
+	// Define the style for the top box sections
+	const PlayerSectionTopBoxesStyle = {
+		height: PlayerSectionTopBoxHeight,
+		padding: "0.2rem",
+		marginBottom: "1rem",
+		display: "flex",
+		flexDirection: "column",
+		justifyContent: "flex-start",
+		alignItems: "flex-start",
+		textAlign: "center",
+		backgroundColor: "null",
+	};
 
 	// Define the change handler for the player option
 	const playerChange = (event: any) => {
@@ -170,31 +194,43 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 				{/* Hold the selected player information */}
 				<Grid item lg={12} md={12} sm={12} xs={12}>
 					<Grid container spacing={ThemingS.themeConfig.gridSpacing} justifyContent='center' alignItems='center'>
-						<Grid item xs={6} style={{ backgroundColor: "null" }}>
-							<h3>
+						<Grid item xs={7} md={6} sx={PlayerSectionTopBoxesStyle}>
+							<h2
+								style={{
+									backgroundColor: "null",
+									lineHeight: "2rem",
+									textAlign: "center",
+									textTransform: "uppercase",
+									padding: "0",
+									margin: "0 auto 1rem auto",
+								}}>
 								{selectedPlayerData.firstName} {selectedPlayerData.secondName}
-							</h3>
+							</h2>
 							<div
 								style={{
 									position: "relative",
 									width: `${ProfileImageDimensions}px`,
 									height: `${ProfileImageDimensions}px`,
+									// backgroundColor: "blue",
+									margin: "0 auto",
+									padding: "0",
 								}}>
 								<Image
 									src={`/images/players/${selectedPlayerData.firstName}.png`}
-									alt='Picture of the author'
+									alt='Player Image'
 									layout='fill'
 									style={{
-										borderRadius: `${ProfileImageDimensions}px`, //👈 and here you can select border radius
+										borderRadius: `${ProfileImageDimensions}px`,
 									}}
 								/>
 							</div>
 						</Grid>
-						<Grid item xs={6} style={{ backgroundColor: "null", textAlign: "center" }}>
+						<Grid item xs={5} md={6} sx={PlayerSectionTopBoxesStyle}>
 							<HandicapRange
 								lowestHandicap={selectedPlayerData.handicapMinimum}
 								highestHandicap={selectedPlayerData.handicapMaximum}
 								currentHandicap={selectedPlayerData.handicapLatest}
+								handicapScaleHeight={ProfileImageDimensions}
 							/>
 							{/* // TODO: Add the years of the highest and lowest handicaps? */}
 						</Grid>
@@ -248,10 +284,9 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 					</Grid>
 				</Grid>
 				{/* Hold the main data table section card */}
-				<Grid item lg={12} md={12} sm={12} xs={12}>
-					{/* <h1>{playerName}</h1> */}
+				{/* <Grid item lg={12} md={12} sm={12} xs={12}>
 					<PlayerPointsChartCard />
-				</Grid>
+				</Grid> */}
 			</>
 		);
 	};
