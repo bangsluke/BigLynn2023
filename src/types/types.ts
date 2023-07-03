@@ -220,6 +220,7 @@ export interface YearDataType {
 	year: string;
 	columnLetter: string;
 	numberPlayers: string;
+	totalYearScore: number;
 	first: string;
 	second: string;
 	third: string;

@@ -15,6 +15,7 @@ const columns = [
 	{ name: "year", header: "Year", minWidth: 100, defaultFlex: 1 },
 	{ name: "columnLetter", header: "Column Letter", minWidth: 100, defaultFlex: 1 },
 	{ name: "numberPlayers", header: "Number of Players", minWidth: 100, defaultFlex: 1 },
+	{ name: "totalYearScore", header: "Total Year Score", minWidth: 100, defaultFlex: 1 },
 	{ name: "first", header: "First", minWidth: 100, defaultFlex: 1 },
 	{ name: "second", header: "Second", minWidth: 100, defaultFlex: 1 },
 	{ name: "third", header: "Third", minWidth: 100, defaultFlex: 1 },
@@ -38,6 +39,7 @@ const ExampleYearData: YearDataType = {
 	year: "2022",
 	columnLetter: "AE",
 	numberPlayers: "11",
+	totalYearScore: 375,
 	first: "Luke Bangs",
 	second: "Keith Joseph",
 	third: "Dan Carew-Jones",
@@ -71,8 +73,6 @@ export default function YearSection(props: { dataMethod: DataMethods }) {
 	const [yearOption, setYearOption] = useState("2022"); // Set the state for the year shown
 	const [allYearsSelectedBoolean, setAllYearsSelectedBoolean] = useState<boolean>(false); // Define a state for whether all years are selected or not
 	const [selectedYearData, setSelectedYearData] = useState<YearDataType>(ExampleYearData); // Set the state for the data of the year selected
-
-	console.log("selectedYearData", selectedYearData);
 
 	// Add a useEffect that returns the data based on the dataMethod
 	useEffect(() => {
@@ -185,12 +185,11 @@ export default function YearSection(props: { dataMethod: DataMethods }) {
 
 	// Define the change handler for the year option
 	const yearChange = (event: any) => {
-		console.log("yearChange: event.target.value: ", event.target.value);
+		// console.log("yearChange: event.target.value: ", event.target.value);
 		console.log("allYearData", allYearData);
 		const index = allYearData.findIndex((item) => item.year === event.target.value); // Find the index of the selected year
-		console.log("index", index);
-
-		console.log("allYearData[index]", allYearData[index]);
+		// console.log("index", index);
+		// console.log("allYearData[index]", allYearData[index]);
 		setYearOption(event.target.value);
 		if (event.target.value === 100) {
 			// Deal with the All Years option and add some basic example
@@ -258,11 +257,22 @@ export default function YearSection(props: { dataMethod: DataMethods }) {
 					<Grid container spacing={ThemingS.themeConfig.gridSpacing} justifyContent='center' alignItems='center' sx={StatSectionBoxesStyle}>
 						<StatHolder
 							headerText='Number Players'
-							value={selectedYearData.numberPlayers.toString()}
+							value={selectedYearData.numberPlayers !== undefined ? selectedYearData.numberPlayers.toString() : "N/A"}
 							xsWidth={6}
 							StatHolderHeaderFontSize={StatHolderHeaderFontSize}
 							StatHolderValuesFontSize={StatHolderValuesFontSize}
 						/>
+						<StatHolder
+							headerText='Total Year Score'
+							value={selectedYearData.totalYearScore !== undefined ? selectedYearData.totalYearScore.toString() : "N/A"}
+							xsWidth={6}
+							StatHolderHeaderFontSize={StatHolderHeaderFontSize}
+							StatHolderValuesFontSize={StatHolderValuesFontSize}
+						/>
+					</Grid>
+
+					<h2>Rank</h2>
+					<Grid container spacing={ThemingS.themeConfig.gridSpacing} justifyContent='center' alignItems='center' sx={StatSectionBoxesStyle}>
 						<StatHolder
 							headerText='First Place'
 							value={selectedYearData.first !== undefined ? selectedYearData.first.toString() : "N/A"}
@@ -270,25 +280,14 @@ export default function YearSection(props: { dataMethod: DataMethods }) {
 							StatHolderHeaderFontSize={StatHolderHeaderFontSize}
 							StatHolderValuesFontSize={StatHolderValuesFontSize}
 						/>
+						<StatHolder
+							headerText='Score'
+							value={selectedYearData.firstScore !== undefined ? selectedYearData.firstScore.toString() : "N/A"}
+							xsWidth={6}
+							StatHolderHeaderFontSize={StatHolderHeaderFontSize}
+							StatHolderValuesFontSize={StatHolderValuesFontSize}
+						/>
 					</Grid>
-
-					{/* <h2>Predictions</h2>
-					<Grid container spacing={ThemingS.themeConfig.gridSpacing} justifyContent='center' alignItems='center' sx={StatSectionBoxesStyle}>
-						<StatHolder
-							headerText='2022 Points'
-							value={selectedPlayerData.pointsLatest.toString()}
-							xsWidth={6}
-							StatHolderHeaderFontSize={StatHolderHeaderFontSize}
-							StatHolderValuesFontSize={StatHolderValuesFontSize}
-						/>
-						<StatHolder
-							headerText='Predicted 2023 Points'
-							value={selectedPlayerData.pointsExpected2023Points.toString()}
-							xsWidth={6}
-							StatHolderHeaderFontSize={StatHolderHeaderFontSize}
-							StatHolderValuesFontSize={StatHolderValuesFontSize}
-						/>
-					</Grid> */}
 				</Grid>
 				{/* Hold the main data table section card */}
 				{/* <Grid item lg={12} md={12} sm={12} xs={12}>
