@@ -23,6 +23,9 @@ const columns = [
 	{ name: "sixth", header: "Sixth", minWidth: 100, defaultFlex: 1 },
 	{ name: "seventh", header: "Seventh", minWidth: 100, defaultFlex: 1 },
 	{ name: "eighth", header: "Eighth", minWidth: 100, defaultFlex: 1 },
+	{ name: "ninth", header: "Ninth", minWidth: 100, defaultFlex: 1 },
+	{ name: "tenth", header: "Tenth", minWidth: 100, defaultFlex: 1 },
+	{ name: "eleventh", header: "Eleventh", minWidth: 100, defaultFlex: 1 },
 ];
 
 const gridStyle = { minHeight: 550 }; // TODO: Extract to a common file
@@ -68,6 +71,8 @@ export default function YearSection(props: { dataMethod: DataMethods }) {
 	const [yearOption, setYearOption] = useState("2022"); // Set the state for the year shown
 	const [allYearsSelectedBoolean, setAllYearsSelectedBoolean] = useState<boolean>(false); // Define a state for whether all years are selected or not
 	const [selectedYearData, setSelectedYearData] = useState<YearDataType>(ExampleYearData); // Set the state for the data of the year selected
+
+	console.log("selectedYearData", selectedYearData);
 
 	// Add a useEffect that returns the data based on the dataMethod
 	useEffect(() => {
@@ -180,7 +185,12 @@ export default function YearSection(props: { dataMethod: DataMethods }) {
 
 	// Define the change handler for the year option
 	const yearChange = (event: any) => {
-		// Console.log("yearChange: event.target.value: ", event.target.value);
+		console.log("yearChange: event.target.value: ", event.target.value);
+		console.log("allYearData", allYearData);
+		const index = allYearData.findIndex((item) => item.year === event.target.value); // Find the index of the selected year
+		console.log("index", index);
+
+		console.log("allYearData[index]", allYearData[index]);
 		setYearOption(event.target.value);
 		if (event.target.value === 100) {
 			// Deal with the All Years option and add some basic example
@@ -189,7 +199,7 @@ export default function YearSection(props: { dataMethod: DataMethods }) {
 		} else {
 			// Otherwise set the selected year data to the selected year ID
 			setAllYearsSelectedBoolean(false);
-			setSelectedYearData(allYearData[event.target.value]);
+			setSelectedYearData(allYearData[index]);
 		}
 	};
 
@@ -255,7 +265,7 @@ export default function YearSection(props: { dataMethod: DataMethods }) {
 						/>
 						<StatHolder
 							headerText='First Place'
-							value={selectedYearData.first.toString()}
+							value={selectedYearData.first !== undefined ? selectedYearData.first.toString() : "N/A"}
 							xsWidth={6}
 							StatHolderHeaderFontSize={StatHolderHeaderFontSize}
 							StatHolderValuesFontSize={StatHolderValuesFontSize}
