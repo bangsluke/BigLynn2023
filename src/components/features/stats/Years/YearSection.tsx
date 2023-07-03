@@ -216,8 +216,8 @@ export default function YearSection(props: { dataMethod: DataMethods }) {
 					</MenuItem>{" "}
 					{/* // TODO: Re-add All Years option?  */}
 					{allYearData?.map((YearData: YearDataType) => {
-						if (YearData.year === "Config Row") {
-							return null; // Skip the config row
+						if (YearData.year === "Config Row" || YearData.year === "2023") {
+							return null; // Skip the config and 2023 row
 						}
 
 						return (
@@ -284,6 +284,10 @@ export default function YearSection(props: { dataMethod: DataMethods }) {
 							secondaryFontSize={StatHolderHeaderFontSize}
 						/>
 					</Grid>
+
+					{selectedYearData.totalYearScore == 0 ? (
+						<h3 style={{ textAlign: "center" }}>Incomplete stats but past email chains confirm just the winner</h3>
+					) : null}
 
 					<Grid container spacing={ThemingS.themeConfig.gridSpacing} justifyContent='center' alignItems='center' sx={StatSectionBoxesStyle}>
 						<RankHolder
