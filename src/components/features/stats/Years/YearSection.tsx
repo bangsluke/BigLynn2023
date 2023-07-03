@@ -4,6 +4,7 @@ import { Container, FormControl, Grid, InputLabel, MenuItem, Select } from "@mui
 import axios from "axios";
 import { DataMethods } from "components/features/StatsSection";
 import { getYearData } from "components/features/stats/GoogleSheetsAPI/getYearData";
+import RankHolder from "components/features/stats/RankHolder";
 import StatHolder from "components/features/stats/StatHolder";
 import useScreenSize from "hooks/useMediaQuery";
 import { useEffect, useState } from "react";
@@ -11,22 +12,23 @@ import { FadeLoader } from "react-spinners";
 import ThemingS from "services/ThemingS";
 import { YearDataType } from "types/types";
 
-const columns = [
-	{ name: "year", header: "Year", minWidth: 100, defaultFlex: 1 },
-	{ name: "columnLetter", header: "Column Letter", minWidth: 100, defaultFlex: 1 },
-	{ name: "numberPlayers", header: "Number of Players", minWidth: 100, defaultFlex: 1 },
-	{ name: "totalYearScore", header: "Total Year Score", minWidth: 100, defaultFlex: 1 },
-	{ name: "first", header: "First", minWidth: 100, defaultFlex: 1 },
-	{ name: "second", header: "Second", minWidth: 100, defaultFlex: 1 },
-	{ name: "third", header: "Third", minWidth: 100, defaultFlex: 1 },
-	{ name: "fourth", header: "Fourth", minWidth: 100, defaultFlex: 1 },
-	{ name: "fifth", header: "Fifth", minWidth: 100, defaultFlex: 1 },
-	{ name: "sixth", header: "Sixth", minWidth: 100, defaultFlex: 1 },
-	{ name: "seventh", header: "Seventh", minWidth: 100, defaultFlex: 1 },
-	{ name: "eighth", header: "Eighth", minWidth: 100, defaultFlex: 1 },
-	{ name: "ninth", header: "Ninth", minWidth: 100, defaultFlex: 1 },
-	{ name: "tenth", header: "Tenth", minWidth: 100, defaultFlex: 1 },
-	{ name: "eleventh", header: "Eleventh", minWidth: 100, defaultFlex: 1 },
+// Define the column details for displaying all years
+const allYearsColumns = [
+	{ name: "year", header: "Year", minWidth: 84, defaultFlex: 1 },
+	// { name: "columnLetter", header: "Column Letter", minWidth: 100, defaultFlex: 1 },
+	{ name: "numberPlayers", header: "Number of Players", minWidth: 178, defaultFlex: 1 },
+	{ name: "totalYearScore", header: "Total Year Score", minWidth: 168, defaultFlex: 1 },
+	{ name: "first", header: "1st", minWidth: 100, defaultFlex: 1 },
+	{ name: "second", header: "2nd", minWidth: 100, defaultFlex: 1 },
+	{ name: "third", header: "3rd", minWidth: 100, defaultFlex: 1 },
+	{ name: "fourth", header: "4th", minWidth: 100, defaultFlex: 1 },
+	{ name: "fifth", header: "5th", minWidth: 100, defaultFlex: 1 },
+	{ name: "sixth", header: "6th", minWidth: 100, defaultFlex: 1 },
+	{ name: "seventh", header: "7th", minWidth: 100, defaultFlex: 1 },
+	{ name: "eighth", header: "8th", minWidth: 100, defaultFlex: 1 },
+	{ name: "ninth", header: "9th", minWidth: 100, defaultFlex: 1 },
+	{ name: "tenth", header: "10th", minWidth: 100, defaultFlex: 1 },
+	{ name: "eleventh", header: "11th", minWidth: 100, defaultFlex: 1 },
 ];
 
 const gridStyle = { minHeight: 550 }; // TODO: Extract to a common file
@@ -85,6 +87,7 @@ export default function YearSection(props: { dataMethod: DataMethods }) {
 						.then((response) => {
 							// console.log("response", response);
 							setAllYearData(response);
+
 							setIsLoaded(true);
 						})
 						.catch((error) => {
@@ -117,31 +120,25 @@ export default function YearSection(props: { dataMethod: DataMethods }) {
 		}
 	}, [dataMethod]);
 
-	// TODO: Update all below styles to reference years not players down to the next TODO
-
 	// Get the screen size to define sizes
 	const screenSize = useScreenSize();
 	// Initialise the sizes for mobile and tablet
-	let PlayerSectionTopBoxHeight = "16rem"; // The height of the top box sections
-	let PlayerHeaderFontSize = "1.3rem"; // The font size of the player name
+	let YearSectionTopBoxStyle = "4rem"; // The height of the top box sections
+	let YearHeaderFontSize = "3rem"; // The font size of the year name
 	let StatHolderHeaderFontSize = "1rem"; // The font size of the stat holder headers
 	let StatHolderValuesFontSize = "2rem"; // The font size of the stat holder values
 	// Update the sizes for desktop and larger
 	if (screenSize === "md") {
-		PlayerSectionTopBoxHeight = "22rem";
-		PlayerHeaderFontSize = "2.5rem";
 		StatHolderHeaderFontSize = "1.5rem";
 		StatHolderValuesFontSize = "2rem";
 	} else if (screenSize === "lg" || screenSize === "xl") {
-		PlayerSectionTopBoxHeight = "22rem";
-		PlayerHeaderFontSize = "3rem";
 		StatHolderHeaderFontSize = "1.5rem";
 		StatHolderValuesFontSize = "3rem";
 	}
 
 	// Define the style for the top box sections
-	const PlayerSectionTopBoxesStyle = {
-		height: PlayerSectionTopBoxHeight,
+	const YearSectionTopBoxesStyle = {
+		height: YearSectionTopBoxStyle,
 		padding: "0.2rem",
 		marginBottom: "1rem",
 		display: "flex",
@@ -181,24 +178,24 @@ export default function YearSection(props: { dataMethod: DataMethods }) {
 		borderBottom: "2px solid #7cadea",
 	};
 
-	// TODO: Modify above styles
-
 	// Define the change handler for the year option
 	const yearChange = (event: any) => {
 		// console.log("yearChange: event.target.value: ", event.target.value);
-		console.log("allYearData", allYearData);
+		// console.log("allYearData", allYearData);
 		const index = allYearData.findIndex((item) => item.year === event.target.value); // Find the index of the selected year
-		// console.log("index", index);
-		// console.log("allYearData[index]", allYearData[index]);
 		setYearOption(event.target.value);
-		if (event.target.value === 100) {
+		if (event.target.value === "All Years") {
 			// Deal with the All Years option and add some basic example
-			setAllYearsSelectedBoolean(true);
-			setSelectedYearData(ExampleYearData);
+			setSelectedYearData(ExampleYearData); // Set the selected year data to the example data (to stop errors)
+			setAllYearsSelectedBoolean(true); // Switch to show all years section
+			// console.log("allYearData", allYearData);
+			const filteredAllYearData = allYearData.filter((YearData) => YearData.year !== "Config Row").map((YearData) => YearData); // Filter out the config row
+			// console.log("filteredAllYearData", filteredAllYearData);
+			setAllYearData(filteredAllYearData); // Set the all year data to the filtered all year data
 		} else {
 			// Otherwise set the selected year data to the selected year ID
-			setAllYearsSelectedBoolean(false);
-			setSelectedYearData(allYearData[index]);
+			setSelectedYearData(allYearData[index]); // Set the selected year data to the selected year ID
+			setAllYearsSelectedBoolean(false); // Switch to show individual year section
 		}
 	};
 
@@ -215,9 +212,11 @@ export default function YearSection(props: { dataMethod: DataMethods }) {
 					autoWidth
 					label='Select option...'
 					name='View Option Select'>
-					{/* <MenuItem value='All Years'>All Years</MenuItem> // TODO: Re-add All Years option?  */}
+					<MenuItem key='All Years' value='All Years'>
+						All Years
+					</MenuItem>{" "}
+					{/* // TODO: Re-add All Years option?  */}
 					{allYearData?.map((YearData: YearDataType) => {
-						// console.log("YearData", YearData);
 						if (YearData.year === "Config Row") {
 							return null; // Skip the config row
 						}
@@ -241,12 +240,12 @@ export default function YearSection(props: { dataMethod: DataMethods }) {
 				<Grid item lg={12} md={12} sm={12} xs={12}>
 					<Grid container spacing={ThemingS.themeConfig.gridSpacing} justifyContent='center' alignItems='center' sx={TopSectionBoxesStyle}>
 						{/* Hold the player name and image */}
-						<Grid item xs={7} md={6} sx={PlayerSectionTopBoxesStyle}>
+						<Grid item xs={7} md={6} sx={YearSectionTopBoxesStyle}>
 							{/* Hold the player name */}
 							<h2
 								style={{
 									backgroundColor: "null",
-									fontSize: PlayerHeaderFontSize,
+									fontSize: YearHeaderFontSize,
 									lineHeight: "2rem",
 									textAlign: "center",
 									textTransform: "uppercase",
@@ -275,21 +274,25 @@ export default function YearSection(props: { dataMethod: DataMethods }) {
 						/>
 					</Grid>
 
-					<h2>Rank</h2>
+					<h2 style={{ fontSize: StatHolderHeaderFontSize }}>Rank</h2>
 					<Grid container spacing={ThemingS.themeConfig.gridSpacing} justifyContent='center' alignItems='center' sx={StatSectionBoxesStyle}>
-						<StatHolder
-							headerText='First Place'
-							value={selectedYearData.first !== undefined ? selectedYearData.first.toString() : "N/A"}
-							xsWidth={6}
-							StatHolderHeaderFontSize={StatHolderHeaderFontSize}
-							StatHolderValuesFontSize={StatHolderValuesFontSize}
+						<RankHolder
+							rankText='1st'
+							name={selectedYearData.first !== undefined ? selectedYearData.first.toString() : "N/A"}
+							score={selectedYearData.firstScore !== undefined ? selectedYearData.firstScore : 0}
+							xsWidth={12}
+							fontSize={StatHolderValuesFontSize}
+							secondaryFontSize={StatHolderHeaderFontSize}
 						/>
-						<StatHolder
-							headerText='Score'
-							value={selectedYearData.firstScore !== undefined ? selectedYearData.firstScore.toString() : "N/A"}
-							xsWidth={6}
-							StatHolderHeaderFontSize={StatHolderHeaderFontSize}
-							StatHolderValuesFontSize={StatHolderValuesFontSize}
+					</Grid>
+
+					<Grid container spacing={ThemingS.themeConfig.gridSpacing} justifyContent='center' alignItems='center' sx={StatSectionBoxesStyle}>
+						<RankHolder
+							rankText='2nd'
+							name={selectedYearData.second !== undefined ? selectedYearData.second.toString() : "N/A"}
+							score={selectedYearData.secondScore !== undefined ? selectedYearData.secondScore : 0}
+							xsWidth={4}
+							fontSize={StatHolderHeaderFontSize}
 						/>
 					</Grid>
 				</Grid>
@@ -306,8 +309,8 @@ export default function YearSection(props: { dataMethod: DataMethods }) {
 		return (
 			<>
 				{/* Hold the main data table section card */}
-				<Grid item lg={12} md={12} sm={12} xs={12}>
-					<ReactDataGrid idProperty='id' theme='default-light' columns={columns} dataSource={allYearData} style={gridStyle} />
+				<Grid item lg={12} md={12} sm={12} xs={12} sx={{ height: "max-content" }}>
+					<ReactDataGrid idProperty='id' theme='default-light' columns={allYearsColumns} dataSource={allYearData} style={gridStyle} />
 				</Grid>
 			</>
 		);
