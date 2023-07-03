@@ -215,9 +215,13 @@ export default function YearSection(props: { dataMethod: DataMethods }) {
 					autoWidth
 					label='Select option...'
 					name='View Option Select'>
-					{/* <MenuItem value='All Years'>All Years</MenuItem> // TODO: Re-add All Players option?  */}
+					{/* <MenuItem value='All Years'>All Years</MenuItem> // TODO: Re-add All Years option?  */}
 					{allYearData?.map((YearData: YearDataType) => {
 						// console.log("YearData", YearData);
+						if (YearData.year === "Config Row") {
+							return null; // Skip the config row
+						}
+
 						return (
 							<MenuItem key={YearData.year} value={YearData.year}>
 								{YearData.year}
