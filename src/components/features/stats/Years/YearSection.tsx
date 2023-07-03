@@ -15,20 +15,19 @@ import { YearDataType } from "types/types";
 // Define the column details for displaying all years
 const allYearsColumns = [
 	{ name: "year", header: "Year", minWidth: 84, defaultFlex: 1 },
-	// { name: "columnLetter", header: "Column Letter", minWidth: 100, defaultFlex: 1 },
-	{ name: "numberPlayers", header: "Number of Players", minWidth: 178, defaultFlex: 1 },
-	{ name: "totalYearScore", header: "Total Year Score", minWidth: 168, defaultFlex: 1 },
-	{ name: "first", header: "1st", minWidth: 100, defaultFlex: 1 },
-	{ name: "second", header: "2nd", minWidth: 100, defaultFlex: 1 },
-	{ name: "third", header: "3rd", minWidth: 100, defaultFlex: 1 },
-	{ name: "fourth", header: "4th", minWidth: 100, defaultFlex: 1 },
-	{ name: "fifth", header: "5th", minWidth: 100, defaultFlex: 1 },
-	{ name: "sixth", header: "6th", minWidth: 100, defaultFlex: 1 },
-	{ name: "seventh", header: "7th", minWidth: 100, defaultFlex: 1 },
-	{ name: "eighth", header: "8th", minWidth: 100, defaultFlex: 1 },
-	{ name: "ninth", header: "9th", minWidth: 100, defaultFlex: 1 },
-	{ name: "tenth", header: "10th", minWidth: 100, defaultFlex: 1 },
-	{ name: "eleventh", header: "11th", minWidth: 100, defaultFlex: 1 },
+	{ name: "numberPlayers", header: "Number of Players", minWidth: 156, defaultFlex: 1 },
+	{ name: "totalYearScore", header: "Total Year Score", minWidth: 156, defaultFlex: 1 },
+	{ name: "first", header: "1st", minWidth: 120, defaultFlex: 1 },
+	{ name: "second", header: "2nd", minWidth: 120, defaultFlex: 1 },
+	{ name: "third", header: "3rd", minWidth: 120, defaultFlex: 1 },
+	{ name: "fourth", header: "4th", minWidth: 120, defaultFlex: 1 },
+	{ name: "fifth", header: "5th", minWidth: 120, defaultFlex: 1 },
+	{ name: "sixth", header: "6th", minWidth: 120, defaultFlex: 1 },
+	{ name: "seventh", header: "7th", minWidth: 120, defaultFlex: 1 },
+	{ name: "eighth", header: "8th", minWidth: 120, defaultFlex: 1 },
+	{ name: "ninth", header: "9th", minWidth: 120, defaultFlex: 1 },
+	{ name: "tenth", header: "10th", minWidth: 120, defaultFlex: 1 },
+	{ name: "eleventh", header: "11th", minWidth: 120, defaultFlex: 1 },
 ];
 
 const gridStyle = { minHeight: 550 }; // TODO: Extract to a common file
@@ -394,7 +393,7 @@ export default function YearSection(props: { dataMethod: DataMethods }) {
 		return (
 			<>
 				{/* Hold the main data table section card */}
-				<Grid item lg={12} md={12} sm={12} xs={12} sx={{ height: "max-content" }}>
+				<Grid item lg={12} md={12} sm={12} xs={12} sx={{ height: "max-content", minHeight: "20rem" }}>
 					<ReactDataGrid idProperty='id' theme='default-light' columns={allYearsColumns} dataSource={allYearData} style={gridStyle} />
 				</Grid>
 			</>

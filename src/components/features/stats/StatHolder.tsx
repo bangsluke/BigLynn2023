@@ -38,7 +38,7 @@ export default function StatHolder(props: StatHolderProps) {
 			</h3>
 			<h4
 				style={{
-					fontWeight: "normal",
+					fontWeight: "light",
 					fontSize: StatHolderHeaderFontSize,
 					lineHeight: StatHolderHeaderFontSize,
 					backgroundColor: "null",
