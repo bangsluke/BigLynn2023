@@ -17,10 +17,8 @@ const rows = [
 	createData("Danny B", 27, "", "Martin", 12),
 	createData("Dave", 16, "", "Rich", 14),
 	//@ts-ignore
-	createData("Ross", 22, "", "", null),
+	createData("Ross", 22, "", "Alex", 36),
 ];
-
-// TODO: Add Alex handicap
 
 export default function Handicaps2023Table() {
 	const Styles = {

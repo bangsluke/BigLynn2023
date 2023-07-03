@@ -35,6 +35,7 @@ export async function getYearData() {
 		return {
 			year: row.year,
 			numberPlayers: row.numberPlayers,
+			totalYearScore: row.totalYearScore,
 			first: row.first,
 			second: row.second,
 			third: row.third,
@@ -43,17 +44,31 @@ export async function getYearData() {
 			sixth: row.sixth,
 			seventh: row.seventh,
 			eighth: row.eighth,
+			ninth: row.ninth,
+			tenth: row.tenth,
+			eleventh: row.eleventh,
+			firstScore: row.firstScore,
+			secondScore: row.secondScore,
+			thirdScore: row.thirdScore,
+			fourthScore: row.fourthScore,
+			fifthScore: row.fifthScore,
+			sixthScore: row.sixthScore,
+			seventhScore: row.seventhScore,
+			eighthScore: row.eighthScore,
+			ninthScore: row.ninthScore,
+			tenthScore: row.tenthScore,
+			eleventhScore: row.eleventhScore,
 		};
 	});
 
 	// Collate the data to be returned
-	const ReturnedDocInfo = {
-		title: doc.title,
-		sheet: sheet.title,
-		rowCount: sheet.rowCount,
-		sheetData: allYears,
-	};
-	console.log("ReturnedDocInfo", ReturnedDocInfo);
+	// const ReturnedDocInfo = {
+	// 	title: doc.title,
+	// 	sheet: sheet.title,
+	// 	rowCount: sheet.rowCount,
+	// 	sheetData: allYears,
+	// };
+	// console.log("ReturnedDocInfo", ReturnedDocInfo);
 
 	// Log the data that is to be returned by this function
 	// console.log("allYears", allYears);

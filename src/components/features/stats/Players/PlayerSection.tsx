@@ -270,6 +270,7 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 									style={{
 										borderRadius: `${ProfileImageDimensions}px`,
 									}}
+									priority
 								/>
 							</div>
 						</Grid>
@@ -381,6 +382,7 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 					</Grid>
 
 					<h2>Predictions</h2>
+					<h5>Based on data trends</h5>
 					<Grid container spacing={ThemingS.themeConfig.gridSpacing} justifyContent='center' alignItems='center' sx={StatSectionBoxesStyle}>
 						<StatHolder
 							headerText='2022 Points'
