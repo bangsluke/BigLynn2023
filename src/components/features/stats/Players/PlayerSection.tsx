@@ -270,6 +270,7 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 									style={{
 										borderRadius: `${ProfileImageDimensions}px`,
 									}}
+									priority
 								/>
 							</div>
 						</Grid>
