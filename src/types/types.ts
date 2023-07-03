@@ -228,6 +228,20 @@ export interface YearDataType {
 	sixth: string;
 	seventh: string;
 	eighth: string;
+	ninth: string;
+	tenth: string;
+	eleventh: string;
+	firstScore: number;
+	secondScore: number;
+	thirdScore: number;
+	fourthScore: number;
+	fifthScore: number;
+	sixthScore: number;
+	seventhScore: number;
+	eighthScore: number;
+	ninthScore: number;
+	tenthScore: number;
+	eleventhScore: number;
 }
 
 // Define the TabPanelProps type - mui.com/material-ui/react-tabs/
