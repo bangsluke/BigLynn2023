@@ -87,7 +87,6 @@ export default function YearSection(props: { dataMethod: DataMethods }) {
 						.then((response) => {
 							// console.log("response", response);
 							setAllYearData(response);
-
 							setIsLoaded(true);
 						})
 						.catch((error) => {
@@ -294,6 +293,88 @@ export default function YearSection(props: { dataMethod: DataMethods }) {
 							xsWidth={4}
 							fontSize={StatHolderHeaderFontSize}
 						/>
+						<RankHolder
+							rankText='3rd'
+							name={selectedYearData.third !== undefined ? selectedYearData.third.toString() : "N/A"}
+							score={selectedYearData.thirdScore !== undefined ? selectedYearData.thirdScore : 0}
+							xsWidth={4}
+							fontSize={StatHolderHeaderFontSize}
+						/>
+					</Grid>
+
+					<Grid container spacing={ThemingS.themeConfig.gridSpacing} justifyContent='center' alignItems='center' sx={StatSectionBoxesStyle}>
+						{selectedYearData.fourth && (
+							<RankHolder
+								rankText='4th'
+								name={selectedYearData.fourth !== undefined ? selectedYearData.fourth.toString() : "N/A"}
+								score={selectedYearData.fourthScore !== undefined ? selectedYearData.fourthScore : 0}
+								xsWidth={4}
+								fontSize={StatHolderHeaderFontSize}
+							/>
+						)}
+						{selectedYearData.fifth && (
+							<RankHolder
+								rankText='5th'
+								name={selectedYearData.fifth !== undefined ? selectedYearData.fifth.toString() : "N/A"}
+								score={selectedYearData.fifthScore !== undefined ? selectedYearData.fifthScore : 0}
+								xsWidth={4}
+								fontSize={StatHolderHeaderFontSize}
+							/>
+						)}
+						{selectedYearData.sixth && (
+							<RankHolder
+								rankText='6th'
+								name={selectedYearData.sixth !== undefined ? selectedYearData.sixth.toString() : "N/A"}
+								score={selectedYearData.sixthScore !== undefined ? selectedYearData.sixthScore : 0}
+								xsWidth={4}
+								fontSize={StatHolderHeaderFontSize}
+							/>
+						)}
+						{selectedYearData.seventh && (
+							<RankHolder
+								rankText='7th'
+								name={selectedYearData.seventh !== undefined ? selectedYearData.seventh.toString() : "N/A"}
+								score={selectedYearData.seventhScore !== undefined ? selectedYearData.seventhScore : 0}
+								xsWidth={4}
+								fontSize={StatHolderHeaderFontSize}
+							/>
+						)}
+						{selectedYearData.eighth && (
+							<RankHolder
+								rankText='8th'
+								name={selectedYearData.eighth !== undefined ? selectedYearData.eighth.toString() : "N/A"}
+								score={selectedYearData.eighthScore !== undefined ? selectedYearData.eighthScore : 0}
+								xsWidth={4}
+								fontSize={StatHolderHeaderFontSize}
+							/>
+						)}
+						{selectedYearData.ninth && (
+							<RankHolder
+								rankText='9th'
+								name={selectedYearData.ninth !== undefined ? selectedYearData.ninth.toString() : "N/A"}
+								score={selectedYearData.ninthScore !== undefined ? selectedYearData.ninthScore : 0}
+								xsWidth={4}
+								fontSize={StatHolderHeaderFontSize}
+							/>
+						)}
+						{selectedYearData.tenth && (
+							<RankHolder
+								rankText='10th'
+								name={selectedYearData.tenth !== undefined ? selectedYearData.tenth.toString() : "N/A"}
+								score={selectedYearData.tenthScore !== undefined ? selectedYearData.tenthScore : 0}
+								xsWidth={4}
+								fontSize={StatHolderHeaderFontSize}
+							/>
+						)}
+						{selectedYearData.eleventh && (
+							<RankHolder
+								rankText='11th'
+								name={selectedYearData.eleventh !== undefined ? selectedYearData.eleventh.toString() : "N/A"}
+								score={selectedYearData.eleventhScore !== undefined ? selectedYearData.eleventhScore : 0}
+								xsWidth={4}
+								fontSize={StatHolderHeaderFontSize}
+							/>
+						)}
 					</Grid>
 				</Grid>
 				{/* Hold the main data table section card */}

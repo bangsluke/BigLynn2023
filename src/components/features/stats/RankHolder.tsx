@@ -11,9 +11,13 @@ interface RankHolderProps {
 
 export default function RankHolder(props: RankHolderProps) {
 	const { rankText, name, score, xsWidth, fontSize, secondaryFontSize } = props; // Destructure props
+
+	const sideBoxesWidth = xsWidth === 12 ? 12 : 3;
+	const middleBoxWidth = xsWidth === 12 ? 12 : 6;
+
 	return (
 		<Grid container item xs={12} style={{ backgroundColor: "null", textAlign: "center", padding: "0.5rem", margin: "0" }}>
-			<Grid item xs={xsWidth} style={{ backgroundColor: "null", textAlign: "center", padding: "0.5rem", margin: "0" }}>
+			<Grid item xs={sideBoxesWidth} style={{ backgroundColor: "null", textAlign: "center", padding: "0.5rem", margin: "0" }}>
 				<p
 					style={{
 						fontWeight: "lighter",
@@ -27,7 +31,7 @@ export default function RankHolder(props: RankHolderProps) {
 					{rankText}
 				</p>
 			</Grid>
-			<Grid item xs={xsWidth} style={{ backgroundColor: "null", textAlign: "center", padding: "0.5rem", margin: "0" }}>
+			<Grid item xs={middleBoxWidth} style={{ backgroundColor: "null", textAlign: "center", padding: "0.5rem", margin: "0" }}>
 				<h3
 					style={{
 						fontWeight: "bolder",
@@ -40,7 +44,7 @@ export default function RankHolder(props: RankHolderProps) {
 					{name}
 				</h3>
 			</Grid>
-			<Grid item xs={xsWidth} style={{ backgroundColor: "null", textAlign: "center", padding: "0.5rem", margin: "0" }}>
+			<Grid item xs={sideBoxesWidth} style={{ backgroundColor: "null", textAlign: "center", padding: "0.5rem", margin: "0" }}>
 				<h3
 					style={{
 						fontWeight: "lighter",
