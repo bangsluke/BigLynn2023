@@ -14,29 +14,29 @@ import ThemingS from "services/ThemingS";
 import { PlayerData } from "types/types";
 
 const columns = [
-	{ name: "fullName", header: "Player", minWidth: 100, defaultFlex: 1 },
-	{ name: "apps", header: "Apps", minWidth: 100, defaultFlex: 1 },
-	{ name: "pointsFinishes", header: "Points Finish", minWidth: 100, defaultFlex: 1 },
-	{ name: "wins", header: "Wins", minWidth: 100, defaultFlex: 1 },
-	{ name: "winPercentage", header: "Win %", minWidth: 100, defaultFlex: 1 },
-	{ name: "pointsTotal", header: "Total Points", minWidth: 100, defaultFlex: 1 },
-	{ name: "pointsAverage", header: "Average Points", minWidth: 100, defaultFlex: 1 },
-	{ name: "pointsMax", header: "Maximum Points", minWidth: 100, defaultFlex: 1 },
-	{ name: "pointsMaxYear", header: "Maximum Year", minWidth: 100, defaultFlex: 1 },
-	{ name: "pointsMin", header: "Minimum Points", minWidth: 100, defaultFlex: 1 },
-	{ name: "pointsMinYear", header: "Minimum Year", minWidth: 100, defaultFlex: 1 },
-	{ name: "pointsLatest", header: "2022 Points", minWidth: 100, defaultFlex: 1 },
-	{ name: "pointsExpected2023Points", header: "Predicted 2023 Points", minWidth: 100, defaultFlex: 1 },
-	{ name: "handicapLatest", header: "2023 Handicap", minWidth: 100, defaultFlex: 1 },
-	{ name: "handicapMinimum", header: "Lowest Handicap", minWidth: 100, defaultFlex: 1 },
-	{ name: "handicapMinimumYear", header: "Lowest Handicap Year", minWidth: 100, defaultFlex: 1 },
-	{ name: "handicapMaximum", header: "Highest Handicap", minWidth: 100, defaultFlex: 1 },
-	{ name: "handicapMaximumYear", header: "Highest Handicap Year", minWidth: 100, defaultFlex: 1 },
-	{ name: "handicapExpected", header: "Predicted 2024 Handicap", minWidth: 100, defaultFlex: 1 },
-	{ name: "positionAverage", header: "Average Position", minWidth: 100, defaultFlex: 1 },
-	{ name: "positionBestFinish", header: "Best Finish", minWidth: 100, defaultFlex: 1 },
-	{ name: "positionWorstFinish", header: "Worst Finish", minWidth: 100, defaultFlex: 1 },
-	{ name: "positionPredicted", header: "Predicted 2023 Finish", minWidth: 100, defaultFlex: 1 },
+	{ name: "fullName", header: "Player", minWidth: 140, defaultFlex: 1 },
+	{ name: "apps", header: "Apps", minWidth: 80, defaultFlex: 1 },
+	{ name: "pointsFinishes", header: "Points Finish", minWidth: 130, defaultFlex: 1 },
+	{ name: "wins", header: "Wins", minWidth: 80, defaultFlex: 1 },
+	{ name: "winPercentage", header: "Win %", minWidth: 90, defaultFlex: 1 },
+	{ name: "pointsTotal", header: "Total Points", minWidth: 120, defaultFlex: 1 },
+	{ name: "pointsAverage", header: "Average Points", minWidth: 130, defaultFlex: 1 },
+	{ name: "pointsMax", header: "Maximum Points", minWidth: 150, defaultFlex: 1 },
+	{ name: "pointsMaxYear", header: "Maximum Year", minWidth: 140, defaultFlex: 1 },
+	{ name: "pointsMin", header: "Minimum Points", minWidth: 150, defaultFlex: 1 },
+	{ name: "pointsMinYear", header: "Minimum Year", minWidth: 140, defaultFlex: 1 },
+	{ name: "pointsLatest", header: "2022 Points", minWidth: 120, defaultFlex: 1 },
+	{ name: "pointsExpected2023Points", header: "Predicted 2023 Points", minWidth: 140, defaultFlex: 1 },
+	{ name: "handicapLatest", header: "2023 Handicap", minWidth: 140, defaultFlex: 1 },
+	{ name: "handicapMinimum", header: "Lowest Handicap", minWidth: 140, defaultFlex: 1 },
+	{ name: "handicapMinimumYear", header: "Lowest Handicap Year", minWidth: 170, defaultFlex: 1 },
+	{ name: "handicapMaximum", header: "Highest Handicap", minWidth: 140, defaultFlex: 1 },
+	{ name: "handicapMaximumYear", header: "Highest Handicap Year", minWidth: 170, defaultFlex: 1 },
+	{ name: "handicapExpected", header: "Predicted 2024 Handicap", minWidth: 140, defaultFlex: 1 },
+	{ name: "positionAverage", header: "Average Position", minWidth: 120, defaultFlex: 1 },
+	{ name: "positionBestFinish", header: "Best Finish", minWidth: 120, defaultFlex: 1 },
+	{ name: "positionWorstFinish", header: "Worst Finish", minWidth: 120, defaultFlex: 1 },
+	{ name: "positionPredicted", header: "Predicted 2023 Finish", minWidth: 170, defaultFlex: 1 },
 ];
 
 const gridStyle = { minHeight: 550 }; // TODO: Extract to a common file
@@ -129,8 +129,8 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 	// Initialise the sizes for mobile and tablet
 	let ProfileImageDimensions = 140; // The dimensions of the profile image
 	let PlayerSectionTopBoxHeight = "16rem"; // The height of the top box sections
-	let PlayerHeaderFontSize = "1.3rem"; // The font size of the player name
-	let StatHolderHeaderFontSize = "1rem"; // The font size of the stat holder headers
+	let PlayerHeaderFontSize = "1.2rem"; // The font size of the player name
+	let StatHolderHeaderFontSize = "0.9rem"; // The font size of the stat holder headers
 	let StatHolderValuesFontSize = "2rem"; // The font size of the stat holder values
 	// Update the sizes for desktop and larger
 	if (screenSize === "md") {
@@ -194,14 +194,14 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 		// console.log("allPlayerData: ", allPlayerData);
 		// console.log("playerChange: event.target.value: ", event.target.value);
 		setSelectedPlayerID(event.target.value);
-		if (event.target.value === 100) {
+		if (event.target.value === "All Players") {
 			// Deal with the All Players option and add some basic example
-			setAllPlayersSelectedBoolean(true);
-			setSelectedPlayerData(ExamplePlayerData);
+			setSelectedPlayerData(ExamplePlayerData); // Set the selected player data to the example data (to stop errors)
+			setAllPlayersSelectedBoolean(true); // Switch to show all players section
 		} else {
 			// Otherwise set the selected player data to the selected player ID
-			setAllPlayersSelectedBoolean(false);
-			setSelectedPlayerData(allPlayerData[event.target.value]);
+			setSelectedPlayerData(allPlayerData[event.target.value]); // Set the selected player data to the selected player ID
+			setAllPlayersSelectedBoolean(false); // Switch to show individual player section
 		}
 	};
 
@@ -218,7 +218,10 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 					autoWidth
 					label='Select option...'
 					name='View Option Select'>
-					{/* <MenuItem value='100'>All Players</MenuItem> // TODO: Re-add All Players option?  */}
+					<MenuItem key='All Players' value='All Players'>
+						All Players
+					</MenuItem>
+					{/*// TODO: Re-add All Players option?  */}
 					{allPlayerData?.map((player: PlayerData) => {
 						return (
 							<MenuItem key={player.fullName} value={player.id}>

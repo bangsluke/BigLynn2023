@@ -14,7 +14,7 @@ import { YearDataType } from "types/types";
 
 // Define the column details for displaying all years
 const allYearsColumns = [
-	{ name: "year", header: "Year", minWidth: 84, defaultFlex: 1, frozen: true },
+	{ name: "year", header: "Year", minWidth: 84, defaultFlex: 1 },
 	{ name: "numberPlayers", header: "Number of Players", minWidth: 156, defaultFlex: 1 },
 	{ name: "totalYearScore", header: "Total Year Score", minWidth: 156, defaultFlex: 1 },
 	{ name: "first", header: "1st", minWidth: 120, defaultFlex: 1 },
