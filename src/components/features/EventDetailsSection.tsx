@@ -1,3 +1,5 @@
+import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
+import PhoneIcon from "@mui/icons-material/Phone";
 import { AppBar, Container, Grid, Link, Tab, Tabs, Typography } from "@mui/material";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
@@ -10,6 +12,20 @@ import { useState } from "react";
 import ThemingS from "services/ThemingS";
 
 // Styles
+
+// Define the styles for the contact details boxes
+const ContactDetailsBoxStyle = {
+	height: "2rem",
+	textAlign: "center",
+};
+const ContactDetailsStyle = {
+	height: "2rem",
+	display: "flex",
+	alignItems: "center",
+	justifyContent: "center",
+};
+
+// Define the styles for the map box
 const MapBoxWrapper = styled("section")({
 	position: "relative",
 	// Height: "600px",
@@ -168,6 +184,28 @@ export default function EventDetailsSection() {
 							<Typography variant='h3' color='primary' style={{ marginTop: "0.5rem" }}>
 								Stoke By Nayland
 							</Typography>
+							<Grid
+								container
+								spacing={0}
+								sx={{ backgroundColor: "null", height: "2rem", margin: { xs: "1rem 0 2rem 0", sm: "2rem 0 0 0" } }}>
+								<Grid item xs={12} sm={6} sx={ContactDetailsBoxStyle}>
+									<a href='tel:+01206262836' style={ContactDetailsStyle}>
+										<PhoneIcon />
+										<Typography variant='body1' sx={{ marginLeft: "0.5rem" }}>
+											01206 262836
+										</Typography>
+									</a>
+								</Grid>
+								<Grid item xs={12} sm={6} sx={ContactDetailsBoxStyle}>
+									<a href='mailto:sales@stokebynayland.com' style={ContactDetailsStyle}>
+										<AlternateEmailIcon />
+										<Typography variant='body1' sx={{ marginLeft: "0.5rem" }}>
+											sales@stokebynayland.com
+										</Typography>
+									</a>
+								</Grid>
+							</Grid>
+
 							<Typography variant='body1' style={{ marginTop: "1rem" }}>
 								Idyllically located in the Dedham Vale Area of Outstanding Natural Beauty, this award-winning, family-owned spa hotel is in
 								the countryside on the Essex/Suffolk border (perfect location isn&apos;t that right Hoj!)
