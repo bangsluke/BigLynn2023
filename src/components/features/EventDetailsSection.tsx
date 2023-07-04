@@ -237,6 +237,16 @@ export default function EventDetailsSection() {
 								with a pool, steam room, sanarium (a weaker version of a sauna), a jacuzzi and a concept shower (whatever that is). It is
 								open from 07:30-19:30, but we will just need to book 2 hours in advance.
 							</Typography>
+							<Typography variant='h5' style={{ marginTop: "1rem" }}>
+								Gym
+							</Typography>
+							<Typography variant='body1' style={{ marginTop: "1rem" }}>
+								There is{" "}
+								<a href='https://www.stokebynayland.com/hotel/hotel-facilities/peake-fitness/' target='_blank' rel='noreferrer'>
+									Peake Fitness
+								</a>{" "}
+								equipped with Technogym equipment and over 90 different classes on offer. We have complimentary access to all of this.
+							</Typography>
 						</Grid>
 					</Grid>
 				</Grid>

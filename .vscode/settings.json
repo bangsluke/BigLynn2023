@@ -40,12 +40,16 @@
 		"datetime",
 		"Gimmee",
 		"hookform",
+		"Leavenheath",
 		"Nayland",
 		"Organiser",
+		"Peake",
 		"PROTOTYPEBOM",
 		"rigours",
+		"sanarium",
 		"SSTS",
-		"Stableford"
+		"Stableford",
+		"Technogym"
 	],
 	"githubPullRequests.ignoredPullRequestBranches": ["main"]
 }
