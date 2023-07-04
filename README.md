@@ -8,7 +8,7 @@ An information page for the Big Lynn 2023 golf competition including details and
 
 ## Start Up
 
-Use `yarn dev` to start up the tool and it will be available at http://localhost:3000/
+Use `yarn dev` to start up the tool and it will be available at <http://localhost:3000/>
 
 Look at package.json for other commands.
 
@@ -17,7 +17,8 @@ Look at package.json for other commands.
 The best way to quickly update the data from the Google Sheet is to use the SheetDB.io service, detailed [fully below](#sheetdbio).
 
 Steps:
-1. Go to https://sheetdb.io/
+
+1. Go to <https://sheetdb.io/>
 2. Sign in using Google Account
 3. On the StatsSection.tsx, change the constant `dataMethod` to be `DataMethods.sheetDBio`
 4. Two axios calls will be made via the sheetDBio API, which can be seen on the web page
@@ -31,19 +32,19 @@ Steps:
 
 Used the following links to get the sheet API working
 
-- https://www.andredevries.dev/posts/google-sheets-database-nextjs
-- https://theoephraim.github.io/node-google-spreadsheet/#/getting-started/authentication
+- <https://www.andredevries.dev/posts/google-sheets-database-nextjs>
+- <https://theoephraim.github.io/node-google-spreadsheet/#/getting-started/authentication>
 
 Steps (using above links):
 
-1. Create a service account in the Google Cloud Console (https://theoephraim.github.io/node-google-spreadsheet/#/getting-started/authentication?id=service-account)
+1. Create a service account in the Google Cloud Console (<https://theoephraim.github.io/node-google-spreadsheet/#/getting-started/authentication?id=service-account>)
 
 ### SheetDB.io
 
-Really simple method of creating a REST API for a Google Sheet. https://sheetdb.io/
+Really simple method of creating a REST API for a Google Sheet. <https://sheetdb.io/>
 
-> Note: There is a 500 API request per month limit though before you have to begin paying for the service which is expensive. See "https://sheetdb.io/app/statistics/usage" for usage
+> Note: There is a 500 API request per month limit though before you have to begin paying for the service which is expensive. See "<https://sheetdb.io/app/statistics/usage>" for usage
 
 1. Either install and use axios (yarn add axios) or use the SheetDB.io library (npm install sheetdb-js --save).
-2. Create an API for the Google Sheet using the SheetDB.io website at "https://sheetdb.io/app/api". All you need to do is copy across the URL from the Google Sheet and paste it into the SheetDB.io website.
-3. If you call a get request on the API, e.g. axios.get("https://sheetdb.io/api/v1/sob72d8vw4tpv").then((response), then all of the data on the first sheet of the Google Sheet will be returned. To instead select a sheet, add ?sheet=SheetName to the end of the URL, e.g. axios.get("https://sheetdb.io/api/v1/sob72d8vw4tpv?sheet=Sheet1").then((response). See "https://docs.sheetdb.io/?html--javascript#multiple-sheets-tabs" for more details.
+2. Create an API for the Google Sheet using the SheetDB.io website at "<https://sheetdb.io/app/api>". All you need to do is copy across the URL from the Google Sheet and paste it into the SheetDB.io website.
+3. If you call a get request on the API, e.g. axios.get("<https://sheetdb.io/api/v1/sob72d8vw4tpv").then((response)>, then all of the data on the first sheet of the Google Sheet will be returned. To instead select a sheet, add ?sheet=SheetName to the end of the URL, e.g. axios.get("<https://sheetdb.io/api/v1/sob72d8vw4tpv?sheet=Sheet1").then((response)>. See "<https://docs.sheetdb.io/?html--javascript#multiple-sheets-tabs>" for more details.
