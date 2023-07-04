@@ -24,23 +24,29 @@ const NavigationInfo: NavigationAnchor[] = [
 	{
 		id: 4,
 		key: uuid(),
+		name: "Quotes",
+		anchor: "quotes",
+	},
+	{
+		id: 5,
+		key: uuid(),
 		name: "Rules",
 		anchor: "rules",
 	},
 	{
-		id: 5,
+		id: 6,
 		key: uuid(),
 		name: "Statistics",
 		anchor: "statistics",
 	},
 	{
-		id: 6,
+		id: 7,
 		key: uuid(),
 		name: "FAQ",
 		anchor: "FAQ",
 	},
 	{
-		id: 7,
+		id: 8,
 		key: uuid(),
 		name: "Useful Links",
 		anchor: "usefulLinks",

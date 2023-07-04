@@ -7,8 +7,12 @@ import SectionHeader from "components/ui/SectionHeader";
 import { useState } from "react";
 import ThemingS from "services/ThemingS";
 
-// Define a common minimum width for the dropdowns
-const MinDropdownWidth = 140; // TODO: Extract to a common file
+// Define some common styles for the stats sub sections
+const CommonStatsStyles = {
+	AllStatsSectionHeight: "25rem", // Define a common height for the all stats sections
+	MinDropdownWidth: 140, // Define a common minimum width for the dropdowns
+	GridStyle: { minHeight: 550 }, // Define the grid style for the stats table sections
+};
 
 // Define the possible data methods can be selected
 export enum DataMethods {
@@ -47,9 +51,9 @@ const StatsSection = () => {
 				<Grid item xs={12} sx={{ backgroundColor: "null" }}>
 					<Grid container alignItems='center' justifyContent='space-between' spacing={ThemingS.themeConfig.gridSpacing}>
 						{/* Hold the dropdown selectors */}
-						<Grid item xs={12} sx={{ marginBottom: "0.5rem", backgroundColor: "null" }}>
+						<Grid item xs={12} sx={{ marginBottom: "1.5rem", backgroundColor: "null" }}>
 							{/* View Option Dropdown */}
-							<FormControl sx={{ m: 0, minWidth: MinDropdownWidth, width: "90%" }} color='primary'>
+							<FormControl sx={{ m: 0, minWidth: CommonStatsStyles.MinDropdownWidth, width: "90%" }} color='primary'>
 								<InputLabel id='demo-simple-select-autowidth-label'>View Option</InputLabel>
 								<Select
 									labelId='demo-simple-select-autowidth-label'
@@ -81,7 +85,11 @@ const StatsSection = () => {
 								padding: "1rem",
 							}}>
 							{/* Add a ternary operator to decide what section to display */}
-							{viewOption === "Player Stats" ? <PlayerSection dataMethod={dataMethod} /> : <YearSection dataMethod={dataMethod} />}
+							{viewOption === "Player Stats" ? (
+								<PlayerSection dataMethod={dataMethod} commonStatsStyles={CommonStatsStyles} />
+							) : (
+								<YearSection dataMethod={dataMethod} commonStatsStyles={CommonStatsStyles} />
+							)}
 						</Grid>
 					</Grid>
 				</Grid>

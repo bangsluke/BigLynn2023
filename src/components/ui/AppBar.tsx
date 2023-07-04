@@ -23,6 +23,7 @@ import {
 	IconCheckupList,
 	IconLink,
 	IconQuestionMark,
+	IconQuote,
 	IconReportAnalytics,
 	IconRuler2,
 } from "@tabler/icons";
@@ -132,6 +133,14 @@ const InfoPageAppBar = ({ ...others }) => {
 														<IconCheckupList />
 													</ListItemIcon>
 													<ListItemText primary='Itinerary' />
+												</ListItemButton>
+											</Link>
+											<Link style={{ textDecoration: "none" }} href='#quotes'>
+												<ListItemButton component='a'>
+													<ListItemIcon>
+														<IconQuote />
+													</ListItemIcon>
+													<ListItemText primary='Quotes' />
 												</ListItemButton>
 											</Link>
 											<Link style={{ textDecoration: "none" }} href='#rules'>

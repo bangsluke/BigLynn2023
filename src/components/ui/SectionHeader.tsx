@@ -12,6 +12,7 @@ const SectionHeader = (props: SectionHeaderProps) => {
 	return (
 		<Grid item xs={12} lg={8} md={10}>
 			<Grid container spacing={2} sx={{ mb: 2 }}>
+				{/* Display the header */}
 				<Grid item xs={12}>
 					<Grid container spacing={1}>
 						<Grid item>
@@ -21,14 +22,19 @@ const SectionHeader = (props: SectionHeaderProps) => {
 						</Grid>
 					</Grid>
 				</Grid>
-				<Grid item xs={12}>
-					<Typography variant='h2' component='div'>
-						{subheader}
-					</Typography>
-				</Grid>
-				<Grid item xs={12}>
-					<Typography variant='body2'>{description}</Typography>
-				</Grid>
+				{/* Display the subheader and description if they are provided */}
+				{subheader && (
+					<Grid item xs={12}>
+						<Typography variant='h2' component='div'>
+							{subheader}
+						</Typography>
+					</Grid>
+				)}
+				{description && (
+					<Grid item xs={12}>
+						<Typography variant='body2'>{description}</Typography>
+					</Grid>
+				)}
 			</Grid>
 		</Grid>
 	);

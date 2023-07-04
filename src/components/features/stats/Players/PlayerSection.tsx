@@ -13,6 +13,7 @@ import { FadeLoader } from "react-spinners";
 import ThemingS from "services/ThemingS";
 import { PlayerData } from "types/types";
 
+// Define columns for the all player stats table
 const columns = [
 	{ name: "fullName", header: "Player", minWidth: 140, defaultFlex: 1 },
 	{ name: "apps", header: "Apps", minWidth: 80, defaultFlex: 1 },
@@ -38,8 +39,6 @@ const columns = [
 	{ name: "positionWorstFinish", header: "Worst Finish", minWidth: 120, defaultFlex: 1 },
 	{ name: "positionPredicted", header: "Predicted 2023 Finish", minWidth: 170, defaultFlex: 1 },
 ];
-
-const gridStyle = { minHeight: 550 }; // TODO: Extract to a common file
 
 // Define an example player data object for before the data is loaded
 const ExamplePlayerData: PlayerData = {
@@ -71,11 +70,8 @@ const ExamplePlayerData: PlayerData = {
 	positionPredicted: 4,
 };
 
-// Define a common minimum width for the dropdowns
-const MinDropdownWidth = 140; // TODO: Extract to a common file
-
-export default function PlayerSection(props: { dataMethod: DataMethods }) {
-	const { dataMethod } = props; // Destructure props
+export default function PlayerSection(props: { dataMethod: DataMethods; commonStatsStyles: any }) {
+	const { dataMethod, commonStatsStyles } = props; // Destructure props
 
 	// Define the states for the data
 	const [isLoaded, setIsLoaded] = useState<boolean>(false); // Define a loaded state for the data
@@ -208,7 +204,7 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 	// Player Selection Dropdown
 	const PlayerNameSelection = () => {
 		return (
-			<FormControl sx={{ mt: 2, minWidth: MinDropdownWidth, width: "90%" }} color='primary'>
+			<FormControl sx={{ margin: "1rem auto 0 auto", minWidth: commonStatsStyles.MinDropdownWidth, width: "100%" }} color='primary'>
 				<InputLabel id='demo-simple-select-autowidth-label'>Player Selection</InputLabel>
 				<Select
 					labelId='demo-simple-select-autowidth-label'
@@ -221,7 +217,6 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 					<MenuItem key='All Players' value='All Players'>
 						All Players
 					</MenuItem>
-					{/*// TODO: Re-add All Players option?  */}
 					{allPlayerData?.map((player: PlayerData) => {
 						return (
 							<MenuItem key={player.fullName} value={player.id}>
@@ -432,8 +427,14 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 		return (
 			<>
 				{/* Hold the main data table section card */}
-				<Grid item lg={12} md={12} sm={12} xs={12}>
-					<ReactDataGrid idProperty='id' theme='default-light' columns={columns} dataSource={allPlayerData} style={gridStyle} />
+				<Grid item lg={12} md={12} sm={12} xs={12} sx={{ minHeight: commonStatsStyles.AllStatsSectionHeight }}>
+					<ReactDataGrid
+						idProperty='id'
+						theme='default-light'
+						columns={columns}
+						dataSource={allPlayerData}
+						style={commonStatsStyles.GridStyle}
+					/>
 				</Grid>
 			</>
 		);
