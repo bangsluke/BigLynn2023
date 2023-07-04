@@ -30,11 +30,6 @@ const allYearsColumns = [
 	{ name: "eleventh", header: "11th", minWidth: 120, defaultFlex: 1 },
 ];
 
-const gridStyle = { minHeight: 550 }; // TODO: Extract to a common file
-
-// Define a common minimum width for the dropdowns
-const MinDropdownWidth = 140; // TODO: Extract to a common file
-
 // Define an example year data object for before the data is loaded
 const ExampleYearData: YearDataType = {
 	year: "2022",
@@ -65,8 +60,8 @@ const ExampleYearData: YearDataType = {
 	eleventhScore: 16,
 };
 
-export default function YearSection(props: { dataMethod: DataMethods }) {
-	const { dataMethod } = props; // Destructure props
+export default function YearSection(props: { dataMethod: DataMethods; commonStatsStyles: any }) {
+	const { dataMethod, commonStatsStyles } = props; // Destructure props
 
 	// Define the states for the data
 	const [isLoaded, setIsLoaded] = useState<boolean>(false); // Define a loaded state for the data
@@ -200,7 +195,7 @@ export default function YearSection(props: { dataMethod: DataMethods }) {
 	// Year Selection Dropdown
 	const YearSelection = () => {
 		return (
-			<FormControl sx={{ margin: "1rem 0 0 0", minWidth: MinDropdownWidth, width: "100%" }} color='primary'>
+			<FormControl sx={{ margin: "1rem 0 0 0", minWidth: commonStatsStyles.MinDropdownWidth, width: "100%" }} color='primary'>
 				<InputLabel id='demo-simple-select-autowidth-label'>Year Selection</InputLabel>
 				<Select
 					labelId='demo-simple-select-autowidth-label'
@@ -392,8 +387,14 @@ export default function YearSection(props: { dataMethod: DataMethods }) {
 		return (
 			<>
 				{/* Hold the main data table section card */}
-				<Grid item lg={12} md={12} sm={12} xs={12} sx={{ height: "max-content", minHeight: "20rem" }}>
-					<ReactDataGrid idProperty='id' theme='default-light' columns={allYearsColumns} dataSource={allYearData} style={gridStyle} />
+				<Grid item lg={12} md={12} sm={12} xs={12} sx={{ minHeight: commonStatsStyles.AllStatsSectionHeight }}>
+					<ReactDataGrid
+						idProperty='id'
+						theme='default-light'
+						columns={allYearsColumns}
+						dataSource={allYearData}
+						style={commonStatsStyles.GridStyle}
+					/>
 				</Grid>
 			</>
 		);
