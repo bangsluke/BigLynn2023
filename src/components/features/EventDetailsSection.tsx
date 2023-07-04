@@ -145,13 +145,13 @@ const ConstableDetails = () => {
 
 export default function EventDetailsSection() {
 	// Define the state and a handle change function for the tab value
-	const [tabValue, setTabValue] = useState(0);
+	const [tabValue, setTabValue] = useState<number>(0);
 	const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
 		setTabValue(newValue);
 	};
 
 	// Define the state and a handle change function for the other facilities toggle value
-	const [facilitiesView, setFacilitiesView] = useState("Spa");
+	const [facilitiesView, setFacilitiesView] = useState("spa");
 	const handleToggleChange = (event: React.MouseEvent<HTMLElement>, nextView: string) => {
 		setFacilitiesView(nextView);
 	};

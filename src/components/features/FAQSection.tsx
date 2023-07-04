@@ -36,8 +36,7 @@ export default function FAQSection() {
 							</Message>
 							<Message type='answer'>
 								<p>
-									{/* // TODO: Update the link to the correct menu in July */}
-									<Link href='https://www.stokebynayland.com/wp-content/uploads/2023/06/Lakes-Dinner-Menu-June-2023-1.pdf' passHref>
+									<Link href='https://www.stokebynayland.com/wp-content/uploads/2023/06/Lakes-Dinner-Menu-JULY-23.pdf' passHref>
 										<a target='_blank'>Here you go</a>
 									</Link>
 									. The menu does change daily however. I hear the salmon is particularly good…
