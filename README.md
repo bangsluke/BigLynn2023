@@ -12,6 +12,10 @@ Use `yarn dev` to start up the tool and it will be available at <http://localhos
 
 Look at package.json for other commands.
 
+## Data Source
+
+All the data for the site is stored in Google Sheets - <https://docs.google.com/spreadsheets/d/13vUKIiVuYGmoSFvf2TNKi9lLDjgg3-fvDbC9E1GvHuo/edit#gid=0>
+
 ## Update The Data
 
 The best way to quickly update the data from the Google Sheet is to use the SheetDB.io service, detailed [fully below](#sheetdbio).
