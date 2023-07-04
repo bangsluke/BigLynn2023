@@ -39,7 +39,7 @@ export default function FAQSection() {
 									<Link href='https://www.stokebynayland.com/wp-content/uploads/2023/06/Lakes-Dinner-Menu-JULY-23.pdf' passHref>
 										<a target='_blank'>Here you go</a>
 									</Link>
-									. The menu does change daily however. I hear the salmon is particularly good…
+									. The menu may change daily. I hear the salmon is particularly good…
 								</p>
 							</Message>
 						</Grid>
@@ -64,7 +64,7 @@ export default function FAQSection() {
 								<p>Will there be a private sauna?</p>
 							</Message>
 							<Message type='answer'>
-								<p>No, unfortunately after the last conversations that occurred in it, HR stepped in and banned private saunas</p>
+								<p>No, unfortunately after the last conversations that occurred in one, HR stepped in and banned private saunas</p>
 							</Message>
 						</Grid>
 
@@ -92,8 +92,10 @@ export default function FAQSection() {
 							<Message type='answer'>
 								<p>
 									Fortunately we&#39;ve been able to hire someone to deal with such issues. Please direct all concerns to them{" "}
-									<Link href="mailto:david.rose@blueyonder.co.uk?subject=I'd Like To Complain About Your Language">here</Link>.
-									{/* TODO: Update the email address? Is Dave still using this one? */}
+									<Link href="mailto:david.rose@blueyonder.co.uk?subject=I'd Like To Complain About Your Language You ****ing Prick">
+										here
+									</Link>
+									.
 								</p>
 							</Message>
 						</Grid>

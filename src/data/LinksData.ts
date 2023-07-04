@@ -80,7 +80,7 @@ const LinksData: LinkData[] = [
 		key: uuid(),
 		iconName: "RestaurantIcon",
 		title: "Sports Bar Main Menu",
-		description: "For midday dining/pre dinner snacks",
+		description: "For midday dining/pre dinner snacks or meals",
 		linkURL: "https://www.stokebynayland.com/wp-content/uploads/2023/05/Sports-Bar-Main-Menu-A4-Final.pdf",
 	},
 
@@ -89,7 +89,7 @@ const LinksData: LinkData[] = [
 		key: uuid(),
 		iconName: "FastfoodIcon",
 		title: "Room Service Food Menu",
-		description: "Easy room service for late(ish) night (until 9PM) snacking",
+		description: "Easy room service for snacking (until 9PM)",
 		linkURL: "https://www.stokebynayland.com/wp-content/uploads/2023/02/Room-Service-menu.pdf",
 	},
 	{
