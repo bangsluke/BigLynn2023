@@ -123,7 +123,7 @@ export default function PlayerSection(props: { dataMethod: DataMethods; commonSt
 	// Get the screen size to define sizes
 	const screenSize = useScreenSize();
 	// Initialise the sizes for mobile and tablet
-	let ProfileImageDimensions = 140; // The dimensions of the profile image
+	let ProfileImageDimensions = 120; // The dimensions of the profile image
 	let PlayerSectionTopBoxHeight = "16rem"; // The height of the top box sections
 	let PlayerHeaderFontSize = "1.2rem"; // The font size of the player name
 	let StatHolderHeaderFontSize = "0.9rem"; // The font size of the stat holder headers
@@ -143,24 +143,11 @@ export default function PlayerSection(props: { dataMethod: DataMethods; commonSt
 		StatHolderValuesFontSize = "3rem";
 	}
 
-	// Define the style for the top box sections
-	const PlayerSectionTopBoxesStyle = {
-		height: PlayerSectionTopBoxHeight,
-		padding: "0.2rem",
-		marginBottom: "1rem",
-		display: "flex",
-		flexDirection: "column",
-		justifyContent: "flex-start",
-		alignItems: "flex-start",
-		textAlign: "center",
-		backgroundColor: "null",
-	};
-
 	// Define the style for the top box section holder
 	const TopSectionBoxesStyle = {
 		width: "100%",
 		padding: "0 0 0 0",
-		margin: "0 auto 1rem auto",
+		margin: "0 auto 1rem 0",
 		display: "flex",
 		flexDirection: "row",
 		justifyContent: "center",
@@ -168,6 +155,19 @@ export default function PlayerSection(props: { dataMethod: DataMethods; commonSt
 		textAlign: "center",
 		backgroundColor: "null",
 		borderBottom: "2px solid #7cadea",
+	};
+
+	// Define the style for the top box sections
+	const PlayerSectionTopBoxesStyle = {
+		height: PlayerSectionTopBoxHeight,
+		padding: "0 0 0 0.2rem",
+		marginBottom: "1rem",
+		display: "flex",
+		flexDirection: "column",
+		justifyContent: "flex-start",
+		alignItems: "flex-start",
+		textAlign: "center",
+		backgroundColor: "null",
 	};
 
 	// Define the style for the other stat sections
@@ -234,10 +234,10 @@ export default function PlayerSection(props: { dataMethod: DataMethods; commonSt
 		return (
 			<>
 				{/* Hold the selected player information */}
-				<Grid item lg={12} md={12} sm={12} xs={12}>
+				<Grid item lg={12} md={12} sm={12} xs={12} sx={{ backgroundColor: "null", m: 0, p: 0 }}>
 					<Grid container spacing={ThemingS.themeConfig.gridSpacing} justifyContent='center' alignItems='center' sx={TopSectionBoxesStyle}>
 						{/* Hold the player name and image */}
-						<Grid item xs={7} md={6} sx={PlayerSectionTopBoxesStyle}>
+						<Grid item xs={6} md={6} sx={PlayerSectionTopBoxesStyle}>
 							{/* Hold the player name */}
 							<h2
 								style={{
@@ -273,7 +273,7 @@ export default function PlayerSection(props: { dataMethod: DataMethods; commonSt
 							</div>
 						</Grid>
 						{/* Hold the player handicap information */}
-						<Grid item xs={5} md={6} sx={PlayerSectionTopBoxesStyle}>
+						<Grid item xs={6} md={6} sx={PlayerSectionTopBoxesStyle}>
 							<HandicapRange
 								lowestHandicap={selectedPlayerData.handicapMinimum}
 								highestHandicap={selectedPlayerData.handicapMaximum}

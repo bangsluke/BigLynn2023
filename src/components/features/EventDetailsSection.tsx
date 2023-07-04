@@ -58,9 +58,10 @@ const GainsboroughDetails = () => {
 						Description
 					</Typography>
 					<Typography variant='body1' style={{ margin: "0.5rem 0.5rem" }}>
-						The Gainsborough course measures over 7,000 yards with a Par of 71. The undulating terrain and four substantial lakes challenge
+						The Gainsborough course measures over 7,000 yards with a par of 71. The undulating terrain and four substantial lakes challenge
 						the skills of golfers of all abilities. The 10th requires a drive and second shot over the same lake, when played from the back
-						tee, and has been voted one of the most outstanding holes in East Anglia by the Professional Golf Association (PGA).
+						tee, and has been voted one of the most outstanding holes in East Anglia by the{" "}
+						<abbr title='Professional Golf Association'>PGA</abbr>.
 					</Typography>
 				</Grid>
 				{/* Hold the course image */}
@@ -106,7 +107,7 @@ const ConstableDetails = () => {
 					</Typography>
 					<Typography variant='body1' style={{ margin: "0.5rem 0.5rem" }}>
 						The Constable course is also set amongst wooded plantations with several natural water hazards in peaceful countryside. It
-						measures 6,544 yards with a Par of 72, and, as with the Gainsborough, the final hole presents a formidable drive over one of the
+						measures 6,544 yards with a par of 72, and, as with the Gainsborough, the final hole presents a formidable drive over one of the
 						large lakes, to a plateau green with the Sports Bar beckoning beyond.
 					</Typography>
 				</Grid>
@@ -295,7 +296,7 @@ export default function EventDetailsSection() {
 										display: "flex",
 										flexDirection: "column",
 										mb: 3,
-										padding: "0.5rem",
+										padding: "0rem 0.5rem 0.5rem 0.5rem",
 										backgroundColor: "null",
 										height: OtherFacilitiesStyles.height,
 									}}>

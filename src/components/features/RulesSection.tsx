@@ -269,7 +269,7 @@ export default function RulesSection() {
 				<Grid item xs={12} sx={{ mb: 4, backgroundColor: "null" }}>
 					<Grid container direction='row' spacing={ThemingS.themeConfig.gridSpacing}>
 						{/* Hold the contents information on the left side */}
-						<Grid item xs={12} sm={4} md={3} lg={3} xl={3} sx={{ mb: 2, backgroundColor: "null" }}>
+						<Grid item xs={12} sm={4} md={3} lg={3} xl={3} sx={{ mb: 0, backgroundColor: "null" }}>
 							<Typography variant='h4' component='div'>
 								Contents
 							</Typography>

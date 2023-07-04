@@ -1,7 +1,7 @@
 import { AppBar, Container, Grid, Tab, Tabs } from "@mui/material";
 import AOS from "aos";
 import "aos/dist/aos.css"; // You can also use <link> for styles
-import ItineraryComponent from "components/ui/ItineraryComponent";
+import ItineraryComponent from "components/features/itinerary/ItineraryComponent";
 import SectionHeader from "components/ui/SectionHeader";
 import ItineraryInfo from "data/ItineraryInfo";
 import { useEffect, useState } from "react";
