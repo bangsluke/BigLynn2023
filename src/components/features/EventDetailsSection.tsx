@@ -184,27 +184,10 @@ export default function EventDetailsSection() {
 							<Typography variant='h3' color='primary' style={{ marginTop: "0.5rem" }}>
 								Stoke By Nayland
 							</Typography>
-							<Grid
-								container
-								spacing={0}
-								sx={{ backgroundColor: "null", height: "2rem", margin: { xs: "1rem 0 2rem 0", sm: "2rem 0 0 0" } }}>
-								<Grid item xs={12} sm={6} sx={ContactDetailsBoxStyle}>
-									<a href='tel:+01206262836' style={ContactDetailsStyle}>
-										<PhoneIcon />
-										<Typography variant='body1' sx={{ marginLeft: "0.5rem" }}>
-											01206 262836
-										</Typography>
-									</a>
-								</Grid>
-								<Grid item xs={12} sm={6} sx={ContactDetailsBoxStyle}>
-									<a href='mailto:sales@stokebynayland.com' style={ContactDetailsStyle}>
-										<AlternateEmailIcon />
-										<Typography variant='body1' sx={{ marginLeft: "0.5rem" }}>
-											sales@stokebynayland.com
-										</Typography>
-									</a>
-								</Grid>
-							</Grid>
+							<Typography variant='body1' style={{ marginTop: "1rem" }}>
+								Scoring a stunning top score of 192.5 on Luke&apos;s possible Big Lynn location rating system, there is something for
+								everyone at Stoke by Nayland Resort
+							</Typography>
 
 							<Typography variant='body1' style={{ marginTop: "1rem" }}>
 								Idyllically located in the Dedham Vale Area of Outstanding Natural Beauty, this award-winning, family-owned spa hotel is in
@@ -373,6 +356,26 @@ export default function EventDetailsSection() {
 										<Image src='/images/LakesRestaurant.png' alt='Lakes Restaurant Image' layout='fixed' width='308' height='200' />
 									)}
 								</Grid>
+							</Grid>
+						</Grid>
+
+						{/* Contact Details */}
+						<Grid container spacing={0} sx={{ backgroundColor: "null", height: "2rem", margin: { xs: "1rem 0 2rem 0", sm: "2rem 0 0 0" } }}>
+							<Grid item xs={12} sm={6} sx={ContactDetailsBoxStyle}>
+								<a href='tel:+01206262836' style={ContactDetailsStyle}>
+									<PhoneIcon />
+									<Typography variant='body1' sx={{ marginLeft: "0.5rem" }}>
+										01206 262836
+									</Typography>
+								</a>
+							</Grid>
+							<Grid item xs={12} sm={6} sx={ContactDetailsBoxStyle}>
+								<a href='mailto:sales@stokebynayland.com' style={ContactDetailsStyle}>
+									<AlternateEmailIcon />
+									<Typography variant='body1' sx={{ marginLeft: "0.5rem" }}>
+										sales@stokebynayland.com
+									</Typography>
+								</a>
 							</Grid>
 						</Grid>
 					</Grid>
