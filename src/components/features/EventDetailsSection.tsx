@@ -1,4 +1,8 @@
+import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
+import PhoneIcon from "@mui/icons-material/Phone";
 import { AppBar, Container, Grid, Link, Tab, Tabs, Typography } from "@mui/material";
+import ToggleButton from "@mui/material/ToggleButton";
+import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import { styled } from "@mui/material/styles";
 import "aos/dist/aos.css"; // You can also use <link> for styles
 import Animation from "components/ui/Animation";
@@ -8,6 +12,20 @@ import { useState } from "react";
 import ThemingS from "services/ThemingS";
 
 // Styles
+
+// Define the styles for the contact details boxes
+const ContactDetailsBoxStyle = {
+	height: "2rem",
+	textAlign: "center",
+};
+const ContactDetailsStyle = {
+	height: "2rem",
+	display: "flex",
+	alignItems: "center",
+	justifyContent: "center",
+};
+
+// Define the styles for the map box
 const MapBoxWrapper = styled("section")({
 	position: "relative",
 	// Height: "600px",
@@ -17,6 +35,11 @@ const MapBoxWrapper = styled("section")({
 	border: "1px solid var(--jet)",
 	overflow: "hidden",
 });
+
+// Define the styles for the other facilities section
+const OtherFacilitiesStyles = {
+	height: "200px",
+};
 
 function a11yProps(index: number) {
 	return {
@@ -121,16 +144,23 @@ const ConstableDetails = () => {
 };
 
 export default function EventDetailsSection() {
-	const [value, setValue] = useState(0); // Define the state and a handle change function for the tab value
-	const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-		setValue(newValue);
+	// Define the state and a handle change function for the tab value
+	const [tabValue, setTabValue] = useState(0);
+	const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
+		setTabValue(newValue);
+	};
+
+	// Define the state and a handle change function for the other facilities toggle value
+	const [facilitiesView, setFacilitiesView] = useState("Spa");
+	const handleToggleChange = (event: React.MouseEvent<HTMLElement>, nextView: string) => {
+		setFacilitiesView(nextView);
 	};
 
 	// Grab the itinerary info from the data file based on the selected tab
 	let selectedCourse;
-	if (value === 0) {
+	if (tabValue === 0) {
 		selectedCourse = <GainsboroughDetails />;
-	} else if (value === 1) {
+	} else if (tabValue === 1) {
 		selectedCourse = <ConstableDetails />;
 	} else {
 		selectedCourse = <GainsboroughDetails />;
@@ -154,6 +184,11 @@ export default function EventDetailsSection() {
 							<Typography variant='h3' color='primary' style={{ marginTop: "0.5rem" }}>
 								Stoke By Nayland
 							</Typography>
+							<Typography variant='body1' style={{ marginTop: "1rem" }}>
+								Scoring a stunning top score of 192.5 on Luke&apos;s possible Big Lynn location rating system, there is something for
+								everyone at Stoke by Nayland Resort
+							</Typography>
+
 							<Typography variant='body1' style={{ marginTop: "1rem" }}>
 								Idyllically located in the Dedham Vale Area of Outstanding Natural Beauty, this award-winning, family-owned spa hotel is in
 								the countryside on the Essex/Suffolk border (perfect location isn&apos;t that right Hoj!)
@@ -204,8 +239,8 @@ export default function EventDetailsSection() {
 								{/* <Box sx={{ bgcolor: "background.paper", width: "100%", marginTop: "1rem" }}> */}
 								<AppBar position='static'>
 									<Tabs
-										value={value}
-										onChange={handleChange}
+										value={tabValue}
+										onChange={handleTabChange}
 										indicatorColor='secondary'
 										textColor='inherit'
 										variant='fullWidth'
@@ -223,30 +258,125 @@ export default function EventDetailsSection() {
 
 						{/* Other Facilities */}
 						<Grid item xs={12} sx={{ height: "max-content" }}>
-							<Typography variant='h3' color='primary' style={{ marginTop: "0.5rem" }}>
+							{/* Hold the Other Facilities header text */}
+							<Typography variant='h3' color='primary' style={{ margin: "0.5rem 0" }}>
 								Other Facilities
 							</Typography>
-							<Typography variant='h5' style={{ marginTop: "1rem" }}>
-								Spa
-							</Typography>
-							<Typography variant='body1' style={{ marginTop: "1rem" }}>
-								There is the{" "}
-								<a href='https://www.stokebynayland.com/spa/peake-spa/' target='_blank' rel='noreferrer'>
-									Peake Spa
-								</a>{" "}
-								with a pool, steam room, sanarium (a weaker version of a sauna), a jacuzzi and a concept shower (whatever that is). It is
-								open from 07:30-19:30, but we will just need to book 2 hours in advance.
-							</Typography>
-							<Typography variant='h5' style={{ marginTop: "1rem" }}>
-								Gym
-							</Typography>
-							<Typography variant='body1' style={{ marginTop: "1rem" }}>
-								There is{" "}
-								<a href='https://www.stokebynayland.com/hotel/hotel-facilities/peake-fitness/' target='_blank' rel='noreferrer'>
-									Peake Fitness
-								</a>{" "}
-								equipped with Technogym equipment and over 90 different classes on offer. We have complimentary access to all of this.
-							</Typography>
+
+							{/* Hold the Other Facilities option buttons, text and images in various layouts for different screen sizes */}
+							<Grid container spacing={0} sx={{ backgroundColor: "null" }}>
+								{/* Hold the facility options */}
+								<Grid
+									item
+									xs={3}
+									sm={2}
+									md={1}
+									sx={{ backgroundColor: "null", paddingTop: "0.5rem", height: OtherFacilitiesStyles.height }}>
+									{/* Add a toggle button group to allow the user to change the view of the facility options */}
+									<ToggleButtonGroup orientation='vertical' value={facilitiesView} exclusive onChange={handleToggleChange}>
+										<ToggleButton value='spa' aria-label='spa'>
+											Spa
+										</ToggleButton>
+										<ToggleButton value='gym' aria-label='gym'>
+											Gym
+										</ToggleButton>
+										<ToggleButton value='dining' aria-label='dining'>
+											Dining
+										</ToggleButton>
+									</ToggleButtonGroup>
+								</Grid>
+								{/* Hold the content for the selected facilities */}
+								<Grid
+									item
+									xs={9}
+									sm={4}
+									md={6}
+									sx={{
+										display: "flex",
+										flexDirection: "column",
+										mb: 3,
+										padding: "0.5rem",
+										backgroundColor: "null",
+										height: OtherFacilitiesStyles.height,
+									}}>
+									{facilitiesView === "spa" && (
+										<Typography variant='body1' style={{ marginTop: "1rem" }}>
+											There is the{" "}
+											<a href='https://www.stokebynayland.com/spa/peake-spa/' target='_blank' rel='noreferrer'>
+												Peake Spa
+											</a>{" "}
+											with a pool, steam room, sanarium (a weaker version of a sauna), a jacuzzi and a concept shower (whatever that is). It
+											is open from 07:30-19:30, but we will just need to book 2 hours in advance.
+										</Typography>
+									)}
+									{facilitiesView === "gym" && (
+										<Typography variant='body1' style={{ marginTop: "1rem" }}>
+											There is{" "}
+											<a href='https://www.stokebynayland.com/hotel/hotel-facilities/peake-fitness/' target='_blank' rel='noreferrer'>
+												Peake Fitness
+											</a>{" "}
+											equipped with Technogym equipment and over 90 different classes on offer. We have complimentary access to all of this.
+											Open 07:30-19:30.
+										</Typography>
+									)}
+									{facilitiesView === "dining" && (
+										<Typography variant='body1' style={{ marginTop: "1rem" }}>
+											There are two main dining options,{" "}
+											<a href='https://www.stokebynayland.com/dining/lakes-restaurant/' target='_blank' rel='noreferrer'>
+												Lakes Restaurant
+											</a>{" "}
+											and the{" "}
+											<a href='https://www.stokebynayland.com/dining/sports-bar/' target='_blank' rel='noreferrer'>
+												Sports Bar
+											</a>
+											. More links such as menus and room service details can be found in the <a href='#usefulLinks'>Useful Links</a>{" "}
+											section.
+										</Typography>
+									)}
+								</Grid>
+								{/* Hold the facility image(s) */}
+								<Grid
+									item
+									xs={12}
+									sm={4}
+									md={5}
+									sx={{
+										backgroundColor: "null",
+										height: OtherFacilitiesStyles.height,
+										textAlign: "center",
+										marginTop: { xs: "-3rem", sm: "0rem" },
+									}}>
+									{facilitiesView === "spa" && (
+										<Image src='/images/PeakeSpa.jpg' alt='Peake Spa Image' layout='fixed' width='253' height='200' />
+									)}
+									{facilitiesView === "gym" && (
+										<Image src='/images/PeakeFitness.jpg' alt='Peake Fitness Image' layout='fixed' width='300' height='200' />
+									)}
+									{facilitiesView === "dining" && (
+										<Image src='/images/LakesRestaurant.png' alt='Lakes Restaurant Image' layout='fixed' width='308' height='200' />
+									)}
+								</Grid>
+							</Grid>
+						</Grid>
+
+						{/* Contact Details */}
+						<Grid container spacing={0} sx={{ backgroundColor: "null", height: "2rem", margin: { xs: "1rem 0 2rem 0", sm: "2rem 0 0 0" } }}>
+							<Grid item xs={12} sm={6} sx={ContactDetailsBoxStyle}>
+								<a href='tel:+01206262836' style={ContactDetailsStyle}>
+									<PhoneIcon />
+									<Typography variant='body1' sx={{ marginLeft: "0.5rem" }}>
+										01206 262836
+									</Typography>
+								</a>
+							</Grid>
+							<Grid item xs={12} sm={6} sx={ContactDetailsBoxStyle}>
+								<a href='mailto:sales@stokebynayland.com' style={ContactDetailsStyle}>
+									<AlternateEmailIcon />
+									<Typography variant='body1' sx={{ marginLeft: "0.5rem" }}>
+										sales@stokebynayland.com
+									</Typography>
+								</a>
+							</Grid>
 						</Grid>
 					</Grid>
 				</Grid>

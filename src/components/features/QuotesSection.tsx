@@ -1,9 +1,9 @@
+import CachedIcon from "@mui/icons-material/Cached";
 import { Container, Grid, Typography } from "@mui/material";
 import SectionHeader from "components/ui/SectionHeader";
 import QuoteArray, { Quote } from "data/QuotesData";
 import { useEffect, useState } from "react";
 import "react-perfect-scrollbar/dist/css/styles.css";
-import ThemingS from "services/ThemingS";
 
 export default function QuotesSection() {
 	// Get a random quote from the array
@@ -34,18 +34,26 @@ export default function QuotesSection() {
 
 	return (
 		<Container>
-			<Grid container spacing={ThemingS.themeConfig.gridSpacing} sx={{ minHeight: "5rem", backgroundColor: "null" }}>
+			<Grid container spacing={0} sx={{ minHeight: "5rem", backgroundColor: "null" }}>
 				{/* Hold the section header text */}
 				<SectionHeader header='Quotes' subheader='' description='' />
 
 				{/* Hold the quote in a div that when clicked will refresh the quote */}
-				<Grid item xs={12} sx={{ mb: 1, backgroundColor: "null", cursor: "pointer" }} onClick={getRandQuote}>
-					<Typography variant='h3' component='div' sx={{ textAlign: "center", fontStyle: "italic", fontWeight: "normal" }}>
+				<Grid
+					item
+					xs={12}
+					sx={{ mb: 1, backgroundColor: "null", cursor: "pointer", textAlign: "center", padding: 0 }}
+					onClick={getRandQuote}>
+					<Typography
+						variant='h3'
+						component='div'
+						sx={{ textAlign: "center", fontStyle: "italic", fontWeight: "normal", minHeight: "6rem", padding: 0, margin: 0 }}>
 						<p>&quot;{QuoteToDisplay.quote}&quot;</p>
 					</Typography>
 					<Typography variant='caption' component='div' sx={{ textAlign: "right" }}>
 						<p>{QuoteToDisplay.author}</p>
 					</Typography>
+					<CachedIcon />
 				</Grid>
 			</Grid>
 		</Container>

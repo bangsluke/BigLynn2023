@@ -1,6 +1,6 @@
 // https://stackoverflow.com/a/66828783
-import * as Icons from '@mui/icons-material';
-import stringSimilarity from 'string-similarity';
+import * as Icons from "@mui/icons-material";
+import stringSimilarity from "string-similarity";
 
 function useIcons(word: string) {
 	//Console.log(Icons); // Comes out as Modules (with the full icon element)

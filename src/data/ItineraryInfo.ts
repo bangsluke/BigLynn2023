@@ -71,9 +71,8 @@ const ItineraryInfo: FullItinerary = {
 			datetime: 202307151945,
 			title: "Dinner",
 			subtitle: "",
-			// TODO: Add description
-			description: "",
-			url: "https://www.stokebynayland.com/",
+			description: "Food served in the Lakes Restaurant.",
+			url: "https://www.stokebynayland.com/wp-content/uploads/2023/06/Lakes-Dinner-Menu-JULY-23.pdf",
 			position: "right",
 			backgroundColor: "#7cadea",
 			iconName: "LocalDiningIcon",
@@ -83,14 +82,12 @@ const ItineraryInfo: FullItinerary = {
 		{
 			id: 6,
 			date: "Sun 16 Jul 2023",
-			// TODO: Check time
-			time: "07:00",
+			time: "07:00?",
 			datetime: 202307160700,
 			title: "Breakfast",
 			subtitle: "",
-			// TODO: Add description
-			description: "",
-			url: "https://www.stokebynayland.com/",
+			description: "They haven't told me when or where this is served or what time yet...",
+			url: "",
 			position: "left",
 			backgroundColor: "#7cadea",
 			iconName: "LocalDiningIcon",
@@ -115,9 +112,8 @@ const ItineraryInfo: FullItinerary = {
 			datetime: 202307161945,
 			title: "Dinner",
 			subtitle: "",
-			// TODO: Add description
-			description: "",
-			url: "https://www.stokebynayland.com/",
+			description: "Food served in the Lakes Restaurant.",
+			url: "https://www.stokebynayland.com/wp-content/uploads/2023/06/Lakes-Dinner-Menu-JULY-23.pdf",
 			position: "left",
 			backgroundColor: "#7cadea",
 			iconName: "LocalDiningIcon",
@@ -127,14 +123,12 @@ const ItineraryInfo: FullItinerary = {
 		{
 			id: 7,
 			date: "Mon 17 Jul 2023",
-			// TODO: Check time
-			time: "07:00",
+			time: "07:00?",
 			datetime: 202307170700,
 			title: "Breakfast",
 			subtitle: "",
-			// TODO: Add description
-			description: "",
-			url: "https://www.stokebynayland.com/",
+			description: "They haven't told me when or where this is served or what time yet...",
+			url: "",
 			position: "left",
 			backgroundColor: "#7cadea",
 			iconName: "LocalDiningIcon",

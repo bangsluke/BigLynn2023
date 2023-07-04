@@ -1,7 +1,4 @@
-import FacebookIcon from "@mui/icons-material/Facebook";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import LanguageIcon from "@mui/icons-material/Language";
-import TwitterIcon from "@mui/icons-material/Twitter";
+import { Facebook, Instagram, Language, Twitter } from "@mui/icons-material";
 import { Container, Grid, Link, Typography } from "@mui/material";
 import { styled, useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -74,25 +71,25 @@ const InfoPageFooter = () => {
 								</Grid>
 								<Grid item>
 									<FooterLink href='https://www.stokebynayland.com/' target='_blank' underline='hover'>
-										<LanguageIcon fontSize={showText ? "large" : "small"} />
+										<Language fontSize={showText ? "large" : "small"} />
 										{showText ? "Website" : null}
 									</FooterLink>
 								</Grid>
 								<Grid item>
 									<FooterLink href='https://www.facebook.com/SbNResort' target='_blank' underline='hover'>
-										<FacebookIcon fontSize={showText ? "large" : "small"} />
+										<Facebook fontSize={showText ? "large" : "small"} />
 										{showText ? "Facebook" : null}
 									</FooterLink>
 								</Grid>
 								<Grid item>
 									<FooterLink href='https://twitter.com/SbNResort' target='_blank' underline='hover'>
-										<TwitterIcon fontSize={showText ? "large" : "small"} />
+										<Twitter fontSize={showText ? "large" : "small"} />
 										{showText ? "Twitter" : null}
 									</FooterLink>
 								</Grid>
 								<Grid item>
 									<FooterLink href='https://www.instagram.com/SbNResort/' target='_blank' underline='hover'>
-										<InstagramIcon fontSize={showText ? "large" : "small"} />
+										<Instagram fontSize={showText ? "large" : "small"} />
 										{showText ? "Instagram" : null}
 									</FooterLink>
 								</Grid>
