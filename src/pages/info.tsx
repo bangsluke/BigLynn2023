@@ -6,6 +6,7 @@ import FAQSection from "components/features/FAQSection";
 import Footer from "components/features/Footer";
 import HeroSection from "components/features/HeroSection";
 import ItinerarySection from "components/features/ItinerarySection";
+import QuotesSection from "components/features/QuotesSection";
 import RulesSection from "components/features/RulesSection";
 import StatsSection from "components/features/StatsSection";
 import UsefulLinksSection from "components/features/UsefulLinksSection";
@@ -17,6 +18,7 @@ const displayedSection = {
 	hero: true,
 	eventDetails: true,
 	itinerary: true,
+	quotes: true,
 	rules: true,
 	stats: true,
 	faq: true,
@@ -142,6 +144,12 @@ export default function Info() {
 					<ItinerarySection data-aos='fade-left' data-aos-duration='3000' />
 				</AnchorOffset>
 			</FourthWrapper>
+
+			<SecondWrapper style={{ display: displayedSection.quotes ? "block" : "none" }}>
+				<AnchorOffset id='quotes' className='offset'>
+					<QuotesSection data-aos='fade-left' data-aos-duration='3000' />
+				</AnchorOffset>
+			</SecondWrapper>
 
 			<ThirdWrapper style={{ display: displayedSection.rules ? "block" : "none" }}>
 				<AnchorOffset id='rules' className='offset'>
