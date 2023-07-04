@@ -47,7 +47,7 @@ const StatsSection = () => {
 				<Grid item xs={12} sx={{ backgroundColor: "null" }}>
 					<Grid container alignItems='center' justifyContent='space-between' spacing={ThemingS.themeConfig.gridSpacing}>
 						{/* Hold the dropdown selectors */}
-						<Grid item xs={12} sx={{ marginBottom: "0.5rem", backgroundColor: "null" }}>
+						<Grid item xs={12} sx={{ marginBottom: "1.5rem", backgroundColor: "null" }}>
 							{/* View Option Dropdown */}
 							<FormControl sx={{ m: 0, minWidth: MinDropdownWidth, width: "90%" }} color='primary'>
 								<InputLabel id='demo-simple-select-autowidth-label'>View Option</InputLabel>

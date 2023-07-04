@@ -200,7 +200,7 @@ export default function YearSection(props: { dataMethod: DataMethods }) {
 	// Year Selection Dropdown
 	const YearSelection = () => {
 		return (
-			<FormControl sx={{ m: 0, minWidth: MinDropdownWidth, width: "90%" }} color='primary'>
+			<FormControl sx={{ margin: "1rem 0 0 0", minWidth: MinDropdownWidth, width: "100%" }} color='primary'>
 				<InputLabel id='demo-simple-select-autowidth-label'>Year Selection</InputLabel>
 				<Select
 					labelId='demo-simple-select-autowidth-label'
@@ -212,8 +212,7 @@ export default function YearSection(props: { dataMethod: DataMethods }) {
 					name='View Option Select'>
 					<MenuItem key='All Years' value='All Years'>
 						All Years
-					</MenuItem>{" "}
-					{/* // TODO: Re-add All Years option?  */}
+					</MenuItem>
 					{allYearData?.map((YearData: YearDataType) => {
 						if (YearData.year === "Config Row" || YearData.year === "2023") {
 							return null; // Skip the config and 2023 row
@@ -285,7 +284,7 @@ export default function YearSection(props: { dataMethod: DataMethods }) {
 					</Grid>
 
 					{selectedYearData.totalYearScore == 0 ? (
-						<h3 style={{ textAlign: "center" }}>Incomplete stats but past email chains confirm just the winner</h3>
+						<h3 style={{ textAlign: "center", lineHeight: "2rem" }}>Incomplete stats but past email chains confirm just the winner</h3>
 					) : null}
 
 					<Grid container spacing={ThemingS.themeConfig.gridSpacing} justifyContent='center' alignItems='center' sx={StatSectionBoxesStyle}>

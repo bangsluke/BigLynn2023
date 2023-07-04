@@ -208,7 +208,7 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 	// Player Selection Dropdown
 	const PlayerNameSelection = () => {
 		return (
-			<FormControl sx={{ mt: 2, minWidth: MinDropdownWidth, width: "90%" }} color='primary'>
+			<FormControl sx={{ margin: "1rem auto 0 auto", minWidth: MinDropdownWidth, width: "100%" }} color='primary'>
 				<InputLabel id='demo-simple-select-autowidth-label'>Player Selection</InputLabel>
 				<Select
 					labelId='demo-simple-select-autowidth-label'
@@ -221,7 +221,6 @@ export default function PlayerSection(props: { dataMethod: DataMethods }) {
 					<MenuItem key='All Players' value='All Players'>
 						All Players
 					</MenuItem>
-					{/*// TODO: Re-add All Players option?  */}
 					{allPlayerData?.map((player: PlayerData) => {
 						return (
 							<MenuItem key={player.fullName} value={player.id}>
