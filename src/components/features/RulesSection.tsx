@@ -76,12 +76,21 @@ export default function RulesSection() {
 						for 2023, so no tinkering this time around.
 					</Typography>
 					<Typography variant='body1' component='div' sx={Styles.sectionText}>
-						Points will be scored each day based upon the following table, depending upon your Stableford points score, which takes into
+						Points will be scored each day based upon the following table*, depending upon your Stableford points score, which takes into
 						account the relative handicaps:
 					</Typography>
 				</Grid>
 				<Grid item xs={12} lg={6} sx={{ pl: 2, pr: 2 }}>
 					<ScoresTable />
+				</Grid>
+				<Grid item xs={12} lg={6} sx={{ ml: "1rem" }}>
+					<details style={{ cursor: "pointer" }}>
+						<summary style={{ fontSize: "1rem", fontWeight: "normal" }}>* 11th player note</summary>
+						<Typography variant='body1' sx={{ paddingTop: "1rem" }}>
+							If we have an 11th player for any round, they will score half of that of 10th place. This would be rounded up to the nearest
+							whole number.
+						</Typography>
+					</details>
 				</Grid>
 			</Grid>
 		);
@@ -128,6 +137,15 @@ export default function RulesSection() {
 				</Grid>
 				<Grid item xs={12} lg={6} sx={{ pl: 2, pr: 2 }}>
 					<HandicapAdjustmentTable />
+				</Grid>
+				<Grid item xs={12} lg={6} sx={{ ml: "1rem" }}>
+					<details style={{ cursor: "pointer" }}>
+						<summary style={{ fontSize: "1rem", fontWeight: "normal" }}>* 11th player note</summary>
+						<Typography variant='body1' sx={{ paddingTop: "1rem" }}>
+							If we have an 11th player for any round, all of the above positions from 7th downwards will be adjusted up by 1 place, ie. 7th
+							will have no adjustment and the 11th place will be adjusted by +2.
+						</Typography>
+					</details>
 				</Grid>
 			</Grid>
 		);
