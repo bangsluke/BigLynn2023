@@ -70,7 +70,14 @@ const GainsboroughDetails = () => {
 						style={{ textDecoration: "none" }}
 						target='_blank'
 						href='https://stokebynayland.com/wp-content/uploads/2020/08/Gainsborough-course-guide.pdf?_ga=2.168750881.1606001850.1678297032-2118266097.1678297032'>
-						<Image src='/images/GainsboroughCourseImage.png' alt='Gainsborough Course Image' layout='fixed' width='121.45' height='200' />
+						<Image
+							src='/images/GainsboroughCourseImage.png'
+							alt='Gainsborough Course Image'
+							layout='fixed'
+							width='121.45'
+							height='200'
+							loading='lazy'
+						/>
 					</Link>
 				</Grid>
 				{/* Hold the course facts */}
@@ -111,7 +118,14 @@ const ConstableDetails = () => {
 						style={{ textDecoration: "none" }}
 						target='_blank'
 						href='https://stokebynayland.com/wp-content/uploads/2020/08/Constable-course-guide.pdf?_ga=2.161777596.1606001850.1678297032-2118266097.1678297032'>
-						<Image src='/images/ConstableCourseImage.png' alt='Constable Course Image' layout='fixed' width='121.45' height='200' />
+						<Image
+							src='/images/ConstableCourseImage.png'
+							alt='Constable Course Image'
+							layout='fixed'
+							width='121.45'
+							height='200'
+							loading='lazy'
+						/>
 					</Link>
 				</Grid>
 				{/* Hold the course facts */}
@@ -339,13 +353,27 @@ export default function EventDetailsSection() {
 										marginTop: { xs: "-3rem", sm: "0rem" },
 									}}>
 									{facilitiesView === "spa" && (
-										<Image src='/images/PeakeSpa.jpg' alt='Peake Spa Image' layout='fixed' width='253' height='200' />
+										<Image src='/images/PeakeSpa.jpg' alt='Peake Spa Image' layout='fixed' width='253' height='200' loading='lazy' />
 									)}
 									{facilitiesView === "gym" && (
-										<Image src='/images/PeakeFitness.jpg' alt='Peake Fitness Image' layout='fixed' width='300' height='200' />
+										<Image
+											src='/images/PeakeFitness.jpg'
+											alt='Peake Fitness Image'
+											layout='fixed'
+											width='300'
+											height='200'
+											loading='lazy'
+										/>
 									)}
 									{facilitiesView === "dining" && (
-										<Image src='/images/LakesRestaurant.png' alt='Lakes Restaurant Image' layout='fixed' width='308' height='200' />
+										<Image
+											src='/images/LakesRestaurant.png'
+											alt='Lakes Restaurant Image'
+											layout='fixed'
+											width='308'
+											height='200'
+											loading='lazy'
+										/>
 									)}
 								</Grid>
 							</Grid>

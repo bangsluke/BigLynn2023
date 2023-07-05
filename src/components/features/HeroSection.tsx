@@ -170,7 +170,6 @@ const HeroSection = () => {
 										<Image src='/images/2022-Lineup-No-Background.png' alt='2022 Lineup' layout='fixed' width='314' height='280' priority />
 									</Grid>
 								</Grid>
-								{/* <Image src='/images/2022-Lineup-No-Background.png' alt='2022 Lineup' layout='fixed' width='314' height='280' priority /> */}
 							</motion.div>
 						</Grid>
 
