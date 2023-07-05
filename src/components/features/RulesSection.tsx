@@ -168,15 +168,15 @@ export default function RulesSection() {
 				</AnchorOffset>
 				<Typography variant='body1' component='div' sx={Styles.sectionText}>
 					On all golfing days, the following special rules will apply:
-					<ul style={Styles.unorderedList}>
-						<li>Mulligan or Reverse Mulligan (1 per round per player, cannot be carried over)</li>
-						<li>Fairway Robbery (1 per round per player) [NB. There are no reverse Fairway Robbery]</li>
-						<li>Big Gimmee (1 per round per player)</li>
-						<li>Joker (1 per round per player) to be called before playing tee shot on any hole for double points on that hole</li>
-						<li>String Theory (Sunday only) - 7 to 1 foot lengths of string drawn at random</li>
-						<li>Big Girl&#39;s Blouse (1 per round per player)</li>
-					</ul>
 				</Typography>
+				<ul style={{ marginLeft: "-1rem", fontSize: "0.9rem", fontWeight: "normal" }}>
+					<li>Mulligan or Reverse Mulligan (1 per round per player, cannot be carried over)</li>
+					<li>Fairway Robbery (1 per round per player) [NB. There are no reverse Fairway Robbery]</li>
+					<li>Big Gimmee (1 per round per player)</li>
+					<li>Joker (1 per round per player) to be called before playing tee shot on any hole for double points on that hole</li>
+					<li>String Theory (Sunday only) - 7 to 1 foot lengths of string drawn at random</li>
+					<li>Big Girl&#39;s Blouse (1 per round per player)</li>
+				</ul>
 				<Typography variant='body1' component='div' sx={Styles.sectionText}>
 					Dave Rose (Official Golf Nerd) to hold casting vote any real “Rules of Golf” issues.
 				</Typography>
@@ -194,14 +194,14 @@ export default function RulesSection() {
 				</AnchorOffset>
 				<Typography variant='body1' component='div' sx={Styles.sectionText}>
 					Prizes may be available for the following categories:
-					<ul style={Styles.unorderedList}>
-						<li>Overall competition winner (may include trophy)</li>
-						<li>Longest drive (Sunday)</li>
-						<li>Nearest the pin any hole (Sunday)</li>
-						<li>Longest drive (Monday)</li>
-						<li>Nearest the pin any hole (Monday)</li>
-					</ul>
 				</Typography>
+				<ul style={{ marginLeft: "-1rem", fontSize: "0.9rem", fontWeight: "normal" }}>
+					<li>Overall competition winner (may include trophy)</li>
+					<li>Longest drive (Sunday)</li>
+					<li>Nearest the pin any hole (Sunday)</li>
+					<li>Longest drive (Monday)</li>
+					<li>Nearest the pin any hole (Monday)</li>
+				</ul>
 			</>
 		);
 	};
