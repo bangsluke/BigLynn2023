@@ -71,7 +71,7 @@ const LinksData: LinkData[] = [
 		key: uuid(),
 		iconName: "BreakfastDiningIcon",
 		title: "Sports Bar Breakfast Menu",
-		description: "For those up early enough",
+		description: "To avoid the main breakfast",
 		linkURL: "https://www.stokebynayland.com/wp-content/uploads/2023/05/Sports-Bar-Breakfast-Menu-A5-Final.pdf",
 	},
 

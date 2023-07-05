@@ -187,8 +187,7 @@ export default function Info() {
 				</AnchorOffset>
 			</FourthWrapper>
 
-			<ThirdWrapper
-				style={{ display: displayedSection.usefulLinks ? "block" : "none", width: SectionWidth.maxWidth, overflow: SectionWidth.overflow }}>
+			<ThirdWrapper style={{ display: displayedSection.usefulLinks ? "block" : "none", width: SectionWidth.maxWidth }}>
 				<AnchorOffset id='usefulLinks' className='offset'>
 					<UsefulLinksSection data-aos='fade-left' data-aos-duration='3000' />
 				</AnchorOffset>
