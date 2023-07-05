@@ -8,6 +8,7 @@ interface MessageProps {
 export default function Message(props: MessageProps) {
 	const { children, type } = props;
 
+	// Define the common styles for the question and answer detailed below
 	const CommonStyles = {
 		BorderRadius: "30px",
 		FontWeight: "400",
@@ -22,6 +23,7 @@ export default function Message(props: MessageProps) {
 		Display: "inline-block",
 	};
 
+	// Define the styles for the question and answer
 	const Styles = {
 		QuestionStyle: {
 			fontWeight: CommonStyles.FontWeight,

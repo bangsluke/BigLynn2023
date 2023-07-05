@@ -42,6 +42,12 @@ const SectionMargin = {
 	mobile: 15,
 };
 
+// Define the width and overflow for each section
+const SectionWidth = {
+	maxWidth: "100vw",
+	overflow: "hidden",
+};
+
 const HeaderWrapper = styled("div")(({ theme }) => ({
 	// BackgroundColor: "#FFF",
 	borderRadius: "8px",
@@ -126,50 +132,63 @@ export default function Info() {
 
 	return (
 		<>
-			<HeaderWrapper id='home' style={{ display: displayedSection.hero ? "block" : "none" }}>
+			<HeaderWrapper
+				id='home'
+				style={{ display: displayedSection.hero ? "block" : "none", width: SectionWidth.maxWidth, overflow: SectionWidth.overflow }}>
 				<AnchorOffset id='top' className='offset'>
 					<AppBar />
 					<HeroSection />
 				</AnchorOffset>
 			</HeaderWrapper>
 
-			<ThirdWrapper style={{ display: displayedSection.eventDetails ? "block" : "none" }}>
+			<ThirdWrapper
+				style={{
+					display: displayedSection.eventDetails ? "block" : "none",
+					width: SectionWidth.maxWidth,
+					overflow: SectionWidth.overflow,
+				}}>
 				<AnchorOffset id='eventDetails' className='offset'>
 					<EventDetailsSection data-aos='fade-right' data-aos-duration='3000' />
 				</AnchorOffset>
 			</ThirdWrapper>
 
-			<FourthWrapper style={{ display: displayedSection.itinerary ? "block" : "none" }}>
+			<FourthWrapper
+				style={{ display: displayedSection.itinerary ? "block" : "none", width: SectionWidth.maxWidth, overflow: SectionWidth.overflow }}>
 				<AnchorOffset id='itinerary' className='offset'>
 					<ItinerarySection data-aos='fade-left' data-aos-duration='3000' />
 				</AnchorOffset>
 			</FourthWrapper>
 
-			<SecondWrapper style={{ display: displayedSection.quotes ? "block" : "none" }}>
+			<SecondWrapper
+				style={{ display: displayedSection.quotes ? "block" : "none", width: SectionWidth.maxWidth, overflow: SectionWidth.overflow }}>
 				<AnchorOffset id='quotes' className='offset'>
 					<QuotesSection data-aos='fade-left' data-aos-duration='3000' />
 				</AnchorOffset>
 			</SecondWrapper>
 
-			<ThirdWrapper style={{ display: displayedSection.rules ? "block" : "none" }}>
+			<ThirdWrapper
+				style={{ display: displayedSection.rules ? "block" : "none", width: SectionWidth.maxWidth, overflow: SectionWidth.overflow }}>
 				<AnchorOffset id='rules' className='offset'>
 					<RulesSection data-aos='fade-right' data-aos-duration='3000' />
 				</AnchorOffset>
 			</ThirdWrapper>
 
-			<SecondWrapper style={{ display: displayedSection.stats ? "block" : "none" }}>
+			<SecondWrapper
+				style={{ display: displayedSection.stats ? "block" : "none", width: SectionWidth.maxWidth, overflow: SectionWidth.overflow }}>
 				<AnchorOffset id='statistics' className='offset'>
 					<StatsSection data-aos='fade-left' data-aos-duration='3000' />
 				</AnchorOffset>
 			</SecondWrapper>
 
-			<FourthWrapper style={{ display: displayedSection.faq ? "block" : "none" }}>
+			<FourthWrapper
+				style={{ display: displayedSection.faq ? "block" : "none", width: SectionWidth.maxWidth, overflow: SectionWidth.overflow }}>
 				<AnchorOffset id='FAQ' className='offset'>
 					<FAQSection data-aos='fade-right' data-aos-duration='3000' />
 				</AnchorOffset>
 			</FourthWrapper>
 
-			<ThirdWrapper style={{ display: displayedSection.usefulLinks ? "block" : "none" }}>
+			<ThirdWrapper
+				style={{ display: displayedSection.usefulLinks ? "block" : "none", width: SectionWidth.maxWidth, overflow: SectionWidth.overflow }}>
 				<AnchorOffset id='usefulLinks' className='offset'>
 					<UsefulLinksSection data-aos='fade-left' data-aos-duration='3000' />
 				</AnchorOffset>
