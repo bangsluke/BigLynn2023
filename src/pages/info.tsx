@@ -44,7 +44,7 @@ const SectionMargin = {
 
 // Define the width and overflow for each section
 const SectionWidth = {
-	maxWidth: "96vw",
+	maxWidth: "94vw",
 	overflow: "hidden",
 };
 
