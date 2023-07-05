@@ -46,10 +46,10 @@ const ExamplePlayerData: PlayerData = {
 	fullName: "AndyBrown",
 	firstName: "Andy",
 	secondName: "Brown",
-	apps: 19,
+	apps: 20,
 	pointsFinishes: 18,
-	wins: 6,
-	winPercentage: "31.6%",
+	wins: 7,
+	winPercentage: "35.0%",
 	pointsTotal: 981,
 	pointsAverage: 55,
 	pointsMin: 16,
@@ -62,11 +62,11 @@ const ExamplePlayerData: PlayerData = {
 	handicapMinimum: 11,
 	handicapMaximum: 34,
 	handicapExpected: 12,
-	handicapMinimumYear: 2019,
-	handicapMaximumYear: 2019,
-	positionAverage: 3.0,
+	handicapMinimumYear: 2018,
+	handicapMaximumYear: 2000,
+	positionAverage: 2.9,
 	positionBestFinish: 1,
-	positionWorstFinish: 10,
+	positionWorstFinish: 11,
 	positionPredicted: 4,
 };
 
@@ -110,7 +110,7 @@ export default function PlayerSection(props: { dataMethod: DataMethods; commonSt
 			case DataMethods.savedData:
 				// Get the player data from the saved data
 				//@ts-ignore
-				playerData = savedDataResponse.playerData; // TODO: Fix this
+				playerData = savedDataResponse.playerData;
 				break;
 			default:
 				// Default to the saved data

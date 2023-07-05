@@ -103,7 +103,7 @@ export default function YearSection(props: { dataMethod: DataMethods; commonStat
 			case DataMethods.savedData:
 				// Get the year data from the saved data
 				//@ts-ignore
-				yearData = savedDataResponse.yearData; // TODO: Fix this
+				yearData = savedDataResponse.yearData;
 				break;
 			default:
 				// Default to the saved data
