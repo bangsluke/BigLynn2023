@@ -42,7 +42,7 @@ const ItineraryComponent = (props: ItineraryItem) => {
 				icon={<MUIIcon fontSize='medium' />}
 				iconStyle={{ background: backgroundColor, color: "#fff" }}
 				position={position}
-				style={{ backgroundColor: "null" }}>
+				style={{ backgroundColor: "null", margin: "0rem" }}>
 				<h3 className='vertical-timeline-element-title itinerary-title'>{title}</h3>
 				<h4 className='vertical-timeline-element-subtitle itinerary-subtitle'>{subtitle}</h4>
 				<p className='itinerary-description'>{description}</p>
