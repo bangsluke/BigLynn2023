@@ -110,7 +110,7 @@ export default function PlayerSection(props: { dataMethod: DataMethods; commonSt
 			case DataMethods.savedData:
 				// Get the player data from the saved data
 				//@ts-ignore
-				playerData = savedDataResponse.playerData; // TODO: Fix this
+				playerData = savedDataResponse.playerData;
 				break;
 			default:
 				// Default to the saved data
