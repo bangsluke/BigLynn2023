@@ -124,7 +124,7 @@ const HeroSection = () => {
 										textAlign: "left",
 									}}>
 									Welcome to the official website of the
-									<Box component='span' sx={{ ml: 2, color: theme.palette.primary.main }}>
+									<Box component='span' sx={{ ml: 1, color: theme.palette.primary.main }}>
 										Big Lynn 2023
 									</Box>
 								</Typography>
@@ -170,7 +170,6 @@ const HeroSection = () => {
 										<Image src='/images/2022-Lineup-No-Background.png' alt='2022 Lineup' layout='fixed' width='314' height='280' priority />
 									</Grid>
 								</Grid>
-								{/* <Image src='/images/2022-Lineup-No-Background.png' alt='2022 Lineup' layout='fixed' width='314' height='280' priority /> */}
 							</motion.div>
 						</Grid>
 

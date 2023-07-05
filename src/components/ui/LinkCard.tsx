@@ -14,7 +14,7 @@ const LinkCard = (props: { id: number; iconName: string; title: string; descript
 	const MUIIcon = useIcons(iconName); // Dynamically import the MUI Icon - https://stackoverflow.com/a/66828783
 
 	return (
-		<Grid item xs={6} sm={6} md={4} lg={4} xl={3}>
+		<Grid item xs={6} sm={6} md={4} lg={4} xl={3} sx={{ paddingBottom: "0.1rem" }}>
 			<Animation transitionDuration={0.3} transitionFromDirection='bottom'>
 				<a target='_blank' href={linkURL} rel='noopener noreferrer' style={{ textDecoration: "none" }}>
 					<SubCard sx={{ height: { md: "11rem" } }}>
