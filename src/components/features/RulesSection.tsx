@@ -54,11 +54,11 @@ export default function RulesSection() {
 			paddingBottom: 2,
 		},
 		unorderedList: {
-			listStyleType: "square",
+			// listStyleType: "circle",
 			// Color: "blue",
 			fontWeight: "normal",
 			margin: "0.3rem 0.5rem",
-			padding: 0,
+			padding: "0 1rem",
 			display: "listItem",
 		},
 	};
@@ -85,7 +85,7 @@ export default function RulesSection() {
 				</Grid>
 				<Grid item xs={12} lg={6} sx={{ ml: "1rem" }}>
 					<details style={{ cursor: "pointer" }}>
-						<summary style={{ fontSize: "1rem", fontWeight: "normal" }}>* 11th player note</summary>
+						<summary style={{ fontSize: "0.8rem", fontWeight: "normal" }}>* 11th player note</summary>
 						<Typography variant='body1' sx={{ paddingTop: "1rem" }}>
 							If we have an 11th player for any round, they will score half of that of 10th place. This would be rounded up to the nearest
 							whole number.
@@ -127,11 +127,11 @@ export default function RulesSection() {
 					</Grid>
 
 					<Typography variant='body1' component='div' sx={Styles.sectionText}>
-						Handicap changes for day 2 and day 3 will as always be based upon the performance from the previous day. With 11 competitors,
+						Handicap changes for day 2 and day 3 will as always be based upon the performance from the previous day. With 10 competitors,
 						the following matrix is to be applied based upon your finishing score.
 					</Typography>
 					<Typography variant='body1' component='div' sx={Styles.sectionText}>
-						Where there are positional ties, all competitors will be adjusted as if they had finished in the tied position – i.e. if two
+						Where there are positional ties, all competitors will be adjusted as if they had finished in the tied position - i.e. if two
 						players are tied for 2nd on a day, they will both be adjusted as if they finished 2nd by themselves.
 					</Typography>
 				</Grid>
@@ -140,7 +140,7 @@ export default function RulesSection() {
 				</Grid>
 				<Grid item xs={12} lg={6} sx={{ ml: "1rem" }}>
 					<details style={{ cursor: "pointer" }}>
-						<summary style={{ fontSize: "1rem", fontWeight: "normal" }}>* 11th player note</summary>
+						<summary style={{ fontSize: "0.8rem", fontWeight: "normal" }}>* 11th player note</summary>
 						<Typography variant='body1' sx={{ paddingTop: "1rem" }}>
 							If we have an 11th player for any round, all of the above positions from 7th downwards will be adjusted up by 1 place, ie. 7th
 							will have no adjustment and the 11th place will be adjusted by +2.
@@ -159,14 +159,14 @@ export default function RulesSection() {
 				</Typography>
 				<Typography variant='body1' component='div' sx={Styles.sectionText}>
 					On all golfing days, the following special rules will apply:
-					<ul style={Styles.unorderedList}>- Mulligan or Reverse Mulligan (1 per round per player, cannot be carried over)</ul>
-					<ul style={Styles.unorderedList}>- Fairway Robbery (1 per round per player) [NB. There are no reverse Fairway Robbery]</ul>
-					<ul style={Styles.unorderedList}>- Big Gimmee (1 per round per player)</ul>
 					<ul style={Styles.unorderedList}>
-						- Joker (1 per round per player) to be called before playing tee shot on any hole for double points on that hole
+						<li>Mulligan or Reverse Mulligan (1 per round per player, cannot be carried over)</li>
+						<li>Fairway Robbery (1 per round per player) [NB. There are no reverse Fairway Robbery]</li>
+						<li>Big Gimmee (1 per round per player)</li>
+						<li>Joker (1 per round per player) to be called before playing tee shot on any hole for double points on that hole</li>
+						<li>String Theory (Sunday only) - 7 to 1 foot lengths of string drawn at random</li>
+						<li>Big Girl&#39;s Blouse (1 per round per player)</li>
 					</ul>
-					<ul style={Styles.unorderedList}>- String Theory (Sunday only) - 7 to 1 foot lengths of string drawn at random</ul>
-					<ul style={Styles.unorderedList}>- Big Girl&#39;s Blouse (1 per round per player)</ul>
 				</Typography>
 				<Typography variant='body1' component='div' sx={Styles.sectionText}>
 					Dave Rose (Official Golf Nerd) to hold casting vote any real “Rules of Golf” issues.
@@ -182,11 +182,13 @@ export default function RulesSection() {
 					Prizes may be available for the following categories:
 				</Typography>
 				<Typography variant='body1' component='div' sx={Styles.sectionText}>
-					<ul style={Styles.unorderedList}>- Overall competition winner (may include trophy)</ul>
-					<ul style={Styles.unorderedList}>- Longest drive (Sunday)</ul>
-					<ul style={Styles.unorderedList}>- Nearest the pin any hole (Sunday)</ul>
-					<ul style={Styles.unorderedList}>- Longest drive (Monday)</ul>
-					<ul style={Styles.unorderedList}>- Nearest the pin any hole (Monday)</ul>
+					<ul style={Styles.unorderedList}>
+						<li>Overall competition winner (may include trophy)</li>
+						<li>Longest drive (Sunday)</li>
+						<li>Nearest the pin any hole (Sunday)</li>
+						<li>Longest drive (Monday)</li>
+						<li>Nearest the pin any hole (Monday)</li>
+					</ul>
 				</Typography>
 			</>
 		);

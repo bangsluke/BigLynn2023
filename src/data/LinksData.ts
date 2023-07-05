@@ -80,7 +80,7 @@ const LinksData: LinkData[] = [
 		key: uuid(),
 		iconName: "RestaurantIcon",
 		title: "Sports Bar Main Menu",
-		description: "For midday dining/pre dinner snacks or meals",
+		description: "For midday dining/pre dinner snacks",
 		linkURL: "https://www.stokebynayland.com/wp-content/uploads/2023/05/Sports-Bar-Main-Menu-A4-Final.pdf",
 	},
 
