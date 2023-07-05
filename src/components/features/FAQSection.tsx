@@ -12,18 +12,14 @@ export default function FAQSection() {
 			padding: "10px",
 			margin: "10px",
 			maxWidth: "85vw",
-			overflow: "hidden",
 		},
 	};
 
 	// TODO: Fix the width of this section which is causing the horizontal scroll bar
 
 	return (
-		<Container sx={{ maxWidth: "100vw", backgroundColor: "null", overflow: "hidden", margin: "0", padding: 0 }}>
-			<Grid
-				container
-				spacing={ThemingS.themeConfig.gridSpacing}
-				sx={{ height: "max-content", maxWidth: "96vw", backgroundColor: "null", overflow: "hidden", margin: "0", padding: 0 }}>
+		<Container sx={{ maxWidth: "90vw" }}>
+			<Grid container spacing={ThemingS.themeConfig.gridSpacing} sx={{ height: "max-content" }}>
 				{/* Hold the section header text */}
 				<SectionHeader
 					header='FAQ'
@@ -32,7 +28,7 @@ export default function FAQSection() {
 								Joseph...'
 				/>
 				{/* Hold the body information */}
-				<Grid item xs={12} sx={{ maxWidth: "100vw", backgroundColor: "null", overflow: "hidden" }}>
+				<Grid item xs={12}>
 					<Grid container spacing={2} sx={{ mb: 0 }}>
 						<Grid item xs={12} sx={Styles.ChatBackground}>
 							<Message type='question'>
