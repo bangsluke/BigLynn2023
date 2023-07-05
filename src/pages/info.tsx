@@ -112,7 +112,7 @@ const FourthWrapper = styled("div")(({ theme }) => ({
 }));
 
 // Add an anchor offset to the top of each section to account for the fixed navbar
-const AnchorOffset = styled("h2")({
+export const AnchorOffset = styled("h2")({
 	"&:before": {
 		display: "block",
 		content: '""',

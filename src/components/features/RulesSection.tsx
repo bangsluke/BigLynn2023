@@ -3,6 +3,7 @@ import HandicapAdjustmentTable from "components/features/rules/HandicapAdjustmen
 import Handicaps2023Table from "components/features/rules/Handicaps2023Table";
 import ScoresTable from "components/features/rules/ScoresTable";
 import SectionHeader from "components/ui/SectionHeader";
+import { AnchorOffset } from "pages/info";
 import { useEffect, useRef, useState } from "react";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import "react-perfect-scrollbar/dist/css/styles.css";
@@ -68,9 +69,11 @@ export default function RulesSection() {
 		return (
 			<Grid container direction='row' spacing={2}>
 				<Grid item xs={12} lg={6}>
-					<Typography variant='h4' component='div' id='competitionPoints' className='offset' sx={Styles.sectionHeader}>
-						Principal competition points
-					</Typography>
+					<AnchorOffset id='competitionPoints' className='offset'>
+						<Typography variant='h4' component='div' className='offset' sx={Styles.sectionHeader}>
+							Principal competition points
+						</Typography>
+					</AnchorOffset>
 					<Typography variant='body1' component='div' sx={Styles.sectionText}>
 						As the trophy returned to the Bangs clan last year, it makes complete sense to keep points arrangements and the like the same
 						for 2023, so no tinkering this time around.
@@ -99,9 +102,11 @@ export default function RulesSection() {
 	const BonusPointsSection = () => {
 		return (
 			<>
-				<Typography variant='h4' component='div' id='bonusPoints' className='offset' sx={Styles.sectionHeader}>
-					Bonus points
-				</Typography>
+				<AnchorOffset id='bonusPoints' className='offset'>
+					<Typography variant='h4' component='div' className='offset' sx={Styles.sectionHeader}>
+						Bonus points
+					</Typography>
+				</AnchorOffset>
 				<Typography variant='body1' component='div' sx={Styles.sectionText}>
 					Three bonus points will be available on each of two holes on all of Saturday, Sunday and Monday, as drawn randomly – these are
 					called “bullet holes” and everyone who equals the best net scores on those holes will receive the three points.
@@ -114,9 +119,11 @@ export default function RulesSection() {
 		return (
 			<Grid container direction='row' spacing={2} sx={{ mb: 0, width: "100%" }}>
 				<Grid item xs={12} lg={6}>
-					<Typography variant='h4' component='div' id='handicapAdjustments' className='offset' sx={Styles.sectionHeader}>
-						Handicap Adjustments
-					</Typography>
+					<AnchorOffset id='handicapAdjustments' className='offset'>
+						<Typography variant='h4' component='div' className='offset' sx={Styles.sectionHeader}>
+							Handicap Adjustments
+						</Typography>
+					</AnchorOffset>
 					<Typography variant='body1' component='div' sx={Styles.sectionText}>
 						In a change of practice, it appears that we decided to amend the starting handicaps for 2023 based upon adjusting the final day
 						handicaps in 2022. Therefore the starting handicaps for 2023 are as follows:
@@ -154,9 +161,11 @@ export default function RulesSection() {
 	const SpecialSHITRulesSection = () => {
 		return (
 			<>
-				<Typography variant='h4' component='div' id='SHITRules' className='offset' sx={Styles.sectionHeader}>
-					Special SHIT Rules (“Angel Poo”)
-				</Typography>
+				<AnchorOffset id='SHITRules' className='offset'>
+					<Typography variant='h4' component='div' className='offset' sx={Styles.sectionHeader}>
+						Special SHIT Rules (“Angel Poo”)
+					</Typography>
+				</AnchorOffset>
 				<Typography variant='body1' component='div' sx={Styles.sectionText}>
 					On all golfing days, the following special rules will apply:
 					<ul style={Styles.unorderedList}>
@@ -178,10 +187,13 @@ export default function RulesSection() {
 	const PrizesSection = () => {
 		return (
 			<>
-				<Typography variant='h4' component='div' id='prizes' className='offset' sx={Styles.sectionHeader}>
-					Prizes may be available for the following categories:
-				</Typography>
+				<AnchorOffset id='possiblePrizes' className='offset'>
+					<Typography variant='h4' component='div' className='offset' sx={Styles.sectionHeader}>
+						Prizes
+					</Typography>
+				</AnchorOffset>
 				<Typography variant='body1' component='div' sx={Styles.sectionText}>
+					Prizes may be available for the following categories:
 					<ul style={Styles.unorderedList}>
 						<li>Overall competition winner (may include trophy)</li>
 						<li>Longest drive (Sunday)</li>
@@ -307,7 +319,7 @@ export default function RulesSection() {
 									<a href='#SHITRules'>Special SHIT Rules</a>
 								</p>
 								<p>
-									<a href='#prizes'>Prizes</a>
+									<a href='#possiblePrizes'>Prizes</a>
 								</p>
 							</Typography>
 						</Grid>
