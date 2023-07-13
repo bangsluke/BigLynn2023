@@ -174,7 +174,7 @@ export default function RulesSection() {
 					<li>Fairway Robbery (1 per round per player) [NB. There are no reverse Fairway Robbery]</li>
 					<li>Big Gimmee (1 per round per player)</li>
 					<li>Joker (1 per round per player) to be called before playing tee shot on any hole for double points on that hole</li>
-					<li>String Theory (Sunday only) - 7 to 1 foot lengths of string drawn at random</li>
+					<li>String Theory (Sunday only) - 11 to 1 foot lengths of string drawn at random</li>
 					<li>Big Girl&#39;s Blouse (1 per round per player)</li>
 				</ul>
 				<Typography variant='body1' component='div' sx={Styles.sectionText}>
