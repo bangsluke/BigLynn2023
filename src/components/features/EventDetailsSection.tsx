@@ -71,7 +71,7 @@ const GainsboroughDetails = () => {
 						target='_blank'
 						href='https://stokebynayland.com/wp-content/uploads/2020/08/Gainsborough-course-guide.pdf?_ga=2.168750881.1606001850.1678297032-2118266097.1678297032'>
 						<Image
-							src='/images/GainsboroughCourseImage.png'
+							src='/images/GainsboroughCourseImage.webp'
 							alt='Gainsborough Course Image'
 							layout='fixed'
 							width='121.45'
@@ -118,14 +118,7 @@ const ConstableDetails = () => {
 						style={{ textDecoration: "none" }}
 						target='_blank'
 						href='https://stokebynayland.com/wp-content/uploads/2020/08/Constable-course-guide.pdf?_ga=2.161777596.1606001850.1678297032-2118266097.1678297032'>
-						<Image
-							src='/images/ConstableCourseImage.png'
-							alt='Constable Course Image'
-							layout='fixed'
-							width='121.45'
-							height='200'
-							loading='lazy'
-						/>
+						<Image src='/images/ConstableCourseImage.webp' alt='Constable Course Image' layout='fixed' width='121.45' height='200' />
 					</Link>
 				</Grid>
 				{/* Hold the course facts */}
@@ -226,6 +219,7 @@ export default function EventDetailsSection() {
 										width='900'
 										height='600'
 										loading='lazy'
+										rel='preconnect'
 										style={{ width: "100%", height: "100%", border: "none", filter: "grayscale(1) invert(1)" }}></iframe>
 								</figure>
 							</MapBoxWrapper>
@@ -353,11 +347,11 @@ export default function EventDetailsSection() {
 										marginTop: { xs: "-3rem", sm: "0rem" },
 									}}>
 									{facilitiesView === "spa" && (
-										<Image src='/images/PeakeSpa.jpg' alt='Peake Spa Image' layout='fixed' width='253' height='200' loading='lazy' />
+										<Image src='/images/PeakeSpa.webp' alt='Peake Spa Image' layout='fixed' width='253' height='200' loading='lazy' />
 									)}
 									{facilitiesView === "gym" && (
 										<Image
-											src='/images/PeakeFitness.jpg'
+											src='/images/PeakeFitness.webp'
 											alt='Peake Fitness Image'
 											layout='fixed'
 											width='300'
@@ -367,7 +361,7 @@ export default function EventDetailsSection() {
 									)}
 									{facilitiesView === "dining" && (
 										<Image
-											src='/images/LakesRestaurant.png'
+											src='/images/LakesRestaurant.webp'
 											alt='Lakes Restaurant Image'
 											layout='fixed'
 											width='308'

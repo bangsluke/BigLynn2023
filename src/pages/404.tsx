@@ -1,7 +1,7 @@
 import { styled } from "@mui/material/styles";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import Error404Image from "../../public/images/404Image.png";
+import Error404Image from "../../public/images/404Image.webp";
 import ThemingS from "../services/ThemingS";
 
 const FullScreenWrapper = styled(`main`)(() => ({
