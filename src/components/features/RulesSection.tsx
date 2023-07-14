@@ -144,11 +144,11 @@ export default function RulesSection() {
 					Prizes may be available for the following categories:
 				</Typography>
 				<ul style={{ marginLeft: "-1rem", fontSize: "0.9rem", fontWeight: "normal" }}>
+					<li>Longest drive - Sunday (minor prize)</li>
+					<li>Nearest the pin any hole - Sunday (minor prize))</li>
+					<li>Longest drive - Monday (main prize)</li>
+					<li>Nearest the pin any hole - Monday (main prize)</li>
 					<li>Overall competition winner (may include trophy)</li>
-					<li>Longest drive (Sunday)</li>
-					<li>Nearest the pin any hole (Sunday)</li>
-					<li>Longest drive (Monday)</li>
-					<li>Nearest the pin any hole (Monday)</li>
 				</ul>
 			</>
 		);
