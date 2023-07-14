@@ -15,6 +15,7 @@ const rows = [
 	createData("8th", 6, 8, 10),
 	createData("9th", 4, 6, 7),
 	createData("10th", 2, 4, 5),
+	createData("11th", 1, 2, 3),
 ];
 
 export default function ScoresTable() {

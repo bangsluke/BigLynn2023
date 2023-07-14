@@ -15,9 +15,7 @@ const rows = [
 	createData("Ben", 7, "", "Luke", 18),
 	createData("Dan C", 23, "", "Mark", 36),
 	createData("Danny B", 27, "", "Martin", 12),
-	createData("Dave", 16, "", "Rich", 14),
-	//@ts-ignore
-	createData("Ross", 22, "", "Alex", 36),
+	createData("Dave", 16, "", "Ross", 22),
 ];
 
 export default function Handicaps2023Table() {
