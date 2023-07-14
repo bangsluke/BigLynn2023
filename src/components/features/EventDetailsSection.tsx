@@ -118,14 +118,7 @@ const ConstableDetails = () => {
 						style={{ textDecoration: "none" }}
 						target='_blank'
 						href='https://stokebynayland.com/wp-content/uploads/2020/08/Constable-course-guide.pdf?_ga=2.161777596.1606001850.1678297032-2118266097.1678297032'>
-						<Image
-							src='/images/ConstableCourseImage.webp'
-							alt='Constable Course Image'
-							layout='fixed'
-							width='121.45'
-							height='200'
-							loading='lazy'
-						/>
+						<Image src='/images/ConstableCourseImage.webp' alt='Constable Course Image' layout='fixed' width='121.45' height='200' />
 					</Link>
 				</Grid>
 				{/* Hold the course facts */}

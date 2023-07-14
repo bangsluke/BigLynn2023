@@ -268,7 +268,7 @@ export default function PlayerSection(props: { dataMethod: DataMethods; commonSt
 									style={{
 										borderRadius: `${ProfileImageDimensions}px`,
 									}}
-									priority
+									loading='lazy'
 								/>
 							</div>
 						</Grid>
