@@ -262,7 +262,7 @@ export default function PlayerSection(props: { dataMethod: DataMethods; commonSt
 									padding: "0",
 								}}>
 								<Image
-									src={`/images/players/${selectedPlayerData.firstName}.png`}
+									src={`/images/players/${selectedPlayerData.firstName}.webp`}
 									alt='Player Image'
 									layout='fill'
 									style={{

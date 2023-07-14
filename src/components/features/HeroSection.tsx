@@ -159,15 +159,36 @@ const HeroSection = () => {
 									}}>
 									{/* Display for mobile - red */}
 									<Grid item xs={12} sx={{ backgroundColor: "null", display: { xs: "block", sm: "none", md: "none" } }}>
-										<Image src='/images/2022-Lineup-No-Background.png' alt='2022 Lineup' layout='fixed' width='314' height='280' priority />
+										<Image
+											src='/images/2022-Lineup-No-Background.webp'
+											alt='2022 Lineup'
+											layout='fixed'
+											width='314'
+											height='280'
+											priority
+										/>
 									</Grid>
 									{/* Display for tablet - blue */}
 									<Grid item xs={12} sx={{ backgroundColor: "null", display: { xs: "none", sm: "block", md: "none" } }}>
-										<Image src='/images/2022-Lineup-No-Background.png' alt='2022 Lineup' layout='fixed' width='314' height='280' priority />
+										<Image
+											src='/images/2022-Lineup-No-Background.webp'
+											alt='2022 Lineup'
+											layout='fixed'
+											width='314'
+											height='280'
+											priority
+										/>
 									</Grid>
 									{/* Display for small desktop - green */}
 									<Grid item xs={12} sx={{ backgroundColor: "null", display: { xs: "none", sm: "none", md: "block" } }}>
-										<Image src='/images/2022-Lineup-No-Background.png' alt='2022 Lineup' layout='fixed' width='314' height='280' priority />
+										<Image
+											src='/images/2022-Lineup-No-Background.webp'
+											alt='2022 Lineup'
+											layout='fixed'
+											width='314'
+											height='280'
+											priority
+										/>
 									</Grid>
 								</Grid>
 							</motion.div>
@@ -268,7 +289,7 @@ const HeroSection = () => {
 								damping: 30,
 								delay: 0.6,
 							}}>
-							<HeaderImage src={"/images/Gainsborough-Course.jpg"} alt='Gainsborough Course' />
+							<HeaderImage src={"/images/Gainsborough-Course.webp"} alt='Gainsborough Course' />
 						</motion.div>
 					</Box>
 					{/* Hold the movable image of the people lineup */}
@@ -287,7 +308,7 @@ const HeroSection = () => {
 								damping: 30,
 								delay: 0.8,
 							}}>
-							<HeaderAnimationImage src={"/images/2022-Lineup-No-Background.png"} alt='2022 Lineup' />
+							<HeaderAnimationImage src={"/images/2022-Lineup-No-Background.webp"} alt='2022 Lineup' />
 						</motion.div>
 					</Box>
 				</Grid>
