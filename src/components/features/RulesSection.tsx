@@ -76,24 +76,15 @@ export default function RulesSection() {
 					</AnchorOffset>
 					<Typography variant='body1' component='div' sx={Styles.sectionText}>
 						As the trophy returned to the Bangs clan last year, it makes complete sense to keep points arrangements and the like the same
-						for 2023, so no tinkering this time around.
+						for 2023, so no tinkering this time around, bar an adjustment for an extra player.
 					</Typography>
 					<Typography variant='body1' component='div' sx={Styles.sectionText}>
-						Points will be scored each day based upon the following table*, depending upon your Stableford points score, which takes into
+						Points will be scored each day based upon the following table, depending upon your Stableford points score, which takes into
 						account the relative handicaps:
 					</Typography>
 				</Grid>
 				<Grid item xs={12} lg={6} sx={{ pl: 2, pr: 2 }}>
 					<ScoresTable />
-				</Grid>
-				<Grid item xs={12} lg={6}>
-					<Typography variant='body1' sx={{ paddingTop: "1rem", fontSize: "0.8rem" }}>
-						* 11th player note
-					</Typography>
-					<Typography variant='body1' sx={{ fontSize: "0.8rem" }}>
-						If we have an 11th player for any round, they will score half of that of 10th place. This would be rounded up to the nearest
-						whole number.
-					</Typography>
 				</Grid>
 			</Grid>
 		);
@@ -128,14 +119,15 @@ export default function RulesSection() {
 						In a change of practice, it appears that we decided to amend the starting handicaps for 2023 based upon adjusting the final day
 						handicaps in 2022. Therefore the starting handicaps for 2023 are as follows:
 					</Typography>
-
 					<Grid item xs={12} lg={12} sx={{ pl: 2, pr: 2 }}>
 						<Handicaps2023Table />
 					</Grid>
-
 					<Typography variant='body1' component='div' sx={Styles.sectionText}>
-						Handicap changes for day 2 and day 3 will as always be based upon the performance from the previous day. With 10 competitors,
-						the following matrix* is to be applied based upon your finishing score.
+						As a Big Lynn virgin, Alex will have a starting handicap of 36, the maximum allowed handicap.
+					</Typography>
+					<Typography variant='body1' component='div' sx={Styles.sectionText}>
+						Handicap changes for day 2 and day 3 will as always be based upon the performance from the previous day. With 10/11 competitors,
+						the following matrix is to be applied based upon your finishing score.
 					</Typography>
 					<Typography variant='body1' component='div' sx={Styles.sectionText}>
 						Where there are positional ties, all competitors will be adjusted as if they had finished in the tied position - i.e. if two
@@ -144,15 +136,6 @@ export default function RulesSection() {
 				</Grid>
 				<Grid item xs={12} lg={6} sx={{ pl: 2, pr: 2 }}>
 					<HandicapAdjustmentTable />
-				</Grid>
-				<Grid item xs={12} lg={6}>
-					<Typography variant='body1' sx={{ paddingTop: "1rem", fontSize: "0.8rem" }}>
-						* 11th player note
-					</Typography>
-					<Typography variant='body1' sx={{ fontSize: "0.8rem" }}>
-						If we have an 11th player for any round, all of the above positions from 7th downwards will be adjusted up by 1 place, ie. 7th
-						will have no adjustment and the 11th place will be adjusted by +2.
-					</Typography>
 				</Grid>
 			</Grid>
 		);
@@ -167,15 +150,15 @@ export default function RulesSection() {
 					</Typography>
 				</AnchorOffset>
 				<Typography variant='body1' component='div' sx={Styles.sectionText}>
-					On all golfing days, the following special rules will apply:
+					On all golfing days (unless specified differently), the following special rules will apply:
 				</Typography>
 				<ul style={{ marginLeft: "-1rem", fontSize: "0.9rem", fontWeight: "normal" }}>
 					<li>Mulligan or Reverse Mulligan (1 per round per player, cannot be carried over)</li>
 					<li>Fairway Robbery (1 per round per player) [NB. There are no reverse Fairway Robbery]</li>
 					<li>Big Gimmee (1 per round per player)</li>
 					<li>Joker (1 per round per player) to be called before playing tee shot on any hole for double points on that hole</li>
-					<li>String Theory (Sunday only) - 11 to 1 foot lengths of string drawn at random</li>
 					<li>Big Girl&#39;s Blouse (1 per round per player)</li>
+					<li>String Theory (Sunday only) - 11 to 1 foot lengths of string drawn at random</li>
 				</ul>
 				<Typography variant='body1' component='div' sx={Styles.sectionText}>
 					Dave Rose (Official Golf Nerd) to hold casting vote any real “Rules of Golf” issues.
