@@ -22,6 +22,11 @@ export default function HandicapAdjustmentTable() {
 			fontSize: { xs: "0.8rem", sm: "1rem", md: "1rem", lg: "1.1rem" },
 			padding: { xs: "0.5rem", sm: "0.6rem", md: "0.4rem", lg: "0.5rem" },
 		},
+		tableCellSmall: {
+			fontSize: { xs: "0.7rem !important", sm: "0.8rem", md: "0.8rem", lg: "0.9rem" },
+			fontWeight: "normal !important",
+			padding: { xs: "0.5rem", sm: "0.6rem", md: "0.4rem", lg: "0.5rem" },
+		},
 	};
 
 	return (
@@ -29,11 +34,16 @@ export default function HandicapAdjustmentTable() {
 			<Table sx={{ width: "100%" }} size='small' aria-label='a dense table'>
 				<TableHead>
 					<TableRow>
-						<TableCell sx={Styles.tableCell}>Daily finishing position (after a day with 11 golfers)</TableCell>
-						<TableCell sx={Styles.tableCell}>Daily finishing position (after a day with 10 golfers)</TableCell>
+						<TableCell sx={Styles.tableCell}>Daily finishing position</TableCell>
+						<TableCell sx={Styles.tableCell}>Daily finishing position</TableCell>
 						<TableCell align='right' sx={Styles.tableCell}>
 							Handicap adjustment for following day
 						</TableCell>
+					</TableRow>
+					<TableRow>
+						<TableCell sx={Styles.tableCellSmall}>(11 golfers)</TableCell>
+						<TableCell sx={Styles.tableCellSmall}>(10 golfers)</TableCell>
+						<TableCell align='right' sx={Styles.tableCellSmall}></TableCell>
 					</TableRow>
 				</TableHead>
 				<TableBody>

@@ -157,7 +157,7 @@ export default function RulesSection() {
 	const HandicapAdjustmentsSection = () => {
 		return (
 			<Grid container direction='row' spacing={2} sx={{ mb: 0, width: "100%" }}>
-				<Grid item xs={12} lg={6}>
+				<Grid item xs={12}>
 					<AnchorOffset id='handicapAdjustments' className='offset'>
 						<Typography variant='h4' component='div' className='offset' sx={Styles.sectionHeader}>
 							Handicap Adjustments
@@ -175,14 +175,12 @@ export default function RulesSection() {
 					</Typography>
 					<Typography variant='body1' component='div' sx={Styles.sectionText}>
 						Handicap changes for day 2 and day 3 will as always be based upon the performance from the previous day. With 10/11 competitors,
-						the following matrix is to be applied based upon your finishing score.
+						the following matrix is to be applied based upon your finishing score and the number of golfers on the day.
 					</Typography>
 					<Typography variant='body1' component='div' sx={Styles.sectionText}>
-						Where there are positional ties, all competitors will be adjusted as if they had finished in the tied position - i.e. if two
-						players are tied for 2nd on a day, they will both be adjusted as if they finished 2nd by themselves.
+						Note: Where there are positional ties, all competitors will be adjusted as if they had finished in the tied position - i.e. if
+						two players are tied for 2nd on a day, they will both be adjusted as if they finished 2nd by themselves.
 					</Typography>
-				</Grid>
-				<Grid item xs={12} lg={6} sx={{ pl: 2, pr: 2 }}>
 					<HandicapAdjustmentTable />
 				</Grid>
 			</Grid>
