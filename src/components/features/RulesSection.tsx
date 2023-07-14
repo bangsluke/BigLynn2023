@@ -145,7 +145,7 @@ export default function RulesSection() {
 				</Typography>
 				<ul style={{ marginLeft: "-1rem", fontSize: "0.9rem", fontWeight: "normal" }}>
 					<li>Longest drive - Sunday (minor prize)</li>
-					<li>Nearest the pin any hole - Sunday (minor prize))</li>
+					<li>Nearest the pin any hole - Sunday (minor prize)</li>
 					<li>Longest drive - Monday (main prize)</li>
 					<li>Nearest the pin any hole - Monday (main prize)</li>
 					<li>Overall competition winner (may include trophy)</li>
