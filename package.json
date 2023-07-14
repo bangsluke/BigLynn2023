@@ -1,6 +1,6 @@
 {
 	"name": "big-lynn-2023",
-	"version": "3.1.2",
+	"version": "1.1",
 	"private": true,
 	"scripts": {
 		"dev": "next dev",
