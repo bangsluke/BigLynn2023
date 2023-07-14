@@ -71,7 +71,7 @@ export default function RulesSection() {
 				<Grid item xs={12} lg={6}>
 					<AnchorOffset id='competitionPoints' className='offset'>
 						<Typography variant='h4' component='div' className='offset' sx={Styles.sectionHeader}>
-							Principal competition points
+							Principal Competition Points
 						</Typography>
 					</AnchorOffset>
 					<Typography variant='body1' component='div' sx={Styles.sectionText}>
@@ -95,7 +95,7 @@ export default function RulesSection() {
 			<>
 				<AnchorOffset id='bonusPoints' className='offset'>
 					<Typography variant='h4' component='div' className='offset' sx={Styles.sectionHeader}>
-						Bonus points
+						Bonus Points
 					</Typography>
 				</AnchorOffset>
 				<Typography variant='body1' component='div' sx={Styles.sectionText}>
@@ -290,10 +290,10 @@ export default function RulesSection() {
 							</Typography>
 							<Typography variant='body1' component='div'>
 								<p>
-									<a href='#competitionPoints'>Principal competition points</a>
+									<a href='#competitionPoints'>Principal Competition Points</a>
 								</p>
 								<p>
-									<a href='#bonusPoints'>Bonus points</a>
+									<a href='#bonusPoints'>Bonus Points</a>
 								</p>
 								<p>
 									<a href='#SHITRules'>Special SHIT Rules</a>
