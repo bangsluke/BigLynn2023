@@ -46,3 +46,6 @@ yarn-error.log*
 
 # Google Sheets API
 biglynn2023-56293908d413.json
+
+# Ignore the archive images folder
+/ArchiveImages

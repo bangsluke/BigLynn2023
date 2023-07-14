@@ -71,7 +71,7 @@ export default function RulesSection() {
 				<Grid item xs={12} lg={6}>
 					<AnchorOffset id='competitionPoints' className='offset'>
 						<Typography variant='h4' component='div' className='offset' sx={Styles.sectionHeader}>
-							Principal competition points
+							Principal Competition Points
 						</Typography>
 					</AnchorOffset>
 					<Typography variant='body1' component='div' sx={Styles.sectionText}>
@@ -95,7 +95,7 @@ export default function RulesSection() {
 			<>
 				<AnchorOffset id='bonusPoints' className='offset'>
 					<Typography variant='h4' component='div' className='offset' sx={Styles.sectionHeader}>
-						Bonus points
+						Bonus Points
 					</Typography>
 				</AnchorOffset>
 				<Typography variant='body1' component='div' sx={Styles.sectionText}>
@@ -103,41 +103,6 @@ export default function RulesSection() {
 					called “bullet holes” and everyone who equals the best net scores on those holes will receive the three points.
 				</Typography>
 			</>
-		);
-	};
-
-	const HandicapAdjustmentsSection = () => {
-		return (
-			<Grid container direction='row' spacing={2} sx={{ mb: 0, width: "100%" }}>
-				<Grid item xs={12} lg={6}>
-					<AnchorOffset id='handicapAdjustments' className='offset'>
-						<Typography variant='h4' component='div' className='offset' sx={Styles.sectionHeader}>
-							Handicap Adjustments
-						</Typography>
-					</AnchorOffset>
-					<Typography variant='body1' component='div' sx={Styles.sectionText}>
-						In a change of practice, it appears that we decided to amend the starting handicaps for 2023 based upon adjusting the final day
-						handicaps in 2022. Therefore the starting handicaps for 2023 are as follows:
-					</Typography>
-					<Grid item xs={12} lg={12} sx={{ pl: 2, pr: 2 }}>
-						<Handicaps2023Table />
-					</Grid>
-					<Typography variant='body1' component='div' sx={Styles.sectionText}>
-						As a Big Lynn virgin, Alex will have a starting handicap of 36, the maximum allowed handicap.
-					</Typography>
-					<Typography variant='body1' component='div' sx={Styles.sectionText}>
-						Handicap changes for day 2 and day 3 will as always be based upon the performance from the previous day. With 10/11 competitors,
-						the following matrix is to be applied based upon your finishing score.
-					</Typography>
-					<Typography variant='body1' component='div' sx={Styles.sectionText}>
-						Where there are positional ties, all competitors will be adjusted as if they had finished in the tied position - i.e. if two
-						players are tied for 2nd on a day, they will both be adjusted as if they finished 2nd by themselves.
-					</Typography>
-				</Grid>
-				<Grid item xs={12} lg={6} sx={{ pl: 2, pr: 2 }}>
-					<HandicapAdjustmentTable />
-				</Grid>
-			</Grid>
 		);
 	};
 
@@ -179,13 +144,46 @@ export default function RulesSection() {
 					Prizes may be available for the following categories:
 				</Typography>
 				<ul style={{ marginLeft: "-1rem", fontSize: "0.9rem", fontWeight: "normal" }}>
+					<li>Longest drive - Sunday (minor prize)</li>
+					<li>Nearest the pin any hole - Sunday (minor prize)</li>
+					<li>Longest drive - Monday (main prize)</li>
+					<li>Nearest the pin any hole - Monday (main prize)</li>
 					<li>Overall competition winner (may include trophy)</li>
-					<li>Longest drive (Sunday)</li>
-					<li>Nearest the pin any hole (Sunday)</li>
-					<li>Longest drive (Monday)</li>
-					<li>Nearest the pin any hole (Monday)</li>
 				</ul>
 			</>
+		);
+	};
+
+	const HandicapAdjustmentsSection = () => {
+		return (
+			<Grid container direction='row' spacing={2} sx={{ mb: 0, width: "100%" }}>
+				<Grid item xs={12}>
+					<AnchorOffset id='handicapAdjustments' className='offset'>
+						<Typography variant='h4' component='div' className='offset' sx={Styles.sectionHeader}>
+							Handicap Adjustments
+						</Typography>
+					</AnchorOffset>
+					<Typography variant='body1' component='div' sx={Styles.sectionText}>
+						In a change of practice, it appears that we decided to amend the starting handicaps for 2023 based upon adjusting the final day
+						handicaps in 2022. Therefore the starting handicaps for 2023 are as follows:
+					</Typography>
+					<Grid item xs={12} lg={12} sx={{ pl: 2, pr: 2 }}>
+						<Handicaps2023Table />
+					</Grid>
+					<Typography variant='body1' component='div' sx={Styles.sectionText}>
+						As a Big Lynn virgin, Alex will have a starting handicap of 36, the maximum allowed handicap.
+					</Typography>
+					<Typography variant='body1' component='div' sx={Styles.sectionText}>
+						Handicap changes for day 2 and day 3 will as always be based upon the performance from the previous day. With 10/11 competitors,
+						the following matrix is to be applied based upon your finishing score and the number of golfers on the day.
+					</Typography>
+					<Typography variant='body1' component='div' sx={Styles.sectionText}>
+						Note: Where there are positional ties, all competitors will be adjusted as if they had finished in the tied position - i.e. if
+						two players are tied for 2nd on a day, they will both be adjusted as if they finished 2nd by themselves.
+					</Typography>
+					<HandicapAdjustmentTable />
+				</Grid>
+			</Grid>
 		);
 	};
 
@@ -203,11 +201,6 @@ export default function RulesSection() {
 					<BonusPointsSection />
 				</Grid>
 
-				{/* Handicap Adjustments */}
-				<Grid item xs={12} sx={{ height: "max-content", mb: 2 }}>
-					<HandicapAdjustmentsSection />
-				</Grid>
-
 				{/* Special SHIT Rules */}
 				<Grid item xs={12} sx={{ height: "max-content", mb: 2 }}>
 					<SpecialSHITRulesSection />
@@ -216,6 +209,11 @@ export default function RulesSection() {
 				{/* Prizes */}
 				<Grid item xs={12} sx={{ height: "max-content", mb: 0 }}>
 					<PrizesSection />
+				</Grid>
+
+				{/* Handicap Adjustments */}
+				<Grid item xs={12} sx={{ height: "max-content", mb: 2 }}>
+					<HandicapAdjustmentsSection />
 				</Grid>
 			</Grid>
 		);
@@ -243,11 +241,6 @@ export default function RulesSection() {
 						<BonusPointsSection />
 					</Grid>
 
-					{/* Handicap Adjustments */}
-					<Grid item xs={12} sx={{ height: "max-content", mb: 2 }}>
-						<HandicapAdjustmentsSection />
-					</Grid>
-
 					{/* Special SHIT Rules */}
 					<Grid item xs={12} sx={{ height: "max-content", mb: 2 }}>
 						<SpecialSHITRulesSection />
@@ -256,6 +249,11 @@ export default function RulesSection() {
 					{/* Prizes */}
 					<Grid item xs={12} sx={{ height: "max-content", mb: 0 }}>
 						<PrizesSection />
+					</Grid>
+
+					{/* Handicap Adjustments */}
+					<Grid item xs={12} sx={{ height: "max-content", mb: 2 }}>
+						<HandicapAdjustmentsSection />
 					</Grid>
 				</Grid>
 			</PerfectScrollbar>
@@ -290,19 +288,19 @@ export default function RulesSection() {
 							</Typography>
 							<Typography variant='body1' component='div'>
 								<p>
-									<a href='#competitionPoints'>Principal competition points</a>
+									<a href='#competitionPoints'>Principal Competition Points</a>
 								</p>
 								<p>
-									<a href='#bonusPoints'>Bonus points</a>
-								</p>
-								<p>
-									<a href='#handicapAdjustments'>Handicap Adjustments</a>
+									<a href='#bonusPoints'>Bonus Points</a>
 								</p>
 								<p>
 									<a href='#SHITRules'>Special SHIT Rules</a>
 								</p>
 								<p>
 									<a href='#possiblePrizes'>Prizes</a>
+								</p>
+								<p>
+									<a href='#handicapAdjustments'>Handicap Adjustments</a>
 								</p>
 							</Typography>
 						</Grid>
