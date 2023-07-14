@@ -219,6 +219,7 @@ export default function EventDetailsSection() {
 										width='900'
 										height='600'
 										loading='lazy'
+										rel='preconnect'
 										style={{ width: "100%", height: "100%", border: "none", filter: "grayscale(1) invert(1)" }}></iframe>
 								</figure>
 							</MapBoxWrapper>
