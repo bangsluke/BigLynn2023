@@ -77,7 +77,7 @@ export default function PlayerSection(props: { dataMethod: DataMethods; commonSt
 	const [isLoaded, setIsLoaded] = useState<boolean>(false); // Define a loaded state for the data
 	const [allPlayersSelectedBoolean, setAllPlayersSelectedBoolean] = useState<boolean>(false); // Define a state for whether all players are selected or not
 	const [allPlayerData, setAllPlayerData] = useState<PlayerData[]>([]); // Define all the player data state
-	const [selectedPlayerID, setSelectedPlayerID] = useState<number>(0); // Set the state for the ID of the selected player
+	const [selectedPlayerID, setSelectedPlayerID] = useState<number>(1); // Set the state for the ID of the selected player
 	const [selectedPlayerData, setSelectedPlayerData] = useState<PlayerData>(ExamplePlayerData); // Set the state for the data of the player selected
 
 	// Add a useEffect that returns the data based on the dataMethod
