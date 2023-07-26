@@ -32,32 +32,32 @@ const allYearsColumns = [
 
 // Define an example year data object for before the data is loaded
 const ExampleYearData: YearDataType = {
-	year: "2022",
-	columnLetter: "AE",
+	columnLetter: "A",
+	year: "2023",
 	numberPlayers: "11",
-	totalYearScore: 375,
-	first: "Luke Bangs",
-	second: "Keith Joseph",
+	totalYearScore: 501,
+	first: "Ross Bangs",
+	second: "Martin Bangs",
 	third: "Dan Carew-Jones",
-	fourth: "Ross Bangs",
-	fifth: "Dave Rose",
-	sixth: "Mark Haywood",
-	seventh: "Richard Brown",
-	eighth: "Danny Brown",
-	ninth: "Ben Joseph",
-	tenth: "Martin Bangs",
-	eleventh: "Andy Brown",
-	firstScore: 80,
-	secondScore: 79,
-	thirdScore: 59,
-	fourthScore: 56,
-	fifthScore: 54,
-	sixthScore: 47,
-	seventhScore: 36,
-	eighthScore: 36,
-	ninthScore: 35,
-	tenthScore: 30,
-	eleventhScore: 16,
+	fourth: "Andy Brown",
+	fifth: "Luke Bangs",
+	sixth: "Dave Rose",
+	seventh: "Danny Brown",
+	eighth: "Ben Joseph",
+	ninth: "Mark Haywood",
+	tenth: "Keith Joseph",
+	eleventh: "Alex Edwards",
+	firstScore: 75,
+	secondScore: 68,
+	thirdScore: 63,
+	fourthScore: 61,
+	fifthScore: 61,
+	sixthScore: 48,
+	seventhScore: 35,
+	eighthScore: 33,
+	ninthScore: 27,
+	tenthScore: 24,
+	eleventhScore: 6,
 };
 
 export default function YearSection(props: { dataMethod: DataMethods; commonStatsStyles: any }) {
@@ -66,7 +66,7 @@ export default function YearSection(props: { dataMethod: DataMethods; commonStat
 	// Define the states for the data
 	const [isLoaded, setIsLoaded] = useState<boolean>(false); // Define a loaded state for the data
 	const [allYearData, setAllYearData] = useState<YearDataType[]>([]); // Define all the year data state
-	const [yearOption, setYearOption] = useState("2022"); // Set the state for the year shown
+	const [yearOption, setYearOption] = useState("2023"); // Set the state for the year shown
 	const [allYearsSelectedBoolean, setAllYearsSelectedBoolean] = useState<boolean>(false); // Define a state for whether all years are selected or not
 	const [selectedYearData, setSelectedYearData] = useState<YearDataType>(ExampleYearData); // Set the state for the data of the year selected
 
@@ -79,7 +79,7 @@ export default function YearSection(props: { dataMethod: DataMethods; commonStat
 					// https://blog.logrocket.com/async-rendering-react-suspense/
 					getYearData()
 						.then((response) => {
-							// console.log("response", response);
+							console.log("response", response);
 							setAllYearData(response);
 							setIsLoaded(true);
 						})
@@ -209,8 +209,8 @@ export default function YearSection(props: { dataMethod: DataMethods; commonStat
 						All Years
 					</MenuItem>
 					{allYearData?.map((YearData: YearDataType) => {
-						if (YearData.year === "Config Row" || YearData.year === "2023") {
-							return null; // Skip the config and 2023 row
+						if (YearData.year === "Config Row") {
+							return null; // Skip the config row
 						}
 
 						return (
