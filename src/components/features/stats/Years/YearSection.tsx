@@ -66,7 +66,7 @@ export default function YearSection(props: { dataMethod: DataMethods; commonStat
 	// Define the states for the data
 	const [isLoaded, setIsLoaded] = useState<boolean>(false); // Define a loaded state for the data
 	const [allYearData, setAllYearData] = useState<YearDataType[]>([]); // Define all the year data state
-	const [yearOption, setYearOption] = useState("2022"); // Set the state for the year shown
+	const [yearOption, setYearOption] = useState("2023"); // Set the state for the year shown
 	const [allYearsSelectedBoolean, setAllYearsSelectedBoolean] = useState<boolean>(false); // Define a state for whether all years are selected or not
 	const [selectedYearData, setSelectedYearData] = useState<YearDataType>(ExampleYearData); // Set the state for the data of the year selected
 
@@ -209,8 +209,8 @@ export default function YearSection(props: { dataMethod: DataMethods; commonStat
 						All Years
 					</MenuItem>
 					{allYearData?.map((YearData: YearDataType) => {
-						if (YearData.year === "Config Row" || YearData.year === "2023") {
-							return null; // Skip the config and 2023 row
+						if (YearData.year === "Config Row") {
+							return null; // Skip the config row
 						}
 
 						return (
