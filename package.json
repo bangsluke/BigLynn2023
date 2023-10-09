@@ -10,7 +10,7 @@
 	},
 	"dependencies": {
 		"@auth0/auth0-spa-js": "^1.22.6",
-		"@babel/preset-react": "^7.16.7",
+		"@babel/preset-react": "^7.22.15",
 		"@emotion/cache": "^11.7.1",
 		"@emotion/react": "^11.10.6",
 		"@emotion/styled": "^11.10.6",
@@ -53,7 +53,7 @@
 		"jwt-decode": "^3.1.2",
 		"lodash": "^4.17.21",
 		"material-ui-popup-state": "^2.0.0",
-		"next": "^12.3.1",
+		"next": "^13.5.4",
 		"next-transpile-modules": "^9.0.0",
 		"react": "^18.2.0",
 		"react-apexcharts": "^1.4.0",
