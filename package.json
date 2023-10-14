@@ -27,7 +27,7 @@
 		"@mui/icons-material": "^5.14.9",
 		"@reduxjs/toolkit": "^1.9.3",
 		"@tabler/icons": "^1.119.0",
-		"@types/aos": "^3.0.4",
+		"@types/aos": "^3.0.5",
 		"@types/jest": "^29.5.4",
 		"@types/string-similarity": "^4.0.0",
 		"amazon-cognito-identity-js": "^5.2.14",
