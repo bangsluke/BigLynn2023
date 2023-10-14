@@ -979,10 +979,10 @@
   resolved "https://registry.yarnpkg.com/@tabler/icons/-/icons-1.119.0.tgz#8c590bc5a563c8673a78ccd451bedabd584b376e"
   integrity sha512-Fk3Qq4w2SXcTjc/n1cuL5bccPkylrOMo7cYpQIf/yw6zP76LQV9dtLcHQUjFiUnaYuswR645CnURIhlafyAh9g==
 
-"@types/aos@^3.0.4":
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/@types/aos/-/aos-3.0.4.tgz#fd0dce430f18d118081aaced2c79c30617b15818"
-  integrity sha512-mna6Jd6bdK1NpwarLopGvXOgUoCfj0470IwLxuVOFDElTGI0JTd7xSGQ0AjbAEnHErC/b3fA9t2uB3IXVKmckA==
+"@types/aos@^3.0.5":
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/@types/aos/-/aos-3.0.5.tgz#546ca40b9b34a7e392006d86d56159988f5a8031"
+  integrity sha512-/WgEUKc4VYRlHJGUd90xkZbuWGaooB1y6KxUflOj6jNr4JQBFNUe/NRUgKVdo6WDYTD7Mt76/eS/A4iztaOFGQ==
 
 "@types/chance@^1.1.3":
   version "1.1.3"
