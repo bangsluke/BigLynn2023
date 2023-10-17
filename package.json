@@ -77,7 +77,7 @@
 		"react-redux": "^7.2.6",
 		"react-slick": "^0.29.0",
 		"react-spinners": "^0.13.8",
-		"react-spring": "^9.7.0",
+		"react-spring": "^9.7.3",
 		"react-swipeable-views": "^0.14.0",
 		"react-syntax-highlighter": "^15.5.0",
 		"react-timer-hook": "^3.0.7",
