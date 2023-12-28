@@ -2931,10 +2931,10 @@ google-p12-pem@^4.0.0:
   dependencies:
     node-forge "^1.3.1"
 
-google-spreadsheet@^4.0.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/google-spreadsheet/-/google-spreadsheet-4.1.0.tgz#78977e93e24e2be4640b02c8f5402e76dd966e0a"
-  integrity sha512-5HnqqhQk/TJRBwEmogumUZX76kRRdPDEm9gT+oCr9HhnEj3/ZeO0B+ChtereAge1LEsFufSJOGj7psg9O2/2ag==
+google-spreadsheet@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/google-spreadsheet/-/google-spreadsheet-4.1.1.tgz#56c422c86b51a2ea9dad21c40cd69bccbd58591f"
+  integrity sha512-Npk/xAMTgxEt/m/X9EXIqdY6CEYGiqUHrSuiLnNSKli5H+wiOQLSLsnfMxcdNPH6aSh6GttZm6QJhrnsxjwpZQ==
   dependencies:
     axios "^1.4.0"
     lodash "^4.17.21"
