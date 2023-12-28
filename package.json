@@ -10,7 +10,7 @@
 	},
 	"dependencies": {
 		"@auth0/auth0-spa-js": "^1.22.6",
-		"@babel/preset-react": "^7.22.15",
+		"@babel/preset-react": "^7.23.3",
 		"@emotion/cache": "^11.7.1",
 		"@emotion/react": "^11.10.6",
 		"@emotion/styled": "^11.10.6",
