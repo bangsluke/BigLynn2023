@@ -10,19 +10,19 @@ import QuotesSection from "components/features/QuotesSection";
 import RulesSection from "components/features/RulesSection";
 import StatsSection from "components/features/StatsSection";
 import UsefulLinksSection from "components/features/UsefulLinksSection";
-import AppBar from "components/ui/AppBar";
+import AppBar from "components/ui/AppBar2024";
 import { useEffect } from "react";
 
 // Define which sections to display. Useful for testing
 const displayedSection = {
 	hero: true,
-	eventDetails: true,
-	itinerary: true,
+	eventDetails: false,
+	itinerary: false,
 	quotes: true,
 	rules: true,
 	stats: true,
-	faq: true,
-	usefulLinks: true,
+	faq: false,
+	usefulLinks: false,
 };
 
 // Define the padding for each section
@@ -137,7 +137,7 @@ export default function Info() {
 				style={{ display: displayedSection.hero ? "block" : "none", width: SectionWidth.maxWidth, overflow: SectionWidth.overflow }}>
 				<AnchorOffset id='top' className='offset'>
 					<AppBar />
-					<HeroSection />
+					<HeroSection year={`<s>2023</s> 2024`} />
 				</AnchorOffset>
 			</HeaderWrapper>
 

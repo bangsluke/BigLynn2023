@@ -3,7 +3,7 @@ import HandicapAdjustmentTable from "components/features/rules/HandicapAdjustmen
 import Handicaps2023Table from "components/features/rules/Handicaps2023Table";
 import ScoresTable from "components/features/rules/ScoresTable";
 import SectionHeader from "components/ui/SectionHeader";
-import { AnchorOffset } from "pages/info";
+import { AnchorOffset } from "pages/2023";
 import { useEffect, useRef, useState } from "react";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import "react-perfect-scrollbar/dist/css/styles.css";
@@ -76,7 +76,7 @@ export default function RulesSection() {
 					</AnchorOffset>
 					<Typography variant='body1' component='div' sx={Styles.sectionText}>
 						As the trophy returned to the Bangs clan last year, it makes complete sense to keep points arrangements and the like the same
-						for 2023, so no tinkering this time around, bar an adjustment for an extra player.
+						for <s>2023</s> 2024, so no tinkering this time around, bar an adjustment for an extra player.
 					</Typography>
 					<Typography variant='body1' component='div' sx={Styles.sectionText}>
 						Points will be scored each day based upon the following table, depending upon your Stableford points score, which takes into
