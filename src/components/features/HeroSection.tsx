@@ -2,9 +2,14 @@ import { Box, Button, Container, Grid, Link, Typography } from "@mui/material";
 import { styled, useTheme } from "@mui/material/styles";
 import { motion } from "framer-motion";
 import useScreenSize from "hooks/useMediaQuery";
+import parse from "html-react-parser";
 import Image from "next/image";
 import { useState } from "react";
 import ThemingS from "services/ThemingS";
+
+type HeroSectionProps = {
+	year: string;
+};
 
 // Styles
 
@@ -35,7 +40,8 @@ const HeaderAnimationImage = styled("img")(({ theme }) => ({
 	},
 }));
 
-const HeroSection = () => {
+const HeroSection = (props: HeroSectionProps) => {
+	const { year } = props;
 	const theme = useTheme();
 	const [fullScreenBoolean, setFullScreenBoolean] = useState<boolean>(false);
 	const screenSize = useScreenSize();
@@ -91,6 +97,9 @@ const HeroSection = () => {
 		},
 	};
 
+	// Parse the year string received
+	const yearString = parse(year);
+
 	return (
 		<Container>
 			<Grid
@@ -125,7 +134,7 @@ const HeroSection = () => {
 									}}>
 									Welcome to the official website of the
 									<Box component='span' sx={{ ml: 1, color: theme.palette.primary.main }}>
-										Big Lynn 2023
+										Big Lynn {yearString}
 									</Box>
 								</Typography>
 							</motion.div>
