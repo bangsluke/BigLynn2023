@@ -2,9 +2,9 @@
   <img src="https://i.imgur.com/OhMP4b0.png" alt="Big Lynn Logo" width="200"/>
 </p>
 
-# Big Lynn 2023
+# Big Lynn
 
-An information page for the Big Lynn 2023 golf competition including details and stats from past years.
+An information page for the Big Lynn golf competition including details and stats from past years.
 
 ## Live Site
 

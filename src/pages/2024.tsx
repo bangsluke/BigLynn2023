@@ -3,14 +3,14 @@ import AOS from "aos";
 import "aos/dist/aos.css"; // You can also use <link> for styles
 import EventDetailsSection from "components/features/EventDetailsSection";
 import FAQSection from "components/features/FAQSection";
-import Footer from "components/features/Footer";
-import HeroSection from "components/features/HeroSection";
 import ItinerarySection from "components/features/ItinerarySection";
 import QuotesSection from "components/features/QuotesSection";
-import RulesSection from "components/features/RulesSection";
 import StatsSection from "components/features/StatsSection";
 import UsefulLinksSection from "components/features/UsefulLinksSection";
-import AppBar from "components/ui/AppBar2024";
+import Footer from "components/features/furtherYears/Footer2024";
+import HeroSection from "components/features/furtherYears/HeroSection2024";
+import RulesSection from "components/features/furtherYears/RulesSection2024";
+import AppBar from "components/ui/furtherYears/AppBar2024";
 import { useEffect } from "react";
 
 // Define which sections to display. Useful for testing
@@ -137,7 +137,7 @@ export default function Info() {
 				style={{ display: displayedSection.hero ? "block" : "none", width: SectionWidth.maxWidth, overflow: SectionWidth.overflow }}>
 				<AnchorOffset id='top' className='offset'>
 					<AppBar />
-					<HeroSection year={`<s>2023</s> 2024`} />
+					<HeroSection />
 				</AnchorOffset>
 			</HeaderWrapper>
 
@@ -159,19 +159,19 @@ export default function Info() {
 				</AnchorOffset>
 			</FourthWrapper>
 
-			<SecondWrapper
-				style={{ display: displayedSection.quotes ? "block" : "none", width: SectionWidth.maxWidth, overflow: SectionWidth.overflow }}>
-				<AnchorOffset id='quotes' className='offset'>
-					<QuotesSection data-aos='fade-left' data-aos-duration='3000' />
-				</AnchorOffset>
-			</SecondWrapper>
-
 			<ThirdWrapper
 				style={{ display: displayedSection.rules ? "block" : "none", width: SectionWidth.maxWidth, overflow: SectionWidth.overflow }}>
 				<AnchorOffset id='rules' className='offset'>
 					<RulesSection data-aos='fade-right' data-aos-duration='3000' />
 				</AnchorOffset>
 			</ThirdWrapper>
+
+			<FourthWrapper
+				style={{ display: displayedSection.quotes ? "block" : "none", width: SectionWidth.maxWidth, overflow: SectionWidth.overflow }}>
+				<AnchorOffset id='quotes' className='offset'>
+					<QuotesSection data-aos='fade-left' data-aos-duration='3000' />
+				</AnchorOffset>
+			</FourthWrapper>
 
 			<SecondWrapper
 				style={{ display: displayedSection.stats ? "block" : "none", width: SectionWidth.maxWidth, overflow: SectionWidth.overflow }}>

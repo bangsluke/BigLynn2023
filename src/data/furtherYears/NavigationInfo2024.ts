@@ -1,5 +1,5 @@
 import { v4 as uuid } from "uuid";
-import { NavigationAnchor } from "../types/types";
+import { NavigationAnchor } from "../../types/types";
 
 // Define the navigation information used for the app bar.
 const NavigationInfo: NavigationAnchor[] = [
@@ -22,19 +22,20 @@ const NavigationInfo: NavigationAnchor[] = [
 	// 	anchor: "itinerary",
 	// },
 	{
-		id: 4,
-		key: uuid(),
-		name: "Quotes",
-		anchor: "quotes",
-	},
-	{
-		id: 5,
+		id: 2,
 		key: uuid(),
 		name: "Rules",
 		anchor: "rules",
 	},
 	{
-		id: 6,
+		id: 3,
+		key: uuid(),
+		name: "Quotes",
+		anchor: "quotes",
+	},
+
+	{
+		id: 4,
 		key: uuid(),
 		name: "Statistics",
 		anchor: "statistics",

@@ -171,7 +171,7 @@ export default function EventDetailsSection() {
 				{/* Hold the section header text */}
 				<SectionHeader
 					header='Event Details'
-					subheader='Big Lynn 2023'
+					subheader='Big Lynn'
 					description='Everything you need to know about the competitions 27th year...'
 				/>
 

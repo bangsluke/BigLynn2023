@@ -125,7 +125,7 @@ const HeroSection = () => {
 									}}>
 									Welcome to the official website of the
 									<Box component='span' sx={{ ml: 1, color: theme.palette.primary.main }}>
-										Big Lynn 2023
+										Big Lynn <s>2023</s> 2024
 									</Box>
 								</Typography>
 							</motion.div>
@@ -236,7 +236,7 @@ const HeroSection = () => {
 									<Grid item xs={6} sm={4} md={6} sx={Styles.ButtonContainers}>
 										<Button
 											component={Link}
-											href='#eventDetails'
+											href='#rules'
 											size={buttonSize.size}
 											variant='contained'
 											color='primary'
@@ -264,7 +264,7 @@ const HeroSection = () => {
 									<Grid item xs={12} md={6} sx={Styles.ButtonContainers}>
 										<Button
 											component={Link}
-											href='mailto:bangsluke@gmail.com?subject=Fuck me this site is awesome'
+											href='mailto:ross.bangs@gmail.com?subject=Thank fuck you have a talented brother who can make websites'
 											target='_blank'
 											size={buttonSize.size}
 											variant='text'>

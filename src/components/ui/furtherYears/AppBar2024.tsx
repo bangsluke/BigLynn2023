@@ -19,7 +19,7 @@ import {
 import { useTheme } from "@mui/material/styles";
 import { IconArrowUp, IconQuote, IconReportAnalytics, IconRuler2 } from "@tabler/icons";
 import Logo from "components/ui/Logo";
-import NavigationInfo from "data/NavigationInfo2024";
+import NavigationInfo from "data/furtherYears/NavigationInfo2024";
 import { ReactElement, cloneElement, useState } from "react";
 
 // Define the height of the app bar for desktop and mobile
@@ -89,7 +89,7 @@ const InfoPageAppBar2024 = ({ ...others }) => {
 						</Typography>
 						<Stack direction='row' sx={{ display: { xs: "none", sm: "none", md: "none", lg: "block" } }} spacing={2}>
 							{navButtonElements}
-							<Button component={Link} href='#eventDetails' disableElevation variant='contained' color='secondary'>
+							<Button component={Link} href='#rules' disableElevation variant='contained' color='secondary'>
 								Begin Browsing
 							</Button>
 						</Stack>
@@ -126,20 +126,21 @@ const InfoPageAppBar2024 = ({ ...others }) => {
 													<ListItemText primary='Itinerary' />
 												</ListItemButton>
 											</Link> */}
-											<Link style={{ textDecoration: "none" }} href='#quotes'>
-												<ListItemButton component='a'>
-													<ListItemIcon>
-														<IconQuote />
-													</ListItemIcon>
-													<ListItemText primary='Quotes' />
-												</ListItemButton>
-											</Link>
+
 											<Link style={{ textDecoration: "none" }} href='#rules'>
 												<ListItemButton component='a'>
 													<ListItemIcon>
 														<IconRuler2 />
 													</ListItemIcon>
 													<ListItemText primary='Rules' />
+												</ListItemButton>
+											</Link>
+											<Link style={{ textDecoration: "none" }} href='#quotes'>
+												<ListItemButton component='a'>
+													<ListItemIcon>
+														<IconQuote />
+													</ListItemIcon>
+													<ListItemText primary='Quotes' />
 												</ListItemButton>
 											</Link>
 											<Link style={{ textDecoration: "none" }} href='#statistics'>

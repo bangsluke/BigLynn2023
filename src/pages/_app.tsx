@@ -28,8 +28,8 @@ export const BaseApp = (props: { children: any }) => {
 			<ThemeProvider theme={ThemingS.toolTheme}>
 				<ThemeCustomization>
 					<MetaData
-						title='Big Lynn 2023'
-						description='The official website of the 2023 Big Lynn Competition.'
+						title='Big Lynn'
+						description='The official website of the Big Lynn Competition.'
 						authorName='Luke Bangs'
 						authorEmail='bangsluke@gmail.com'
 					/>

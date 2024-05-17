@@ -1,6 +1,6 @@
 import { Container, Grid, Typography } from "@mui/material";
 import HandicapAdjustmentTable from "components/features/rules/HandicapAdjustmentTable";
-import Handicaps2023Table from "components/features/rules/Handicaps2023Table";
+import Handicaps2024Table from "components/features/rules/Handicaps2024Table";
 import ScoresTable from "components/features/rules/ScoresTable";
 import SectionHeader from "components/ui/SectionHeader";
 import { AnchorOffset } from "pages/2023";
@@ -75,8 +75,9 @@ export default function RulesSection() {
 						</Typography>
 					</AnchorOffset>
 					<Typography variant='body1' component='div' sx={Styles.sectionText}>
-						As the trophy returned to the Bangs clan last year, it makes complete sense to keep points arrangements and the like the same
-						for 2023, so no tinkering this time around, bar an adjustment for an extra player.
+						As the trophy returned to the Bangs clan <s>last year</s> for the last two years, it makes complete sense to keep points
+						arrangements and the like the same for <s>2023</s> 2024, so no tinkering this time around, bar an adjustment for an extra
+						player.
 					</Typography>
 					<Typography variant='body1' component='div' sx={Styles.sectionText}>
 						Points will be scored each day based upon the following table, depending upon your Stableford points score, which takes into
@@ -164,15 +165,11 @@ export default function RulesSection() {
 						</Typography>
 					</AnchorOffset>
 					<Typography variant='body1' component='div' sx={Styles.sectionText}>
-						In a change of practice, it appears that we decided to amend the starting handicaps for 2023 based upon adjusting the final day
-						handicaps in 2022. Therefore the starting handicaps for 2023 are as follows:
+						The starting handicaps for 2024 are as follows:
 					</Typography>
 					<Grid item xs={12} lg={12} sx={{ pl: 2, pr: 2 }}>
-						<Handicaps2023Table />
+						<Handicaps2024Table />
 					</Grid>
-					<Typography variant='body1' component='div' sx={Styles.sectionText}>
-						As a Big Lynn virgin, Alex will have a starting handicap of 36, the maximum allowed handicap.
-					</Typography>
 					<Typography variant='body1' component='div' sx={Styles.sectionText}>
 						Handicap changes for day 2 and day 3 will as always be based upon the performance from the previous day. With 10/11 competitors,
 						the following matrix is to be applied based upon your finishing score and the number of golfers on the day.

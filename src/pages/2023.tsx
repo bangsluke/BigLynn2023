@@ -137,7 +137,7 @@ export default function Info() {
 				style={{ display: displayedSection.hero ? "block" : "none", width: SectionWidth.maxWidth, overflow: SectionWidth.overflow }}>
 				<AnchorOffset id='top' className='offset'>
 					<AppBar />
-					<HeroSection year={"2023"} />
+					<HeroSection />
 				</AnchorOffset>
 			</HeaderWrapper>
 
