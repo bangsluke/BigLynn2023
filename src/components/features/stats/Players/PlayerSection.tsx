@@ -383,14 +383,14 @@ export default function PlayerSection(props: { dataMethod: DataMethods; commonSt
 					<h5>Based on data trends</h5>
 					<Grid container spacing={ThemingS.themeConfig.gridSpacing} justifyContent='center' alignItems='center' sx={StatSectionBoxesStyle}>
 						<StatHolder
-							headerText='2022 Points'
+							headerText='2023 Points'
 							value={selectedPlayerData.pointsLatest.toString()}
 							xsWidth={6}
 							StatHolderHeaderFontSize={StatHolderHeaderFontSize}
 							StatHolderValuesFontSize={StatHolderValuesFontSize}
 						/>
 						<StatHolder
-							headerText='Predicted 2023 Points'
+							headerText='Predicted 2024 Points'
 							value={selectedPlayerData.pointsExpected2023Points.toString()}
 							xsWidth={6}
 							StatHolderHeaderFontSize={StatHolderHeaderFontSize}
@@ -399,14 +399,14 @@ export default function PlayerSection(props: { dataMethod: DataMethods; commonSt
 					</Grid>
 					<Grid container spacing={ThemingS.themeConfig.gridSpacing} justifyContent='center' alignItems='center' sx={StatSectionBoxesStyle}>
 						<StatHolder
-							headerText='Predicted 2023 Position'
+							headerText='Predicted 2024 Position'
 							value={selectedPlayerData.positionPredicted.toString()}
 							xsWidth={6}
 							StatHolderHeaderFontSize={StatHolderHeaderFontSize}
 							StatHolderValuesFontSize={StatHolderValuesFontSize}
 						/>
 						<StatHolder
-							headerText='Predicted 2024 Handicap'
+							headerText='Predicted 2025 Handicap'
 							value={selectedPlayerData.handicapExpected.toString()}
 							xsWidth={6}
 							StatHolderHeaderFontSize={StatHolderHeaderFontSize}
