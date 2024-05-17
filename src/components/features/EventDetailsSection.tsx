@@ -74,7 +74,7 @@ const GainsboroughDetails = () => {
 							src='/images/GainsboroughCourseImage.webp'
 							alt='Gainsborough Course Image'
 							layout='fixed'
-							width='121.45'
+							width='121'
 							height='200'
 							loading='lazy'
 						/>
