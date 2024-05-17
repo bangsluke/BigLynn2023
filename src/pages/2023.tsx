@@ -20,7 +20,7 @@ const displayedSection = {
 	itinerary: true,
 	quotes: true,
 	rules: true,
-	stats: true,
+	stats: false,
 	faq: true,
 	usefulLinks: true,
 };

@@ -8,7 +8,6 @@ import {
 	IconButton,
 	Link,
 	List,
-	ListItemButton,
 	ListItemIcon,
 	ListItemText,
 	Stack,
@@ -102,12 +101,12 @@ const InfoPageAppBar2024 = ({ ...others }) => {
 									<Box sx={{ width: "auto" }} role='presentation' onClick={drawerToggler(false)} onKeyDown={drawerToggler(false)}>
 										<List>
 											<Link style={{ textDecoration: "none" }} href='#top'>
-												<ListItemButton component='a'>
-													<ListItemIcon>
-														<IconArrowUp />
-													</ListItemIcon>
-													<ListItemText primary='To Top' />
-												</ListItemButton>
+												{/* <ListItemButton component='a'> */}
+												<ListItemIcon>
+													<IconArrowUp />
+												</ListItemIcon>
+												<ListItemText primary='To Top' />
+												{/* </ListItemButton> */}
 											</Link>
 
 											{/* <Link style={{ textDecoration: "none" }} href='#eventDetails'>
@@ -128,28 +127,28 @@ const InfoPageAppBar2024 = ({ ...others }) => {
 											</Link> */}
 
 											<Link style={{ textDecoration: "none" }} href='#rules'>
-												<ListItemButton component='a'>
-													<ListItemIcon>
-														<IconRuler2 />
-													</ListItemIcon>
-													<ListItemText primary='Rules' />
-												</ListItemButton>
+												{/* <ListItemButton component='a'> */}
+												<ListItemIcon>
+													<IconRuler2 />
+												</ListItemIcon>
+												<ListItemText primary='Rules' />
+												{/* </ListItemButton> */}
 											</Link>
 											<Link style={{ textDecoration: "none" }} href='#quotes'>
-												<ListItemButton component='a'>
-													<ListItemIcon>
-														<IconQuote />
-													</ListItemIcon>
-													<ListItemText primary='Quotes' />
-												</ListItemButton>
+												{/* <ListItemButton component='a'> */}
+												<ListItemIcon>
+													<IconQuote />
+												</ListItemIcon>
+												<ListItemText primary='Quotes' />
+												{/* </ListItemButton> */}
 											</Link>
 											<Link style={{ textDecoration: "none" }} href='#statistics'>
-												<ListItemButton component='a'>
-													<ListItemIcon>
-														<IconReportAnalytics />
-													</ListItemIcon>
-													<ListItemText primary='Statistics' />
-												</ListItemButton>
+												{/* <ListItemButton component='a'> */}
+												<ListItemIcon>
+													<IconReportAnalytics />
+												</ListItemIcon>
+												<ListItemText primary='Statistics' />
+												{/* </ListItemButton> */}
 											</Link>
 											{/* <Link style={{ textDecoration: "none" }} href='#FAQ'>
 												<ListItemButton component='a'>
