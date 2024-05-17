@@ -27,7 +27,6 @@ import {
 	IconRuler2,
 } from "@tabler/icons";
 import NavigationInfo from "data/NavigationInfo";
-import Image from "next/image";
 import { ReactElement, cloneElement, useState } from "react";
 
 // Define the height of the app bar for desktop and mobile
@@ -93,7 +92,7 @@ const InfoPageAppBar = ({ ...others }) => {
 				<Container sx={{ height: { xs: AppBarHeight.mobile, md: AppBarHeight.desktop } }}>
 					<Toolbar sx={{ height: { xs: AppBarHeight.mobile, md: AppBarHeight.desktop } }}>
 						<Typography component='div' sx={{ flexGrow: 1, textAlign: "left" }} data-testid='app-bar-drawer'>
-							<Image src='/images/Big-Lynn-Logo.svg' alt='Big Lynn Logo' width='92' height='52' />
+							<img src='/images/Big-Lynn-Logo.svg' alt='Big Lynn Logo' width='92' height='52' />
 						</Typography>
 						<Stack direction='row' sx={{ display: { xs: "none", sm: "none", md: "none", lg: "block" } }} spacing={2}>
 							{navButtonElements}

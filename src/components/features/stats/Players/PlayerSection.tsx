@@ -7,7 +7,6 @@ import { getPlayerData } from "components/features/stats/GoogleSheetsAPI/getPlay
 import HandicapRange from "components/features/stats/Players/HandicapRange";
 import StatHolder from "components/features/stats/StatHolder";
 import useScreenSize from "hooks/useMediaQuery";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import { FadeLoader } from "react-spinners";
 import ThemingS from "services/ThemingS";
@@ -261,14 +260,12 @@ export default function PlayerSection(props: { dataMethod: DataMethods; commonSt
 									margin: "0 auto",
 									padding: "0",
 								}}>
-								<Image
+								<img
 									src={`/images/players/${selectedPlayerData.firstName}.webp`}
 									alt='Player Image'
-									layout='fill'
 									style={{
 										borderRadius: `${ProfileImageDimensions}px`,
 									}}
-									loading='lazy'
 								/>
 							</div>
 						</Grid>
