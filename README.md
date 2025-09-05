@@ -4,11 +4,7 @@
 
 # Big Lynn
 
-An information page for the Big Lynn golf competition including details and stats from past years.
-
-## Live Site
-
-The live site can be found at <https://biglynn2023.netlify.app/info>
+An information page for the Big Lynn golf competition, including details and stats from past years.
 
 ## Start Up
 
