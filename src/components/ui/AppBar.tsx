@@ -8,7 +8,6 @@ import {
 	IconButton,
 	Link,
 	List,
-	ListItemButton,
 	ListItemIcon,
 	ListItemText,
 	Stack,
@@ -27,7 +26,6 @@ import {
 	IconReportAnalytics,
 	IconRuler2,
 } from "@tabler/icons";
-import Logo from "components/ui/Logo";
 import NavigationInfo from "data/NavigationInfo";
 import { ReactElement, cloneElement, useState } from "react";
 
@@ -94,7 +92,7 @@ const InfoPageAppBar = ({ ...others }) => {
 				<Container sx={{ height: { xs: AppBarHeight.mobile, md: AppBarHeight.desktop } }}>
 					<Toolbar sx={{ height: { xs: AppBarHeight.mobile, md: AppBarHeight.desktop } }}>
 						<Typography component='div' sx={{ flexGrow: 1, textAlign: "left" }} data-testid='app-bar-drawer'>
-							<Logo />
+							<img src='/images/Big-Lynn-Logo.svg' alt='Big Lynn Logo' width='92' height='52' />
 						</Typography>
 						<Stack direction='row' sx={{ display: { xs: "none", sm: "none", md: "none", lg: "block" } }} spacing={2}>
 							{navButtonElements}
@@ -111,69 +109,69 @@ const InfoPageAppBar = ({ ...others }) => {
 									<Box sx={{ width: "auto" }} role='presentation' onClick={drawerToggler(false)} onKeyDown={drawerToggler(false)}>
 										<List>
 											<Link style={{ textDecoration: "none" }} href='#top'>
-												<ListItemButton component='a'>
-													<ListItemIcon>
-														<IconArrowUp />
-													</ListItemIcon>
-													<ListItemText primary='To Top' />
-												</ListItemButton>
+												{/* <ListItemButton component='a'> */}
+												<ListItemIcon>
+													<IconArrowUp />
+												</ListItemIcon>
+												<ListItemText primary='To Top' />
+												{/* </ListItemButton> */}
 											</Link>
 
 											<Link style={{ textDecoration: "none" }} href='#eventDetails'>
-												<ListItemButton component='a'>
-													<ListItemIcon>
-														<IconCalendarEvent />
-													</ListItemIcon>
-													<ListItemText primary='Event Details' />
-												</ListItemButton>
+												{/* <ListItemButton component='a'> */}
+												<ListItemIcon>
+													<IconCalendarEvent />
+												</ListItemIcon>
+												<ListItemText primary='Event Details' />
+												{/* </ListItemButton> */}
 											</Link>
 											<Link style={{ textDecoration: "none" }} href='#itinerary'>
-												<ListItemButton component='a'>
-													<ListItemIcon>
-														<IconCheckupList />
-													</ListItemIcon>
-													<ListItemText primary='Itinerary' />
-												</ListItemButton>
+												{/* <ListItemButton component='a'> */}
+												<ListItemIcon>
+													<IconCheckupList />
+												</ListItemIcon>
+												<ListItemText primary='Itinerary' />
+												{/* </ListItemButton> */}
 											</Link>
 											<Link style={{ textDecoration: "none" }} href='#quotes'>
-												<ListItemButton component='a'>
-													<ListItemIcon>
-														<IconQuote />
-													</ListItemIcon>
-													<ListItemText primary='Quotes' />
-												</ListItemButton>
+												{/* <ListItemButton component='a'> */}
+												<ListItemIcon>
+													<IconQuote />
+												</ListItemIcon>
+												<ListItemText primary='Quotes' />
+												{/* </ListItemButton> */}
 											</Link>
 											<Link style={{ textDecoration: "none" }} href='#rules'>
-												<ListItemButton component='a'>
-													<ListItemIcon>
-														<IconRuler2 />
-													</ListItemIcon>
-													<ListItemText primary='Rules' />
-												</ListItemButton>
+												{/* <ListItemButton component='a'> */}
+												<ListItemIcon>
+													<IconRuler2 />
+												</ListItemIcon>
+												<ListItemText primary='Rules' />
+												{/* </ListItemButton> */}
 											</Link>
 											<Link style={{ textDecoration: "none" }} href='#statistics'>
-												<ListItemButton component='a'>
-													<ListItemIcon>
-														<IconReportAnalytics />
-													</ListItemIcon>
-													<ListItemText primary='Statistics' />
-												</ListItemButton>
+												{/* <ListItemButton component='a'> */}
+												<ListItemIcon>
+													<IconReportAnalytics />
+												</ListItemIcon>
+												<ListItemText primary='Statistics' />
+												{/* </ListItemButton> */}
 											</Link>
 											<Link style={{ textDecoration: "none" }} href='#FAQ'>
-												<ListItemButton component='a'>
-													<ListItemIcon>
-														<IconQuestionMark />
-													</ListItemIcon>
-													<ListItemText primary='FAQ' />
-												</ListItemButton>
+												{/* <ListItemButton component='a'> */}
+												<ListItemIcon>
+													<IconQuestionMark />
+												</ListItemIcon>
+												<ListItemText primary='FAQ' />
+												{/* </ListItemButton> */}
 											</Link>
 											<Link style={{ textDecoration: "none" }} href='#usefulLinks'>
-												<ListItemButton component='a'>
-													<ListItemIcon>
-														<IconLink />
-													</ListItemIcon>
-													<ListItemText primary='Useful Links' />
-												</ListItemButton>
+												{/* <ListItemButton component='a'> */}
+												<ListItemIcon>
+													<IconLink />
+												</ListItemIcon>
+												<ListItemText primary='Useful Links' />
+												{/* </ListItemButton> */}
 											</Link>
 										</List>
 									</Box>

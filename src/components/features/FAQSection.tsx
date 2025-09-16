@@ -35,7 +35,8 @@ export default function FAQSection() {
 							<Message type='answer'>
 								<p>
 									<Link href='https://www.stokebynayland.com/wp-content/uploads/2023/06/Lakes-Dinner-Menu-JULY-23.pdf' passHref>
-										<a target='_blank'>Here you go</a>
+										{/* <ListItemButton component='a'>Here you go</ListItemButton> */}
+										Here you go
 									</Link>
 									. The menu may change daily. I hear the salmon is particularly good…
 								</p>
@@ -50,7 +51,8 @@ export default function FAQSection() {
 								<p>
 									Luckily there is an{" "}
 									<Link href='https://www.stokebynayland.com/golf/facilities/retail/' passHref>
-										<a target='_blank'>on-site golf shop</a>
+										{/* <ListItemButton component='a'>on-site golf shop</ListItemButton> */}
+										on-site golf shop
 									</Link>{" "}
 									for this very issue
 								</p>

@@ -2,7 +2,6 @@ import { Box, Button, Container, Grid, Link, Typography } from "@mui/material";
 import { styled, useTheme } from "@mui/material/styles";
 import { motion } from "framer-motion";
 import useScreenSize from "hooks/useMediaQuery";
-import Image from "next/image";
 import { useState } from "react";
 import ThemingS from "services/ThemingS";
 
@@ -159,36 +158,15 @@ const HeroSection = () => {
 									}}>
 									{/* Display for mobile - red */}
 									<Grid item xs={12} sx={{ backgroundColor: "null", display: { xs: "block", sm: "none", md: "none" } }}>
-										<Image
-											src='/images/2022-Lineup-No-Background.webp'
-											alt='2022 Lineup'
-											layout='fixed'
-											width='314'
-											height='280'
-											priority
-										/>
+										<img src='/images/2022-Lineup-No-Background.webp' alt='2022 Lineup' width='314' height='280' />
 									</Grid>
 									{/* Display for tablet - blue */}
 									<Grid item xs={12} sx={{ backgroundColor: "null", display: { xs: "none", sm: "block", md: "none" } }}>
-										<Image
-											src='/images/2022-Lineup-No-Background.webp'
-											alt='2022 Lineup'
-											layout='fixed'
-											width='314'
-											height='280'
-											priority
-										/>
+										<img src='/images/2022-Lineup-No-Background.webp' alt='2022 Lineup' width='314' height='280' />
 									</Grid>
 									{/* Display for small desktop - green */}
 									<Grid item xs={12} sx={{ backgroundColor: "null", display: { xs: "none", sm: "none", md: "block" } }}>
-										<Image
-											src='/images/2022-Lineup-No-Background.webp'
-											alt='2022 Lineup'
-											layout='fixed'
-											width='314'
-											height='280'
-											priority
-										/>
+										<img src='/images/2022-Lineup-No-Background.webp' alt='2022 Lineup' width='314' height='280' />
 									</Grid>
 								</Grid>
 							</motion.div>
