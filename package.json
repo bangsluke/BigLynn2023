@@ -1,6 +1,9 @@
 {
 	"name": "big-lynn-2023",
 	"version": "1.1",
+	"engines": {
+		"node": ">=18.17.0"
+	},
 	"private": true,
 	"scripts": {
 		"dev": "next dev",
