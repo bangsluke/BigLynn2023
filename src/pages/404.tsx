@@ -1,5 +1,6 @@
 import { styled } from "@mui/material/styles";
 import { useRouter } from "next/router";
+import Image from "next/image";
 import Error404Image from "../../public/images/404Image.webp";
 import ThemingS from "../services/ThemingS";
 
@@ -32,7 +33,7 @@ export default function Custom404Page() {
 		<>
 			<FullScreenWrapper>
 				<LandingPageContainer>
-					<img src={Error404Image} alt='Big Lynn Error Logo' width='200' height='200' loading='lazy' />
+					<Image src={Error404Image} alt='Big Lynn Error Logo' width={200} height={200} />
 					<h2 style={{ fontWeight: 600, fontSize: 18 }}>404 - Page Not Found</h2>
 					<div
 						style={{

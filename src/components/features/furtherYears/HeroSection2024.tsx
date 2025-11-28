@@ -2,13 +2,14 @@ import { Box, Button, Container, Grid, Link, Typography } from "@mui/material";
 import { styled, useTheme } from "@mui/material/styles";
 import { motion } from "framer-motion";
 import useScreenSize from "hooks/useMediaQuery";
+import Image from "next/image";
 import { useState } from "react";
 import ThemingS from "services/ThemingS";
 
 // Styles
 
 // Style the background golf course image
-const HeaderImage = styled("img")(({ theme }) => ({
+const HeaderImage = styled(Image)(({ theme }) => ({
 	maxWidth: "100%",
 	borderRadius: "20px",
 	// Filter: 'drop-shadow(0px 0px 50px rgb(194 76 46 / 30%))',
@@ -20,7 +21,7 @@ const HeaderImage = styled("img")(({ theme }) => ({
 }));
 
 // Style the image of the group in front
-const HeaderAnimationImage = styled("img")(({ theme }) => ({
+const HeaderAnimationImage = styled(Image)(({ theme }) => ({
 	maxWidth: "100%",
 	borderRadius: "20px",
 	filter: "drop-shadow(0px 0px 50px rgb(194 76 46 / 30%))",
@@ -158,15 +159,15 @@ const HeroSection = () => {
 									}}>
 									{/* Display for mobile - red */}
 									<Grid item xs={12} sx={{ backgroundColor: "null", display: { xs: "block", sm: "none", md: "none" } }}>
-										<img src='/images/2022-Lineup-No-Background.webp' alt='2022 Lineup' layout='fixed' width='314' height='280' priority />
+										<Image src='/images/2022-Lineup-No-Background.webp' alt='2022 Lineup' width={314} height={280} priority />
 									</Grid>
 									{/* Display for tablet - blue */}
 									<Grid item xs={12} sx={{ backgroundColor: "null", display: { xs: "none", sm: "block", md: "none" } }}>
-										<img src='/images/2022-Lineup-No-Background.webp' alt='2022 Lineup' layout='fixed' width='314' height='280' priority />
+										<Image src='/images/2022-Lineup-No-Background.webp' alt='2022 Lineup' width={314} height={280} priority />
 									</Grid>
 									{/* Display for small desktop - green */}
 									<Grid item xs={12} sx={{ backgroundColor: "null", display: { xs: "none", sm: "none", md: "block" } }}>
-										<img src='/images/2022-Lineup-No-Background.webp' alt='2022 Lineup' layout='fixed' width='314' height='280' priority />
+										<Image src='/images/2022-Lineup-No-Background.webp' alt='2022 Lineup' width={314} height={280} priority />
 									</Grid>
 								</Grid>
 							</motion.div>
@@ -267,7 +268,7 @@ const HeroSection = () => {
 								damping: 30,
 								delay: 0.6,
 							}}>
-							<HeaderImage src={"/images/Gainsborough-Course.webp"} alt='Gainsborough Course' />
+							<HeaderImage src={"/images/Gainsborough-Course.webp"} alt='Gainsborough Course' width={800} height={600} unoptimized />
 						</motion.div>
 					</Box>
 					{/* Hold the movable image of the people lineup */}
@@ -286,7 +287,7 @@ const HeroSection = () => {
 								damping: 30,
 								delay: 0.8,
 							}}>
-							<HeaderAnimationImage src={"/images/2022-Lineup-No-Background.webp"} alt='2022 Lineup' />
+							<HeaderAnimationImage src={"/images/2022-Lineup-No-Background.webp"} alt='2022 Lineup' width={314} height={280} unoptimized />
 						</motion.div>
 					</Box>
 				</Grid>
