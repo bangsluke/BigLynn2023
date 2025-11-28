@@ -7,6 +7,7 @@ import { styled } from "@mui/material/styles";
 import "aos/dist/aos.css"; // You can also use <link> for styles
 import Animation from "components/ui/Animation";
 import SectionHeader from "components/ui/SectionHeader";
+import Image from "next/image";
 import { useState } from "react";
 import ThemingS from "services/ThemingS";
 
@@ -69,13 +70,11 @@ const GainsboroughDetails = () => {
 						style={{ textDecoration: "none" }}
 						target='_blank'
 						href='https://stokebynayland.com/wp-content/uploads/2020/08/Gainsborough-course-guide.pdf?_ga=2.168750881.1606001850.1678297032-2118266097.1678297032'>
-						<img
+						<Image
 							src='/images/GainsboroughCourseImage.webp'
 							alt='Gainsborough Course Image'
-							layout='fixed'
-							width='12'
-							height='200'
-							loading='lazy'
+							width={12}
+							height={200}
 						/>
 					</Link>
 				</Grid>
@@ -117,7 +116,7 @@ const ConstableDetails = () => {
 						style={{ textDecoration: "none" }}
 						target='_blank'
 						href='https://stokebynayland.com/wp-content/uploads/2020/08/Constable-course-guide.pdf?_ga=2.161777596.1606001850.1678297032-2118266097.1678297032'>
-						<img src='/images/ConstableCourseImage.webp' alt='Constable Course Image' layout='fixed' width='121.45' height='200' />
+						<Image src='/images/ConstableCourseImage.webp' alt='Constable Course Image' width={121} height={200} />
 					</Link>
 				</Grid>
 				{/* Hold the course facts */}
@@ -346,19 +345,17 @@ export default function EventDetailsSection() {
 										marginTop: { xs: "-3rem", sm: "0rem" },
 									}}>
 									{facilitiesView === "spa" && (
-										<img src='/images/PeakeSpa.webp' alt='Peake Spa Image' layout='fixed' width='253' height='200' loading='lazy' />
+										<Image src='/images/PeakeSpa.webp' alt='Peake Spa Image' width={253} height={200} />
 									)}
 									{facilitiesView === "gym" && (
-										<img src='/images/PeakeFitness.webp' alt='Peake Fitness Image' layout='fixed' width='300' height='200' loading='lazy' />
+										<Image src='/images/PeakeFitness.webp' alt='Peake Fitness Image' width={300} height={200} />
 									)}
 									{facilitiesView === "dining" && (
-										<img
+										<Image
 											src='/images/LakesRestaurant.webp'
 											alt='Lakes Restaurant Image'
-											layout='fixed'
-											width='308'
-											height='200'
-											loading='lazy'
+											width={308}
+											height={200}
 										/>
 									)}
 								</Grid>
