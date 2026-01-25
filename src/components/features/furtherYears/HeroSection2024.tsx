@@ -25,7 +25,7 @@ const HeaderAnimationImage = styled(Image)(({ theme }) => ({
 	maxWidth: "100%",
 	borderRadius: "20px",
 	filter: "drop-shadow(0px 0px 50px rgb(194 76 46 / 30%))",
-	transform: "scale(1) translate(40px, 50px)",
+	transform: "scale(1) translate(100px, 200px)",
 	transformOrigin: theme.direction === "rtl" ? "100% 50%" : "0 50%",
 	[theme.breakpoints.down("lg")]: {
 		transform: "scale(0.6) translate(20px, -40px)",
@@ -287,7 +287,7 @@ const HeroSection = () => {
 								damping: 30,
 								delay: 0.8,
 							}}>
-							<HeaderAnimationImage src={"/images/2022-Lineup-No-Background.webp"} alt='2022 Lineup' width={314} height={280} unoptimized />
+							<HeaderAnimationImage src={"/images/2022-Lineup-No-Background.webp"} alt='2022 Lineup' width={600} height={500} unoptimized />
 						</motion.div>
 					</Box>
 				</Grid>
