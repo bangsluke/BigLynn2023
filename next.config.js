@@ -17,6 +17,11 @@ const nextConfig = {
 				destination: "/2023",
 				permanent: true,
 			},
+			{
+				source: "/info",
+				destination: "/2023",
+				permanent: true,
+			},
 		];
 	},
 	// https://dev.to/mridul2820/comment/201gd
