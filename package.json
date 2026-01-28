@@ -63,7 +63,6 @@
 		"react-copy-to-clipboard": "^5.1.0",
 		"react-currency-format": "^1.1.0",
 		"react-dom": "^18.2.0",
-		"react-draft-wysiwyg": "^1.14.7",
 		"react-draggable": "^4.4.6",
 		"react-dropzone": "^12.0.4",
 		"react-google-recaptcha": "^2.1.0",
@@ -97,6 +96,13 @@
 		"uuidv4": "^6.2.13",
 		"web-vitals": "^2.1.4",
 		"yup": "^0.32.11"
+	},
+	"resolutions": {
+		"jsonwebtoken/jws": "3.2.3",
+		"google-auth-library/jws": "4.0.1",
+		"googleapis/jws": "4.0.1",
+		"@babel/runtime": "7.26.10",
+		"prismjs": "1.30.0"
 	},
 	"devDependencies": {
 		"@types/chance": "^1.1.3",
