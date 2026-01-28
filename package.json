@@ -55,7 +55,7 @@
 		"jwt-decode": "^3.1.2",
 		"lodash": "^4.17.23",
 		"material-ui-popup-state": "^2.0.0",
-		"next": "^14.2.35",
+		"next": "^15.5.10",
 		"next-transpile-modules": "^9.0.0",
 		"react": "^18.2.0",
 		"react-apexcharts": "^1.4.1",
