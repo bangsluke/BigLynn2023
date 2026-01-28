@@ -99,7 +99,9 @@
 		"yup": "^0.32.11"
 	},
 	"resolutions": {
-		"jsonwebtoken/jws": "3.2.3"
+		"jsonwebtoken/jws": "3.2.3",
+		"google-auth-library/jws": "4.0.1",
+		"googleapis/jws": "4.0.1"
 	},
 	"devDependencies": {
 		"@types/chance": "^1.1.3",
