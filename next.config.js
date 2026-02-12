@@ -24,18 +24,6 @@ const nextConfig = {
 			},
 		];
 	},
-	// https://dev.to/mridul2820/comment/201gd
-	webpack: (config, { isServer }) => {
-		if (!isServer) {
-			config.resolve.fallback.fs = false;
-			config.resolve.fallback.tls = false;
-			config.resolve.fallback.net = false;
-			// eslint-disable-next-line
-			config.resolve.fallback.child_process = false;
-		}
-
-		return config;
-	},
 };
 
 module.exports = nextConfig;
