@@ -2,8 +2,8 @@
 import { PaletteMode } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
 
-// Assets
-import defaultColor from "../scss/_themes-vars.module.scss";
+// Assets (moved from SCSS :export to a TS colors map for Turbopack compatibility)
+import defaultColor from "./colors";
 // Import theme1 from '../scss/_theme1.module.scss';
 // Import theme2 from '../scss/_theme2.module.scss';
 // Import theme3 from '../scss/_theme3.module.scss';
