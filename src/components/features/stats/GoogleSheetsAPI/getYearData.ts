@@ -1,3 +1,5 @@
+import { YearDataType } from "types/types";
+
 const toNumber = (value: unknown, fallback = 0): number => {
 	const numericValue = Number(value);
 	return Number.isFinite(numericValue) ? numericValue : fallback;
@@ -64,7 +66,7 @@ export async function getYearData() {
 	const rows = await sheet.getRows(); // Return the rows from the 1st sheet
 	// console.log("rows", rows);
 
-	const allYears = rows
+	const allYears: YearDataType[] = rows
 		.map((row: any, index: number) => {
 		const rowData: Record<string, unknown> = typeof row?.toObject === "function" ? row.toObject() : row;
 		const year = toText(getRowValue(rowData, ["year", "season", "yearLabel"])) || `Year ${index + 1}`;
@@ -99,7 +101,7 @@ export async function getYearData() {
 				eleventhScore: toNumber(getRowValue(rowData, ["eleventhScore", "11thScore", "eleventhPoints"])),
 			};
 		})
-		.filter((yearData) => yearData.year !== "Config Row");
+		.filter((yearData: YearDataType) => yearData.year !== "Config Row");
 
 	// Collate the data to be returned
 	// const ReturnedDocInfo = {
