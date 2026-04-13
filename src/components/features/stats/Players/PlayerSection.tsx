@@ -72,12 +72,13 @@ const ExamplePlayerData: PlayerData = {
 
 export default function PlayerSection(props: { dataMethod: DataMethods; commonStatsStyles: any }) {
 	const { dataMethod, commonStatsStyles } = props; // Destructure props
+	type PlayerSelectValue = number | "All Players";
 
 	// Define the states for the data
 	const [isLoaded, setIsLoaded] = useState<boolean>(false); // Define a loaded state for the data
-	const [allPlayersSelectedBoolean, setAllPlayersSelectedBoolean] = useState<boolean>(false); // Define a state for whether all players are selected or not
+	const [allPlayersSelectedBoolean, setAllPlayersSelectedBoolean] = useState<boolean>(true); // Define a state for whether all players are selected or not
 	const [allPlayerData, setAllPlayerData] = useState<PlayerData[]>([]); // Define all the player data state
-	const [selectedPlayerID, setSelectedPlayerID] = useState<number>(1); // Set the state for the ID of the selected player
+	const [selectedPlayerID, setSelectedPlayerID] = useState<PlayerSelectValue>("All Players"); // Set the state for the ID of the selected player
 	const [selectedPlayerData, setSelectedPlayerData] = useState<PlayerData>(ExamplePlayerData); // Set the state for the data of the player selected
 
 	// Add a useEffect that returns the data based on the dataMethod
@@ -187,17 +188,32 @@ export default function PlayerSection(props: { dataMethod: DataMethods; commonSt
 
 	// Define the change handler for the player option
 	const playerChange = (event: any) => {
-		// console.log("allPlayerData: ", allPlayerData);
-		// console.log("playerChange: event.target.value: ", event.target.value);
-		setSelectedPlayerID(event.target.value);
-		if (event.target.value === "All Players") {
+		const selectedValue = event.target.value as PlayerSelectValue | string;
+		if (selectedValue === "All Players") {
+			setSelectedPlayerID("All Players");
 			// Deal with the All Players option and add some basic example
 			setSelectedPlayerData(ExamplePlayerData); // Set the selected player data to the example data (to stop errors)
 			setAllPlayersSelectedBoolean(true); // Switch to show all players section
 		} else {
+			const selectedPlayerId = Number(selectedValue);
+			if (!Number.isFinite(selectedPlayerId)) {
+				setSelectedPlayerData(ExamplePlayerData);
+				setSelectedPlayerID("All Players");
+				setAllPlayersSelectedBoolean(true);
+				return;
+			}
+			setSelectedPlayerID(selectedPlayerId);
 			// Otherwise set the selected player data to the selected player ID
-			setSelectedPlayerData(allPlayerData[event.target.value]); // Set the selected player data to the selected player ID
-			setAllPlayersSelectedBoolean(false); // Switch to show individual player section
+			const matchedPlayerData = allPlayerData.find((playerData: PlayerData) => playerData.id === selectedPlayerId);
+			if (matchedPlayerData) {
+				setSelectedPlayerData(matchedPlayerData);
+				setAllPlayersSelectedBoolean(false); // Switch to show individual player section
+			} else {
+				// If the player list has changed and the selected id no longer exists, fail safely.
+				setSelectedPlayerData(ExamplePlayerData);
+				setSelectedPlayerID("All Players");
+				setAllPlayersSelectedBoolean(true);
+			}
 		}
 	};
 
@@ -217,10 +233,10 @@ export default function PlayerSection(props: { dataMethod: DataMethods; commonSt
 					<MenuItem key='All Players' value='All Players'>
 						All Players
 					</MenuItem>
-					{allPlayerData?.map((player: PlayerData) => {
+					{allPlayerData?.map((player: PlayerData, index: number) => {
 						return (
-							<MenuItem key={player.fullName} value={player.id}>
-								{player.firstName}
+							<MenuItem key={`${player.id}-${player.fullName}-${index}`} value={player.id}>
+								{getPlayerMenuLabel(player, index)}
 							</MenuItem>
 						);
 					})}
@@ -228,6 +244,30 @@ export default function PlayerSection(props: { dataMethod: DataMethods; commonSt
 			</FormControl>
 		);
 	};
+
+	const valueAsString = (value: unknown): string => {
+		if (value === null || value === undefined || value === "") {
+			return "-";
+		}
+		return String(value);
+	};
+
+	const getPlayerMenuLabel = (player: PlayerData, index: number): string => {
+		const firstName = valueAsString(player.firstName);
+		if (firstName !== "-") {
+			return firstName;
+		}
+		const fullName = valueAsString(player.fullName);
+		if (fullName !== "-") {
+			return fullName;
+		}
+		return `Player ${index + 1}`;
+	};
+
+	const selectedPlayerImageName =
+		typeof selectedPlayerData.firstName === "string" && selectedPlayerData.firstName.trim().length > 0
+			? selectedPlayerData.firstName.trim()
+			: "";
 
 	// IndividualPlayerSection - Shown when any player is selected
 	const IndividualPlayerSection = () => {
@@ -261,15 +301,30 @@ export default function PlayerSection(props: { dataMethod: DataMethods; commonSt
 									margin: "0 auto",
 									padding: "0",
 								}}>
-								<Image
-									src={`/images/players/${selectedPlayerData.firstName}.webp`}
-									alt='Player Image'
-									width={ProfileImageDimensions}
-									height={ProfileImageDimensions}
-									style={{
-										borderRadius: `${ProfileImageDimensions}px`,
-									}}
-								/>
+								{selectedPlayerImageName ? (
+									<Image
+										src={`/images/players/${selectedPlayerImageName}.webp`}
+										alt='Player Image'
+										width={ProfileImageDimensions}
+										height={ProfileImageDimensions}
+										style={{
+											borderRadius: `${ProfileImageDimensions}px`,
+										}}
+									/>
+								) : (
+									<div
+										style={{
+											width: `${ProfileImageDimensions}px`,
+											height: `${ProfileImageDimensions}px`,
+											borderRadius: `${ProfileImageDimensions}px`,
+											display: "flex",
+											alignItems: "center",
+											justifyContent: "center",
+											backgroundColor: "#d5d8dc",
+										}}>
+										No image
+									</div>
+								)}
 							</div>
 						</Grid>
 						{/* Hold the player handicap information */}
@@ -288,14 +343,14 @@ export default function PlayerSection(props: { dataMethod: DataMethods; commonSt
 					<Grid container spacing={ThemingS.themeConfig.gridSpacing} justifyContent='center' alignItems='center' sx={StatSectionBoxesStyle}>
 						<StatHolder
 							headerText='Appearances'
-							value={selectedPlayerData.apps.toString()}
+							value={valueAsString(selectedPlayerData.apps)}
 							xsWidth={6}
 							StatHolderHeaderFontSize={StatHolderHeaderFontSize}
 							StatHolderValuesFontSize={StatHolderValuesFontSize}
 						/>
 						<StatHolder
 							headerText='Points Finishes'
-							value={selectedPlayerData.pointsFinishes.toString()}
+							value={valueAsString(selectedPlayerData.pointsFinishes)}
 							xsWidth={6}
 							StatHolderHeaderFontSize={StatHolderHeaderFontSize}
 							StatHolderValuesFontSize={StatHolderValuesFontSize}
@@ -305,14 +360,14 @@ export default function PlayerSection(props: { dataMethod: DataMethods; commonSt
 					<Grid container spacing={ThemingS.themeConfig.gridSpacing} justifyContent='center' alignItems='center' sx={StatSectionBoxesStyle}>
 						<StatHolder
 							headerText='Wins'
-							value={selectedPlayerData.wins.toString()}
+							value={valueAsString(selectedPlayerData.wins)}
 							xsWidth={6}
 							StatHolderHeaderFontSize={StatHolderHeaderFontSize}
 							StatHolderValuesFontSize={StatHolderValuesFontSize}
 						/>
 						<StatHolder
 							headerText='Win %'
-							value={selectedPlayerData.winPercentage.toString()}
+							value={valueAsString(selectedPlayerData.winPercentage)}
 							xsWidth={6}
 							StatHolderHeaderFontSize={StatHolderHeaderFontSize}
 							StatHolderValuesFontSize={StatHolderValuesFontSize}
@@ -322,14 +377,14 @@ export default function PlayerSection(props: { dataMethod: DataMethods; commonSt
 					<Grid container spacing={ThemingS.themeConfig.gridSpacing} justifyContent='center' alignItems='center' sx={StatSectionBoxesStyle}>
 						<StatHolder
 							headerText='Total Championship Points'
-							value={selectedPlayerData.pointsTotal.toString()}
+							value={valueAsString(selectedPlayerData.pointsTotal)}
 							xsWidth={6}
 							StatHolderHeaderFontSize={StatHolderHeaderFontSize}
 							StatHolderValuesFontSize={StatHolderValuesFontSize}
 						/>
 						<StatHolder
 							headerText='Average Championship Points'
-							value={selectedPlayerData.pointsAverage.toString()}
+							value={valueAsString(selectedPlayerData.pointsAverage)}
 							xsWidth={6}
 							StatHolderHeaderFontSize={StatHolderHeaderFontSize}
 							StatHolderValuesFontSize={StatHolderValuesFontSize}
@@ -339,16 +394,16 @@ export default function PlayerSection(props: { dataMethod: DataMethods; commonSt
 					<Grid container spacing={ThemingS.themeConfig.gridSpacing} justifyContent='center' alignItems='center' sx={StatSectionBoxesStyle}>
 						<StatHolder
 							headerText='Maximum Points'
-							value={`${selectedPlayerData.pointsMax.toString()}`}
-							subValue={` in ${selectedPlayerData.pointsMaxYear.toString()}`}
+							value={valueAsString(selectedPlayerData.pointsMax)}
+							subValue={` in ${valueAsString(selectedPlayerData.pointsMaxYear)}`}
 							xsWidth={6}
 							StatHolderHeaderFontSize={StatHolderHeaderFontSize}
 							StatHolderValuesFontSize={StatHolderValuesFontSize}
 						/>
 						<StatHolder
 							headerText='Minimum Points'
-							value={`${selectedPlayerData.pointsMin.toString()}`}
-							subValue={` in ${selectedPlayerData.pointsMinYear.toString()}`}
+							value={valueAsString(selectedPlayerData.pointsMin)}
+							subValue={` in ${valueAsString(selectedPlayerData.pointsMinYear)}`}
 							xsWidth={6}
 							StatHolderHeaderFontSize={StatHolderHeaderFontSize}
 							StatHolderValuesFontSize={StatHolderValuesFontSize}
@@ -358,21 +413,21 @@ export default function PlayerSection(props: { dataMethod: DataMethods; commonSt
 					<Grid container spacing={ThemingS.themeConfig.gridSpacing} justifyContent='center' alignItems='center' sx={StatSectionBoxesStyle}>
 						<StatHolder
 							headerText='Best Position'
-							value={selectedPlayerData.positionBestFinish.toString()}
+							value={valueAsString(selectedPlayerData.positionBestFinish)}
 							xsWidth={4}
 							StatHolderHeaderFontSize={StatHolderHeaderFontSize}
 							StatHolderValuesFontSize={StatHolderValuesFontSize}
 						/>
 						<StatHolder
 							headerText='Worst Position'
-							value={selectedPlayerData.positionWorstFinish.toString()}
+							value={valueAsString(selectedPlayerData.positionWorstFinish)}
 							xsWidth={4}
 							StatHolderHeaderFontSize={StatHolderHeaderFontSize}
 							StatHolderValuesFontSize={StatHolderValuesFontSize}
 						/>
 						<StatHolder
 							headerText='Average Position'
-							value={selectedPlayerData.positionAverage.toString()}
+							value={valueAsString(selectedPlayerData.positionAverage)}
 							xsWidth={4}
 							StatHolderHeaderFontSize={StatHolderHeaderFontSize}
 							StatHolderValuesFontSize={StatHolderValuesFontSize}
@@ -384,14 +439,14 @@ export default function PlayerSection(props: { dataMethod: DataMethods; commonSt
 					<Grid container spacing={ThemingS.themeConfig.gridSpacing} justifyContent='center' alignItems='center' sx={StatSectionBoxesStyle}>
 						<StatHolder
 							headerText='2023 Points'
-							value={selectedPlayerData.pointsLatest.toString()}
+							value={valueAsString(selectedPlayerData.pointsLatest)}
 							xsWidth={6}
 							StatHolderHeaderFontSize={StatHolderHeaderFontSize}
 							StatHolderValuesFontSize={StatHolderValuesFontSize}
 						/>
 						<StatHolder
 							headerText='Predicted 2024 Points'
-							value={selectedPlayerData.pointsExpected2023Points.toString()}
+							value={valueAsString(selectedPlayerData.pointsExpected2023Points)}
 							xsWidth={6}
 							StatHolderHeaderFontSize={StatHolderHeaderFontSize}
 							StatHolderValuesFontSize={StatHolderValuesFontSize}
@@ -400,14 +455,14 @@ export default function PlayerSection(props: { dataMethod: DataMethods; commonSt
 					<Grid container spacing={ThemingS.themeConfig.gridSpacing} justifyContent='center' alignItems='center' sx={StatSectionBoxesStyle}>
 						<StatHolder
 							headerText='Predicted 2024 Position'
-							value={selectedPlayerData.positionPredicted.toString()}
+							value={valueAsString(selectedPlayerData.positionPredicted)}
 							xsWidth={6}
 							StatHolderHeaderFontSize={StatHolderHeaderFontSize}
 							StatHolderValuesFontSize={StatHolderValuesFontSize}
 						/>
 						<StatHolder
 							headerText='Predicted 2025 Handicap'
-							value={selectedPlayerData.handicapExpected.toString()}
+							value={valueAsString(selectedPlayerData.handicapExpected)}
 							xsWidth={6}
 							StatHolderHeaderFontSize={StatHolderHeaderFontSize}
 							StatHolderValuesFontSize={StatHolderValuesFontSize}

@@ -17,16 +17,23 @@ export interface Marks {
 
 export default function HandicapRange(props: HandicapProps) {
 	const { lowestHandicap, highestHandicap, currentHandicap, handicapMinimumYear, handicapMaximumYear, handicapScaleHeight } = props; // Destructure props
+	const safeLowestHandicap = Number.isFinite(lowestHandicap) ? lowestHandicap : 0;
+	const safeHighestHandicap = Number.isFinite(highestHandicap) ? highestHandicap : 0;
+	const safeCurrentHandicap = Number.isFinite(currentHandicap) ? currentHandicap : 0;
 
 	// Define the minimum and maximum values for the slider and the normalise function
 	const MIN = 0; // MIN = Minimum expected value
 	let MAX = 36; // MAX = Maximum expected value
-	if (highestHandicap > MAX) {
-		MAX = highestHandicap;
+	if (safeHighestHandicap > MAX) {
+		MAX = safeHighestHandicap;
 	}
 	const normalise = (value: number) => ((value - MIN) * 100) / (MAX - MIN); // Function to normalise the values (MIN / MAX could be integrated)
 
-	const marks: Marks[] = getHandicapMarks({ lowestHandicap, highestHandicap, currentHandicap });
+	const marks: Marks[] = getHandicapMarks({
+		lowestHandicap: safeLowestHandicap,
+		highestHandicap: safeHighestHandicap,
+		currentHandicap: safeCurrentHandicap,
+	});
 
 	return (
 		<Grid container spacing={0} justifyContent='center' alignItems='center' sx={{ backgroundColor: "null", padding: 0, margin: 0 }}>
@@ -73,7 +80,7 @@ export default function HandicapRange(props: HandicapProps) {
 						paddingLeft: { xs: 1, md: 0 },
 					}}>
 					<Slider
-						value={[Math.round(normalise(highestHandicap)), Math.round(normalise(currentHandicap)), Math.round(normalise(lowestHandicap))]}
+						value={[Math.round(normalise(safeHighestHandicap)), Math.round(normalise(safeCurrentHandicap)), Math.round(normalise(safeLowestHandicap))]}
 						marks={marks}
 						valueLabelDisplay='off'
 						orientation='vertical'
