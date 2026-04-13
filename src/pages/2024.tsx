@@ -8,7 +8,7 @@ import QuotesSection from "components/features/QuotesSection";
 import StatsSection from "components/features/StatsSection";
 import UsefulLinksSection from "components/features/UsefulLinksSection";
 import Footer from "components/features/furtherYears/Footer2024";
-import HeroSection from "components/features/furtherYears/HeroSection2024";
+import HeroSection from "components/features/hero/HeroSection2024";
 import RulesSection from "components/features/furtherYears/RulesSection2024";
 import AppBar from "components/ui/furtherYears/AppBar2024";
 import { useEffect } from "react";

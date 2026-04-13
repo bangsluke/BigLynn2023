@@ -16,31 +16,20 @@ import {
 	useScrollTrigger,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import {
-	IconArrowUp,
-	IconCalendarEvent,
-	IconCheckupList,
-	IconLink,
-	IconQuestionMark,
-	IconQuote,
-	IconReportAnalytics,
-	IconRuler2,
-} from "@tabler/icons";
-import NavigationInfo from "data/NavigationInfo";
-import Image from "next/image";
+import Logo from "components/ui/Logo";
+import NavigationInfo from "data/furtherYears/NavigationInfo2024";
 import { ReactElement, cloneElement, useState } from "react";
 
-// Define the height of the app bar for desktop and mobile
 const AppBarHeight = {
 	desktop: "4rem",
 	mobile: "3rem",
 };
 
-// Elevation scroll
 interface ElevationScrollProps {
 	children: ReactElement;
 	window?: Window | Node;
 }
+
 function ElevationScroll({ children, window }: ElevationScrollProps) {
 	const theme = useTheme();
 	const trigger = useScrollTrigger({
@@ -61,11 +50,9 @@ function ElevationScroll({ children, window }: ElevationScrollProps) {
 	});
 }
 
-const InfoPageAppBar = ({ ...others }) => {
-	// Define the state for the drawer toggle
+const HomeAppBar = ({ ...others }) => {
 	const [drawerToggle, setDrawerToggle] = useState<boolean>(false);
 
-	// Define the function to toggle the drawer
 	const drawerToggler = (open: boolean) => (event: any) => {
 		if (event.type! === "keydown" && (event.key! === "Tab" || event.key! === "Shift")) {
 			return;
@@ -73,13 +60,21 @@ const InfoPageAppBar = ({ ...others }) => {
 		setDrawerToggle(open);
 	};
 
-	// Sort the navigation links by the id property - https://www.w3schools.com/jsref/jsref_sort.asp & https://www.javascripttutorial.net/array/javascript-sort-an-array-of-objects/
 	const sortedNavLinks = NavigationInfo.sort(function (a, b) {
 		return a.id - b.id;
 	});
 
-	// Map over the navigation links info to create all links.
-	const navButtonElements = sortedNavLinks.map((link) => {
+	const toTopNavButton = sortedNavLinks
+		.filter((link) => link.anchor === "top")
+		.map((link) => (
+			<Button key={link.id} color='inherit' component={Link} href={`#${link.anchor}`}>
+				{link.name}
+			</Button>
+		));
+
+	const navButtonElements = sortedNavLinks
+		.filter((link) => link.anchor !== "top")
+		.map((link) => {
 		return (
 			<Button key={link.id} color='inherit' component={Link} href={`#${link.anchor}`}>
 				{link.name}
@@ -93,11 +88,18 @@ const InfoPageAppBar = ({ ...others }) => {
 				<Container sx={{ height: { xs: AppBarHeight.mobile, md: AppBarHeight.desktop } }}>
 					<Toolbar sx={{ height: { xs: AppBarHeight.mobile, md: AppBarHeight.desktop } }}>
 						<Typography component='div' sx={{ flexGrow: 1, textAlign: "left" }} data-testid='app-bar-drawer'>
-							<Image src='/images/Big-Lynn-Logo.svg' alt='Big Lynn Logo' width={92} height={52} loading='eager' />
+							<Logo />
 						</Typography>
 						<Stack direction='row' sx={{ display: { xs: "none", sm: "none", md: "none", lg: "block" } }} spacing={2}>
+							{toTopNavButton}
+							<Button color='inherit' component={Link} href='/2023'>
+								2023
+							</Button>
+							<Button color='inherit' component={Link} href='/2024'>
+								2024
+							</Button>
 							{navButtonElements}
-							<Button component={Link} href='#eventDetails' disableElevation variant='contained' color='secondary'>
+							<Button component={Link} href='#rules' disableElevation variant='contained' color='secondary'>
 								Begin Browsing
 							</Button>
 						</Stack>
@@ -110,69 +112,26 @@ const InfoPageAppBar = ({ ...others }) => {
 									<Box sx={{ width: "auto" }} role='presentation' onClick={drawerToggler(false)} onKeyDown={drawerToggler(false)}>
 										<List>
 											<Link style={{ textDecoration: "none" }} href='#top'>
-												{/* <ListItemButton component='a'> */}
-												<ListItemIcon>
-													<IconArrowUp />
-												</ListItemIcon>
+												<ListItemIcon />
 												<ListItemText primary='To Top' />
-												{/* </ListItemButton> */}
 											</Link>
-
-											<Link style={{ textDecoration: "none" }} href='#eventDetails'>
-												{/* <ListItemButton component='a'> */}
-												<ListItemIcon>
-													<IconCalendarEvent />
-												</ListItemIcon>
-												<ListItemText primary='Event Details' />
-												{/* </ListItemButton> */}
+											<Link style={{ textDecoration: "none" }} href='/2023'>
+												<ListItemText primary='Go to 2023 Page' />
 											</Link>
-											<Link style={{ textDecoration: "none" }} href='#itinerary'>
-												{/* <ListItemButton component='a'> */}
-												<ListItemIcon>
-													<IconCheckupList />
-												</ListItemIcon>
-												<ListItemText primary='Itinerary' />
-												{/* </ListItemButton> */}
-											</Link>
-											<Link style={{ textDecoration: "none" }} href='#quotes'>
-												{/* <ListItemButton component='a'> */}
-												<ListItemIcon>
-													<IconQuote />
-												</ListItemIcon>
-												<ListItemText primary='Quotes' />
-												{/* </ListItemButton> */}
+											<Link style={{ textDecoration: "none" }} href='/2024'>
+												<ListItemText primary='Go to 2024 Page' />
 											</Link>
 											<Link style={{ textDecoration: "none" }} href='#rules'>
-												{/* <ListItemButton component='a'> */}
-												<ListItemIcon>
-													<IconRuler2 />
-												</ListItemIcon>
+												<ListItemIcon />
 												<ListItemText primary='Rules' />
-												{/* </ListItemButton> */}
+											</Link>
+											<Link style={{ textDecoration: "none" }} href='#quotes'>
+												<ListItemIcon />
+												<ListItemText primary='Quotes' />
 											</Link>
 											<Link style={{ textDecoration: "none" }} href='#statistics'>
-												{/* <ListItemButton component='a'> */}
-												<ListItemIcon>
-													<IconReportAnalytics />
-												</ListItemIcon>
+												<ListItemIcon />
 												<ListItemText primary='Statistics' />
-												{/* </ListItemButton> */}
-											</Link>
-											<Link style={{ textDecoration: "none" }} href='#FAQ'>
-												{/* <ListItemButton component='a'> */}
-												<ListItemIcon>
-													<IconQuestionMark />
-												</ListItemIcon>
-												<ListItemText primary='FAQ' />
-												{/* </ListItemButton> */}
-											</Link>
-											<Link style={{ textDecoration: "none" }} href='#usefulLinks'>
-												{/* <ListItemButton component='a'> */}
-												<ListItemIcon>
-													<IconLink />
-												</ListItemIcon>
-												<ListItemText primary='Useful Links' />
-												{/* </ListItemButton> */}
 											</Link>
 										</List>
 									</Box>
@@ -186,4 +145,4 @@ const InfoPageAppBar = ({ ...others }) => {
 	);
 };
 
-export default InfoPageAppBar;
+export default HomeAppBar;

@@ -11,11 +11,6 @@ const nextConfig = {
 	async redirects() {
 		return [
 			{
-				source: "/",
-				destination: "/2023",
-				permanent: true,
-			},
-			{
 				source: "/login",
 				destination: "/2023",
 				permanent: true,

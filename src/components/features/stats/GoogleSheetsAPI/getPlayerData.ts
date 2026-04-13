@@ -7,14 +7,19 @@ export async function getPlayerData() {
 		SheetName: "PlayerData",
 	};
 	const { GoogleSpreadsheet } = require("google-spreadsheet");
+	const apiKey = process.env.NEXT_PUBLIC_API_KEY || process.env.GOOGLE_SHEETS_API_KEY;
+	if (!apiKey) {
+		throw new Error("Missing Google Sheets API key. Set NEXT_PUBLIC_API_KEY or GOOGLE_SHEETS_API_KEY.");
+	}
 
 	// Initialize the sheet - doc ID is the long id in the sheets URL
-	const doc = new GoogleSpreadsheet(Config.GoogleSpreadsheetID);
+	const doc = new GoogleSpreadsheet(Config.GoogleSpreadsheetID, {
+		apiKey,
+	});
 
 	// Initialize Auth - see https://theoephraim.github.io/node-google-spreadsheet/#/getting-started/authentication
 	//await doc.useServiceAccountAuth(creds);
 	// console.log("API key from 'getPlayerData'", process.env.NEXT_PUBLIC_API_KEY);
-	doc.useApiKey(process.env.NEXT_PUBLIC_API_KEY);
 	await doc.loadInfo(); // Loads document properties and worksheets
 	// console.log("doc details", doc);
 	// console.log("doc.title", doc.title);
