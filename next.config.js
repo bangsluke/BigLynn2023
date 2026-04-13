@@ -5,6 +5,9 @@
 const nextConfig = {
 	/* config options here */
 	reactStrictMode: true, // Applies React Strict mode throughout the tool - https://nextjs.org/docs/api-reference/next.config.js/react-strict-mode
+	turbopack: {
+		root: __dirname,
+	},
 	async redirects() {
 		return [
 			{
