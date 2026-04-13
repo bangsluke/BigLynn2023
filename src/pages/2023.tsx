@@ -4,10 +4,10 @@ import "aos/dist/aos.css"; // You can also use <link> for styles
 import EventDetailsSection from "components/features/EventDetailsSection";
 import FAQSection from "components/features/FAQSection";
 import Footer from "components/features/Footer";
-import HeroSection from "components/features/HeroSection";
+import HeroSection from "components/features/hero/HeroSection2023";
 import ItinerarySection from "components/features/ItinerarySection";
 import QuotesSection from "components/features/QuotesSection";
-import RulesSection from "components/features/RulesSection";
+import RulesSection from "components/features/furtherYears/RulesSection2023";
 import StatsSection from "components/features/StatsSection";
 import UsefulLinksSection from "components/features/UsefulLinksSection";
 import AppBar from "components/ui/AppBar";

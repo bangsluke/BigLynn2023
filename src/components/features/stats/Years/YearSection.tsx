@@ -62,12 +62,13 @@ const ExampleYearData: YearDataType = {
 
 export default function YearSection(props: { dataMethod: DataMethods; commonStatsStyles: any }) {
 	const { dataMethod, commonStatsStyles } = props; // Destructure props
+	type YearSelectValue = string | "All Years";
 
 	// Define the states for the data
 	const [isLoaded, setIsLoaded] = useState<boolean>(false); // Define a loaded state for the data
 	const [allYearData, setAllYearData] = useState<YearDataType[]>([]); // Define all the year data state
-	const [yearOption, setYearOption] = useState("2023"); // Set the state for the year shown
-	const [allYearsSelectedBoolean, setAllYearsSelectedBoolean] = useState<boolean>(false); // Define a state for whether all years are selected or not
+	const [yearOption, setYearOption] = useState<YearSelectValue>("All Years"); // Set the state for the year shown
+	const [allYearsSelectedBoolean, setAllYearsSelectedBoolean] = useState<boolean>(true); // Define a state for whether all years are selected or not
 	const [selectedYearData, setSelectedYearData] = useState<YearDataType>(ExampleYearData); // Set the state for the data of the year selected
 
 	// Add a useEffect that returns the data based on the dataMethod
@@ -79,7 +80,6 @@ export default function YearSection(props: { dataMethod: DataMethods; commonStat
 					// https://blog.logrocket.com/async-rendering-react-suspense/
 					getYearData()
 						.then((response) => {
-							console.log("response", response);
 							setAllYearData(response);
 							setIsLoaded(true);
 						})
@@ -173,23 +173,32 @@ export default function YearSection(props: { dataMethod: DataMethods; commonStat
 
 	// Define the change handler for the year option
 	const yearChange = (event: any) => {
-		// console.log("yearChange: event.target.value: ", event.target.value);
-		// console.log("allYearData", allYearData);
-		const index = allYearData.findIndex((item) => item.year === event.target.value); // Find the index of the selected year
-		setYearOption(event.target.value);
-		if (event.target.value === "All Years") {
+		const selectedValue = event.target.value as YearSelectValue;
+		if (selectedValue === "All Years") {
+			setYearOption("All Years");
 			// Deal with the All Years option and add some basic example
 			setSelectedYearData(ExampleYearData); // Set the selected year data to the example data (to stop errors)
 			setAllYearsSelectedBoolean(true); // Switch to show all years section
-			// console.log("allYearData", allYearData);
-			const filteredAllYearData = allYearData.filter((YearData) => YearData.year !== "Config Row").map((YearData) => YearData); // Filter out the config row
-			// console.log("filteredAllYearData", filteredAllYearData);
-			setAllYearData(filteredAllYearData); // Set the all year data to the filtered all year data
 		} else {
-			// Otherwise set the selected year data to the selected year ID
-			setSelectedYearData(allYearData[index]); // Set the selected year data to the selected year ID
-			setAllYearsSelectedBoolean(false); // Switch to show individual year section
+			setYearOption(selectedValue);
+			const matchedYearData = allYearData.find((item) => item.year === selectedValue);
+			if (matchedYearData) {
+				setSelectedYearData(matchedYearData);
+				setAllYearsSelectedBoolean(false); // Switch to show individual year section
+			} else {
+				setYearOption("All Years");
+				setSelectedYearData(ExampleYearData);
+				setAllYearsSelectedBoolean(true);
+			}
 		}
+	};
+
+	const getYearMenuLabel = (yearData: YearDataType, index: number): string => {
+		const yearValue = yearData.year?.trim();
+		if (yearValue) {
+			return yearValue;
+		}
+		return `Year ${index + 1}`;
 	};
 
 	// Year Selection Dropdown
@@ -208,14 +217,16 @@ export default function YearSection(props: { dataMethod: DataMethods; commonStat
 					<MenuItem key='All Years' value='All Years'>
 						All Years
 					</MenuItem>
-					{allYearData?.map((YearData: YearDataType) => {
+					{[...allYearData].reverse().map((YearData: YearDataType, index: number) => {
 						if (YearData.year === "Config Row") {
 							return null; // Skip the config row
 						}
 
+						const optionLabel = getYearMenuLabel(YearData, index);
+
 						return (
-							<MenuItem key={YearData.year} value={YearData.year}>
-								{YearData.year}
+							<MenuItem key={`${optionLabel}-${index}`} value={optionLabel}>
+								{optionLabel}
 							</MenuItem>
 						);
 					})}

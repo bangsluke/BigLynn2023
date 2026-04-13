@@ -11,6 +11,7 @@ import ThemingS from "services/ThemingS";
 // Style the background golf course image
 const HeaderImage = styled(Image)(({ theme }) => ({
 	maxWidth: "100%",
+	height: "auto",
 	borderRadius: "20px",
 	// Filter: 'drop-shadow(0px 0px 50px rgb(194 76 46 / 30%))',
 	transform: "scale(1.6) translate(260px, -30px)",
@@ -23,6 +24,7 @@ const HeaderImage = styled(Image)(({ theme }) => ({
 // Style the image of the group in front
 const HeaderAnimationImage = styled(Image)(({ theme }) => ({
 	maxWidth: "100%",
+	height: "auto",
 	borderRadius: "20px",
 	filter: "drop-shadow(0px 0px 50px rgb(194 76 46 / 30%))",
 	transform: "scale(1) translate(100px, 200px)",
@@ -159,15 +161,15 @@ const HeroSection = () => {
 									}}>
 									{/* Display for mobile - red */}
 									<Grid item xs={12} sx={{ backgroundColor: "null", display: { xs: "block", sm: "none", md: "none" } }}>
-										<Image src='/images/2022-Lineup-No-Background.webp' alt='2022 Lineup' width={314} height={280} priority />
+										<Image src='/images/2022-Lineup-No-Background.webp' alt='2022 Lineup' width={314} height={280} style={{ width: "auto", height: "auto" }} priority />
 									</Grid>
 									{/* Display for tablet - blue */}
 									<Grid item xs={12} sx={{ backgroundColor: "null", display: { xs: "none", sm: "block", md: "none" } }}>
-										<Image src='/images/2022-Lineup-No-Background.webp' alt='2022 Lineup' width={314} height={280} priority />
+										<Image src='/images/2022-Lineup-No-Background.webp' alt='2022 Lineup' width={314} height={280} style={{ width: "auto", height: "auto" }} priority />
 									</Grid>
 									{/* Display for small desktop - green */}
 									<Grid item xs={12} sx={{ backgroundColor: "null", display: { xs: "none", sm: "none", md: "block" } }}>
-										<Image src='/images/2022-Lineup-No-Background.webp' alt='2022 Lineup' width={314} height={280} priority />
+										<Image src='/images/2022-Lineup-No-Background.webp' alt='2022 Lineup' width={314} height={280} style={{ width: "auto", height: "auto" }} priority />
 									</Grid>
 								</Grid>
 							</motion.div>
@@ -250,6 +252,12 @@ const HeroSection = () => {
 											Email Your Organiser
 										</Button>
 									</Grid>
+									{/* Hold the back to home button */}
+									<Grid item xs={12} sm={6} md={6} sx={Styles.ButtonContainers}>
+										<Button component={Link} href='/' size={buttonSize.size} variant='text' color='primary' sx={Styles.ButtonStyle}>
+											Back to Home
+										</Button>
+									</Grid>
 								</Grid>
 							</motion.div>
 						</Grid>
@@ -268,7 +276,7 @@ const HeroSection = () => {
 								damping: 30,
 								delay: 0.6,
 							}}>
-							<HeaderImage src={"/images/Gainsborough-Course.webp"} alt='Gainsborough Course' width={800} height={600} unoptimized />
+							<HeaderImage src={"/images/Gainsborough-Course.webp"} alt='Gainsborough Course' width={800} height={600} loading='eager' unoptimized />
 						</motion.div>
 					</Box>
 					{/* Hold the movable image of the people lineup */}
@@ -287,7 +295,7 @@ const HeroSection = () => {
 								damping: 30,
 								delay: 0.8,
 							}}>
-							<HeaderAnimationImage src={"/images/2022-Lineup-No-Background.webp"} alt='2022 Lineup' width={600} height={500} unoptimized />
+							<HeaderAnimationImage src={"/images/2022-Lineup-No-Background.webp"} alt='2022 Lineup' width={480} height={400} style={{ width: "60%", height: "auto" }} loading='eager' unoptimized />
 						</motion.div>
 					</Box>
 				</Grid>

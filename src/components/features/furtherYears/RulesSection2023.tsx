@@ -1,4 +1,6 @@
 import { Container, Grid, Typography } from "@mui/material";
+import HandicapAdjustmentTable from "components/features/rules/HandicapAdjustmentTable";
+import Handicaps2023Table from "components/features/rules/Handicaps2023Table";
 import ScoresTable from "components/features/rules/ScoresTable";
 import SectionHeader from "components/ui/SectionHeader";
 import { AnchorOffset } from "pages/2023";
@@ -7,7 +9,7 @@ import PerfectScrollbar from "react-perfect-scrollbar";
 import "react-perfect-scrollbar/dist/css/styles.css";
 import ThemingS from "services/ThemingS";
 
-export default function RulesSection() {
+export default function RulesSection2023() {
 	const appScrollComponent = useRef(null);
 
 	// Get the current screen width
@@ -72,6 +74,10 @@ export default function RulesSection() {
 							Principal Competition Points
 						</Typography>
 					</AnchorOffset>
+					<Typography variant='body1' component='div' sx={Styles.sectionText}>
+						As the trophy returned to the Bangs clan last year, it makes complete sense to keep points arrangements and the like the same
+						for 2023, so no tinkering this time around, bar an adjustment for an extra player.
+					</Typography>
 					<Typography variant='body1' component='div' sx={Styles.sectionText}>
 						Points will be scored each day based upon the following table, depending upon your Stableford points score, which takes into
 						account the relative handicaps:
@@ -148,6 +154,39 @@ export default function RulesSection() {
 		);
 	};
 
+	const HandicapAdjustmentsSection = () => {
+		return (
+			<Grid container direction='row' spacing={2} sx={{ mb: 0, width: "100%" }}>
+				<Grid item xs={12}>
+					<AnchorOffset id='handicapAdjustments' className='offset'>
+						<Typography variant='h4' component='div' className='offset' sx={Styles.sectionHeader}>
+							Handicap Adjustments
+						</Typography>
+					</AnchorOffset>
+					<Typography variant='body1' component='div' sx={Styles.sectionText}>
+						In a change of practice, it appears that we decided to amend the starting handicaps for 2023 based upon adjusting the final day
+						handicaps in 2022. Therefore the starting handicaps for 2023 are as follows:
+					</Typography>
+					<Grid item xs={12} lg={12} sx={{ pl: 2, pr: 2 }}>
+						<Handicaps2023Table />
+					</Grid>
+					<Typography variant='body1' component='div' sx={Styles.sectionText}>
+						As a Big Lynn virgin, Alex will have a starting handicap of 36, the maximum allowed handicap.
+					</Typography>
+					<Typography variant='body1' component='div' sx={Styles.sectionText}>
+						Handicap changes for day 2 and day 3 will as always be based upon the performance from the previous day. With 10/11 competitors,
+						the following matrix is to be applied based upon your finishing score and the number of golfers on the day.
+					</Typography>
+					<Typography variant='body1' component='div' sx={Styles.sectionText}>
+						Note: Where there are positional ties, all competitors will be adjusted as if they had finished in the tied position - i.e. if
+						two players are tied for 2nd on a day, they will both be adjusted as if they finished 2nd by themselves.
+					</Typography>
+					<HandicapAdjustmentTable />
+				</Grid>
+			</Grid>
+		);
+	};
+
 	// Define the two possible layouts for the page
 	const MobileRulesSection = () => {
 		return (
@@ -172,6 +211,10 @@ export default function RulesSection() {
 					<PrizesSection />
 				</Grid>
 
+				{/* Handicap Adjustments */}
+				<Grid item xs={12} sx={{ height: "max-content", mb: 2 }}>
+					<HandicapAdjustmentsSection />
+				</Grid>
 			</Grid>
 		);
 	};
@@ -208,6 +251,10 @@ export default function RulesSection() {
 						<PrizesSection />
 					</Grid>
 
+					{/* Handicap Adjustments */}
+					<Grid item xs={12} sx={{ height: "max-content", mb: 2 }}>
+						<HandicapAdjustmentsSection />
+					</Grid>
 				</Grid>
 			</PerfectScrollbar>
 		);
@@ -251,6 +298,9 @@ export default function RulesSection() {
 								</p>
 								<p>
 									<a href='#possiblePrizes'>Prizes</a>
+								</p>
+								<p>
+									<a href='#handicapAdjustments'>Handicap Adjustments</a>
 								</p>
 							</Typography>
 						</Grid>
