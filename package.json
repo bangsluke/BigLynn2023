@@ -102,7 +102,10 @@
 		"google-auth-library/jws": "4.0.1",
 		"googleapis/jws": "4.0.1",
 		"@babel/runtime": "7.26.10",
-		"prismjs": "1.30.0"
+		"prismjs": "1.30.0",
+		"sass/immutable": "4.3.8",
+		"draft-js/immutable": "3.8.3",
+		"@types/draft-js/immutable": "3.8.3"
 	},
 	"devDependencies": {
 		"@types/chance": "^1.1.3",
