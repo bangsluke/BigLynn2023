@@ -116,7 +116,6 @@ export default function RulesSection() {
 					<li>Fairway Robbery (1 per round per player) [NB. There are no reverse Fairway Robbery]</li>
 					<li>Big Gimmee (1 per round per player)</li>
 					<li>Joker (1 per round per player) to be called before playing tee shot on any hole for double points on that hole</li>
-					<li>Big Girl&#39;s Blouse (1 per round per player)</li>
 					<li>String Theory (Sunday only) - 11 to 1 foot lengths of string drawn at random</li>
 				</ul>
 				<Typography variant='body1' component='div' sx={Styles.sectionText}>
@@ -138,11 +137,11 @@ export default function RulesSection() {
 					Prizes may be available for the following categories:
 				</Typography>
 				<ul style={{ marginLeft: "-1rem", fontSize: "0.9rem", fontWeight: "normal" }}>
+					<li>Overall competition winner (may include trophy)</li>
 					<li>Longest drive - Sunday (minor prize)</li>
 					<li>Nearest the pin any hole - Sunday (minor prize)</li>
 					<li>Longest drive - Monday (main prize)</li>
 					<li>Nearest the pin any hole - Monday (main prize)</li>
-					<li>Overall competition winner (may include trophy)</li>
 				</ul>
 			</>
 		);
